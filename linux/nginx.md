@@ -56,5 +56,17 @@ http {
 }
 ```
 
+#### 接口代理跨域
+
+```bash
+http {
+    server {
+        location /api/ {
+            proxy_pass http://192.168.0.12:8080/api/;
+        }
+    }
+}
+```
+
 
 
