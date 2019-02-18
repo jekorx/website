@@ -64,6 +64,10 @@ http {
         location /api/ {
             proxy_pass http://192.168.0.12:8080/api/;
         }
+        # ^~ 表示以某前缀开头
+        location ^~ /admin/ {  
+            proxy_pass   http://admin;
+        } 
     }
 }
 ```
