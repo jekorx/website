@@ -68,5 +68,26 @@ http {
 }
 ```
 
+#### 负载均衡
+
+> tomcat 为例
+
+```bash
+html {
+    # 添加tomcat列表，真实应用服务器都放在这
+    upstream tomcat_pool  {
+        # server tomcat地址:端口号 weight表示权值，权值越大，被分配的几率越大;
+        server 192.168.0.223:8080 weight=4 max_fails=2 fail_timeout=30s;
+        server 192.168.0.224:8080 weight=4 max_fails=2 fail_timeout=30s;
+    }
+    server {
+        # 默认请求设置
+        location / {
+            proxy_pass http://tomcat_pool; # 转向tomcat处理
+        }
+    }
+}
+```
+
 
 
