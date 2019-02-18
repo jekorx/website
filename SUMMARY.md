@@ -5,4 +5,6 @@
   * [PM2](chapter1/process-manager.md)
 * [前端](qian-duan.md)
   * [Axios](qian-duan/axios.md)
+* [Linux](linux.md)
+  * [JDK配置](linux/jdkpei-zhi.md)
 
