@@ -89,5 +89,21 @@ html {
 }
 ```
 
+#### gzip
+
+```bash
+http  {
+    # gzip模块设置
+    gzip on; # 开启gzip压缩输出
+    gzip_min_length 1k; # 最小压缩文件大小
+    gzip_buffers 4 16k; # 压缩缓冲区
+    gzip_http_version 1.1; # 压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
+    gzip_comp_level 2; # 压缩等级
+    gzip_types text/plain application/x-javascript text/css application/xml; # 压缩类型，默认就已经包含textml，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
+    gzip_vary on;
+    gzip_disable "MSIE [1-6]\."; # ie6不压缩
+}
+```
+
 
 
