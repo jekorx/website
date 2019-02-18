@@ -56,7 +56,7 @@ mkdir -p /home/mysql/logs
 # 修改属主和属组
 chown mysql.mysql /home/mysql/logs
 
-# 移动log文件，-a 带权限复制
+# 移动log文件，-a带权限复制
 cp -a /var/log/mysqld.log /home/mysql/logs
 
 # 修改log目录
