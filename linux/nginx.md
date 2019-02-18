@@ -4,7 +4,7 @@
 
 #### 安装
 
-```
+```bash
 # 1、编译依赖
 yum -y install gcc gcc-c++
 
@@ -25,6 +25,35 @@ make && make install
 
 # 6、创建nginx命令软链接到环境变量
 ln -s /home/nginx-1.15.8-01/sbin/* /usr/local/sbin/
+```
+
+#### 配置SSL（https）
+
+```bash
+# 安装时--with-http_ssl_module，添加ssl模块
+http {
+    server {
+        listen 443 ssl; # 此处加ssl参数，可以不用使用ssl on配置
+        server_name www.xxx.com; # 域名
+        #ssl on;
+        ssl_certificate /opt/ssl/xxx.pem; # crt / pem 文件
+        ssl_certificate_key /opt/ssl/xxx.key; # key
+        ssl_session_timeout 5m;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_prefer_server_ciphers on;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+    }
+    server {
+        listen 80;
+        server_name xxx.com www.xxx.com;
+        rewrite ^(.*) https://$host$1 permanent;
+    }
+}
 ```
 
 
