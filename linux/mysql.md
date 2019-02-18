@@ -82,7 +82,7 @@ CREATE USER 'username'@'%' IDENTIFIED BY 'password';
 create database testdb;
 -- 3、用户授权使用指定数据库的指定权限
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER ON testdb.* TO 'username'@'%' IDENTIFIED BY 'password';
-FLUSH PRIVILEGES; 
+FLUSH PRIVILEGES;
 ```
 
 #### 修改root密码
@@ -119,6 +119,22 @@ systemctl restart mysqld
 # 7、使用新密码进入mysql
 mysql -uroot -p
 # 输入密码进入
+```
+
+#### 常见错误
+
+> ERROR 1820 \(HY000\): You must reset your password using ALTER USER statement before executin
+
+```sqlsql
+-- 解决方法
+-- 1、修改用户密码
+alter user 'root'@'localhost' identified by 'youpassword';
+-- 或者
+set password=password("youpassword");
+
+-- 2、刷新权限
+flush privileges;
+help contents;
 ```
 
 
