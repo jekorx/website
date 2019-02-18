@@ -72,5 +72,54 @@ systemctl stop mysqld
 systemctl enable mysqld
 ```
 
+#### 创建用户、数据库，授权数据库权限，远程连接
+
+```sql
+-- 1、创建用户名，%代表可以远程连接
+use mysql;
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+-- 2、创建数据库
+create database testdb;
+-- 3、用户授权使用指定数据库的指定权限
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER ON testdb.* TO 'username'@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES; 
+```
+
+#### 修改root密码
+
+```bash
+# 1、修改配置文件
+vim /etc/my.cnf
+# 增加
+skip-grant-tables
+
+# 2、重启mysql服务
+systemctl restart mysqld
+
+# 3、进入mysq命令行
+mysql -uroot
+# ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)
+#mysql -uroot -S /home/mysql/data/mysql/mysql.sock
+
+# 4、执行
+use mysql;
+SET SQL_SAFE_UPDATES = 0;
+update mysql.user set authentication_string=password('root') where User='root';
+flush privileges;
+SET SQL_SAFE_UPDATES = 1;
+
+# 5、修改配置文件
+vim /etc/my.cnf
+# 去掉
+skip-grant-tables
+
+# 6、重启mysql服务
+systemctl restart mysqld
+
+# 7、使用新密码进入mysql
+mysql -uroot -p
+# 输入密码进入
+```
+
 
 
