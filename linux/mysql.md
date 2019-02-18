@@ -125,7 +125,7 @@ mysql -uroot -p
 
 > ERROR 1820 \(HY000\): You must reset your password using ALTER USER statement before executin
 
-```sqlsql
+```sql
 -- 解决方法
 -- 1、修改用户密码
 alter user 'root'@'localhost' identified by 'youpassword';
