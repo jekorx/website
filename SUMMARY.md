@@ -9,4 +9,5 @@
   * [JDK配置](linux/jdkpei-zhi.md)
   * [MySQL](linux/mysql.md)
   * [挂载硬盘](linux/gua-zai-ying-pan.md)
+  * [Nginx](linux/nginx.md)
 

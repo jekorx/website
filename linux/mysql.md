@@ -1,8 +1,8 @@
 # MySQL（Linux环境下）
 
-#### 安装
-
 > 以Centos 7.4，MySQL5.7.x为例
+
+#### 安装
 
 ```bash
 # 1、查看已安装的mysql
