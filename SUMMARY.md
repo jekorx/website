@@ -7,4 +7,5 @@
   * [Axios](qian-duan/axios.md)
 * [Linux](linux.md)
   * [JDK配置](linux/jdkpei-zhi.md)
+  * [挂载硬盘](linux/gua-zai-ying-pan.md)
 
