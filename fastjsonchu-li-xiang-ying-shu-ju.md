@@ -1,5 +1,7 @@
 # FastJson处理响应数据
 
+> SpringBoot中使用FastJson将响应的数据转成json相关配置
+
 ```java
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
@@ -32,7 +34,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
             }
         };
         fastJsonConfig.setSerializeFilters(valueFilter);
-        
+
         fastConverter.setFastJsonConfig(fastJsonConfig);
         converters.add(fastConverter);
     }
