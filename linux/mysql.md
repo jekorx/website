@@ -101,7 +101,7 @@ mysql -uroot
 # ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)
 #mysql -uroot -S /home/mysql/data/mysql/mysql.sock
 
-# 4、执行
+# 4、执行sql
 use mysql;
 SET SQL_SAFE_UPDATES = 0;
 update mysql.user set authentication_string=password('root') where User='root';
