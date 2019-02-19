@@ -11,7 +11,7 @@
   * [MySQL](linux/mysql.md)
   * [挂载硬盘](linux/gua-zai-ying-pan.md)
   * [Nginx](linux/nginx.md)
-* SpringBoot
+* [SpringBoot](springboot.md)
   * [Put请求无法获取参数对象](putqing-qiu-wu-fa-huo-qu-can-shu-dui-xiang.md)
   * [FastJson处理响应数据](fastjsonchu-li-xiang-ying-shu-ju.md)
   * [跨域](kua-yu.md)
