@@ -18,11 +18,11 @@ public class CorsFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        
+
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest) req;
-        
-        // 从request中的header中获取Origin，来做配置
+
+        // 也可以使用"*"，最好是从request中的header中获取Origin，来做配置
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
         // 是否允许浏览器发送Cookie
         response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -35,7 +35,7 @@ public class CorsFilter implements Filter {
         //（即 Access-Control-Allow-Methods 和Access-Control-Allow-Headers 提供的信息）
         // 可以被缓存多久
         response.setHeader("Access-Control-Max-Age", "3600");
-        
+
         chain.doFilter(req, res);
     }
 
