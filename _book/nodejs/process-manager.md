@@ -34,7 +34,7 @@ pm2 logs
 
 #### 常见错误
 
-&gt; windows系统常见错误（1）
+> windows系统常见错误（1）
 
 ```bash
 # 报错信息
