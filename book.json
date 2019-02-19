@@ -1,7 +1,49 @@
 {
-  "language": "zh-hans",
+  "title": "jekorx's personal website",
+  "description": "个人学习、工作经验的总结",
   "author": "jekorx",
-  "github": {
-    "url": "https://github.com/jekorx"
+  "language": "zh-hans",
+  "plugins": [
+    "-lunr",
+    "-search",
+    "-sharing",
+    "github",
+    "search-pro",
+    "sharing-plus",
+    "tbfed-pagefooter",
+    "back-to-top-button",
+    "expandable-chapters-small"
+  ],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/jekorx"
+    },
+    "tbfed-pagefooter": {
+      "copyright": "Copyright © blog.wdg.pub 2019",
+      "modify_label": "该文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "sharing": {
+      "douban": false,
+      "facebook": false,
+      "google": false,
+      "linkedin": false,
+      "qq": false,
+      "qzone": false,
+      "twitter": false,
+      "weibo": false,
+      "whatsapp": false,
+      "all": [
+        "douban",
+        "facebook",
+        "google",
+        "linkedin",
+        "qq",
+        "qzone",
+        "twitter",
+        "weibo",
+        "whatsapp"
+      ]
+    }
   }
 }
