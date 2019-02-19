@@ -14,8 +14,9 @@ public class WebMvcConfig extends WebMvcConfigurationSupport
         return new HttpPutFormContentFilter();
     }
 }
+```
 
-// or
+```java
 // 使用：@Component，原理一样，开启：HttpPutFormContentFilter
 @Component
 public class PutFilter extends HttpPutFormContentFilter {
