@@ -4,7 +4,7 @@
 
 ```java
 @Configuration
-public class WebMvcConfig extends WebMvcConfigurationSupport ｛
+public class WebMvcConfig extends WebMvcConfigurationSupport｛
     /**
      * 解决put请求无法将参数转为对象
      * @return
