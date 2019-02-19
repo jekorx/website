@@ -2,8 +2,31 @@
 
 > SpringBoot添加跨域配置有以下两种配置方法
 
-```
-
+```java
+@Configuration
+public class WebMvcConfig extends WebMvcConfigurationSupport {
+    /**
+     * 跨域配置
+     */
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+            // 允许跨域的源
+            .allowedOrigins("*")
+            // 是否允许浏览器发送Cookie
+            .allowCredentials(true)
+            // 客户端所要访问的资源允许使用的方法或方法列表
+            .allowedMethods("OPTIONS", "HEAD", "POST", "GET", "PUT", "DELETE")
+            // 正式请求的首部信息
+            // x-requested-with：ajax请求
+            .allowedHeaders("X-Requested-With")
+            // preflight request （预检请求）的返回结果
+            //（即 Access-Control-Allow-Methods 和Access-Control-Allow-Headers 提供的信息）
+            // 可以被缓存多久
+            .maxAge(3600);
+        super.addCorsMappings(registry);
+    }
+}
 ```
 
 ```java
