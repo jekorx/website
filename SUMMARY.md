@@ -12,7 +12,7 @@
   * [挂载硬盘](linux/mount.md)
   * [Nginx](linux/nginx.md)
 * [SpringBoot](springboot.md)
-  * [Put请求无法获取参数对象](put-config.md)
-  * [FastJson处理响应数据](fastjson-config.md)
-  * [跨域](cors-config.md)
+  * [Put请求无法获取参数对象](springboot/put-config.md)
+  * [FastJson处理响应数据](springboot/fastjson-config.md)
+  * [跨域](springboot/cors-config.md)
 
