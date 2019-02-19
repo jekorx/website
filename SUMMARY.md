@@ -11,4 +11,6 @@
   * [MySQL](linux/mysql.md)
   * [挂载硬盘](linux/gua-zai-ying-pan.md)
   * [Nginx](linux/nginx.md)
+* SpringBoot
+  * [Put请求无法获取参数对象](putqing-qiu-wu-fa-huo-qu-can-shu-dui-xiang.md)
 
