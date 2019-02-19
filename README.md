@@ -1,3 +1,10 @@
-# My Awesome Book
+# 个人网站
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+> 主要是个人学习、工作经验的总结，不断完善中···
+>
+> 如果存在错误还请多指教，[提交问题](https://github.com/jekorx/website/issues)
+>
+> 个人GitHub地址：[https://github.com/jekorx](https://github.com/jekorx)
+
+
+
