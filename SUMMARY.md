@@ -6,6 +6,7 @@
   * [Http-Server](nodejs/http-server.md)
 * [前端](frontend.md)
   * [Axios](frontend/axios.md)
+  * [EditorConfig](frontend/editorconfig.md)
 * [Linux](linux.md)
   * [JDK配置](linux/jdk-config.md)
   * [MySQL](linux/mysql.md)
