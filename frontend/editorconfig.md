@@ -14,6 +14,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
+# markdown文件不去掉结尾空格
 [*.md]
 trim_trailing_whitespace = false
 ```
