@@ -1,6 +1,6 @@
-# 个人网站
+# 个人主页
 
-> 访问地址：[https://blog.wdg.pub/](https://blog.wdg.pub/)
+> 个人主页地址：[https://blog.wdg.pub/](https://blog.wdg.pub/)
 >
 > 主要是个人学习、工作经验的总结，不断完善中···
 >
