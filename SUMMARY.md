@@ -7,6 +7,8 @@
 * [前端](index/frontend.md)
   * [Axios](frontend/axios.md)
   * [EditorConfig](frontend/editorconfig.md)
+* [Git](index/git.md)
+  * [Git](git/git.md)
 * [Linux](index/linux.md)
   * [JDK配置](linux/jdk-config.md)
   * [MySQL](linux/mysql.md)
