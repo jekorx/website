@@ -7,6 +7,3 @@
 > 如果存在错误，或者有好的建议还请多指教，[提交反馈](https://github.com/jekorx/website/issues/new)  
 >   
 > 个人GitHub地址：[https://github.com/jekorx](https://github.com/jekorx)  
-
-
-

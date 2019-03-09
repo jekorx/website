@@ -28,4 +28,5 @@
   * [Put请求配置](springboot/put-config.md)
   * [FastJson配置](springboot/fastjson-config.md)
   * [跨域配置](springboot/cors-config.md)
-
+* [开发工具](index/ide.md)
+  * [VSCode](ide/vscode.md)
