@@ -2,6 +2,7 @@
 
 * [前言](README.md)
 * [Node.js](index/nodejs.md)
+  * [Yarn](nodejs/yarn.md)
   * [PM2](nodejs/process-manager.md)
   * [Http-Server](nodejs/http-server.md)
 * [前端](index/frontend.md)
@@ -19,6 +20,7 @@
   * [Svn](git-svn/svn.md)
 * [Linux](index/linux.md)
   * [JDK](linux/jdk.md)
+  * [Node.js](linux/nodejs.md)
   * [MySQL](linux/mysql.md)
   * [挂载硬盘](linux/mount.md)
   * [Nginx](linux/nginx.md)
