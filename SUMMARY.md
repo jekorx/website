@@ -20,6 +20,7 @@
   * [GitLab](git-svn/gitlab.md)
   * [Svn](git-svn/svn.md)
 * [Linux](index/linux.md)
+  * [Yum](linux/yum.md)
   * [JDK](linux/jdk.md)
   * [Node.js](linux/nodejs.md)
   * [MySQL](linux/mysql.md)
