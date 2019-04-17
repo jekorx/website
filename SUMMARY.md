@@ -25,6 +25,7 @@
   * [MySQL](linux/mysql.md)
   * [挂载硬盘](linux/mount.md)
   * [Nginx](linux/nginx.md)
+  * [Redis](linux/redis.md)
 * [Jenkins](index/jenkins.md)
   * [安装](jenkins/install.md)
 * [SpringBoot](index/springboot.md)
