@@ -29,6 +29,8 @@
   * [Redis](linux/redis.md)
 * [Jenkins](index/jenkins.md)
   * [安装](jenkins/install.md)
+* [ZenTao](index/zentao.md)
+  * [安装](zentao/install.md)
 * [SpringBoot](index/springboot.md)
   * [Put请求配置](springboot/put-config.md)
   * [FastJson配置](springboot/fastjson-config.md)
