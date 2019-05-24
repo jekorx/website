@@ -28,6 +28,7 @@
   * [挂载硬盘](linux/mount.md)
   * [Nginx](linux/nginx.md)
   * [Redis](linux/redis.md)
+  * [Solr](linux/solr.md)
 * [Jenkins](index/jenkins.md)
   * [安装](jenkins/install.md)
 * [ZenTao](index/zentao.md)
