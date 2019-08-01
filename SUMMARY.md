@@ -21,6 +21,7 @@
   * [微信小程序车牌键盘](applet/weapp-vehicle-panel.md)
 * [Java](index/java.md)
   * [Java 8 Stream](java/stream.md)
+  * [FastJson](java/fastjson.md)
 * [SpringBoot](index/springboot.md)
   * [Put请求配置](springboot/put-config.md)
   * [FastJson配置](springboot/fastjson-config.md)
