@@ -19,6 +19,7 @@
   * [React-Cli-2](frontend/react-cli-2.md)
 * [小程序](index/applet.md)
   * [微信小程序车牌键盘](applet/weapp-vehicle-panel.md)
+  * [微信小程序授权](applet/weapp-grant.md)
 * [Java](index/java.md)
   * [Java 8 Stream](java/stream.md)
   * [FastJson](java/fastjson.md)
