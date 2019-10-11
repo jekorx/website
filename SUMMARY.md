@@ -36,6 +36,7 @@
 * [Linux](index/linux.md)
   * [Yum](linux/yum.md)
   * [JDK](linux/jdk.md)
+  * [PHP](linux/php.md)
   * [Node.js](linux/nodejs.md)
   * [MySQL](linux/mysql.md)
   * [挂载硬盘](linux/mount.md)
