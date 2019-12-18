@@ -51,3 +51,4 @@
   * [安装](zentao/install.md)
 * [开发工具](index/ide.md)
   * [VSCode](ide/vscode.md)
+  * [IDEA](ide/idea.md)
