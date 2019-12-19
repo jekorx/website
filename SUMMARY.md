@@ -22,6 +22,7 @@
   * [微信小程序授权](applet/weapp-grant.md)
 * [Flutter](index/flutter.md)
   * [环境](flutter/env.md)
+  * [Android构建](flutter/android-package.md)
 * [Java](index/java.md)
   * [Java 8 Stream](java/stream.md)
   * [FastJson](java/fastjson.md)
