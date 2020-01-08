@@ -17,6 +17,7 @@
   * [VueQuillEditor](frontend/vue-quill-editor.md)
   * [Vue-Cli-3](frontend/vue-cli-3.md)
   * [React-Cli-2](frontend/react-cli-2.md)
+  * [Chrome图片下载](frontend/chrome-download-img.md)
 * [小程序](index/applet.md)
   * [微信小程序车牌键盘](applet/weapp-vehicle-panel.md)
   * [微信小程序授权](applet/weapp-grant.md)
