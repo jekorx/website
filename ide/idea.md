@@ -67,7 +67,7 @@ File -> Settings -> Appearance & Behavior -> System Settings -> Updates
 <取消选中 Automatically check updates for ...>
 
 # 取消代码重复提示
-File -> Settings -> Editor -> Code Style -> Inspections -> General -> Duplicated Code
+File -> Settings -> Editor -> Inspections -> General -> Duplicated Code
 <取消选中>
 
 # 注释模版，java方法
