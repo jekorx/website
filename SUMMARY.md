@@ -41,6 +41,7 @@
   * [JDK](linux/jdk.md)
   * [PHP](linux/php.md)
   * [Node.js](linux/nodejs.md)
+  * [Maven](linux/maven.md)
   * [MySQL](linux/mysql.md)
   * [PostgreSQL](linux/pgsql.md)
   * [挂载硬盘](linux/mount.md)
