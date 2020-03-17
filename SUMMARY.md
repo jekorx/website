@@ -29,6 +29,7 @@
 * [Java](index/java.md)
   * [Java 8 Stream](java/stream.md)
   * [FastJson](java/fastjson.md)
+  * [compareTo 比较大小](java/compare.md)
 * [SpringBoot](index/springboot.md)
   * [Put请求配置](springboot/put-config.md)
   * [FastJson配置](springboot/fastjson-config.md)
