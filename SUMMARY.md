@@ -34,6 +34,7 @@
   * [Put请求配置](springboot/put-config.md)
   * [FastJson配置](springboot/fastjson-config.md)
   * [跨域配置](springboot/cors-config.md)
+  * [启动方式](springboot/run.md)
 * [Git/Svn](index/git-svn.md)
   * [Git](git-svn/git.md)
   * [GitLab](git-svn/gitlab.md)
