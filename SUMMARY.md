@@ -8,6 +8,7 @@
 * [前端](index/frontend.md)
   * [Axios](frontend/axios.md)
   * [Css](frontend/css.md)
+  * [Js Utils](frontend/js-utils.md)
   * [正则表达式](frontend/regular.md)
   * [EditorConfig](frontend/editorconfig.md)
   * [ESLint](frontend/eslint.md)
