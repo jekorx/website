@@ -107,12 +107,12 @@ import axios from '@/libs/api.request'
  * }
  * 图片处理（裁剪大小、缩略图等）https://developer.qiniu.com/dora/manual/3683/img-directions-for-use
  *
- * @param file 上传的文件
- * @param complete 上传完成处理
- * @param next 上传中处理（进度条等）
- * @param error 上传错误处理
+ * @param {File} file 上传的文件
+ * @param {Function} complete 上传完成处理
+ * @param {Function} next 上传中处理（进度条等）
+ * @param {Function} error 上传错误处理
  *
- * @return { key: '文件名称' }
+ * @return { String } 文件名称
  */
 // 相关参数
 const UPTOKEN = 'uptoken' // uptoken 存储cookie的key
@@ -148,4 +148,53 @@ export default (file, complete, next, error) => {
   }
 }
 
+```
+
+#### 滚动条滚动动画
+
+```javascript
+/**
+ * 滚动条滚动动画
+ * scrollTo(window, 0, 1000)
+ * 
+ * @param {HTMLDOM | window} el 滚动对象
+ * @param {Number} from 滚动开始位置
+ * @param {Number} to 滚动结束位置
+ * @param {Number} duration 间隔时间
+ * @param {Function} endCallback 动画结束回调
+ */
+export const scrollTo = (el, from, to = 0, duration = 500, endCallback) => {
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = (
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function (callback) {
+        return window.setTimeout(callback, 1000 / 60)
+      }
+    )
+  }
+  const difference = Math.abs(from - to)
+  const step = Math.ceil(difference / duration * 50)
+
+  const scroll = (start, end, step) => {
+    if (start === end) {
+      endCallback && endCallback()
+      return
+    }
+
+    let d = (start + step > end) ? end : start + step
+    if (start > end) {
+      d = (start - step < end) ? end : start - step
+    }
+
+    if (el === window) {
+      window.scrollTo(d, d)
+    } else {
+      el.scrollTop = d
+    }
+    window.requestAnimationFrame(() => scroll(d, end, step))
+  }
+  scroll(from, to, step)
+}
 ```
