@@ -1,4 +1,6 @@
-# Chrome浏览器下载图片
+# Chrome浏览器文件下载
+
+#### 图片下载
 
 ```js
 /**
@@ -23,4 +25,25 @@ function downloadImg (src, filename, ext) {
     link.click()
   }
 }
+```
+
+#### Excel下载
+
+> 后端通过输出流导出Excel，前端下载文件，[后端实例点击此处参照](../springboot/excel.md)。  
+
+```javascript
+// 以 axios 为例，需要设置响应参数类型为 blob
+axios.get(`/v1/export`, {
+  responseType: 'blob'
+}).then(res => {
+  if (res.status === 200) {
+    let url = window.URL.createObjectURL(new Blob([res.data]))
+    let link = document.createElement('a')
+    link.style.display = 'none'
+    link.href = url
+    link.setAttribute('download', '导出excel.xls')
+    document.body.appendChild(link)
+    link.click()
+  }
+})
 ```
