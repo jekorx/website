@@ -28,9 +28,9 @@ public void exportExcel(HttpServletResponse response) {
     list.add(new User(4, 'username 4', 25, new Date()));
 
     // 创建文档
-		HSSFWorkbook workbook = new HSSFWorkbook();
+    HSSFWorkbook workbook = new HSSFWorkbook();
     // 创建sheet页
-		HSSFSheet personSheet = workbook.createSheet("sheet 1");
+    HSSFSheet personSheet = workbook.createSheet("sheet 1");
 
     // 处理excel
     excelHandle(workbook, personSheet, personUserList);
@@ -47,10 +47,10 @@ public void exportExcel(HttpServletResponse response) {
         workbook.write(outputStream);
         outputStream.flush();
         outputStream.close();
-		} catch (IOException ie) {
+    } catch (IOException ie) {
         // 包装异常并抛出
-			  throw new BusinessException(ResultEnums.FAILED.getCode(), "excel导出失败");
-		}
+        throw new BusinessException(ResultEnums.FAILED.getCode(), "excel导出失败");
+    }
 }
 /**
   * excel处理
@@ -59,55 +59,55 @@ public void exportExcel(HttpServletResponse response) {
   * @param list 数据
   */
 private void excelHandle(HSSFWorkbook workbook, HSSFSheet sheet, List<User> list) {
-		// 设置默认行高
-		sheet.setDefaultRowHeightInPoints(20);
-		// 设置列宽，第一个参数为索引，第二个参数为列宽，列宽单位为一个字符宽度的 1/256，列宽需要乘以 256
-		sheet.setColumnWidth(1, 12 * 256);
-		sheet.setColumnWidth(2, 15 * 256);
-		sheet.setColumnWidth(4, 20 * 256);
+    // 设置默认行高
+    sheet.setDefaultRowHeightInPoints(20);
+    // 设置列宽，第一个参数为索引，第二个参数为列宽，列宽单位为一个字符宽度的 1/256，列宽需要乘以 256
+    sheet.setColumnWidth(1, 12 * 256);
+    sheet.setColumnWidth(2, 15 * 256);
+    sheet.setColumnWidth(4, 20 * 256);
 
-		// 创建第一行
-		HSSFRow row = sheet.createRow(0);
+    // 创建第一行
+    HSSFRow row = sheet.createRow(0);
     // 设置当前行高
-		row.setHeightInPoints(20);
-		//设置为居中加粗
-		HSSFCellStyle style = workbook.createCellStyle();
-		HSSFFont font = workbook.createFont();
+    row.setHeightInPoints(20);
+    //设置为居中加粗
+    HSSFCellStyle style = workbook.createCellStyle();
+    HSSFFont font = workbook.createFont();
     // 粗体
-		font.setBold(true);
-		// 设置居中
-		style.setAlignment(HorizontalAlignment.CENTER);
-		style.setVerticalAlignment(VerticalAlignment.CENTER);
-		style.setFont(font);
+    font.setBold(true);
+    // 设置居中
+    style.setAlignment(HorizontalAlignment.CENTER);
+    style.setVerticalAlignment(VerticalAlignment.CENTER);
+    style.setFont(font);
 
-		// 设置列
-		HSSFCell cell;
-		cell = row.createCell(0);
-		cell.setCellValue("序号");
-		cell.setCellStyle(style);
+    // 设置列
+    HSSFCell cell;
+    cell = row.createCell(0);
+    cell.setCellValue("序号");
+    cell.setCellStyle(style);
 
-		cell = row.createCell(1);
-		cell.setCellValue("ID");
-		cell.setCellStyle(style);
+    cell = row.createCell(1);
+    cell.setCellValue("ID");
+    cell.setCellStyle(style);
 
-		cell = row.createCell(2);
-		cell.setCellValue("姓名");
-		cell.setCellStyle(style);
+    cell = row.createCell(2);
+    cell.setCellValue("姓名");
+    cell.setCellStyle(style);
 
-		cell = row.createCell(3);
-		cell.setCellValue("年龄");
-		cell.setCellStyle(style);
+    cell = row.createCell(3);
+    cell.setCellValue("年龄");
+    cell.setCellStyle(style);
 
-		cell = row.createCell(4);
-		cell.setCellValue("注册时间");
-		cell.setCellStyle(style);
+    cell = row.createCell(4);
+    cell.setCellValue("注册时间");
+    cell.setCellStyle(style);
 
-		HSSFCellStyle cellStyle = workbook.createCellStyle();
-		cellStyle.setAlignment(HorizontalAlignment.CENTER);
-		cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+    HSSFCellStyle cellStyle = workbook.createCellStyle();
+    cellStyle.setAlignment(HorizontalAlignment.CENTER);
+    cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
 
     int rowNum = 1; // 0为表头，从1开始记序号
-		for (User u : list) {
+	for (User u : list) {
         HSSFRow r = sheet.createRow(rowNum);
         r.setHeightInPoints(20);
 
@@ -132,6 +132,6 @@ private void excelHandle(HSSFWorkbook workbook, HSSFSheet sheet, List<User> list
         c.setCellStyle(cellStyle);
 
         rowNum++;
-		}
+    }
 }
 ```
