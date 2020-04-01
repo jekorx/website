@@ -40,7 +40,7 @@ axios.get(`/v1/export`, {
     let url = window.URL.createObjectURL(new Blob([res.data]))
     let link = document.createElement('a')
     link.href = url
-    link.setAttribute('download', '平台注册用户.xls')
+    link.setAttribute('download', '导出excel.xls')
     link.click()
   }
 })
