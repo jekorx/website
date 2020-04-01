@@ -51,7 +51,7 @@ public class CorsFilter implements Filter {
         // 是否允许浏览器发送Cookie
         response.setHeader("Access-Control-Allow-Credentials", "true");
         // 客户端所要访问的资源允许使用的方法或方法列表
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+        response.setHeader("Access-Control-Allow-Methods", "OPTIONS, HEAD, POST, GET, PUT, DELETE");
         // 正式请求的首部信息
         // x-requested-with：ajax请求
         response.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
