@@ -30,10 +30,9 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 ```
 
 ```java
-/
-**
-* 跨域访问过滤器
-*/
+/**
+ * 跨域访问过滤器
+ */
 @Component
 public class CorsFilter implements Filter {
 
