@@ -200,7 +200,7 @@ public class ExceptionHandler {
 			BusinessException be = (BusinessException) e;
 			return ResultUtil.error(be.getCode(), be.getMessage());
 		} else {
-			log.error(" -- 系统异常 --> {}", e);
+			log.error("--- 系统异常 --> {}", e);
 			// 系统异常，相应相应错误
 			return ResultUtil.error(ResultEnums.ERROR.getCode(), ResultEnums.ERROR.getMsg());
 		}
