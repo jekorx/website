@@ -12,7 +12,7 @@
  * @returns {String} 如：2020-01-02 12:12:12
  */
 export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
-  let o = {
+  const o = {
     'M+': date.getMonth() + 1, // 月份
     'd+': date.getDate(), // 日
     'h+': date.getHours() % 12 === 0 ? 12 : date.getHours() % 12, // 小时
@@ -22,7 +22,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
     'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
     'S': date.getMilliseconds() // 毫秒
   }
-  let week = {
+  const week = {
     '0': '/u65e5',
     '1': '/u4e00',
     '2': '/u4e8c',
@@ -121,8 +121,8 @@ const REGION = qiniu.region.z0 // 七牛云存储区域，默认z0：华东
 // 上传处理
 const uploadHandler = (token, file, complete, next, error) => {
   // 文件名为uuid生成，无后缀
-  let fileName = uuid()
-  let observable = qiniu.upload(file, fileName, token, {}, { region: REGION })
+  const fileName = uuid()
+  const observable = qiniu.upload(file, fileName, token, {}, { region: REGION })
   observable.subscribe({
     next (res) { next && next(res) },
     error (err) { error && error(err) },
