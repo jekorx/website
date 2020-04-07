@@ -48,6 +48,8 @@ psql
 -- 3、创建用户
 CREATE USER <user> WITH PASSWORD 'password';
 
+ALTER USER <user> WITH PASSWORD 'password';
+
 -- 4、创建数据库
 CREATE DATABASE <db>;
 
@@ -61,6 +63,16 @@ GRANT ALL PRIVILEGES ON DATABASE <db> TO <user>;
 
 # 7、退出shell，切换回root用户
 su root
+
+# 8、配置允许远程访问
+vim /var/lib/pgsql/11/data/pg_hba.conf
+
+# 最末尾加入
+# TYPE DATABASE USER ADDRESS METHOD
+host <db> <user> 0.0.0.0/0 md5
+
+# 9、重启服务
+systemctl restart postgresql-11
 ```
 
 #### 配置
@@ -73,16 +85,6 @@ vim /var/lib/pgsql/11/data/postgresql.conf
 listen_addresses = '*' # line.59
 # 修改端口，云服务器配置开放端口，默认端口：5432
 port = 5432 # line.63
-
-# 2、允许远程访问
-vim /var/lib/pgsql/11/data/pg_hba.conf
-
-# 最末尾加入
-# TYPE DATABASE USER ADDRESS METHOD
-host <db> <user> 0.0.0.0/0 md5
-
-# 3、重启服务
-systemctl restart postgresql-11
 ```
 
 #### 基本语法
