@@ -49,21 +49,19 @@ yarn create react-app <项目名> --template typescript
 
 * 开发环境，项目根目录创建```.env.development```文件  
 
-> 运行时不自动在浏览器中打开  
-> 修改端口  
-
-```
+```bash
+# 运行时不自动在浏览器中打开
 BROWSER=none
+# 修改端口
 PORT=8009
 ```
 
 * 生产环境，项目根目录创建```.env.production```文件  
 
-> 打包后子路径，``/``为默认根目录，如需修改为```/app/xxx```，则```PUBLIC_URL=/app```  
-> 不生成sourcemap  
-
-```
+```bash
+# 打包后子路径，``/``为默认根目录，如需修改为```/app/xxx```，则```PUBLIC_URL=/app```
 PUBLIC_URL=/app
+# 打包不生成sourcemap 
 GENERATE_SOURCEMAP=false
 ```
 
@@ -302,4 +300,25 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
+```
+
+#### 相关问题
+
+```json
+// eslint warning
+// Warning: React version not specified in eslint-plugin-react settings. 
+
+// 在.eslintrc中添加以下内容，指定react版本即可
+"settings": {
+  "react": {
+    "version": "detect"
+  }
+}
+```
+
+```bash
+# 控制台警告
+React-Hot-Loader: react-🔥-dom patch is not detected. React 16.6+ features may not work.
+
+# 同时配置了 react-hot-loader、@hot-loader/react-dom 次警告会消失
 ```
