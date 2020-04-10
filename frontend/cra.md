@@ -320,5 +320,5 @@ ReactDOM.render(
 # 控制台警告
 React-Hot-Loader: react-🔥-dom patch is not detected. React 16.6+ features may not work.
 
-# 同时配置了 react-hot-loader、@hot-loader/react-dom 次警告会消失
+# 同时配置了 react-hot-loader、@hot-loader/react-dom 不会出现该警告
 ```
