@@ -329,7 +329,7 @@ module.exports = function (config, env) {
 
 #### 3、注意
 
-> react中不能使用空的自定义属性（如：```aspectratio```）来定义样式，正确的使用方法如下  
+> react中不能使用空的自定义属性（如：```<div aspectratio></div>```），如需自定义属性样式，正确的使用方法如下  
 
 ```html
 <div aspectratio="" w-188-246="">
