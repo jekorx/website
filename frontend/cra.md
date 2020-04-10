@@ -59,7 +59,7 @@ PORT=8009
 * 生产环境，项目根目录创建```.env.production```文件  
 
 ```bash
-# 打包后子路径，``/``为默认根目录，如需修改为```/app/xxx```，则```PUBLIC_URL=/app```
+# 打包后子路径，/ 为默认根目录，如需修改为 /app/xxx，则 PUBLIC_URL=/app
 PUBLIC_URL=/app
 # 打包不生成sourcemap 
 GENERATE_SOURCEMAP=false
