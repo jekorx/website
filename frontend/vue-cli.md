@@ -39,6 +39,9 @@ module.exports = {
   lintOnSave: true,
   // 修改webpack配置
   chainWebpack: config => {
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+    // 别名
     config.resolve.alias
       .set('@', resolve('src')) // key, value自行定义，比如.set('@@', resolve('src/components'))
       .set('_c', resolve('src/components'))
@@ -63,7 +66,7 @@ module.exports = {
     }
   }
 }
-````
+```
 
 #### Eslint
 
