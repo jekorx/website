@@ -6,51 +6,94 @@
 
 #### 配置
 
-> 在项目根目录下添加vue.config.js
+> 在项目根目录下添加```vue.config.js ```文件，内容如下 
 
 ```javascript
 const path = require('path')
 
-// 路径转换
-const resolve = dir => {
-  return path.join(__dirname, dir)
-}
+const resolve = dir => path.join(__dirname, dir)
+
+// 项目部署基础
+// 默认情况下，我们假设你的应用将被部署在域的根目录下,
+// 例如：https://www.my-app.com/
+// 默认：'/'
+// 如果您的应用程序部署在子路径中，则需要在这指定子路径
+// 例如：https://www.foobar.com/my-app/
+// 需要将它改为'/my-app/'
+const BASE_URL = process.env.NODE_ENV === 'production'
+  ? '/'
+  : '/'
 
 module.exports = {
-  // 项目部署路径
-  // 例如：https://www.foobar.com/my-app/
-  // 需要将它改为'/my-app/'
-  publicPath: process.env.NODE_ENV === 'production' ? '/my-app' : '/',
-  // 生产环境不需要source map，则设为false
+  // Project deployment base
+  // By default we assume your app will be deployed at the root of a domain,
+  // e.g. https://www.my-app.com/
+  // If your app is deployed at a sub-path, you will need to specify that
+  // sub-path here. For example, if your app is deployed at
+  // https://www.foobar.com/my-app/
+  // then change this to '/my-app/'
+  publicPath: BASE_URL,
+  // tweak internal webpack configuration.
+  // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
+  // 如果你不需要使用eslint，把lintOnSave设为false即可
+  lintOnSave: true,
+  // 修改webpack配置
+  chainWebpack: config => {
+    config.resolve.alias
+      .set('@', resolve('src')) // key, value自行定义，比如.set('@@', resolve('src/components'))
+      .set('_c', resolve('src/components'))
+  },
+  // cssloader相关配置
+  css: {
+
+  },
+  // 设为false打包时不生成.map文件
   productionSourceMap: false,
-  // devServer配置
+  // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
   devServer: {
-    // 自动打开浏览器
     open: false,
     // 端口
-    port: 8520,
-    // 跨域（本人使用vue-cli-3没有此配置也不会出现跨域问题，具体原因没有深入研究）
+    port: 8009,
+    // 跨域
     proxy: {
-      '/api': {
-        target: 'http://127.0.0.1:8081',
+      '/api/': {
+        target: 'http://127.0.0.1:8008/',
         changeOrigin: true
       }
     }
-  },
-  // webpack链式操作
-  chainWebpack: config => {
-    // 别名
-    config.resolve.alias
-      .set('@', resolve('src'))
-      .set('@api', resolve('src/api'))
-      .set('@store', resolve('src/store'))
-      .set('@pages', resolve('src/pages'))
-      .set('@layouts', resolve('src/layouts'))
-      .set('@components', resolve('src/components'))
-      .set('@styles', resolve('src/assets/styles'))
-      .set('@images', resolve('src/assets/images'))
-      .set('@utils', resolve('src/utils'))
-      .set('@static', resolve('static'))
   }
 }
 ````
+
+#### Eslint
+
+> 在项目根目录下修改```.eslintrc.js```文件，内容如下  
+
+```javascript
+module.exports = {
+  root: true,
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  env: {
+    node: true
+  },
+  extends: [
+    'plugin:vue/essential',
+    '@vue/standard'
+  ],
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  rules: {
+    // allow async-await
+    'generator-star-spacing': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    // 允许obj['key']的使用
+    'dot-notation': 'off',
+    // 允许object key一个字符事使用引号
+    'quote-props': 'off'
+  }
+}
+```
