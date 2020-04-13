@@ -1,6 +1,6 @@
 # Flutter 环境安装配置
 
-#### MaxOS系统
+#### MacOS系统
 
 > 1、安装 Flutter sdk （包含 dart sdk）  
 
