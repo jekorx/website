@@ -220,7 +220,7 @@ module.exports = {
 ```
 
 ```css
-/* 注意：stylus 里面这样搞无效，可以按需使用 <style lang="postcss" scoped></style> */
+/* 注意：stylus 里面这样搞无效，less、scss可能会有warning，可以使用 <style lang="postcss" scoped></style> */
 @svg 1px-border {
   width: 4px;
   height: 4px;
