@@ -27,6 +27,7 @@
     "eslint.options": {
         "extensions": [
             ".js",
+            ".ts",
             ".vue",
             ".jsx",
             ".tsx"
