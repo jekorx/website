@@ -2,15 +2,15 @@
 
 #### 配置
 
-```javascript
+```json
 {
     // 取消提示js装饰器的错误提示
     "javascript.implicitProjectConfig.experimentalDecorators": true,
     "explorer.autoReveal": false,
-    "editor.fontSize": 18,
+    "editor.fontSize": 17,
+    /* "files.autoSave": "onFocusChange", */
     "terminal.integrated.fontSize": 17,
-    // 命令行工具，以git为例
-    // "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "editor.tabSize": 2,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
@@ -20,20 +20,24 @@
     "workbench.sideBar.location": "left",
     "window.zoomLevel": 0,
     "breadcrumbs.enabled": false,
-    // eslint 代码自动检查相关配置
+    "diffEditor.ignoreTrimWhitespace": false,
+    //eslint 代码自动检查相关配置
     "eslint.enable": true,
     "eslint.run": "onType",
     "eslint.options": {
         "extensions": [
             ".js",
             ".vue",
-            ".jsx"
+            ".jsx",
+            ".tsx"
         ]
     },
     "eslint.validate": [
-        "javascriptreact",
-        "vue",
         "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
         {
             "language": "vue",
             "autoFix": true
@@ -44,10 +48,20 @@
             "autoFix": true
         }
     ],
-    // 不校验vue模版中的自定义标签使用闭合标签
     "vetur.validation.template": false,
-    "workbench.iconTheme": "vscode-icons" /* ,
-    // px转rem设置
+    "files.associations": {
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript"
+    },
+    "emmet.includeLanguages": {
+        "wxml": "html"
+    },
+    "minapp-vscode.disableAutoConfig": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.iconTheme": "vscode-icons",
+    "dart.debugExternalLibraries": true,
+    "dart.debugSdkLibraries": false/* ,
     "px2rem.rootFontSize": 50,
     "px2rem.isNeedNotes": false */
 }
@@ -82,7 +96,6 @@ Bracket Pair Colorizer
 Flutter
 # flutter 模版
 Flutter Widget Snippets
-
 
 # px2rem.rootFontSize 默认设计稿宽750px，默认使用iphone7 设备宽375px 开发，按照index.js[x]中的rem自适应计算方法为 50
 # 详细配置查看该插件说明

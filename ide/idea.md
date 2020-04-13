@@ -92,8 +92,9 @@ File -> Settings -> Editor -> Live Templates
  $param$
  * @return $return$
  */
-（4）Expand with: <选择Enter>
-（5）Edit variables:
+（4）下方Applicable相关: <选择Java全部>
+（5）Expand with: <选择Enter>
+（6）Edit variables:
 param: groovyScript("def result=''; def params=\"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); for(i = 0; i < params.size(); i++) {if(i==0){result ='* @param ' + params[i] + ((i < params.size() - 1) ? '\\n' : '');}else{result +=' * @param ' + params[i] + ((i < params.size() - 1) ? '\\n' : '');}}; return result", methodParameters())
 return: methodReturnType()
 

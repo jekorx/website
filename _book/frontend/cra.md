@@ -103,7 +103,7 @@ yarn add eslint eslint-config-standard eslint-plugin-import eslint-plugin-node e
 # scss
 yarn add node-sass -D
 # 热加载依赖
-yarn add react-app-rewire-hot-loader react-hot-loader -D
+yarn add react-app-rewire-hot-loader react-hot-loader @hot-loader/react-dom -D
 ```
 
 ```json
@@ -214,6 +214,7 @@ module.exports = function (config, env) {
 
 > 删除```package.json```文件中```eslintConfig```  
 > 根目录创建```.eslintrc```文件，配置eslint，当前使用```standard```校验规则  
+> 注意：需要与[相关开发工具设置](../ide/vscode.md)配合  
 
 ```json
 {
