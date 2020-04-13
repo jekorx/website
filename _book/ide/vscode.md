@@ -21,7 +21,7 @@
     "window.zoomLevel": 0,
     "breadcrumbs.enabled": false,
     "diffEditor.ignoreTrimWhitespace": false,
-    //eslint 代码自动检查相关配置
+    // eslint 代码自动检查相关配置
     "eslint.enable": true,
     "eslint.run": "onType",
     "eslint.options": {
