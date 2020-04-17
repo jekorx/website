@@ -114,6 +114,11 @@ File -> Settings -> Editor -> File and Code Templates
 ```bash
 # 代码补全，Eclipse中Alt + /
 File -> Settings -> Keymap -> Main menu -> Code -> Completion
+
+# 删除占用
 Cyclic Expand Word: <右键，Remove Alt + />
+Cyclic Expand Word (Backward): <右键，Remove Alt + />
+
+# 添加
 Basic: <Add Keyboard Shutcut Alt + />
 ```

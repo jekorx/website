@@ -48,6 +48,7 @@ psql
 -- 3、创建用户
 CREATE USER <user> WITH PASSWORD 'password';
 
+-- 修改密码
 ALTER USER <user> WITH PASSWORD 'password';
 
 -- 4、创建数据库
