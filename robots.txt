@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /*.md$
+Disallow: /*.sh$
+Disallow: .gitignore
+Disallow: CNAME
+Sitemap: https://blog.wdg.pub/sitemap.xml
+Sitemap: https://blog.wdg.pub/sitemap.html
+Sitemap: https://blog.wdg.pub/sitemap.txt

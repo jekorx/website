@@ -10,7 +10,6 @@
 > * [Vue Cli](../frontend/vue-cli.md)
 > * [Js Utils](../frontend/js-utils.md)
 > * [正则表达式](../frontend/regular.md)
-> * [EditorConfig](../frontend/editorconfig.md)
 > * [ESLint](../frontend/eslint.md)
 > * [Less](../frontend/less.md)
 > * [防抖节流](../frontend/debounce-throttle.md)

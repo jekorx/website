@@ -4,3 +4,4 @@
 
 > * [VSCode](../ide/vscode.md)
 > * [IDEA](../ide/idea.md)
+> * [EditorConfig](../ide/editorconfig.md)
