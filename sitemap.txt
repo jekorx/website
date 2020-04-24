@@ -1,5 +1,5 @@
 https://blog.wdg.pub/frontend/nuxtjs.html
-https://blog.wdg.pub/frontend/Vuejs.html
+https://blog.wdg.pub/frontend/vuejs.html
 https://blog.wdg.pub/index/flutter.html
 https://blog.wdg.pub/frontend/cra.html
 https://blog.wdg.pub/
