@@ -25,6 +25,9 @@ build/Release
 node_modules
 
 #_book/
+_book/*.md
+_book/*.sh
+_book/.gitignore
 book.pdf
 book.epub
 book.mobi
