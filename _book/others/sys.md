@@ -30,11 +30,12 @@ certutil -hashfile <文件路径> SHA256
 
 #### CentOS安装
 
-> 1、进入CentOS安装界面，按TAB键进入配置编辑（根据提示，uefi是按e键）  
+> 1、进入CentOS安装界面，按```TAB```键进入配置编辑（根据提示，uefi是按```E```键）  
 > 2、将配置改为```vmlinuz initrd=initrd.img inst.stage2=hd......quiet```改为```vmlinuz initrd=initrd.img linux dd quiet```  
-> 3、修改之后回车系统会进入磁盘设备列表，查看U盘的设备名  
-> 4、记住设备名（如下图所示，如：sdb4），然后按```CTRL + ALT + DEL```重启，进入安装界面，按TAB编辑配置，改为```vmlinuz initrd=initrd.img inst.stage2=hd:/dev/sdb4 quiet```  
-> 5、sdb4对应U盘的设备名，然后按回车进入图形安装界面  
+> 3、修改之后回车系统会进入磁盘设备列表，查看U盘的设备名，记住设备名（如下图所示，如：sdb4）  
+> 4、按```CTRL + ALT + DEL```重启，进入安装界面  
+> 5、按```TAB```编辑配置，改为```vmlinuz initrd=initrd.img inst.stage2=hd:/dev/sdb4 quiet```  
+> 6、sdb4对应U盘的设备名，然后按回车进入图形安装界面  
 
 ![](../images/others-sys-3.png)
 

@@ -6,9 +6,6 @@ set -e
 # 构建
 gitbook build
 
-# 部署到自定义域域名
-echo "blog.wdg.pub" > _book/CNAME
-
 git add .
 
 # 注释
