@@ -3,6 +3,8 @@
 # 当发生错误时中止脚本
 set -e
 
+rm -rf _book
+
 # 构建
 gitbook build
 
