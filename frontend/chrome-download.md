@@ -37,11 +37,13 @@ axios.get(`/v1/export`, {
   responseType: 'blob'
 }).then(res => {
   if (res.status === 200) {
-    let url = window.URL.createObjectURL(new Blob([res.data]))
-    let link = document.createElement('a')
+    const url = window.URL.createObjectURL(new Blob([res.data]))
+    const link = document.createElement('a')
     link.href = url
     link.setAttribute('download', '导出excel.xls')
     link.click()
+    // 回收URL
+    window.URL.revokeObjectURL(url)
   }
 })
 ```
