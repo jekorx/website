@@ -1,0 +1,1635 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+<script id="handle">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||(window.location.host!="blog.wdg.pub"))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("handle").remove()</script>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Canvas · jekorx's blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="jekorx">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="debounce-throttle.html" />
+    
+    
+    <link rel="prev" href="less.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../index/nodejs.html">
+            
+                <a href="../index/nodejs.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../nodejs/yarn.html">
+            
+                <a href="../nodejs/yarn.html">
+            
+                    
+                    Yarn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../nodejs/process-manager.html">
+            
+                <a href="../nodejs/process-manager.html">
+            
+                    
+                    PM2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../nodejs/http-server.html">
+            
+                <a href="../nodejs/http-server.html">
+            
+                    
+                    Http-Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../index/frontend.html">
+            
+                <a href="../index/frontend.html">
+            
+                    
+                    前端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="axios.html">
+            
+                <a href="axios.html">
+            
+                    
+                    Axios
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="css.html">
+            
+                <a href="css.html">
+            
+                    
+                    Css
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="vw.html">
+            
+                <a href="vw.html">
+            
+                    
+                    移动端vw适配方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="vuejs.html">
+            
+                <a href="vuejs.html">
+            
+                    
+                    Vue.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="cra.html">
+            
+                <a href="cra.html">
+            
+                    
+                    Create React App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="vue-cli.html">
+            
+                <a href="vue-cli.html">
+            
+                    
+                    Vue Cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="js-utils.html">
+            
+                <a href="js-utils.html">
+            
+                    
+                    Js Utils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="regular.html">
+            
+                <a href="regular.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="eslint.html">
+            
+                <a href="eslint.html">
+            
+                    
+                    ESLint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="less.html">
+            
+                <a href="less.html">
+            
+                    
+                    Less
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.11" data-path="canvas.html">
+            
+                <a href="canvas.html">
+            
+                    
+                    Canvas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="debounce-throttle.html">
+            
+                <a href="debounce-throttle.html">
+            
+                    
+                    防抖节流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="webpack.html">
+            
+                <a href="webpack.html">
+            
+                    
+                    Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="nuxtjs.html">
+            
+                <a href="nuxtjs.html">
+            
+                    
+                    Nuxt.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="amap-selector.html">
+            
+                <a href="amap-selector.html">
+            
+                    
+                    高德vue地图选择器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="vue-quill-editor.html">
+            
+                <a href="vue-quill-editor.html">
+            
+                    
+                    VueQuillEditor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="chrome-download.html">
+            
+                <a href="chrome-download.html">
+            
+                    
+                    Chrome文件下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../index/applet.html">
+            
+                <a href="../index/applet.html">
+            
+                    
+                    小程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../applet/weapp-vehicle-panel.html">
+            
+                <a href="../applet/weapp-vehicle-panel.html">
+            
+                    
+                    微信小程序车牌键盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../applet/weapp-grant.html">
+            
+                <a href="../applet/weapp-grant.html">
+            
+                    
+                    微信小程序授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../index/flutter.html">
+            
+                <a href="../index/flutter.html">
+            
+                    
+                    Flutter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../flutter/env.html">
+            
+                <a href="../flutter/env.html">
+            
+                    
+                    环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../flutter/android-package.html">
+            
+                <a href="../flutter/android-package.html">
+            
+                    
+                    Android构建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../index/java.html">
+            
+                <a href="../index/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java/stream.html">
+            
+                <a href="../java/stream.html">
+            
+                    
+                    Java 8 Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../java/fastjson.html">
+            
+                <a href="../java/fastjson.html">
+            
+                    
+                    FastJson
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../java/compare.html">
+            
+                <a href="../java/compare.html">
+            
+                    
+                    compareTo 比较大小
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../java/utils.html">
+            
+                <a href="../java/utils.html">
+            
+                    
+                    Java工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../index/spring.html">
+            
+                <a href="../index/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../spring/exception.html">
+            
+                <a href="../spring/exception.html">
+            
+                    
+                    自定义异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../index/springboot.html">
+            
+                <a href="../index/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../springboot/put-config.html">
+            
+                <a href="../springboot/put-config.html">
+            
+                    
+                    Put请求配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../springboot/fastjson-config.html">
+            
+                <a href="../springboot/fastjson-config.html">
+            
+                    
+                    FastJson配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../springboot/cors-config.html">
+            
+                <a href="../springboot/cors-config.html">
+            
+                    
+                    跨域配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../springboot/excel.html">
+            
+                <a href="../springboot/excel.html">
+            
+                    
+                    Excel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../springboot/run.html">
+            
+                <a href="../springboot/run.html">
+            
+                    
+                    启动方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../index/git-svn.html">
+            
+                <a href="../index/git-svn.html">
+            
+                    
+                    Git/Svn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../git-svn/git.html">
+            
+                <a href="../git-svn/git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../git-svn/gitlab.html">
+            
+                <a href="../git-svn/gitlab.html">
+            
+                    
+                    GitLab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../git-svn/svn.html">
+            
+                <a href="../git-svn/svn.html">
+            
+                    
+                    Svn
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../index/linux.html">
+            
+                <a href="../index/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../linux/cmd.html">
+            
+                <a href="../linux/cmd.html">
+            
+                    
+                    命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../linux/yum.html">
+            
+                <a href="../linux/yum.html">
+            
+                    
+                    Yum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../linux/jdk.html">
+            
+                <a href="../linux/jdk.html">
+            
+                    
+                    JDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../linux/php.html">
+            
+                <a href="../linux/php.html">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../linux/nodejs.html">
+            
+                <a href="../linux/nodejs.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../linux/maven.html">
+            
+                <a href="../linux/maven.html">
+            
+                    
+                    Maven
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../linux/mysql.html">
+            
+                <a href="../linux/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../linux/pgsql.html">
+            
+                <a href="../linux/pgsql.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../linux/mount.html">
+            
+                <a href="../linux/mount.html">
+            
+                    
+                    挂载硬盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../linux/nginx.html">
+            
+                <a href="../linux/nginx.html">
+            
+                    
+                    Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../linux/tomcat.html">
+            
+                <a href="../linux/tomcat.html">
+            
+                    
+                    Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.12" data-path="../linux/redis.html">
+            
+                <a href="../linux/redis.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.13" data-path="../linux/solr.html">
+            
+                <a href="../linux/solr.html">
+            
+                    
+                    Solr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.14" data-path="../linux/ftp.html">
+            
+                <a href="../linux/ftp.html">
+            
+                    
+                    ftp服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../index/jenkins.html">
+            
+                <a href="../index/jenkins.html">
+            
+                    
+                    Jenkins
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../jenkins/install.html">
+            
+                <a href="../jenkins/install.html">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../index/zentao.html">
+            
+                <a href="../index/zentao.html">
+            
+                    
+                    ZenTao
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../zentao/install.html">
+            
+                <a href="../zentao/install.html">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../index/ide.html">
+            
+                <a href="../index/ide.html">
+            
+                    
+                    开发工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../ide/vscode.html">
+            
+                <a href="../ide/vscode.html">
+            
+                    
+                    VSCode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../ide/idea.html">
+            
+                <a href="../ide/idea.html">
+            
+                    
+                    IDEA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../ide/editorconfig.html">
+            
+                <a href="../ide/editorconfig.html">
+            
+                    
+                    EditorConfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../index/markdown.html">
+            
+                <a href="../index/markdown.html">
+            
+                    
+                    MarkDown
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../markdown/ascii.html">
+            
+                <a href="../markdown/ascii.html">
+            
+                    
+                    转义字符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../index/others.html">
+            
+                <a href="../index/others.html">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../others/sys.html">
+            
+                <a href="../others/sys.html">
+            
+                    
+                    操作系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Canvas</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="canvas">Canvas</h1>
+<h3 id="canvas&#x7B7E;&#x540D;">Canvas&#x7B7E;&#x540D;</h3>
+<h5 id="1&#x3001;&#x539F;&#x751F;javascript&#x7248;&#x672C;">1&#x3001;&#x539F;&#x751F;JavaScript&#x7248;&#x672C;</h5>
+<blockquote>
+<p>&#x5229;&#x7528;canvas&#x753B;&#x5E03;&#x5B9E;&#x73B0;&#x7B7E;&#x540D;&#x6548;&#x679C;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-javascript"><span class="token comment">/**
+ * Canvas &#x7B7E;&#x540D;
+ * 
+ * &#x4F7F;&#x7528;&#xFF1A;
+ * new drawCanvas({
+ *   saveCallback: function (imgBase64, clearCallback) {
+ *     document.getElementById(&apos;#signImage&apos;).src = imgBase64
+ *     // &#x6E05;&#x7A7A;canvas
+ *     // clearCallback()
+ *   }
+ * })
+ * &lt;String&gt; el&#xFF1A;canvas&#x5BB9;&#x5668;id&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;canvas&apos;
+ * &lt;String&gt; saveEl&#xFF1A;&#x4FDD;&#x5B58;&#x6309;&#x94AE;id&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;saveBtn&apos;
+ * &lt;String&gt; clearEl&#xFF1A;&#x6E05;&#x9664;&#x6309;&#x94AE;id&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;clearBtn&apos;
+ * &lt;Number&gt; width&#xFF1A;&#x5BB9;&#x5668;&#x5BBD;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&#x6D4F;&#x89C8;&#x5668;&#x5BBD;&#x5EA6;
+ * &lt;Number&gt; height&#xFF1A;&#x5BB9;&#x5668;&#x9AD8;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;200
+ * &lt;String&gt; color&#xFF1A;&#x753B;&#x7EBF;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;#000&apos;
+ * &lt;String&gt; background&#xFF1A;&#x5BB9;&#x5668;&#x80CC;&#x666F;&#x989C;&#x8272;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;rgba(255, 255, 255, 0)&apos;
+ * &lt;Number&gt; borderWidth&#xFF1A;&#x5BB9;&#x5668;&#x8FB9;&#x6846;&#x5BBD;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;1
+ * &lt;String&gt; borderColor&#xFF1A;&#x5BB9;&#x5668;&#x8FB9;&#x6846;&#x989C;&#x8272;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;#333&apos;
+ * &lt;Function&gt; saveCallback(imgBase64, clearCallback)&#xFF1A;&#x4FDD;&#x5B58;&#x56DE;&#x8C03;(base64&#x56FE;&#x7247;&#xFF0C;&#x6E05;&#x7A7A;&#x753B;&#x5E03;&#x56DE;&#x8C03;)
+ */</span>
+<span class="token keyword">function</span> <span class="token function">drawCanvas</span> <span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>el <span class="token operator">=</span> <span class="token string">&apos;canvas&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>saveEl <span class="token operator">=</span> <span class="token string">&apos;saveBtn&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>clearEl <span class="token operator">=</span> <span class="token string">&apos;clearBtn&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth
+  <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token number">200</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token number">2</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">&apos;#000&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token string">&apos;rgba(255, 255, 255, 0)&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>borderColor <span class="token operator">=</span> <span class="token string">&apos;#333&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">saveCallback</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">imgBase64<span class="token punctuation">,</span> clearCallback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> k <span class="token keyword">in</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> args<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// &#x83B7;&#x53D6;canvas</span>
+  <span class="token keyword">var</span> canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>el<span class="token punctuation">)</span>
+  <span class="token comment">// &#x8BBE;&#x7F6E;&#x8FB9;&#x6846;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span>
+    canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>border <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">+</span> <span class="token string">&apos;px solid&apos;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderColor
+  <span class="token punctuation">}</span>
+  <span class="token comment">// &#x8BBE;&#x7F6E;&#x5BBD;&#x9AD8;</span>
+  canvas<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width
+  canvas<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height
+  <span class="token comment">// &#x83B7;&#x53D6;canvas context</span>
+  <span class="token keyword">var</span> cxt <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">&apos;2d&apos;</span><span class="token punctuation">)</span>
+  <span class="token comment">// canvas context&#x76F8;&#x5173;&#x8BBE;&#x7F6E;</span>
+  cxt<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>background
+  cxt<span class="token punctuation">.</span><span class="token function">fillRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+  cxt<span class="token punctuation">.</span>strokeStyle <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color
+  cxt<span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lineWidth
+  cxt<span class="token punctuation">.</span>lineCap <span class="token operator">=</span> <span class="token string">&apos;round&apos;</span> <span class="token comment">// &#x7EBF;&#x6761;&#x672B;&#x7AEF;&#x6DFB;&#x52A0;&#x5706;&#x5F62;&#x7EBF;&#x5E3D;&#xFF0C;&#x51CF;&#x5C11;&#x7EBF;&#x6761;&#x7684;&#x751F;&#x786C;&#x611F;</span>
+  cxt<span class="token punctuation">.</span>lineJoin <span class="token operator">=</span> <span class="token string">&apos;round&apos;</span> <span class="token comment">// &#x7EBF;&#x6761;&#x4EA4;&#x6C47;&#x65F6;&#x4E3A;&#x539F;&#x578B;&#x8FB9;&#x89D2;</span>
+  <span class="token comment">// &#x5229;&#x7528;&#x9634;&#x5F71;&#xFF0C;&#x6D88;&#x9664;&#x952F;&#x9F7F;</span>
+  cxt<span class="token punctuation">.</span>shadowBlur <span class="token operator">=</span> <span class="token number">1</span>
+  cxt<span class="token punctuation">.</span>shadowColor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color
+
+  <span class="token keyword">var</span> offsetTop <span class="token operator">=</span> canvas<span class="token punctuation">.</span>offsetTop <span class="token comment">// canvas&#x4E0A;&#x8FB9;&#x8DDD;</span>
+  <span class="token keyword">var</span> offsetLeft <span class="token operator">=</span> canvas<span class="token punctuation">.</span>offsetLeft <span class="token comment">// canvas&#x5DE6;&#x8FB9;&#x8DDD;</span>
+  <span class="token keyword">var</span> isDraw <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token comment">// &#x662F;&#x5426;&#x7ED8;&#x5236;&#x4E2D;&#xFF0C;&#x7528;&#x4E8E;mousemove</span>
+  <span class="token comment">// &#x5F00;&#x59CB;&#x7ED8;&#x5236;</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;touchstart&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cxt<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cxt<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>changedTouches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> e<span class="token punctuation">.</span>changedTouches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;mousedown&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    isDraw <span class="token operator">=</span> <span class="token boolean">true</span>
+    cxt<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cxt<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// &#x7ED8;&#x5236;&#x4E2D;</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;touchmove&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cxt<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>changedTouches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> e<span class="token punctuation">.</span>changedTouches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+    cxt<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;mousemove&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isDraw<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      cxt<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+      cxt<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft <span class="token operator">&lt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth
+       <span class="token operator">||</span> e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span>
+       <span class="token operator">||</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop <span class="token operator">&lt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth
+       <span class="token operator">||</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        isDraw <span class="token operator">=</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// &#x7ED3;&#x675F;&#x7ED8;&#x5236;</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;touchend&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cxt<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;mouseup&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    isDraw <span class="token operator">=</span> <span class="token boolean">false</span>
+    cxt<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// &#x6E05;&#x9664;&#x753B;&#x5E03;</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>clearEl<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>clearEl<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cxt<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// &#x4FDD;&#x5B58;&#x56FE;&#x7247;</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>saveEl<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>saveEl<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> imgBase64 <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveCallback</span><span class="token punctuation">(</span>imgBase64<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      cxt<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>&#x4F7F;&#x7528;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>canvas<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>saveBtn<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x751F;&#x6210;&#x56FE;&#x7247;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>signImage<span class="token punctuation">&quot;</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x751F;&#x6210;&#x7684;&#x56FE;&#x7247;<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+  window.onload = function () {
+    new drawCanvas({
+      width: 300,
+      height: 200,
+      saveCallback: function (imgBase64, clearCallback) {
+        document.getElementById(&apos;signImage&apos;).src = imgBase64
+        // &#x6E05;&#x7A7A;canvas
+        // clearCallback()
+      }
+    })
+  }
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h5 id="2&#x3001;vuejs&#x7248;&#x672C;">2&#x3001;Vue.js&#x7248;&#x672C;</h5>
+<blockquote>
+<p>vue&#x7EC4;&#x4EF6;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span>
+    <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>canvas<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>width &gt; borderWidth * 2 ? width - borderWidth * 2 : width<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>height<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:</span><span class="token style-attr language-css"><span class="token attr-name"><span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value">borderStyle</span><span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@touchstart</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>touchstart<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@mousedown</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mousedown<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@touchmove</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>touchmove<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@mousemove</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mousemove<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@touchend</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>touchend<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@mouseup</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>mouseup<span class="token punctuation">&quot;</span></span>
+  <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+/* <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CanvasSign</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>canvasSign<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>save<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>save<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>imgSrc<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x751F;&#x6210;&#x7684;&#x56FE;&#x7247;<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> */
+
+/* import CanvasSign from &apos;_c/canvas-sign&apos;
+
+export default {
+  name: &apos;Sign&apos;,
+  components: { CanvasSign },
+  data () {
+    return {
+      imgSrc: &apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=&apos;
+    }
+  },
+  methods: {
+    save () {
+      this.$refs.canvasSign.save(img =&gt; {
+        this.imgSrc = img
+      })
+      // this.$refs.canvasSign.clear()
+    }
+  }
+} */
+export default {
+  name: &apos;CanvasSign&apos;,
+  props: {
+    // &#x753B;&#x5E03;&#x5BBD;
+    width: {
+      type: Number,
+      default: document.documentElement.clientWidth || document.body.clientWidth
+    },
+    // &#x753B;&#x5E03;&#x9AD8;
+    height: {
+      type: Number,
+      default: 200
+    },
+    // &#x753B;&#x7EBF;&#x7C97;&#x7EC6;
+    lineWidth: {
+      type: Number,
+      default: 2
+    },
+    // &#x753B;&#x7EBF;&#x989C;&#x8272;
+    color: {
+      type: String,
+      default: &apos;#000&apos;
+    },
+    // &#x753B;&#x5E03;&#x80CC;&#x666F;&#x8272;
+    background: {
+      type: String,
+      default: &apos;rgba(255, 255, 255, 0)&apos;
+    },
+    // &#x8FB9;&#x6846;&#x5BBD;&#x5EA6;
+    borderWidth: {
+      type: Number,
+      default: 1
+    },
+    // &#x8FB9;&#x6846;&#x989C;&#x8272;
+    borderColor: {
+      type: String,
+      default: &apos;#333&apos;
+    }
+  },
+  computed: {
+    borderStyle () {
+      if (this.borderWidth &gt; 0 &amp;&amp; this.width &gt; this.borderWidth * 2) {
+        return `border: ${this.borderWidth}px solid ${this.borderColor}`
+      }
+      return &apos;&apos;
+    }
+  },
+  data () {
+    return {
+      canvas: null,
+      cxt: null,
+      offsetTop: 0,
+      offsetLeft: 0,
+      isDraw: false
+    }
+  },
+  mounted () {
+    this.$nextTick(this.init)
+  },
+  methods: {
+    // &#x751F;&#x6210;&#x56FE;&#x7247;
+    save (callback) {
+      const imgBase64 = this.canvas.toDataURL()
+      callback(imgBase64)
+    },
+    // &#x6E05;&#x7A7A;&#x753B;&#x5E03;
+    clear () {
+      this.cxt.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    },
+    // &#x521D;&#x59CB;&#x5316;
+    init () {
+      const canvas = this.$refs.canvas
+      this.canvas = canvas
+
+      this.offsetTop = canvas.offsetTop // canvas&#x4E0A;&#x8FB9;&#x8DDD;
+      this.offsetLeft = canvas.offsetLeft // canvas&#x5DE6;&#x8FB9;&#x8DDD;
+
+      // &#x83B7;&#x53D6;canvas context
+      const cxt = canvas.getContext(&apos;2d&apos;)
+
+      // canvas context&#x76F8;&#x5173;&#x8BBE;&#x7F6E;
+      cxt.fillStyle = this.background
+      cxt.fillRect(0, 0, this.width, this.height)
+      cxt.strokeStyle = this.color
+      cxt.lineWidth = this.lineWidth
+      cxt.lineCap = &apos;round&apos; // &#x7EBF;&#x6761;&#x672B;&#x7AEF;&#x6DFB;&#x52A0;&#x5706;&#x5F62;&#x7EBF;&#x5E3D;&#xFF0C;&#x51CF;&#x5C11;&#x7EBF;&#x6761;&#x7684;&#x751F;&#x786C;&#x611F;
+      cxt.lineJoin = &apos;round&apos; // &#x7EBF;&#x6761;&#x4EA4;&#x6C47;&#x65F6;&#x4E3A;&#x539F;&#x578B;&#x8FB9;&#x89D2;
+      // &#x5229;&#x7528;&#x9634;&#x5F71;&#xFF0C;&#x6D88;&#x9664;&#x952F;&#x9F7F;
+      cxt.shadowBlur = 1
+      cxt.shadowColor = this.color
+
+      this.cxt = cxt
+    },
+    // &#x79FB;&#x52A8;&#x7AEF;&#x89E6;&#x6478;&#x6441;&#x4E0B;
+    touchstart (e) {
+      this.cxt.beginPath()
+      this.cxt.moveTo(e.changedTouches[0].pageX - this.offsetLeft, e.changedTouches[0].pageY - this.offsetTop)
+    },
+    // pc&#x7AEF;&#x9F20;&#x6807;&#x70B9;&#x4E0B;
+    mousedown (e) {
+      this.isDraw = true
+      this.cxt.beginPath()
+      this.cxt.moveTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop)
+    },
+    // &#x79FB;&#x52A8;&#x7AEF;&#x89E6;&#x6478;&#x6ED1;&#x52A8;
+    touchmove (e) {
+      e.stopPropagation()
+      e.preventDefault()
+      this.cxt.lineTo(e.changedTouches[0].pageX - this.offsetLeft, e.changedTouches[0].pageY - this.offsetTop)
+      this.cxt.stroke()
+    },
+    // pc&#x7AEF;&#x9F20;&#x6807;&#x79FB;&#x52A8;
+    mousemove (e) {
+      e.stopPropagation()
+      e.preventDefault()
+      if (this.isDraw) {
+        this.cxt.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop)
+        this.cxt.stroke()
+        if (e.pageX - this.offsetLeft &lt;= this.borderWidth ||
+            e.pageX - this.offsetLeft &gt;= this.canvas.width - this.borderWidth * 2 ||
+            e.pageY - this.offsetTop &lt;= this.borderWidth ||
+            e.pageY - this.offsetTop &gt;= this.canvas.height - this.borderWidth * 2) {
+          this.isDraw = false
+        }
+      }
+    },
+    // &#x79FB;&#x52A8;&#x7AEF;&#x89E6;&#x6478;&#x62AC;&#x8D77;
+    touchend () {
+      this.cxt.closePath()
+    },
+    // pc&#x7AEF;&#x9F20;&#x6807;&#x677E;&#x5F00;
+    mouseup () {
+      this.isDraw = false
+      this.cxt.closePath()
+    }
+  }
+}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<blockquote>
+<p>&#x4F7F;&#x7528;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CanvasSign</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>canvasSign<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>save<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>save<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>imgSrc<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>&#x751F;&#x6210;&#x7684;&#x56FE;&#x7247;<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+import CanvasSign from &apos;_c/canvas-sign&apos;
+
+export default {
+  name: &apos;Sign&apos;,
+  components: { CanvasSign },
+  data () {
+    return {
+      imgSrc: &apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=&apos;
+    }
+  },
+  methods: {
+    save () {
+      this.$refs.canvasSign.save(img =&gt; {
+        this.imgSrc = img
+      })
+    },
+    clear () {
+      this.$refs.canvasSign.clear()
+    }
+  }
+}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-05-07 13:52:11
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="less.html" class="navigation navigation-prev " aria-label="Previous page: Less">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="debounce-throttle.html" class="navigation navigation-next " aria-label="Next page: 防抖节流">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Canvas","level":"1.3.11","depth":2,"next":{"title":"防抖节流","level":"1.3.12","depth":2,"path":"frontend/debounce-throttle.md","ref":"frontend/debounce-throttle.md","articles":[]},"previous":{"title":"Less","level":"1.3.10","depth":2,"path":"frontend/less.md","ref":"frontend/less.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/canvas.md","mtime":"2020-05-07T05:52:11.744Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-07T06:01:48.116Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
