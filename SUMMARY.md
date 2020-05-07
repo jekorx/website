@@ -16,6 +16,7 @@
   * [正则表达式](frontend/regular.md)
   * [ESLint](frontend/eslint.md)
   * [Less](frontend/less.md)
+  * [Canvas](frontend/canvas.md)
   * [防抖节流](frontend/debounce-throttle.md)
   * [Webpack](frontend/webpack.md)
   * [Nuxt.js](frontend/nuxtjs.md)
