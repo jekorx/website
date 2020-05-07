@@ -29,5 +29,5 @@ dateA.compareTo(dateB)
 
 // Date dateA = <2020-03-17 09:33:08>
 // Date dateB = <2020-03-18 09:33:08>
-// 输出-1 -> dateA 早于 dateB，后者大
+// 输出 -1 -> dateA 早于 dateB，后者大
 ```
