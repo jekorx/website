@@ -198,3 +198,65 @@ export const scrollTo = (el, from, to = 0, duration = 500, endCallback) => {
   scroll(from, to, step)
 }
 ```
+
+#### base64转file
+
+```javascript
+/**
+ * base64转file
+ *
+ * @param {String} dataURL base64
+ * @param {String} filename 文件名，如：image.png
+ * @returns {File} 返回File对象
+ */
+export const dataURLtoFile = (dataURL, filename) => {
+  const arr = dataURL.split(',')
+  const mime = arr[0].match(/:(.*?);/)[1]
+  const bstr = atob(arr[1])
+  let n = bstr.length
+  const u8arr = new Uint8Array(n)
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n)
+  }
+  return new File([u8arr], filename, { type: mime })
+}
+```
+
+#### base64转blob
+
+```javascript
+/**
+ * base64转blob
+ *
+ * @param {String} dataURL base64
+ * @returns {Blob} 返回Blob对象
+ */
+export const dataURLToBlob = dataURL => {
+  const arr = dataURL.split(',')
+  const mime = arr[0].match(/:(.*?);/)[1]
+  const bstr = atob(arr[1])
+  let n = bstr.length
+  const u8arr = new Uint8Array(n)
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n)
+  }
+  return new Blob([u8arr], { type: mime })
+}
+```
+
+#### blob转file
+
+```javascript
+/**
+ * blob转file
+ *
+ * @param {Blob} blob Blob对象
+ * @param {String} filename 文件名，如：image.png
+ * @returns {File} 返回File对象
+ */
+export const blobToFile = (blob, filename) => {
+  blob.lastModifiedDate = new Date()
+  blob.name = filename
+  return blob
+}
+```

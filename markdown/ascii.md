@@ -4,98 +4,98 @@
 
 |结果 |	描述 | 实体编号|
 |:--:|:---|:--:|
-|   | space	| &#38;&#35;32; |
-| ! | exclamation mark	| &#38;&#35;33; |
-| " | quotation mark	| &#38;&#35;34; |
-| # | number sign	| &#38;&#35;35; |
-| $ | dollar sign	| &#38;&#35;36; |
-| % | percent sign	| &#38;&#35;37; |
-| & | ampersand	| &#38;&#35;38; |
-| ' | apostrophe	| &#38;&#35;39; |
-| ( | left parenthesis	| &#38;&#35;40; |
-| ) | right parenthesis	| &#38;&#35;41; |
-| * | asterisk	| &#38;&#35;42; |
-| + | plus sign	| &#38;&#35;43; |
-| , | comma	| &#38;&#35;44; |
-| - | hyphen	| &#38;&#35;45; |
-| . | period	| &#38;&#35;46; |
-| / | slash	| &#38;&#35;47; |
-| 0 | digit 0	| &#38;&#35;48; |
-| 1 | digit 1	| &#38;&#35;49; |
-| 2 | digit 2	| &#38;&#35;50; |
-| 3 | digit 3	| &#38;&#35;51; |
-| 4 | digit 4	| &#38;&#35;52; |
-| 5 | digit 5	| &#38;&#35;53; |
-| 6 | digit 6	| &#38;&#35;54; |
-| 7 | digit 7	| &#38;&#35;55; |
-| 8 | digit 8	| &#38;&#35;56; |
-| 9 | digit 9	| &#38;&#35;57; |
-| : | colon	| &#38;&#35;58; |
-| ; | semicolon	| &#38;&#35;59; |
-| < | less-than	| &#38;&#35;60; |
-| = | equals-to	| &#38;&#35;61; |
-| > | greater-than	| &#38;&#35;62; |
-| ? | question mark	| &#38;&#35;63; |
-| @ | at sign	| &#38;&#35;64; |
-| A | uppercase A	| &#38;&#35;65; |
-| B | uppercase B	| &#38;&#35;66; |
-| C | uppercase C	| &#38;&#35;67; |
-| D | uppercase D	| &#38;&#35;68; |
-| E | uppercase E	| &#38;&#35;69; |
-| F | uppercase F	| &#38;&#35;70; |
-| G | uppercase G	| &#38;&#35;71; |
-| H | uppercase H	| &#38;&#35;72; |
-| I | uppercase I	| &#38;&#35;73; |
-| J | uppercase J	| &#38;&#35;74; |
-| K | uppercase K	| &#38;&#35;75; |
-| L | uppercase L	| &#38;&#35;76; |
-| M | uppercase M	| &#38;&#35;77; |
-| N | uppercase N	| &#38;&#35;78; |
-| O | uppercase O	| &#38;&#35;79; |
-| P | uppercase P	| &#38;&#35;80; |
-| Q | uppercase Q	| &#38;&#35;81; |
-| R | uppercase R	| &#38;&#35;82; |
-| S | uppercase S	| &#38;&#35;83; |
-| T | uppercase T	| &#38;&#35;84; |
-| U | uppercase U	| &#38;&#35;85; |
-| V | uppercase V	| &#38;&#35;86; |
-| W | uppercase W	| &#38;&#35;87; |
-| X | uppercase X	| &#38;&#35;88; |
-| Y | uppercase Y	| &#38;&#35;89; |
-| Z | uppercase Z	| &#38;&#35;90; |
-| [ | left square bracket	| &#38;&#35;91; |
-| \ | backslash	| &#38;&#35;92; |
-| ] | right square bracket	| &#38;&#35;93; |
-| ^ | caret	| &#38;&#35;94; |
-| _ | underscore	| &#38;&#35;95; |
-| ` | grave accent	| &#38;&#35;96; |
-| a | lowercase a	| &#38;&#35;97; |
-| b | lowercase b	| &#38;&#35;98; |
-| c | lowercase c	| &#38;&#35;99; |
-| d | lowercase d	| &#38;&#35;100; |
-| e | lowercase e	| &#38;&#35;101; |
-| f | lowercase f	| &#38;&#35;102; |
-| g | lowercase g	| &#38;&#35;103; |
-| h | lowercase h	| &#38;&#35;104; |
-| i | lowercase i	| &#38;&#35;105; |
-| j | lowercase j	| &#38;&#35;106; |
-| k | lowercase k	| &#38;&#35;107; |
-| l | lowercase l	| &#38;&#35;108; |
-| m | lowercase m	| &#38;&#35;109; |
-| n | lowercase n	| &#38;&#35;110; |
-| o | lowercase o	| &#38;&#35;111; |
-| p | lowercase p	| &#38;&#35;112; |
-| q | lowercase q	| &#38;&#35;113; |
-| r | lowercase r	| &#38;&#35;114; |
-| s | lowercase s	| &#38;&#35;115; |
-| t | lowercase t	| &#38;&#35;116; |
-| u | lowercase u	| &#38;&#35;117; |
-| v | lowercase v	| &#38;&#35;118; |
-| w | lowercase w	| &#38;&#35;119; |
-| x | lowercase x	| &#38;&#35;120; |
-| y | lowercase y	| &#38;&#35;121; |
-| z | lowercase z	| &#38;&#35;122; |
-| { | left curly brace	| &#38;&#35;123; |
-| \\ | vertical bar	| &#38;&#35;124; |
-| } | right curly brace	| &#38;&#35;125; |
-| ~ | tilde	| &#38;&#35;126; |
+| &#32; | space	| &#38;&#35;32; |
+| &#33; | exclamation mark	| &#38;&#35;33; |
+| &#34; | quotation mark	| &#38;&#35;34; |
+| &#35; | number sign	| &#38;&#35;35; |
+| &#36; | dollar sign	| &#38;&#35;36; |
+| &#37; | percent sign	| &#38;&#35;37; |
+| &#38; | ampersand	| &#38;&#35;38; |
+| &#39; | apostrophe	| &#38;&#35;39; |
+| &#40; | left parenthesis	| &#38;&#35;40; |
+| &#41; | right parenthesis	| &#38;&#35;41; |
+| &#42; | asterisk	| &#38;&#35;42; |
+| &#43; | plus sign	| &#38;&#35;43; |
+| &#44; | comma	| &#38;&#35;44; |
+| &#45; | hyphen	| &#38;&#35;45; |
+| &#46; | period	| &#38;&#35;46; |
+| &#47; | slash	| &#38;&#35;47; |
+| &#48; | digit 0	| &#38;&#35;48; |
+| &#49; | digit 1	| &#38;&#35;49; |
+| &#50; | digit 2	| &#38;&#35;50; |
+| &#51; | digit 3	| &#38;&#35;51; |
+| &#52; | digit 4	| &#38;&#35;52; |
+| &#53; | digit 5	| &#38;&#35;53; |
+| &#54; | digit 6	| &#38;&#35;54; |
+| &#55; | digit 7	| &#38;&#35;55; |
+| &#56; | digit 8	| &#38;&#35;56; |
+| &#57; | digit 9	| &#38;&#35;57; |
+| &#58; | colon	| &#38;&#35;58; |
+| &#59; | semicolon	| &#38;&#35;59; |
+| &#60; | less-than	| &#38;&#35;60; |
+| &#61; | equals-to	| &#38;&#35;61; |
+| &#62; | greater-than	| &#38;&#35;62; |
+| &#63; | question mark	| &#38;&#35;63; |
+| &#64; | at sign	| &#38;&#35;64; |
+| &#65; | uppercase A	| &#38;&#35;65; |
+| &#66; | uppercase B	| &#38;&#35;66; |
+| &#67; | uppercase C	| &#38;&#35;67; |
+| &#68; | uppercase D	| &#38;&#35;68; |
+| &#69; | uppercase E	| &#38;&#35;69; |
+| &#70; | uppercase F	| &#38;&#35;70; |
+| &#71; | uppercase G	| &#38;&#35;71; |
+| &#72; | uppercase H	| &#38;&#35;72; |
+| &#73; | uppercase I	| &#38;&#35;73; |
+| &#74; | uppercase J	| &#38;&#35;74; |
+| &#75; | uppercase K	| &#38;&#35;75; |
+| &#76; | uppercase L	| &#38;&#35;76; |
+| &#77; | uppercase M	| &#38;&#35;77; |
+| &#78; | uppercase N	| &#38;&#35;78; |
+| &#79; | uppercase O	| &#38;&#35;79; |
+| &#80; | uppercase P	| &#38;&#35;80; |
+| &#81; | uppercase Q	| &#38;&#35;81; |
+| &#82; | uppercase R	| &#38;&#35;82; |
+| &#83; | uppercase S	| &#38;&#35;83; |
+| &#84; | uppercase T	| &#38;&#35;84; |
+| &#85; | uppercase U	| &#38;&#35;85; |
+| &#86; | uppercase V	| &#38;&#35;86; |
+| &#87; | uppercase W	| &#38;&#35;87; |
+| &#88; | uppercase X	| &#38;&#35;88; |
+| &#89; | uppercase Y	| &#38;&#35;89; |
+| &#90; | uppercase Z	| &#38;&#35;90; |
+| &#91; | left square bracket	| &#38;&#35;91; |
+| &#92; | backslash	| &#38;&#35;92; |
+| &#93; | right square bracket	| &#38;&#35;93; |
+| &#94; | caret	| &#38;&#35;94; |
+| &#95; | underscore	| &#38;&#35;95; |
+| &#96; | grave accent	| &#38;&#35;96; |
+| &#97; | lowercase a	| &#38;&#35;97; |
+| &#98; | lowercase b	| &#38;&#35;98; |
+| &#99; | lowercase c	| &#38;&#35;99; |
+| &#100; | lowercase d	| &#38;&#35;100; |
+| &#101; | lowercase e	| &#38;&#35;101; |
+| &#102; | lowercase f	| &#38;&#35;102; |
+| &#103; | lowercase g	| &#38;&#35;103; |
+| &#104; | lowercase h	| &#38;&#35;104; |
+| &#105; | lowercase i	| &#38;&#35;105; |
+| &#106; | lowercase j	| &#38;&#35;106; |
+| &#107; | lowercase k	| &#38;&#35;107; |
+| &#108; | lowercase l	| &#38;&#35;108; |
+| &#109; | lowercase m	| &#38;&#35;109; |
+| &#110; | lowercase n	| &#38;&#35;110; |
+| &#111; | lowercase o	| &#38;&#35;111; |
+| &#112; | lowercase p	| &#38;&#35;112; |
+| &#113; | lowercase q	| &#38;&#35;113; |
+| &#114; | lowercase r	| &#38;&#35;114; |
+| &#115; | lowercase s	| &#38;&#35;115; |
+| &#116; | lowercase t	| &#38;&#35;116; |
+| &#117; | lowercase u	| &#38;&#35;117; |
+| &#118; | lowercase v	| &#38;&#35;118; |
+| &#119; | lowercase w	| &#38;&#35;119; |
+| &#120; | lowercase x	| &#38;&#35;120; |
+| &#121; | lowercase y	| &#38;&#35;121; |
+| &#122; | lowercase z	| &#38;&#35;122; |
+| &#123; | left curly brace	| &#38;&#35;123; |
+| &#124; | vertical bar	| &#38;&#35;124; |
+| &#125; | right curly brace	| &#38;&#35;125; |
+| &#126; | tilde	| &#38;&#35;126; |

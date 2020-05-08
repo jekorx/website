@@ -17,7 +17,7 @@
  * 使用：
  * new drawCanvas({
  *   saveCallback: function (imgBase64, clearCallback) {
- *     document.getElementById('#signImage').src = imgBase64
+ *     document.getElementById('signImage').src = imgBase64
  *     // 清空canvas
  *     // clearCallback()
  *   }
@@ -31,6 +31,8 @@
  * <String> background：容器背景颜色颜色，默认：'rgba(255, 255, 255, 0)'
  * <Number> borderWidth：容器边框宽度，默认：1
  * <String> borderColor：容器边框颜色颜色，默认：'#333'
+ * <String> imageType：图片类型，默认：image/png，可选：image/jpeg（注意修改background），image/webp（Chrome支持），其他类型均为image/png
+ * <Number> imageQual：图片质量，当imageType为image/jpeg时生效，默认值：0.92，可选0~1之间，超出范围使用默认0.92
  * <Function> saveCallback(imgBase64, clearCallback)：保存回调(base64图片，清空画布回调)
  */
 function drawCanvas (args) {
@@ -44,6 +46,8 @@ function drawCanvas (args) {
   this.background = 'rgba(255, 255, 255, 0)'
   this.borderWidth = 1
   this.borderColor = '#333'
+  this.imageType = 'image/png'
+  this.imageQual = 0.92
   this.saveCallback = function (imgBase64, clearCallback) { }
   for (var k in args) {
     this[k] = args[k]
@@ -123,7 +127,12 @@ function drawCanvas (args) {
 
   // 保存图片
   document.getElementById(this.saveEl) && document.getElementById(this.saveEl).addEventListener('click', function () {
-    var imgBase64 = canvas.toDataURL()
+    var imgBase64
+    if (this.imageType === 'image/jpeg') {
+      imgBase64 = canvas.toDataURL('image/jpeg', this.imageQual)
+    } else {
+      imgBase64 = canvas.toDataURL()
+    }
     this.saveCallback(imgBase64, function () {
       cxt.clearRect(0, 0, canvas.width, canvas.height)
     })
@@ -143,6 +152,9 @@ function drawCanvas (args) {
     new drawCanvas({
       width: 300,
       height: 200,
+      imageType: 'image/jpeg',
+      imageQual: 0.01,
+      background: '#FFF',
       saveCallback: function (imgBase64, clearCallback) {
         document.getElementById('signImage').src = imgBase64
         // 清空canvas
@@ -156,50 +168,29 @@ function drawCanvas (args) {
 ##### 2、Vue.js版本
 
 > vue组件  
+> 直接使用[npm组件](https://www.npmjs.com/package/vue-canvas-sign)  
+> ```yarn add vue-canvas-sign``` or ```npm i vue-canvas-sign```  
+> 输出base64图片，如需转为file文件，[请参照base64转file](./js-utils.md#base64转file)  
 
-```html
+```javascript
 <template>
-  <canvas
-    ref="canvas"
-    :width="width > borderWidth * 2 ? width - borderWidth * 2 : width"
-    :height="height"
-    :style="borderStyle"
-    @touchstart="touchstart"
-    @mousedown="mousedown"
-    @touchmove="touchmove"
-    @mousemove="mousemove"
-    @touchend="touchend"
-    @mouseup="mouseup"
-  ></canvas>
+  <div>
+    <canvas
+      ref="canvas"
+      :width="width > borderWidth * 2 ? width - borderWidth * 2 : width"
+      :height="height"
+      :style="borderStyle"
+      @touchstart="touchstart"
+      @mousedown="mousedown"
+      @touchmove="touchmove"
+      @mousemove="mousemove"
+      @touchend="touchend"
+      @mouseup="mouseup"
+    ></canvas>
+    <slot :save="save" :clear="clear"></slot>
+  </div>
 </template>
 <script>
-/* <div>
-  <CanvasSign ref="canvasSign" :width="300" />
-  <div>
-    <button @click="save">save</button>
-  </div>
-  <img :src="imgSrc" alt="生成的图片" />
-</div> */
-
-/* import CanvasSign from '_c/canvas-sign'
-
-export default {
-  name: 'Sign',
-  components: { CanvasSign },
-  data () {
-    return {
-      imgSrc: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII='
-    }
-  },
-  methods: {
-    save () {
-      this.$refs.canvasSign.save(img => {
-        this.imgSrc = img
-      })
-      // this.$refs.canvasSign.clear()
-    }
-  }
-} */
 export default {
   name: 'CanvasSign',
   props: {
@@ -237,6 +228,22 @@ export default {
     borderColor: {
       type: String,
       default: '#333'
+    },
+    // 图片类型，默认：image/png，可选：image/jpeg（注意修改background），image/webp（Chrome支持），其他类型均为image/png
+    imageType: {
+      type: String,
+      default: 'image/png',
+      validator (value) {
+        return ['image/png', 'image/jpeg', 'image/webp'].indexOf(value) !== -1
+      }
+    },
+    // 图片质量，当imageType为image/jpeg时生效，默认值：0.92，可选0~1之间，超出范围使用默认0.92
+    imageQual: {
+      type: Number,
+      default: 0.92,
+      validator (value) {
+        return value <= 1 && value >= 0
+      }
     }
   },
   computed: {
@@ -262,7 +269,12 @@ export default {
   methods: {
     // 生成图片
     save (callback) {
-      const imgBase64 = this.canvas.toDataURL()
+      let imgBase64
+      if (this.imageType === 'image/jpeg') {
+        imgBase64 = this.canvas.toDataURL('image/jpeg', this.imageQual)
+      } else {
+        imgBase64 = this.canvas.toDataURL(this.imageType)
+      }
       callback(imgBase64)
     },
     // 清空画布
@@ -342,33 +354,65 @@ export default {
 
 > 使用  
 
-```html
+```javascript
 <template>
   <div>
-    <CanvasSign ref="canvasSign" :width="300" />
+    <!-- 使用方法一 -->
+    <CanvasSign ref="canvasSign" imageType="image/jpeg" :imageQual="0.01" background="#FFF" />
     <div>
       <button @click="save">save</button>
+      <button @click="clear">clear</button>
     </div>
+    <hr />
+    <!-- 使用方法二 -->
+    <CanvasSign>
+      <!-- vue@2.6.0 版本及以上，才能使用 v-slot -->
+      <!-- <template v-slot="{ save, clear }">
+        <button @click="() => save(saveCallback)">save</button>
+        <button @click="clear">clear</button>
+      </template> -->
+      <!-- vue@2.6.0 版本以下，使用 slot-scope -->
+      <template slot-scope="{ save, clear }">
+        <button @click="() => save(saveCallback)">save</button>
+        <button @click="clear">clear</button>
+      </template>
+    </CanvasSign>
+    <hr />
+    <!-- 生成图片展示 -->
     <img :src="imgSrc" alt="生成的图片" />
   </div>
 </template>
 <script>
 import CanvasSign from '_c/canvas-sign'
+import { dataURLtoFile } from '../utils'
 
 export default {
-  name: 'Sign',
   components: { CanvasSign },
   data () {
     return {
+      // 图片src，默认空白base64图片
       imgSrc: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII='
     }
   },
   methods: {
+    // slot中save方法回调
+    saveCallback (imgBase64) {
+      this.imgSrc = imgBase64
+      const formData = new FormData()
+      const file = dataURLtoFile(imgBase64, '123.png')
+      formData.append('file', file)
+      fetch('http://192.168.0.125:8008/capital-admin/sign/test', {
+        method: 'POST',
+        body: formData
+      })
+    },
+    // 不使用slot的save方法
     save () {
       this.$refs.canvasSign.save(img => {
         this.imgSrc = img
       })
     },
+    // 不使用slot的clear方法
     clear () {
       this.$refs.canvasSign.clear()
     }

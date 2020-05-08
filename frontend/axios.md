@@ -239,7 +239,7 @@ function fileChange (e) {
   withCredentials: false, // 默认的
 
   // `adapter` 允许自定义处理请求，以使测试更轻松
-  // 返回一个 promise 并应用一个有效的响应 (查阅 [response docs](#response-api)).
+  // 返回一个 promise 并应用一个有效的响应
   adapter: function (config) {
     /* ... */
   },
