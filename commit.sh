@@ -43,7 +43,7 @@ git commit -m "$comment"
 git push
 
 # 删除gh-pages分支
-git push origin --delete gh-pages
+#git push origin --delete gh-pages
 
 # 重新提交gh-pages分支
 git subtree push --prefix _book origin gh-pages
