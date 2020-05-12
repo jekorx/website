@@ -444,7 +444,7 @@ node_modules
 
 ###### 部分代码示例
 
-```tsx
+```jsx
 // test组件
 
 import React, { Component } from 'react'
