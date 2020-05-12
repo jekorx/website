@@ -2,6 +2,8 @@
 
 #### 创建项目
 
+> [TypeScript模版增加配置](#TypeScript模版增加配置)  
+
 ```bash
 # 默认创建项目
 yarn create react-app <项目名>
@@ -73,6 +75,7 @@ GENERATE_SOURCEMAP=false
 * [mobx-react](https://www.npmjs.com/package/mobx-react) mobx在react使用支持
 * [prop-types](https://www.npmjs.com/package/prop-types) 检查 react props
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom) 路由，会自动添加```react-router```依赖
+* [@types/react-router-dom](https://www.npmjs.com/package/@types/react-router-dom) 路由类型定义（TypeScript模版），会自动添加```@types/react-router```依赖
 
 #### react-app-rewired
 
@@ -301,6 +304,189 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
+```
+
+#### TypeScript模版增加配置
+
+* [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) eslint react组件
+* [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) typescript eslint解析器
+* [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) typescript eslint插件
+
+```bash
+# 安装依赖
+yarn add @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react -D
+```
+
+```json
+/* 当前依赖版本 */
+{
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "eslint-plugin-react": "^7.19.0"
+  }
+}
+```
+
+> 增加```.eslintignore```，添加以下内容  
+
+```
+config-overrides.js
+node_modules
+```
+
+> ```.eslintrc```修改为以下  
+> @typescript-eslint/explicit-function-return-type：强制函数返回类型有声明，关闭 
+> @typescript-eslint/no-non-null-assertion：非空断言，关闭  
+
+```json
+{
+  "extends": [
+    "standard",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "legacyDecorators": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react"
+  ],
+  "rules": {
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "object-curly-spacing": [
+      1,
+      "always"
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "off"
+    ],
+    "@typescript-eslint/no-non-null-assertion": [
+      "off"
+    ]
+  }
+}
+```
+
+> 增加别名（paths）、装饰器（experimentalDecorators）支持  
+> ```tsconfig.json```修改为以下  
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "include": [
+    "src"
+  ]
+}
+```
+
+###### 部分代码示例
+
+```tsx
+// test组件
+
+import React, { Component } from 'react'
+import { inject, observer } from 'mobx-react'
+
+interface Props {
+  // mobx给count赋值，引用组件不用给count传值
+  count?: {
+    num: number;
+    add: Function;
+  };
+}
+
+@inject('count')
+@observer
+// 如果包含state，则需定义interface State，Component<Props, State，Component>
+export default class Test extends Component<Props> {
+  render () {
+    // 使用非空断言（mobx一定会给count赋值）
+    const { num, add } = this.props.count!
+    return (
+      <div>
+        <p>num -- {num}</p>
+        <button onClick={() => add()}>add</button>
+      </div>
+    )
+  }
+}
+
+// ----------------------------------------------------------
+
+// App页面，只用test组件
+
+import React, { Component } from 'react'
+import Test from '@/test'
+
+interface StateType {
+  name: string;
+}
+
+export default class App extends Component<{}, StateType> {
+  // 如果Props为{}，可不定义interface，直接Component<{}, State>，此时constructor (props: {}) {}
+  constructor (props: {}) {
+    super(props)
+    // 定义state
+    this.state = {
+      name: 'name'
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        {/* test组件可不传值 */}
+        <Test />
+      </div>
+    )
+  }
+}
 ```
 
 #### 相关问题

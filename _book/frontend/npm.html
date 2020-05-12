@@ -5,7 +5,7 @@
 <script id="handle">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||(window.location.host!="blog.wdg.pub"))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("handle").remove()</script>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Vue Cli · jekorx's blog</title>
+        <title>Npm · jekorx's blog</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -70,10 +70,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="js-utils.html" />
+    <link rel="next" href="vw.html" />
     
     
-    <link rel="prev" href="cra.html" />
+    <link rel="prev" href="css.html" />
     
 
     </head>
@@ -213,7 +213,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="npm.html">
+        <li class="chapter active" data-level="1.3.3" data-path="npm.html">
             
                 <a href="npm.html">
             
@@ -265,7 +265,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="vue-cli.html">
+        <li class="chapter " data-level="1.3.7" data-path="vue-cli.html">
             
                 <a href="vue-cli.html">
             
@@ -1178,7 +1178,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Vue Cli</a>
+        <a href=".." >Npm</a>
     </h1>
 </div>
 
@@ -1193,99 +1193,77 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vue-cli">Vue Cli</h1>
+                                <h1 id="npm">Npm</h1>
+<h4 id="linux-npm-&#x5168;&#x5C40;&#x5B89;&#x88C5;&#x6743;&#x9650;&#x4E0D;&#x8DB3;&#x7684;&#x95EE;&#x9898;">linux npm &#x5168;&#x5C40;&#x5B89;&#x88C5;&#x6743;&#x9650;&#x4E0D;&#x8DB3;&#x7684;&#x95EE;&#x9898;</h4>
 <blockquote>
-<p>&#x6839;&#x636E;&#x63D0;&#x793A;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x540E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>vue ui</code>&#x547D;&#x4EE4;&#x4F7F;&#x7528;GUI&#x754C;&#x9762;&#x7BA1;&#x7406;&#x9879;&#x76EE;<br>&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x9879;&#x76EE;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;<br>&#x5982;&#x9700;&#x8FDB;&#x4E00;&#x6B65;&#x4E86;&#x89E3;&#x53EF;&#x53C2;&#x8003;<a href="https://cli.vuejs.org/zh/guide/" target="_blank">vue-cli&#x5B98;&#x65B9;&#x6587;&#x6863;</a>  </p>
+<p>&#x4E00;&#x822C;&#x975E;root&#x7528;&#x6237;&#x64CD;&#x4F5C;&#x4F1A;&#x51FA;&#x73B0;&#x8BE5;&#x95EE;&#x9898;  </p>
 </blockquote>
-<h4 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h4>
-<blockquote>
-<p>&#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6DFB;&#x52A0;<code>vue.config.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B; </p>
-</blockquote>
-<pre class="language-"><code class="lang-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;path&apos;</span><span class="token punctuation">)</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">resolve</span> <span class="token operator">=</span> <span class="token parameter">dir</span> <span class="token operator">=&gt;</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> dir<span class="token punctuation">)</span>
-
-<span class="token comment">// &#x9879;&#x76EE;&#x90E8;&#x7F72;&#x57FA;&#x7840;</span>
-<span class="token comment">// &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x5C06;&#x88AB;&#x90E8;&#x7F72;&#x5728;&#x57DF;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;,</span>
-<span class="token comment">// &#x4F8B;&#x5982;&#xFF1A;https://www.my-app.com/</span>
-<span class="token comment">// &#x9ED8;&#x8BA4;&#xFF1A;&apos;/&apos;</span>
-<span class="token comment">// &#x5982;&#x679C;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x90E8;&#x7F72;&#x5728;&#x5B50;&#x8DEF;&#x5F84;&#x4E2D;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5728;&#x8FD9;&#x6307;&#x5B9A;&#x5B50;&#x8DEF;&#x5F84;</span>
-<span class="token comment">// &#x4F8B;&#x5982;&#xFF1A;https://www.foobar.com/my-app/</span>
-<span class="token comment">// &#x9700;&#x8981;&#x5C06;&#x5B83;&#x6539;&#x4E3A;&apos;/my-app/&apos;</span>
-<span class="token keyword">const</span> <span class="token constant">BASE_URL</span> <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">&apos;production&apos;</span>
-  <span class="token operator">?</span> <span class="token string">&apos;/&apos;</span>
-  <span class="token operator">:</span> <span class="token string">&apos;/&apos;</span>
-
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token comment">// Project deployment base</span>
-  <span class="token comment">// By default we assume your app will be deployed at the root of a domain,</span>
-  <span class="token comment">// e.g. https://www.my-app.com/</span>
-  <span class="token comment">// If your app is deployed at a sub-path, you will need to specify that</span>
-  <span class="token comment">// sub-path here. For example, if your app is deployed at</span>
-  <span class="token comment">// https://www.foobar.com/my-app/</span>
-  <span class="token comment">// then change this to &apos;/my-app/&apos;</span>
-  publicPath<span class="token operator">:</span> <span class="token constant">BASE_URL</span><span class="token punctuation">,</span>
-  <span class="token comment">// tweak internal webpack configuration.</span>
-  <span class="token comment">// see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md</span>
-  <span class="token comment">// &#x5982;&#x679C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;eslint&#xFF0C;&#x628A;lintOnSave&#x8BBE;&#x4E3A;false&#x5373;&#x53EF;</span>
-  lintOnSave<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  <span class="token comment">// &#x4FEE;&#x6539;webpack&#x914D;&#x7F6E;</span>
-  <span class="token function-variable function">chainWebpack</span><span class="token operator">:</span> <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment">// &#x79FB;&#x9664; prefetch &#x63D2;&#x4EF6;</span>
-    config<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">&apos;prefetch&apos;</span><span class="token punctuation">)</span>
-    <span class="token comment">// &#x522B;&#x540D;</span>
-    config<span class="token punctuation">.</span>resolve<span class="token punctuation">.</span>alias
-      <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">&apos;@&apos;</span><span class="token punctuation">,</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;src&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// key, value&#x81EA;&#x884C;&#x5B9A;&#x4E49;&#xFF0C;&#x6BD4;&#x5982;.set(&apos;@@&apos;, resolve(&apos;src/components&apos;))</span>
-      <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">&apos;_c&apos;</span><span class="token punctuation">,</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;src/components&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token comment">// &#x8BBE;&#x4E3A;false&#x6253;&#x5305;&#x65F6;&#x4E0D;&#x751F;&#x6210;.map&#x6587;&#x4EF6;</span>
-  productionSourceMap<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  <span class="token comment">// &#x8FD9;&#x91CC;&#x5199;&#x4F60;&#x8C03;&#x7528;&#x63A5;&#x53E3;&#x7684;&#x57FA;&#x7840;&#x8DEF;&#x5F84;&#xFF0C;&#x6765;&#x89E3;&#x51B3;&#x8DE8;&#x57DF;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x4EE3;&#x7406;&#xFF0C;&#x90A3;&#x4F60;&#x672C;&#x5730;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;axios&#x7684;baseUrl&#x8981;&#x5199;&#x4E3A; &apos;&apos; &#xFF0C;&#x5373;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;</span>
-  devServer<span class="token operator">:</span> <span class="token punctuation">{</span>
-    open<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-    <span class="token comment">// &#x7AEF;&#x53E3;</span>
-    port<span class="token operator">:</span> <span class="token number">8009</span><span class="token punctuation">,</span>
-    <span class="token comment">// &#x8DE8;&#x57DF;</span>
-    proxy<span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token string">&apos;/api/&apos;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        target<span class="token operator">:</span> <span class="token string">&apos;http://127.0.0.1:8008/&apos;</span><span class="token punctuation">,</span>
-        changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x76F8;&#x5173;&#x62A5;&#x9519;&#x4FE1;&#x606F;</span>
+error code EACCES
+error syscall access
+error path /usr/local/lib/nodejs/node-v12.16.2-linux-x64/lib/node_modules
+error errno -13
+error Error: EACCES: permission denied, access <span class="token string">&apos;/usr/local/lib/nodejs/node-v12.16.2-linux-x64/lib/node_modules&apos;</span>
+error  <span class="token punctuation">[</span>Error: EACCES: permission denied, access <span class="token string">&apos;/usr/local/lib/nodejs/node-v12.16.2-linux-x64/lib/node_modules&apos;</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+error   stack: <span class="token string">&quot;Error: EACCES: permission denied, access &apos;/usr/local/lib/nodejs/node-v12.16.2-linux-x64/lib/node_modules&apos;&quot;</span>,
+error   errno: -13,
+error   code: <span class="token string">&apos;EACCES&apos;</span>,
+error   syscall: <span class="token string">&apos;access&apos;</span>,
+error   path: <span class="token string">&apos;/usr/local/lib/nodejs/node-v12.16.2-linux-x64/lib/node_modules&apos;</span>
+error <span class="token punctuation">}</span>
+error The operation was rejected by your operating system.
+error It is likely you <span class="token keyword">do</span> not have the permissions to access this <span class="token function">file</span> as the current user
+error
+error If you believe this might be a permissions issue, please double-check the
+error permissions of the <span class="token function">file</span> and its containing directories, or try running
+error the <span class="token builtin class-name">command</span> again as root/Administrator.
 </code></pre>
-<h4 id="eslint">Eslint</h4>
 <blockquote>
-<p>&#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x4FEE;&#x6539;<code>.eslintrc.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;  </p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;  </p>
 </blockquote>
-<pre class="language-"><code class="lang-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-  root<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  parserOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
-    parser<span class="token operator">:</span> <span class="token string">&apos;babel-eslint&apos;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  env<span class="token operator">:</span> <span class="token punctuation">{</span>
-    node<span class="token operator">:</span> <span class="token boolean">true</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">&apos;plugin:vue/essential&apos;</span><span class="token punctuation">,</span>
-    <span class="token string">&apos;@vue/standard&apos;</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  parserOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
-    parser<span class="token operator">:</span> <span class="token string">&apos;babel-eslint&apos;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  rules<span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token string">&apos;no-console&apos;</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">&apos;production&apos;</span> <span class="token operator">?</span> <span class="token string">&apos;warn&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;off&apos;</span><span class="token punctuation">,</span>
-    <span class="token string">&apos;no-debugger&apos;</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">&apos;production&apos;</span> <span class="token operator">?</span> <span class="token string">&apos;warn&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;off&apos;</span><span class="token punctuation">,</span>
-    <span class="token comment">// &#x5141;&#x8BB8;obj[&apos;key&apos;]&#x7684;&#x4F7F;&#x7528;</span>
-    <span class="token string">&apos;dot-notation&apos;</span><span class="token operator">:</span> <span class="token string">&apos;off&apos;</span><span class="token punctuation">,</span>
-    <span class="token comment">// &#x5141;&#x8BB8;object key&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E8B;&#x4F7F;&#x7528;&#x5F15;&#x53F7;</span>
-    <span class="token string">&apos;quote-props&apos;</span><span class="token operator">:</span> <span class="token string">&apos;off&apos;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x4E3A;&#x5168;&#x5C40;&#x5B89;&#x88C5;&#x521B;&#x5EFA;&#x76EE;&#x5F55;&#xFF1A;</span>
+<span class="token function">mkdir</span> ~/.npm-global
+
+<span class="token comment"># 2&#x3001;&#x914D;&#x7F6E;npm&#x4EE5;&#x4F7F;&#x7528;&#x65B0;&#x7684;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#xFF1A;</span>
+<span class="token function">npm</span> config <span class="token builtin class-name">set</span> prefix <span class="token string">&apos;~/.npm-global&apos;</span>
+
+<span class="token comment"># 3&#x3001;&#x6253;&#x5F00;&#x6216;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; ~/.bash_profile &#x6587;&#x4EF6;&#x5E76;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x884C;&#xFF1A;</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:~/.npm-global/bin
+
+<span class="token comment"># 4&#x3001;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0A;&#xFF0C;&#x66F4;&#x65B0;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF;&#xFF1A;</span>
+<span class="token builtin class-name">source</span> ~/.bash_profile
+
+<span class="token comment"># 5&#x3001;&#x8981;&#x6D4B;&#x8BD5;&#x65B0;&#x914D;&#x7F6E;&#xFF0C;&#x8BF7;&#x5728;&#x4E0D;&#x4F7F;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5168;&#x5C40;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;sudo&#xFF1A;</span>
+<span class="token function">npm</span> <span class="token function">install</span> -g <span class="token function">yarn</span>
+
+
+<span class="token comment"># &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x76F8;&#x5E94;&#x7684;ENV&#x53D8;&#x91CF;&#x4EE3;&#x66FF;&#x6B65;&#x9AA4;1-3&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x4E0D;&#x60F3;&#x4FEE;&#x6539;~/.bash_profile</span>
+<span class="token assign-left variable">NPM_CONFIG_PREFIX</span><span class="token operator">=</span>~/.npm-global
+
+<span class="token comment"># npm 5.2&#x6216;&#x66F4;&#x9AD8;&#x7248;&#x672C;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x8981;&#x8003;&#x8651;&#x5C06;npx&#x4F5C;&#x4E3A;&#x8FD0;&#x884C;&#x5168;&#x5C40;&#x547D;&#x4EE4;&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;</span>
+npx
+</code></pre>
+<h4 id="node-sass&#x5B89;&#x88C5;&#x5931;&#x8D25;">node-sass&#x5B89;&#x88C5;&#x5931;&#x8D25;</h4>
+<blockquote>
+<p>win10&#x73AF;&#x5883;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-bash">Error: Can&apos;t <span class="token function">find</span> Python executable <span class="token string">&quot;python&quot;</span>, you can <span class="token builtin class-name">set</span> the PYTHON <span class="token function">env</span> variable.
+</code></pre>
+<blockquote>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># node-gyp</span>
+<span class="token function">npm</span> <span class="token function">install</span> -g node-gyp
+
+<span class="token comment"># &#x7528;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x884C;&#x6267;&#x884C;</span>
+<span class="token function">npm</span> <span class="token function">install</span> --global --production windows-build-tools
+<span class="token comment"># &#x8BE5;&#x547D;&#x4EE4;&#x4F1A;&#x5B89;&#x88C5;</span>
+<span class="token comment"># 1&#x3001;python(v2.7&#xFF0C;3.x&#x4E0D;&#x652F;&#x6301;)</span>
+<span class="token comment"># 2&#x3001;visual C++ Build Tools&#xFF0C;&#x6216;&#x8005; &#xFF08;vs2015&#x4EE5;&#x4E0A;&#xFF08;&#x5305;&#x542B;15&#xFF09;&#xFF09;</span>
+<span class="token comment"># 3&#x3001;.net framework 4.5.1</span>
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-05-08 15:27:39
+2020-05-11 14:31:53
 </span></footer>
                                 
                                 </section>
@@ -1313,12 +1291,12 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 
             
                 
-                <a href="cra.html" class="navigation navigation-prev " aria-label="Previous page: Create React App">
+                <a href="css.html" class="navigation navigation-prev " aria-label="Previous page: Css">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="js-utils.html" class="navigation navigation-next " aria-label="Next page: Js Utils">
+                <a href="vw.html" class="navigation navigation-next " aria-label="Next page: 移动端vw适配方案">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1329,7 +1307,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Vue Cli","level":"1.3.7","depth":2,"next":{"title":"Js Utils","level":"1.3.8","depth":2,"path":"frontend/js-utils.md","ref":"frontend/js-utils.md","articles":[]},"previous":{"title":"Create React App","level":"1.3.6","depth":2,"path":"frontend/cra.md","ref":"frontend/cra.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/vue-cli.md","mtime":"2020-05-08T07:27:39.694Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T00:51:45.278Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Npm","level":"1.3.3","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.4","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Css","level":"1.3.2","depth":2,"path":"frontend/css.md","ref":"frontend/css.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/npm.md","mtime":"2020-05-11T06:31:53.910Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T00:51:45.278Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
