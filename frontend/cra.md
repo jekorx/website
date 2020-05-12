@@ -445,7 +445,7 @@ node_modules
 ###### 部分代码示例
 
 ```jsx
-// test组件
+// test.tsx，test组件
 
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
@@ -476,7 +476,7 @@ export default class Test extends Component<Props> {
 
 // ----------------------------------------------------------
 
-// App页面，只用test组件
+// App.tsx，App页面，使用test组件
 
 import React, { Component } from 'react'
 import Test from '@/test'
