@@ -2,7 +2,7 @@
 
 #### 创建项目
 
-> [TypeScript模版增加配置](#TypeScript模版增加配置)  
+> [TypeScript模版增加配置](#typescript模版增加配置)请查看  
 
 ```bash
 # 默认创建项目
@@ -73,7 +73,7 @@ GENERATE_SOURCEMAP=false
 * [qs](https://www.npmjs.com/package/qs) 查询字符串解析和字符串化库
 * [mobx](https://www.npmjs.com/package/mobx) 状态管理
 * [mobx-react](https://www.npmjs.com/package/mobx-react) mobx在react使用支持
-* [prop-types](https://www.npmjs.com/package/prop-types) 检查 react props
+* [prop-types](https://www.npmjs.com/package/prop-types) 检查 react props，TypeScript模版不需要
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom) 路由，会自动添加```react-router```依赖
 * [@types/react-router-dom](https://www.npmjs.com/package/@types/react-router-dom) 路由类型定义（TypeScript模版），会自动添加```@types/react-router```依赖
 
@@ -309,12 +309,15 @@ ReactDOM.render(
 #### TypeScript模版增加配置
 
 * [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) eslint react组件
+* [eslint](https://www.npmjs.com/package/eslint) 此处eslint有版本要求
 * [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) typescript eslint解析器
 * [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) typescript eslint插件
 
 ```bash
 # 安装依赖
 yarn add @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react -D
+# 此处eslint版本要求^6.6.0，版本不符会提示安装eslint@^6.6.0，后续版本可根据相关提示安装对应版本的eslint
+yarn add eslint@^6.6.0 -D
 ```
 
 ```json
@@ -389,16 +392,30 @@ node_modules
 }
 ```
 
-> 增加别名（paths）、装饰器（experimentalDecorators）支持  
-> ```tsconfig.json```修改为以下  
+> 根目录创建```paths.json```增加别名（paths）  
 
 ```json
 {
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
-    },
+      "@/*": [
+        "src/*"
+      ]
+    }
+  }
+}
+```
+
+> 继承```paths.json```，识别定义别名  
+> ```paths```直接写在```tsconfig.json```，项目启动会被重置  
+> 装饰器（experimentalDecorators）支持  
+> ```tsconfig.json```修改为以下  
+
+```json
+{
+  "extends": "./paths.json",
+  "compilerOptions": {
     "target": "es5",
     "lib": [
       "dom",

@@ -9,6 +9,45 @@ git config --global user.name "nameVal"
 git config --global user.email "eamil@qq.com"
 ```
 
+#### 常用操作
+
+> **注意：git对文件名称大小写不敏感**  
+
+```bash
+################### 提交 ####################
+# 查看状态
+git status
+
+# 提交文件变化到暂存区
+# 提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
+git add -u
+# 提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
+git add .
+# 提交所有变化
+git add -A
+
+# 提交文件至本地仓库区
+git commit –m '<本次提交描述>'
+# 以下两条命令相同，合并操作，提交文件变化，提交本地仓库区，等价于 git add . 之后 git commit –m '<本次提交描述>'
+git commit –am '<本次提交描述>'
+git commit –a –m '<本次提交描述>'
+
+# 将本地版本库的分支推送到远程服务器
+# git push <远程服务器> <分支>
+git push origin master
+# 当只关联一个远程，只有一个分支时，可以使用
+git push
+
+################### 更新 ####################
+# 从远程主机的master分支拉取最新内容 
+git fetch origin master
+# 将拉取下来的最新内容合并到当前所在的分支中
+git merge FETCH_HEAD
+
+# git pull <远程主机名> <远程分支名>:<本地分支名>，等价于上面两步操作
+git pull
+```
+
 #### 提交gh-pages分支以供展示
 
 ```bash

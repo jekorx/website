@@ -3,8 +3,6 @@
 # 当发生错误时中止脚本
 set -e
 
-rm -rf _book
-
 # 构建
 gitbook build
 
@@ -32,12 +30,10 @@ read_dir(){
 }
 read_dir _book
 
-git add .
-
 # 注释
 read -p "comment: " comment
 
-git commit -m "$comment"
+git commit -am "$comment"
 
 # 提交代码
 git push

@@ -51,7 +51,7 @@ NPM_CONFIG_PREFIX=~/.npm-global
 npx
 ```
 
-#### node-sass安装失败
+#### node-sass安装失败的问题
 
 > win10环境  
 
