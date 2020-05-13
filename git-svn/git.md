@@ -55,7 +55,7 @@ git pull
 git subtree push --prefix _book origin gh-pages
 ```
 
-#### 切换分支
+#### 分支
 
 ```bash
 # 显示所有参数使用方法
@@ -71,11 +71,21 @@ git branch -va
 #   remotes/origin/master   20575cc shouye
 #   remotes/origin/test     20575cc shouye
 
+# 创建分支
+git branch <分支名>
+# 提交分支到远程服务器
+git push origin <分支名>
+
+# 删除本地分支
+git branch -d <分支名>
+# 删除远程服务器分支
+git push origin -d <分支名>
+
 # 切换分支
-git checkout gh-pages
+git checkout <分支名>
 
 # 创建并切换分支
-git checkout -b dev
+git checkout -b <分支名>
 ```
 
 #### git log 状态下如何退出

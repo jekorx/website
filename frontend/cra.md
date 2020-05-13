@@ -339,7 +339,7 @@ node_modules
 ```
 
 > ```.eslintrc```修改为以下  
-> @typescript-eslint/explicit-function-return-type：强制函数返回类型有声明，关闭 
+> @typescript-eslint/explicit-function-return-type：强制函数返回类型有声明，关闭  
 > @typescript-eslint/no-non-null-assertion：非空断言，关闭  
 
 ```json

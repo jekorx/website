@@ -1241,7 +1241,7 @@
 <pre class="language-"><code class="lang-bash"><span class="token comment"># _book&#x4E3A;&#x6253;&#x5305;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</span>
 <span class="token function">git</span> subtree push --prefix _book origin gh-pages
 </code></pre>
-<h4 id="&#x5207;&#x6362;&#x5206;&#x652F;">&#x5207;&#x6362;&#x5206;&#x652F;</h4>
+<h4 id="&#x5206;&#x652F;">&#x5206;&#x652F;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x663E;&#x793A;&#x6240;&#x6709;&#x53C2;&#x6570;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</span>
 <span class="token function">git</span> branch -h
 
@@ -1255,11 +1255,21 @@
 <span class="token comment">#   remotes/origin/master   20575cc shouye</span>
 <span class="token comment">#   remotes/origin/test     20575cc shouye</span>
 
+<span class="token comment"># &#x521B;&#x5EFA;&#x5206;&#x652F;</span>
+<span class="token function">git</span> branch <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
+<span class="token comment"># &#x63D0;&#x4EA4;&#x5206;&#x652F;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;</span>
+<span class="token function">git</span> push origin <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x5220;&#x9664;&#x672C;&#x5730;&#x5206;&#x652F;</span>
+<span class="token function">git</span> branch -d <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
+<span class="token comment"># &#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x5206;&#x652F;</span>
+<span class="token function">git</span> push origin -d <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
+
 <span class="token comment"># &#x5207;&#x6362;&#x5206;&#x652F;</span>
-<span class="token function">git</span> checkout gh-pages
+<span class="token function">git</span> checkout <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
 
 <span class="token comment"># &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5206;&#x652F;</span>
-<span class="token function">git</span> checkout -b dev
+<span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
 </code></pre>
 <h4 id="git-log-&#x72B6;&#x6001;&#x4E0B;&#x5982;&#x4F55;&#x9000;&#x51FA;">git log &#x72B6;&#x6001;&#x4E0B;&#x5982;&#x4F55;&#x9000;&#x51FA;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x65B9;&#x6CD5; 1</span>
@@ -1302,7 +1312,7 @@ ctrl + c
 <span class="token function">git</span> log --author<span class="token operator">=</span><span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> config --get user.name<span class="token variable">)</span></span>&quot;</span> --pretty<span class="token operator">=</span>tformat: --numstat <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">&apos;{ add += <span class="token variable">$1</span>; subs += <span class="token variable">$2</span>; loc += <span class="token variable">$1</span> - <span class="token variable">$2</span> } END { printf &quot;added lines: %s, removed lines: %s, total lines: %s<span class="token entity" title="\n">\n</span>&quot;, add, subs, loc }&apos;</span> -
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-05-12 10:02:58
+2020-05-13 15:13:42
 </span></footer>
                                 
                                 </section>
@@ -1346,7 +1356,7 @@ ctrl + c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.9.1","depth":2,"next":{"title":"GitLab","level":"1.9.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.9","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.9.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.9.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.9.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2020-05-12T02:02:58.052Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T02:30:01.802Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.9.1","depth":2,"next":{"title":"GitLab","level":"1.9.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.9","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.9.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.9.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.9.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2020-05-13T07:13:42.406Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T07:20:53.747Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
