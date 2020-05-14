@@ -4,7 +4,6 @@
 
 > * [Axios](../frontend/axios.md)
 > * [Css](../frontend/css.md)
-> * [Npm](../frontend/npm.md)
 > * [移动端vw适配方案](../frontend/vw.md)
 > * [Vue.js](../frontend/vuejs.md)
 > * [Create React App](../frontend/cra.md)
