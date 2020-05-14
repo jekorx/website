@@ -33,7 +33,9 @@ read_dir _book
 # 注释
 read -p "comment: " comment
 
-git commit -am "$comment"
+git add -A
+
+git commit -m "$comment"
 
 # 提交代码
 git push
