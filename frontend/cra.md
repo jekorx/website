@@ -96,7 +96,6 @@ GENERATE_SOURCEMAP=false
 * [node-sass](https://www.npmjs.com/package/node-sass) scss支持，自带scss配置，默认支持scss module
 * [react-hot-loader](https://www.npmjs.com/package/react-hot-loader) 热加载
 * [@hot-loader/react-dom](https://www.npmjs.com/package/@hot-loader/react-dom) hot loader支持hooks，安装时需与react版本一致
-* [react-app-rewire-hot-loader](https://www.npmjs.com/package/react-app-rewire-hot-loader) 使用react-app-rewired配置热加载
 
 ```bash
 # 安装依赖
@@ -106,7 +105,7 @@ yarn add eslint eslint-config-standard eslint-plugin-import eslint-plugin-node e
 # scss
 yarn add node-sass -D
 # 热加载依赖
-yarn add react-app-rewire-hot-loader react-hot-loader @hot-loader/react-dom -D
+yarn add react-hot-loader @hot-loader/react-dom -D
 ```
 
 ```json
@@ -122,7 +121,6 @@ yarn add react-app-rewire-hot-loader react-hot-loader @hot-loader/react-dom -D
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "node-sass": "^4.13.1",
-    "react-app-rewire-hot-loader": "^2.0.1",
     "react-app-rewired": "^2.1.5",
     "react-hot-loader": "^4.12.20"
   }
@@ -308,8 +306,8 @@ ReactDOM.render(
 
 #### TypeScript模版增加配置
 
-* [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) eslint react组件
 * [eslint](https://www.npmjs.com/package/eslint) 此处eslint有版本要求
+* [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) eslint react组件
 * [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) typescript eslint解析器
 * [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) typescript eslint插件
 
@@ -326,6 +324,7 @@ yarn add eslint@^6.6.0 -D
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
+    "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.19.0"
   }
 }
@@ -410,35 +409,23 @@ node_modules
 > 继承```paths.json```，识别定义别名  
 > ```paths```直接写在```tsconfig.json```，项目启动会被重置  
 > 装饰器（experimentalDecorators）支持  
-> ```tsconfig.json```修改为以下  
+> ```tsconfig.json```添加以下属性  
 
 ```json
 {
   "extends": "./paths.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+
+    ···
+
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
-  },
-  "include": [
-    "src"
-  ]
+
+    ···
+
+  }
+
+  ···
+
 }
 ```
 

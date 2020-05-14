@@ -5,69 +5,9 @@
 > 开发工具中需添加ESLint扩展，如：VSCode中ESLint插件。  
 > 个人更倾向于使用standard规范，以standard规范为例。  
 
-#### 在Reactjs脚手架create-react-app@2.1.8中使用ESLint
+#### create-react-app中使用ESLint
 
-```javascript
-// 1、安装依赖
-yarn add eslint@5.12.0 eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard -D
-
-// 2、eslint相关配置，项目根目录中添加.eslintrc文件
-{
-  "extends": [
-    "standard",
-    "plugin:react/recommended"
-  ],
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "node": true,
-    "es6": true
-  },
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 7,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "legacyDecorators": true
-    }
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
-    "object-curly-spacing": [
-      1,
-      "always"
-    ]
-  }
-}
-
-// 3、config-overrides.js（react-app-rewired customize-cra）中配置使用自定义eslint规则文件
-const {
-  useEslintRc
-} = require('customize-cra')
-module.exports = function (config, env) {
-  // 使用自定义.eslintrc
-  useEslintRc('./.eslintrc')(config)
-  // 返回config
-  return config
-}
-
-// 4、eslint校验忽略，项目根目录中添加.eslintignore文件
-/build/
-/public/
-/*.js
-```
+> create-react-app中使用ESLint，[请参照](./cra.md)  
 
 #### 在Vuejs脚手架vue-cli@2.9.x中使用ESLint
 
