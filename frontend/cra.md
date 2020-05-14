@@ -415,17 +415,11 @@ node_modules
 {
   "extends": "./paths.json",
   "compilerOptions": {
-
     ···
-
     "experimentalDecorators": true,
-
     ···
-
   }
-
   ···
-
 }
 ```
 
