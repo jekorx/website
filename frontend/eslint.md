@@ -9,7 +9,7 @@
 
 > create-react-app中使用ESLint，[请参照](./cra.md)  
 
-#### 在Vuejs脚手架vue-cli@2.9.x中使用ESLint
+#### 在Vuejs脚手架vue-cli@2.x.x 3.x.x 4.x.x中使用ESLint
 
 ```javascript
 /**
@@ -21,7 +21,7 @@
 // 2、Pick an ESLint preset，选择上下箭头选择Standard (https://github.com/standard/standard)
 ```
 
-#### 在Nuxtjs脚手架create-nuxt-app@2.4.0中使用ESLint
+#### 在Nuxtjs脚手架create-nuxt-app@2.x.x中使用ESLint
 
 ```javascript
 // 1、构建项目时，Choose features to install，上下箭头+空格勾选Linter / Formatter这一项
@@ -29,30 +29,20 @@
 // 2、去除不必要的依赖
 yarn remove @nuxtjs/eslint-config -D
 
-// 3、修改.eslintrc.js
+// 3、安装依赖
+yarn add eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard -D
+
+// 4、修改.eslintrc.js，添加、注释以下内容
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
+  ···
   extends: [
-    // '@nuxtjs'
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential',
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+    // '@nuxtjs',
+    ···
     'standard'
   ],
-  // required to lint *.vue files
-  plugins: [
-    'vue'
-  ],
-  // add your custom rules here
+  ···
   rules: {
+    ···
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
