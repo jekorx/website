@@ -1194,14 +1194,14 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="css&#x6837;&#x5F0F;">Css&#x6837;&#x5F0F;</h1>
-<blockquote>
-<p>1&#x3001;&#x6587;&#x672C;&#x57DF;&#x5185;&#x5BB9;&#x89E3;&#x6790;&#x6362;&#x884C;&#xFF0C;&#x89E3;&#x6790;&#x6362;&#x884C;&#x7B26;</p>
-</blockquote>
+<ul>
+<li>1&#x3001;&#x6587;&#x672C;&#x57DF;&#x5185;&#x5BB9;&#x89E3;&#x6790;&#x6362;&#x884C;&#xFF0C;&#x89E3;&#x6790;&#x6362;&#x884C;&#x7B26;</li>
+</ul>
 <pre class="language-"><code class="lang-css"><span class="token property">white-space</span><span class="token punctuation">:</span> pre-wrap<span class="token punctuation">;</span>
 </code></pre>
-<blockquote>
-<p>2&#x3001;&#x7F51;&#x7AD9;&#x5168;&#x5C40;&#x9ED1;&#x767D;&#x8272;  </p>
-</blockquote>
+<ul>
+<li>2&#x3001;&#x7F51;&#x7AD9;&#x5168;&#x5C40;&#x9ED1;&#x767D;&#x8272;</li>
+</ul>
 <pre class="language-"><code class="lang-css"><span class="token comment">/* &#x987B;&#x5728;html&#x4E0A;&#x8BBE;&#x7F6E; */</span>
 <span class="token selector">html</span> <span class="token punctuation">{</span>
   <span class="token property">-webkit-filter</span><span class="token punctuation">:</span> <span class="token function">grayscale</span><span class="token punctuation">(</span>100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1212,8 +1212,108 @@
   <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token property">progid</span><span class="token punctuation">:</span>DXImageTransform.Microsoft.<span class="token function">BasicImage</span><span class="token punctuation">(</span>grayscale=1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<ul>
+<li>3&#x3001;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;</li>
+</ul>
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">&gt;</span></span>&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class="language-"><code class="lang-css"><span class="token comment">/* &#x9ED8;&#x8BA4;&#x521D;&#x59CB;&#x5316;&#x6837;&#x5F0F; */</span>
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.center</span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 20%<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #666<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 1&#x3001;line-height&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D; */</span>
+<span class="token comment">/* 
+&#x7236;&#x8282;&#x70B9;&#x56FA;&#x5B9A;px&#x9AD8;&#x5EA6;
+*/</span>
+<span class="token selector">.center</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 2&#x3001;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D; */</span>
+<span class="token comment">/* 
+&#x5B50;&#x8282;&#x70B9;&#x56FA;&#x5B9A;px&#x9AD8;&#x5EA6;
+*/</span>
+<span class="token selector">.center</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.center span</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 21px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 3&#x3001;&#x4F2A;&#x7C7B;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D; */</span>
+<span class="token comment">/* 
+&#x5BB9;&#x5668;before&#x4F2A;&#x7C7B;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x884C;&#x5185;&#x8282;&#x70B9;&#xFF0C;&#x9AD8;100%&#xFF0C;&#x5BBD;1px&#xFF0C;margin-right: -1px&#xFF0C;&#x6D88;&#x9664;1px&#x7684;&#x5360;&#x7528;
+&#x5BB9;&#x5668;&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;&#x90FD;&#x9700;&#x8981;&#x8BBE;&#x7F6E;vertical-align: middle
+&#x5BB9;&#x5668;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x4E0D;&#x4E3A;0&#xFF0C;&#x4EE3;&#x7801;&#x7684;&#x6362;&#x884C;&#x7B26;&#x4F1A;&#x5360;&#x7528;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x6B64;&#x5904;&#x5E94;&#x5C06;&#x5BB9;&#x5668;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x8BBE;&#x4E3A;0&#xFF0C;&#x5185;&#x5BB9;&#x8282;&#x70B9;&#x4E2D;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x5B57;&#x4F53;&#x5927;&#x5C0F;
+*/</span>
+<span class="token selector">.center</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.center::before</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> -1px<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.center span</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 4&#x3001;flex&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#xFF0C;&#x1F525;&#x63A8;&#x8350;&#x4F7F;&#x7528; */</span>
+<span class="token comment">/* &#x8BBE;&#x4E3A; Flex &#x5E03;&#x5C40;&#x4EE5;&#x540E;&#xFF0C;&#x5B50;&#x5143;&#x7D20;&#x7684;float&#x3001;clear&#x548C;vertical-align&#x5C5E;&#x6027;&#x5C06;&#x5931;&#x6548; */</span>
+<span class="token selector">.center</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 5&#x3001;grid&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D; */</span>
+<span class="token comment">/* &#x6CE8;&#x610F;&#x517C;&#x5BB9;&#x6027;&#x8981;&#x6C42;&#x6D4F;&#x89C8;&#x5668;&#x7248;&#x672C;&#x8F83;&#x9AD8; */</span>
+<span class="token selector">.center</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 6&#x3001;table-cell&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D; */</span>
+<span class="token comment">/* 
+&#x7236;&#x5BB9;&#x5668;&#x5BBD;&#x5EA6;&#x9ED8;&#x8BA4;&#x5185;&#x5BB9;&#x5BBD;&#x5EA6;
+&#x5F53;display: table&#x65F6;&#xFF0C;padding&#x5931;&#x6548;
+&#x5F53;display: table-row&#x65F6;&#xFF0C;margin&#x3001;padding&#x5931;&#x6548;
+&#x5F53;display: table-cell&#x65F6;&#xFF0C;margin&#x5931;&#x6548;
+*/</span>
+<span class="token selector">.center</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.center span</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table-cell<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-05-14 15:29:41
+2020-05-22 14:14:28
 </span></footer>
                                 
                                 </section>
@@ -1257,7 +1357,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.2","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.3","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Axios","level":"1.3.1","depth":2,"path":"frontend/axios.md","ref":"frontend/axios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2020-05-14T07:29:41.455Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-21T01:35:15.447Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.2","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.3","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Axios","level":"1.3.1","depth":2,"path":"frontend/axios.md","ref":"frontend/axios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2020-05-22T06:14:28.321Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-22T06:57:33.465Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
