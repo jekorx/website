@@ -122,3 +122,28 @@ body {
   text-align: center;
 }
 ```
+
+* 4、文本超出省略号
+
+```css
+/**
+ * 单行文本
+ * 注意：固定宽度
+ */
+ .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/**
+ * 多行文本
+ * 注意：固定宽度，容器padding属性会导致文本无法隐藏
+ */
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+```

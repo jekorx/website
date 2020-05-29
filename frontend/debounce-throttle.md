@@ -16,7 +16,7 @@
  */
 // ES6常用实现
 const debounce = (fn, delay = 1000) => {
-  let timer = undefined
+  let timer = null
   return () => {
     timer && clearTimeout(timer)
     timer = setTimeout(() => {
@@ -53,7 +53,7 @@ window.onscroll = debounce(() => {
 const throttle = (fn, delay = 100) => {
   let last = 0
   return () => {
-    let now = Date.now()
+    const now = Date.now()
     if (now - last >= delay) {
       fn && fn()
       last = now
@@ -63,9 +63,9 @@ const throttle = (fn, delay = 100) => {
 // 触发结束后时间间隔
 const throttle = (fn, delay = 100) => {
   let last = 0
-  let timer = undefined
+  let timer = null
   return () => {
-    let now = Date.now()
+    const now = Date.now()
     timer && clearTimeout(timer)
     if (now - last >= delay) {
       fn && fn()
@@ -82,15 +82,15 @@ const throttle = (fn, delay = 100) => {
  * 不会触发第一次
  */
 const throttle = (fn, delay = 100) => {
-  let timer = undefined
+  let timer = null
   return () => {
-    if (timer) {
+    if (!!timer) {
       return false
     } else {
       timer = setTimeout(() => {
         fn && fn()
         clearTimeout(timer)
-        timer = undefined
+        timer = null
       }, delay)
     }
   }

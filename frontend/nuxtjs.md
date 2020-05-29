@@ -36,7 +36,9 @@ export default () => {
 
 ```pug
 <template lang="pug">
-no-ssr
+// Nuxt.js版本v2.9.0起使用<client-only />标签
+// no-ssr
+client-only
   CarouselCard(:interval="7000" height="300px" type="card" arrow="always")
     CarouselCardItem(v-for="i in 6" :key="i")
       h1(v-text="i")

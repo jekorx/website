@@ -37,7 +37,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
   if (/(E+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? '/u661f/u671f' : '/u5468') : '') + week[date.getDay() + ''])
   }
-  for (let k in o) {
+  for (const k in o) {
     if (new RegExp('(' + k + ')').test(fmt)) {
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
     }
@@ -94,8 +94,8 @@ export const hidePhone= phone => {
 
 ```javascript
 import * as qiniu from 'qiniu-js'
-import vueCookies from 'vue-cookies'
-import uuid from 'uuid'
+import Cookie from 'js-cookie'
+import { v1 as uuidv1 } from 'uuid'
 import axios from '@/libs/api.request'
 
 /**
@@ -103,7 +103,7 @@ import axios from '@/libs/api.request'
  * dependencies: {
  *   qiniu-js,
  *   uuid,
- *   vue-cookies
+ *   js-cookie
  * }
  * 图片处理（裁剪大小、缩略图等）https://developer.qiniu.com/dora/manual/3683/img-directions-for-use
  *
@@ -121,7 +121,7 @@ const REGION = qiniu.region.z0 // 七牛云存储区域，默认z0：华东
 // 上传处理
 const uploadHandler = (token, file, complete, next, error) => {
   // 文件名为uuid生成，无后缀
-  const fileName = uuid()
+  const fileName = uuidv1()
   const observable = qiniu.upload(file, fileName, token, {}, { region: REGION })
   observable.subscribe({
     next (res) { next && next(res) },
@@ -131,14 +131,16 @@ const uploadHandler = (token, file, complete, next, error) => {
 }
 // 获取token，上传
 export default (file, complete, next, error) => {
-  let token = vueCookies.get(UPTOKEN)
+  let token = Cookie.get(UPTOKEN)
   if (token === null || token === undefined) {
     axios.request({
       url: REQUEST_URL,
       method: 'post'
     }).then(({ code, data }) => {
       if (code === 1) {
-        vueCookies.set(UPTOKEN, data, '3500s')
+        const date = new Date()
+        date.setSeconds(date.getSeconds() + 3500)
+        Cookie.set(UPTOKEN, data, { expires: date })
         token = data
         uploadHandler(token, file, complete, next, error)
       }
@@ -147,7 +149,6 @@ export default (file, complete, next, error) => {
     uploadHandler(token, file, complete, next, error)
   }
 }
-
 ```
 
 #### 滚动条滚动动画
@@ -259,4 +260,60 @@ export const blobToFile = (blob, filename) => {
   blob.name = filename
   return blob
 }
+```
+
+#### 绑定事件
+
+```javascript
+/**
+ * @description 绑定事件 eventOn(element, event, handler)
+ * 
+ * 用法：
+ * eventOn(window, 'scroll', this.scroll)
+ */
+export const eventOn = (function () {
+  // ssr中使用注意服务端无效
+  if (typeof window === 'undefined') return
+  if (document.addEventListener) {
+    return function (element, event, handler) {
+      if (element && event && handler) {
+        element.addEventListener(event, handler, false)
+      }
+    }
+  } else {
+    return function (element, event, handler) {
+      if (element && event && handler) {
+        element.attachEvent('on' + event, handler)
+      }
+    }
+  }
+})()
+```
+
+#### 解绑事件
+
+```javascript
+/**
+ * @description 解绑事件 eventOff(element, event, handler)
+ * 
+ * 用法：
+ * eventOff(window, 'scroll', this.scroll)
+ */
+export const eventOff = (function () {
+  // ssr中使用注意服务端无效
+  if (typeof window === 'undefined') return
+  if (document.removeEventListener) {
+    return function (element, event, handler) {
+      if (element && event) {
+        element.removeEventListener(event, handler, false)
+      }
+    }
+  } else {
+    return function (element, event, handler) {
+      if (element && event) {
+        element.detachEvent('on' + event, handler)
+      }
+    }
+  }
+})()
 ```

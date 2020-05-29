@@ -14,6 +14,12 @@ git config --global user.email "eamil@qq.com"
 > **注意：git对文件名称大小写不敏感**  
 
 ```bash
+################## clone ###################
+# 克隆项目
+git clone <git地址>
+# 根据分支克隆
+git clone -b <分支名> <git地址>
+
 ################### 提交 ####################
 # 查看状态
 git status
