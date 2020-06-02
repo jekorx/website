@@ -1,12 +1,12 @@
 # Css样式
 
-* 1、文本域内容解析换行，解析换行符
+* **1、文本域内容解析换行，解析换行符**
 
 ```css
 white-space: pre-wrap;
 ```
 
-* 2、网站全局黑白色
+* **2、网站全局黑白色**
 
 ```css
 /* 须在html上设置 */
@@ -20,7 +20,7 @@ html {
 }
 ```
 
-* 3、水平垂直居中
+* **3、水平垂直居中**
 
 ```html
 <div class="center">
@@ -123,7 +123,7 @@ body {
 }
 ```
 
-* 4、文本超出省略号
+* **4、文本超出省略号**
 
 ```css
 /**
@@ -148,7 +148,7 @@ body {
 }
 ```
 
-* 5、渐变色
+* **5、渐变色**
 
 <div style="display: flex; width: 400px; justify-content: space-around;">
   <div style="width: 100px; height: 100px; background-image: linear-gradient(to right, red, yellow, green);"></div>
@@ -173,9 +173,11 @@ body {
  * repeating-linear-gradient：重复渐变
  */
 .box {
+  background-color: red; /* 浏览器不支持的时候显示 */
   background-image: linear-gradient(to right, red, yellow, green);
 }
 .box {
+  background-color: red; /* 浏览器不支持的时候显示 */
   background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
 }
 
@@ -194,9 +196,11 @@ body {
  * repeating-radial-gradient：重复渐变
  */
 .box {
+  background-color: red; /* 浏览器不支持的时候显示 */
   background-image: radial-gradient(red, green);
 }
 .box {
+  background-color: red; /* 浏览器不支持的时候显示 */
   background-image: repeating-radial-gradient(red, yellow 10%, green 15%);
 }
 
@@ -208,9 +212,11 @@ body {
  * repeating-conic-gradient：重复渐变
  */
 .box {
+  background-color: red; /* 浏览器不支持的时候显示 */
   background-image: conic-gradient(from 45deg at 20% 40%, red, orange, yellow, green, blue, purple, red);
 }
 .box {
+  background-color: red; /* 浏览器不支持的时候显示 */
   background-image: repeating-conic-gradient(#fff 0 9deg, #000 9deg 18deg);
 }
 ```
