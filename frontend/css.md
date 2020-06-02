@@ -147,3 +147,70 @@ body {
   -webkit-line-clamp: 2;
 }
 ```
+
+* 5、渐变色
+
+<div style="display: flex; width: 400px; justify-content: space-around;">
+  <div style="width: 100px; height: 100px; background-image: linear-gradient(to right, red, yellow, green);"></div>
+  <div style="width: 100px; height: 100px; background-image: radial-gradient(red, green);"></div>
+  <div style="width: 100px; height: 100px; background-image: conic-gradient(from 45deg at 50% 50%, red, orange, yellow, green, blue, purple, red);"></div>
+</div>
+<div style="display: flex; width: 400px; justify-content: space-around;">
+  <span>线性渐变</span>
+  <span>径向渐变</span>
+  <span>圆锥渐变</span>
+</div>
+
+```css
+/**
+ * 线性就变
+ * background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+ *
+ * direction（可不写，默认：to bottom（从上到下））：渐变方向、角度
+ * 渐变方向：to right（从左到右），to bottom right（从左上角到右下角）
+ * 角度：0deg 将创建一个从下到上的渐变，90deg 将创建一个从左到右的渐变
+ *
+ * repeating-linear-gradient：重复渐变
+ */
+.box {
+  background-image: linear-gradient(to right, red, yellow, green);
+}
+.box {
+  background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+}
+
+/**
+ * 径向渐变
+ * background-image: radial-gradient(shape size at position, start-color, ..., last-color);
+ *
+ * shape size at position：（可不写，默认：渐变的中心是 center（表示在中心点），渐变的形状是 ellipse（表示椭圆形），渐变的大小是 farthest-corner（表示到最远的角落））
+ *   shape：circle 表示圆形，ellipse 表示椭圆形（默认）
+ *   size：
+ *      closest-side：指定径向渐变的半径长度为从圆心到离圆心最近的边
+ *      closest-corner：指定径向渐变的半径长度为从圆心到离圆心最近的角
+ *      farthest-side：指定径向渐变的半径长度为从圆心到离圆心最远的边
+ *      farthest-corner：指定径向渐变的半径长度为从圆心到离圆心最远的角
+ *
+ * repeating-radial-gradient：重复渐变
+ */
+.box {
+  background-image: radial-gradient(red, green);
+}
+.box {
+  background-image: repeating-radial-gradient(red, yellow 10%, green 15%);
+}
+
+/**
+ * 圆锥渐变
+ * background-image: conic-gradient(from <angle> at <position>, color-stop1, color-stop2, ...);
+ * from <angle> at <position>：（可不写，默认：from 0deg at center）
+ *
+ * repeating-conic-gradient：重复渐变
+ */
+.box {
+  background-image: conic-gradient(from 45deg at 20% 40%, red, orange, yellow, green, blue, purple, red);
+}
+.box {
+  background-image: repeating-conic-gradient(#fff 0 9deg, #000 9deg 18deg);
+}
+```
