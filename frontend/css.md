@@ -130,7 +130,7 @@ body {
  * 单行文本
  * 注意：固定宽度
  */
- .text {
+.text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
