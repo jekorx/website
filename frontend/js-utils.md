@@ -84,6 +84,7 @@ export const getTimeInfo = dateStr => {
  * @returns {String} 如：188****8888
  */
 export const hidePhone= phone => {
+  if (!phone) return ''
   const arr = phone.split('')
   arr.splice(3, 4, '****')
   return arr.join('')

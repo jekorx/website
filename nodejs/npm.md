@@ -62,7 +62,7 @@ latest
 #### 发布npm包
 
 > 1、注册npm帐号，[点击前往npm官网](https://www.npmjs.com/)  
-> 2、登陆npm帐号  
+> 2、登录npm帐号  
 
 ```bash
 # 根据提示输入创建的账号、密码和邮箱
