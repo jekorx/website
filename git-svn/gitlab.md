@@ -61,6 +61,13 @@ gitlab-ctl reconfigure
 # 重启服务
 gitlab-ctl restart
 
+
+# 开机自动启动，/etc/rc.local中加入
+vim /etc/rc.local
+
+gitlab-ctl start
+
+
 # 测试发送邮件
 # 进入gitlab控制台
 gitlab-rails console
