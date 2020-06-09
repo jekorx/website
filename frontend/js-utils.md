@@ -53,25 +53,27 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
  * 时间字符串转换为xx时间前
  * getTimeInfo('2020-01-02 12:12:12') // 2月前
  * 
- * @param {String} dateStr 日期字符串
+ * @param {String|Number} timeStamp 时间戳
  * @returns {String} 如：5天前
  */
 export const getTimeInfo = dateStr => {
-  if (!dateStr) return ''
-  if (dateStr.includes('-')) {
+  if (!time) return ''
+  if (time.includes('-')) {
     // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
-    dateStr = dateStr.replace(/-/g, '/')
+    time = time.replace(/-/g, '/')
   }
-  const date = new Date(dateStr)
+  const date = new Date(time)
   const now = new Date()
-  const time = now.getTime() - date.getTime() // 现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
-  if (time < 0) return ''
-  if (time / 1000 < 60) return '刚刚'
-  if (time / 60000 < 60) return Math.floor(time / 60000) + '分钟前'
-  if (time / 3600000 < 24) return Math.floor(time / 3600000) + '小时前'
-  if (time / 86400000 < 31) return Math.floor(time / 86400000) + '天前'
-  if (time / 2592000000 < 12) return Math.floor(time / 2592000000) + '月前'
-  return Math.floor(time / 31536000000) + '年前'
+  const diff = now.getTime() - date.getTime() // 现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
+  if (diff < 0) return ''
+  if (diff / 1000 < 60) return '刚刚'
+  if (diff / 60000 < 60) return Math.floor(diff / 60000) + '分钟前'
+  if (diff / 3600000 < 24) return Math.floor(diff / 3600000) + '小时前'
+  if (diff / 86400000 < 31) return Math.floor(diff / 86400000) + '天前'
+  // if (time / 2592000000 < 12) return Math.floor(time / 2592000000) + '月前'
+  // return Math.floor(time / 31536000000) + '年前'
+  // 超出范围使用格式化日期，使用dateFormat工具方法进行日期格式化处理
+  return dateFormat(date)
 }
 ```
 
