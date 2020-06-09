@@ -1241,20 +1241,35 @@
 <span class="token comment">/* 2&#x3001;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D; */</span>
 <span class="token comment">/* 
 &#x5B50;&#x8282;&#x70B9;&#x56FA;&#x5B9A;px&#x9AD8;&#x5EA6;
+.center {
+  text-align: center;
+  position: relative;
+}
+.center span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 200px;
+  height: 21px;
+  text-align: center;
+}
 */</span>
-<span class="token selector">.center</span> <span class="token punctuation">{</span>
-  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token comment">/*
+&#x884D;&#x751F;&#x5199;&#x6CD5;
+top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901A;&#x8FC7;transform: translate&#x504F;&#x79FB;&#x81EA;&#x8EAB;-50%&#x5B9E;&#x73B0;&#x5C45;&#x4E2D;
+&#x53EF;&#x4E0D;&#x8BBE;&#x7F6E;&#x5B50;&#x8282;&#x70B9;&#x5BBD;&#x9AD8;
+*/</span>
 <span class="token selector">.center span</span> <span class="token punctuation">{</span>
   <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 21px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 
 <span class="token comment">/* 3&#x3001;&#x4F2A;&#x7C7B;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D; */</span>
 <span class="token comment">/* 
@@ -1409,7 +1424,7 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-06-02 14:21:57
+2020-06-08 15:20:44
 </span></footer>
                                 
                                 </section>
@@ -1453,7 +1468,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.2","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.3","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Axios","level":"1.3.1","depth":2,"path":"frontend/axios.md","ref":"frontend/axios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2020-06-02T06:21:57.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-05T10:14:55.537Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.2","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.3","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Axios","level":"1.3.1","depth":2,"path":"frontend/axios.md","ref":"frontend/axios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2020-06-08T07:20:44.133Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-09T01:01:32.276Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -51,7 +51,6 @@ body {
 /* 2、绝对定位水平垂直居中 */
 /* 
 子节点固定px高度
-*/
 .center {
   text-align: center;
   position: relative;
@@ -63,8 +62,24 @@ body {
   right: 0;
   bottom: 0;
   margin: auto;
+  width: 200px;
   height: 21px;
+  text-align: center;
 }
+*/
+/*
+衍生写法
+top、left偏移父容器的50%，通过transform: translate偏移自身-50%实现居中
+可不设置子节点宽高
+*/
+.center span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 
 /* 3、伪类水平垂直居中 */
 /* 
