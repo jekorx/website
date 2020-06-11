@@ -56,7 +56,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 }
 ```
 
-#### 时间字符串转换为xx时间前
+#### 时间转换为xx时间前
 
 ```javascript
 /**
