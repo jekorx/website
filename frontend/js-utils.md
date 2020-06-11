@@ -7,11 +7,21 @@
  * 日期格式化
  * dateFormat(new Date(), 'yyyy-MM-dd HH:mm:ss') // 2020-01-02 12:12:12
  * 
- * @param {Date} date 日期
+ * @param {Date|String|Number} date 日期
  * @param {String} fmt 格式
  * @returns {String} 如：2020-01-02 12:12:12
  */
 export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
+  if (!date) return ''
+  // 不为Date类型进行处理
+  if (!(date instanceof Date)) {
+    if (((date instanceof String) || (typeof date).toLowerCase() === 'string')) {
+      // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
+      date = date.replace(/-/g, '/')
+    }
+    date = new Date(date)
+    if (isNaN(date)) return ''
+  }
   const o = {
     'M+': date.getMonth() + 1, // 月份
     'd+': date.getDate(), // 日
@@ -50,19 +60,24 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 
 ```javascript
 /**
- * 时间字符串转换为xx时间前
+ * 时间转换为xx时间前
  * getTimeInfo('2020-01-02 12:12:12') // 2月前
  * 
- * @param {String|Number} timeStamp 时间戳
+ * @param {Date|String|Number} dateStr 时间
  * @returns {String} 如：5天前
  */
 export const getTimeInfo = dateStr => {
-  if (!time) return ''
-  if (time.includes('-')) {
-    // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
-    time = time.replace(/-/g, '/')
+  if (!dateStr) return ''
+  let date = dateStr
+  // 不为Date类型进行处理
+  if (!(dateStr instanceof Date)) {
+    if (((dateStr instanceof String) || (typeof dateStr).toLowerCase() === 'string')) {
+      // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
+      dateStr = dateStr.replace(/-/g, '/')
+    }
+    date = new Date(date)
+    if (isNaN(date)) return ''
   }
-  const date = new Date(time)
   const now = new Date()
   const diff = now.getTime() - date.getTime() // 现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
   if (diff < 0) return ''
@@ -70,9 +85,8 @@ export const getTimeInfo = dateStr => {
   if (diff / 60000 < 60) return Math.floor(diff / 60000) + '分钟前'
   if (diff / 3600000 < 24) return Math.floor(diff / 3600000) + '小时前'
   if (diff / 86400000 < 31) return Math.floor(diff / 86400000) + '天前'
-  // if (time / 2592000000 < 12) return Math.floor(time / 2592000000) + '月前'
-  // return Math.floor(time / 31536000000) + '年前'
-  // 超出范围使用格式化日期，使用dateFormat工具方法进行日期格式化处理
+  // if (diff / 2592000000 < 12) return Math.floor(diff / 2592000000) + '月前'
+  // return Math.floor(diff / 31536000000) + '年前'
   return dateFormat(date)
 }
 ```
