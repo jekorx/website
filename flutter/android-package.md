@@ -111,7 +111,7 @@ keytool -genkey -v -keystore ~/appkeystore.jks -keyalg RSA -keysize 2048 -validi
 storePassword=<密钥库 密码>
 keyPassword=<密钥 密码>
 keyAlias=appkeystore
-storeFile=<key store 文件路径, 如： /Users/<user name>/appkeystore.jks>
+storeFile=<key store 文件路径, 如：/Users/<user name>/appkeystore.jks>
 ```
 
 注意: 保持文件私密; 不要将它加入公共源代码控制中
@@ -126,9 +126,11 @@ android {
 ```
 为：
 ```
-def keystorePropertiesFile = rootProject.file("key.properties")
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
 ```
