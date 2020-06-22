@@ -1,5 +1,23 @@
 # Flutter 环境安装配置
 
+#### 国内镜像
+
+[最新链接](https://flutter.dev/community/china)  
+
+> 配置环境变量解决```flutter pub get```卡的问题  
+> Window系统在系统环境变量中添加  
+> MacOS系统在```.bash_profile```中添加  
+
+```bash
+# 官方提供的国内镜像
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+# 上海交通大学提供的国内镜像
+export FLUTTER_STORAGE_BASE_URL=https://mirrors.sjtug.sjtu.edu.cn/
+export PUB_HOSTED_URL=https://dart-pub.mirrors.sjtug.sjtu.edu.cn/
+```
+
 #### MacOS系统
 
 > 1、安装 Flutter sdk （包含 dart sdk）  
