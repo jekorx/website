@@ -2,7 +2,7 @@
 
 #### 国内镜像
 
-[最新链接](https://flutter.dev/community/china)  
+[相关链接](https://flutter.dev/community/china)（需科学上网）  
 
 > 配置环境变量解决```flutter pub get```卡的问题  
 > Window系统在系统环境变量中添加  

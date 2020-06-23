@@ -1,4 +1,6 @@
-// # Android构建
+# Android构建
+
+> [最新官方文档](https://flutter.dev/docs/deployment/android)请点击查看（需科学上网）  
 
 #### 1、检查 App Manifest
 
