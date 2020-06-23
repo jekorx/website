@@ -174,8 +174,8 @@ buildTypes {
 
 ```bash
 # flutter build apk --obfuscate --split-debug-info=<directory>
-# 输出调试文件的目录<directory>使用相对路径./debug-info
-flutter build apk --obfuscate --split-debug-info=./debug-info
+# 输出调试文件的目录<directory>使用相对路径./.debug_info
+flutter build apk --obfuscate --split-debug-info=./.debug_info
 ```
 
 ##### Flutter 1.16.2之前版本
@@ -233,11 +233,11 @@ android {
 
 1、```cd <app dir>``` (```<app dir>``` 为工程目录)；  
 2、运行```flutter build apk``` (```flutter build``` 默认会包含 ```--release```选项)；  
-3、Flutter 1.16.2及之后版本压缩混淆打包[请参照](#Flutter 1.16.2及之后版本)。  
+3、Flutter 1.16.2及之后版本压缩混淆打包[请参照](#flutter-1162及之后版本)。  
 
 ```bash
 # 输出调试文件的目录为项目根目录下debug-info
-flutter build apk --obfuscate --split-debug-info=./debug-info
+flutter build apk --obfuscate --split-debug-info=./.debug_info
 ```
 
 打包好的发布APK位于```<app dir>/build/app/outputs/apk/app-release.apk```。
