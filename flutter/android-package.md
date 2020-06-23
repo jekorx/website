@@ -1,4 +1,4 @@
-# Android构建
+// # Android构建
 
 #### 1、检查 App Manifest
 
@@ -19,7 +19,7 @@
     <!-- activity等 -->
   </application>
   ```
-* ```uses-permission```: 权限配置。如果您的应用程序代码不需要Internet访问，请删除```android.permission.INTERNET```权限。标准模板包含此标记是为了启用Flutter工具和正在运行的应用程序之间的通信。
+* ```uses-permission```: 权限配置。如果应用程序代码不需要Internet访问，请删除```android.permission.INTERNET```权限。标准模板包含此标记是为了启用Flutter工具和正在运行的应用程序之间的通信。
   ```xml
   <!-- 网络请求权限 -->
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -52,7 +52,7 @@ drawable-xxxhdpi-icon: 192 x 192
 
 2、在```<app dir>/android/app/src/main/res/```目录中，将图标文件放入使用配置限定符命名的文件夹中。默认```mipmap-```文件夹演示正确的命名约定。  
 3、在```AndroidManifest.xml```中，将```application```标记的```android:icon```属性更新为引用上一步中的图标（例如 ```<application android:icon="@mipmap/ic_launcher" ...```）。  
-4、要验证图标是否已被替换，请运行您的应用程序并检查应用图标。  
+4、要验证图标是否已被替换，运行应用程序并检查应用图标。  
 
 ###### 启动页
 
@@ -84,7 +84,7 @@ drawable-port-xxxhdpi-screen: 1920 x 1280
 
 ###### （1）创建 keystore
 
-如果您有现有keystore，请跳至下一步。如果没有，请通过在运行以下命令来创建一个：
+如果有现有keystore，请跳至下一步。如果没有，请通过在运行以下命令来创建一个：
 ```bash
 # -keystore 生成目录记名字
 # -keyalg 加密和数字签名的算法
@@ -100,8 +100,8 @@ keytool -genkey -v -keystore ~/appkeystore.jks -keyalg RSA -keysize 2048 -validi
 # next 提示输入 “ 密钥 ” 密码、确认密码，如果和上面 “ 密钥库 ” 密码相同，直接摁回车键
 ```
 
-注意：保持文件私密; 不要将它加入到公共源代码控制中。  
-注意：keytool可能不在你的系统路径中。它是Java JDK的一部分，它是作为Android Studio的一部分安装的。  
+注意：保持文件私密；不要将它加入到公共源代码控制中。  
+注意：keytool可能不在系统路径中。它是Java JDK的一部分，它是作为Android Studio的一部分安装的。  
 
 ###### （2）引用应用程序中的keystore
 
@@ -118,7 +118,7 @@ storeFile=<key store 文件路径, 如：/Users/<user name>/appkeystore.jks>
 
 ###### （3）在gradle中配置签名
 
-通过编辑```<app dir>/android/app/build.gradle```文件为您的应用配置签名
+通过编辑```<app dir>/android/app/build.gradle```文件为应用配置签名
 
 1、替换：
 ```
@@ -165,8 +165,21 @@ buildTypes {
 
 #### 5、开启混淆
 
+##### Flutter 1.16.2及之后版本
+
+> 使用```--obfuscate```结合使用标记来构建发行版本```--split-debug-info```。  
+> 该```--split-debug-info```标志指定Flutter可以在其中输出调试文件的目录。  
+
+```bash
+# flutter build apk --obfuscate --split-debug-info=<directory>
+# 输出调试文件的目录<directory>使用相对路径./debug-info
+flutter build apk --obfuscate --split-debug-info=./debug-info
+```
+
+##### Flutter 1.16.2之前版本
+
 > 默认情况下 flutter 不会开启 Android 的混淆。
-> 如果使用了第三方 Java 或 Android 库，也许你想减小 apk 文件的大小或者防止代码被逆向破解。
+> 如果使用了第三方 Java 或 Android 库，或者减小 apk 文件的大小或者防止代码被逆向破解。
 
 ###### （1）配置混淆
 
@@ -198,7 +211,7 @@ android {
         release {
             signingConfig signingConfigs.release
             // 压缩，默认启用
-            minifyEnabled true
+            // minifyEnabled true
             // Gradle 3.4.0之后默认启用R8，3.2.0之前版本默认ProGuard
             // useProguard true
             // 启用资源压缩
@@ -216,7 +229,13 @@ android {
 
 使用命令行:
 
-1、```cd <app dir>``` (```<app dir>``` 为您的工程目录)；  
-2、运行```flutter build apk``` (```flutter build``` 默认会包含 ```--release```选项)。  
+1、```cd <app dir>``` (```<app dir>``` 为工程目录)；  
+2、运行```flutter build apk``` (```flutter build``` 默认会包含 ```--release```选项)；  
+3、Flutter 1.16.2及之后版本压缩混淆打包[请参照](#Flutter 1.16.2及之后版本)。  
+
+```bash
+# 输出调试文件的目录为项目根目录下debug-info
+flutter build apk --obfuscate --split-debug-info=./debug-info
+```
 
 打包好的发布APK位于```<app dir>/build/app/outputs/apk/app-release.apk```。
