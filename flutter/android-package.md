@@ -241,3 +241,24 @@ flutter build apk --obfuscate --split-debug-info=./.debug_info
 ```
 
 打包好的发布APK位于```<app dir>/build/app/outputs/apk/app-release.apk```。
+
+#### 8、相关问题
+
+> Could not resolve io.flutter:flutter_ ···  
+> 无法现在相关依赖导致  
+
+打开 ```/android/build.gradle``` 文件，添加maven仓库相关配置 ```maven { url 'http://download.flutter.io' }```  
+
+```
+buildscript {
+    repositories {
+        maven { url 'http://download.flutter.io' }
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'http://download.flutter.io' }
+    }
+}
+```
