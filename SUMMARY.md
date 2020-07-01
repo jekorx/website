@@ -43,6 +43,8 @@
   * [跨域配置](springboot/cors-config.md)
   * [Excel](springboot/excel.md)
   * [启动方式](springboot/run.md)
+* [SQL](index/sql.md)
+  * [MySQL](sql/mysql.md)
 * [Git/Svn](index/git-svn.md)
   * [Git](git-svn/git.md)
   * [GitLab](git-svn/gitlab.md)
