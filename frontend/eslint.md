@@ -70,7 +70,7 @@ module.exports = {
 
 ```bash
 # 安装依赖
-yarn add @typescript-eslint/eslint-plugin --dev
+yarn add @typescript-eslint/eslint-plugin -D
 ```
 
 ```json
