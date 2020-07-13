@@ -15,7 +15,16 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
   if (!date) return ''
   // 不为Date类型进行处理
   if (!(date instanceof Date)) {
-    if (((date instanceof String) || (typeof date).toLowerCase() === 'string')) {
+    // 判断数字时间戳
+    if (!isNaN(date)) {
+      // 10位时间戳转13位
+      if ((date + '').length === 10) {
+        date = +date * 1000
+      } else {
+        // 字符串时间戳转数字时间戳
+        date = +date
+      }
+    } else if (((date instanceof String) || (typeof date).toLowerCase() === 'string')) {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
     }
@@ -63,17 +72,25 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
  * 时间转换为xx时间前
  * getTimeInfo('2020-01-02 12:12:12') // 2月前
  * 
- * @param {Date|String|Number} dateStr 时间
+ * @param {Date|String|Number} date 时间
  * @returns {String} 如：5天前
  */
-export const getTimeInfo = dateStr => {
-  if (!dateStr) return ''
-  let date = dateStr
+export const getTimeInfo = date => {
+  if (!date) return ''
   // 不为Date类型进行处理
-  if (!(dateStr instanceof Date)) {
-    if (((dateStr instanceof String) || (typeof dateStr).toLowerCase() === 'string')) {
+  if (!(date instanceof Date)) {
+    // 判断数字时间戳
+    if (!isNaN(date)) {
+      // 10位时间戳转13位
+      if ((date + '').length === 10) {
+        date = +date * 1000
+      } else {
+        // 字符串时间戳转数字时间戳
+        date = +date
+      }
+    } else if (((date instanceof String) || (typeof date).toLowerCase() === 'string')) {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
-      dateStr = dateStr.replace(/-/g, '/')
+      date = date.replace(/-/g, '/')
     }
     date = new Date(date)
     if (isNaN(date)) return ''
