@@ -140,9 +140,8 @@ public @interface ControllerExceptionHandler {
 
 ```java
 /**
+ * ControllerExceptionAspect.java
  * 自定义Controller异常处理AOP
- * @Author wang_dgang
- * @Date 2019/6/5 0005 9:48
  */
 @Component
 @Aspect
