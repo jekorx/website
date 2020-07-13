@@ -38,7 +38,7 @@
 > 2、调用dao的```insert```方法或者```insertSelective```方法,  
 > 执行之后都会将新的id赋值给实体类id字段，直接通过实体类```getId()```获取id  
 
-> 实例  
+> 示例  
 
 ```java
 /**
