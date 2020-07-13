@@ -74,3 +74,5 @@ https://blog.wdg.pub/frontend/canvas.html
 https://blog.wdg.pub/nodejs/npm.html
 https://blog.wdg.pub/index/sql.html
 https://blog.wdg.pub/sql/mysql.html
+https://blog.wdg.pub/sql/postgresql.html
+https://blog.wdg.pub/springboot/mybatis.html
