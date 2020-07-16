@@ -1252,12 +1252,76 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="git&#x5E38;&#x7528;&#x547D;&#x4EE4;">Git&#x5E38;&#x7528;&#x547D;&#x4EE4;</h1>
-<h4 id="&#x5168;&#x5C40;&#x5C5E;&#x6027;&#x914D;&#x7F6E;">&#x5168;&#x5C40;&#x5C5E;&#x6027;&#x914D;&#x7F6E;</h4>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x5168;&#x5C40;&#x914D;&#x7F6E;&#x7528;&#x6237;&#x540D;</span>
-<span class="token function">git</span> config --global user.name <span class="token string">&quot;nameVal&quot;</span>
-<span class="token comment"># &#x5168;&#x5C40;&#x914D;&#x7F6E;&#x90AE;&#x7BB1;</span>
-<span class="token function">git</span> config --global user.email <span class="token string">&quot;eamil@qq.com&quot;</span>
+<blockquote>
+<p>&#x9700;&#x8981;&#x63D0;&#x524D;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;<a href="https://git-scm.com/" target="_blank">Git&#x5BA2;&#x6237;&#x7AEF;</a>  </p>
+</blockquote>
+<h4 id="&#x4F7F;&#x7528;&#x914D;&#x7F6E;">&#x4F7F;&#x7528;&#x914D;&#x7F6E;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x7528;&#x6237;&#x540D;</span>
+<span class="token function">git</span> config --global user.name <span class="token string">&apos;&lt;&#x7528;&#x6237;&#x540D;&gt;&apos;</span>
+
+<span class="token comment"># 2&#x3001;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x90AE;&#x7BB1;</span>
+<span class="token function">git</span> config --global user.email <span class="token string">&apos;&lt;&#x767B;&#x5F55;&#x90AE;&#x7BB1;&gt;&apos;</span>
+
+<span class="token comment"># 3&#x3001;&#x751F;&#x6210;&#x5BC6;&#x94A5;&#xFF0C;&#x4E0E; &#x6B65;&#x9AA4;2 &#x4E2D;&#x90AE;&#x7BB1;&#x76F8;&#x540C;</span>
+ssh-keygen -t rsa -C <span class="token string">&apos;&lt;&#x767B;&#x5F55;&#x90AE;&#x7BB1;&gt;&apos;</span>
+  <span class="token comment"># (1) Enter file in which to save the key &#x7B2C;&#x4E00;&#x6B21;&#x662F;&#x5BC6;&#x94A5;&#x5730;&#x5740;&#xFF0C;&#x8F93;&#x5165;&#x76F4;&#x63A5;&#x56DE;&#x8F66;</span>
+  <span class="token comment"># (2) Enter passphrase &#x7B2C;&#x4E8C;&#x6B21;&#x8F93;&#x5165;&#x662F;&#x5BC6;&#x7801;</span>
+  <span class="token comment"># (3) Enter same passphrase again &#x7B2C;&#x4E09;&#x6B21;&#x8F93;&#x5165;&#x662F;&#x786E;&#x8BA4;&#x5BC6;&#x7801;</span>
+
+<span class="token comment"># 4&#x3001;&#x5C06;&#x751F;&#x6210;&#x7684;SSH&#x516C;&#x94A5;&#x6DFB;&#x52A0;&#x5230;GitLab&#x6216;&#x8005;GitHub&#x6216;&#x8005;&#x7801;&#x4E91;&#x7B49;&#x5E73;&#x53F0;&#x4E2D;</span>
+  <span class="token comment"># (1) &#x767B;&#x5F55;&#x4E4B;&#x540E;&#x5728; &#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x9875;&#x9762; -&gt; SSH&#x5BC6;&#x94A5;</span>
+  <span class="token comment"># (2) &#x5C06; id_rsa.pub &#x4E2D;&#x7684;&#x516C;&#x94A5;&#x5185;&#x5BB9;&#x5168;&#x90E8;&#x590D;&#x5236;&#x5230; Key &#x6587;&#x672C;&#x57DF;&#x8F93;&#x5165;&#x6846;&#xFF08;&#x4F7F;&#x7528;PuTTYgen&#x751F;&#x6210;&#x79C1;&#x94A5;&#x4E5F;&#x6DFB;&#x52A0;&#x5230;&#x6B64;&#x5904;&#xFF0C;PuTTYgen&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x6709;&#x4ECB;&#x7ECD;&#xFF09;</span>
+  <span class="token comment"># (3) &#x6807;&#x9898;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x6DFB;&#x52A0;&#x5BC6;&#x94A5;</span>
+
+<span class="token comment"># 5&#x3001;&#x5F00;&#x59CB;&#x4F7F;&#x7528;</span>
 </code></pre>
+<blockquote>
+<p>Git&#x5BA2;&#x6237;&#x7AEF;&#x5DE5;&#x5177;<a href="https://www.sourcetreeapp.com/" target="_blank">Sourcetree</a><br><code>C:\Users\<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>&#x7528;&#x6237;&#x540D;</span><span class="token punctuation">&gt;</span></span>\AppData\Local\Atlassian\SourceTree</code>&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;<code>accounts.json</code>&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-json"><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;$id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;$type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SourceTree.Api.Host.Identity.Model.IdentityAccount, SourceTree.Api.Host.Identity&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Authenticate&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;HostInstance&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;$id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;$type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SourceTree.Host.Atlassianaccount.AtlassianAccountInstance, SourceTree.Host.AtlassianAccount&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;Host&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;$id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;3&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;$type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SourceTree.Host.Atlassianaccount.AtlassianAccountHost, SourceTree.Host.AtlassianAccount&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;Id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;atlassian account&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;BaseUrl&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://id.atlassian.com/&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Credentials&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;$id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;4&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;$type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;SourceTree.Model.BasicAuthCredentials, SourceTree.Api.Account&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;Username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;Email&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;IsDefault&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<blockquote>
+<p><code>C:\Users\<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>&#x7528;&#x6237;&#x540D;</span><span class="token punctuation">&gt;</span></span>\AppData\Local\Atlassian\SourceTree.exe_Url_*****\x.x.x.x\user.config</code>&#xFF0C;&#x5728;<code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SourceTree.Properties.Settings</span><span class="token punctuation">&gt;</span></span></code>&#x8282;&#x70B9;&#x524D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>AgreedToEULA<span class="token punctuation">&quot;</span></span> <span class="token attr-name">serializeAs</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>String<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>True<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>setting</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>AgreedToEULAVersion<span class="token punctuation">&quot;</span></span> <span class="token attr-name">serializeAs</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>String<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>20160201<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>setting</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<blockquote>
+<p>Git&#x5BA2;&#x6237;&#x7AEF;&#x5DE5;&#x5177;<a href="https://tortoisegit.org/" target="_blank">TortoiseGit</a>  </p>
+<p>&#x4F7F;&#x7528;PuTTYgen&#x751F;&#x6210;&#x5BC6;&#x94A5;  </p>
+</blockquote>
+<p><img src="../images/git-svn-1.png" alt="PuTTYgen&#x751F;&#x6210;&#x5BC6;&#x94A5;"></p>
+<blockquote>
+<p>&#x914D;&#x7F6E;&#x4F7F;&#x7528;&#x79C1;&#x94A5;&#x4F7F;&#x7528;&#xFF0C;&#x79C1;&#x94A5;&#x6587;&#x4EF6;&#x4E3A;.ppk&#x6587;&#x4EF6;  </p>
+</blockquote>
+<p><img src="../images/git-svn-2.png" alt="&#x4F7F;&#x7528;"></p>
 <h4 id="&#x5E38;&#x7528;&#x64CD;&#x4F5C;">&#x5E38;&#x7528;&#x64CD;&#x4F5C;</h4>
 <blockquote>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;git&#x5BF9;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x5927;&#x5C0F;&#x5199;&#x4E0D;&#x654F;&#x611F;</strong>  </p>
@@ -1376,7 +1440,7 @@ ctrl + c
 <span class="token function">git</span> log --author<span class="token operator">=</span><span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> config --get user.name<span class="token variable">)</span></span>&quot;</span> --pretty<span class="token operator">=</span>tformat: --numstat <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">&apos;{ add += <span class="token variable">$1</span>; subs += <span class="token variable">$2</span>; loc += <span class="token variable">$1</span> - <span class="token variable">$2</span> } END { printf &quot;added lines: %s, removed lines: %s, total lines: %s<span class="token entity" title="\n">\n</span>&quot;, add, subs, loc }&apos;</span> -
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-05-25 09:45:19
+2020-07-16 18:18:28
 </span></footer>
                                 
                                 </section>
@@ -1420,7 +1484,7 @@ ctrl + c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2020-05-25T01:45:19.448Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-13T09:58:07.041Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2020-07-16T10:18:28.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-16T10:18:41.454Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
