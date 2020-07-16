@@ -1,13 +1,80 @@
 # Git常用命令
 
-#### 全局属性配置
+> 需要提前下载安装[Git客户端](https://git-scm.com/)  
+
+#### 使用配置
 
 ```bash
-# 全局配置用户名
-git config --global user.name "nameVal"
-# 全局配置邮箱
-git config --global user.email "eamil@qq.com"
+# 1、全局配置用户名
+git config --global user.name '<用户名>'
+
+# 2、全局配置邮箱
+git config --global user.email '<登录邮箱>'
+
+# 3、生成密钥，与 步骤2 中邮箱相同
+ssh-keygen -t rsa -C '<登录邮箱>'
+  # (1) Enter file in which to save the key 第一次是密钥地址，输入直接回车
+  # (2) Enter passphrase 第二次输入是密码
+  # (3) Enter same passphrase again 第三次输入是确认密码
+
+# 4、将生成的SSH公钥添加到GitLab或者GitHub或者码云等平台中
+  # (1) 登录之后在 用户设置页面 -> SSH密钥
+  # (2) 将 id_rsa.pub 中的公钥内容全部复制到 Key 文本域输入框（使用PuTTYgen生成私钥也添加到此处，PuTTYgen使用下面有介绍）
+  # (3) 标题会自动生成也可以自行修改，添加密钥
+
+# 5、开始使用
 ```
+
+> Git客户端工具[Sourcetree](https://www.sourcetreeapp.com/)  
+> ```C:\Users\<用户名>\AppData\Local\Atlassian\SourceTree```目录下创建```accounts.json```，内容如下  
+
+```json
+[
+  {
+    "$id": "1",
+    "$type": "SourceTree.Api.Host.Identity.Model.IdentityAccount, SourceTree.Api.Host.Identity",
+    "Authenticate": true,
+    "HostInstance": {
+      "$id": "2",
+      "$type": "SourceTree.Host.Atlassianaccount.AtlassianAccountInstance, SourceTree.Host.AtlassianAccount",
+      "Host": {
+        "$id": "3",
+        "$type": "SourceTree.Host.Atlassianaccount.AtlassianAccountHost, SourceTree.Host.AtlassianAccount",
+        "Id": "atlassian account"
+      },
+      "BaseUrl": "https://id.atlassian.com/"
+    },
+    "Credentials": {
+      "$id": "4",
+      "$type": "SourceTree.Model.BasicAuthCredentials, SourceTree.Api.Account",
+      "Username": "",
+      "Email": null
+    },
+    "IsDefault": false
+  }
+]
+```
+
+> ```C:\Users\<用户名>\AppData\Local\Atlassian\SourceTree.exe_Url_*****\x.x.x.x\user.config```，在```</SourceTree.Properties.Settings>```节点前添加以下内容  
+
+```xml
+<setting name="AgreedToEULA" serializeAs="String">
+    <value>True</value>
+</setting>
+<setting name="AgreedToEULAVersion" serializeAs="String">
+    <value>20160201</value>
+</setting>
+```
+
+> Git客户端工具[TortoiseGit](https://tortoisegit.org/)  
+
+> 使用PuTTYgen生成密钥  
+
+![PuTTYgen生成密钥](../images/git-svn-1.png)
+
+> 配置使用私钥使用，私钥文件为.ppk文件  
+
+![使用](../images/git-svn-2.png)
 
 #### 常用操作
 
