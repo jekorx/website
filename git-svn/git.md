@@ -25,7 +25,7 @@ ssh-keygen -t rsa -C '<登录邮箱>'
 # 5、开始使用
 ```
 
-> Git客户端工具[Sourcetree](https://www.sourcetreeapp.com/)  
+> **Git客户端工具[Sourcetree](https://www.sourcetreeapp.com/)**  
 > ```C:\Users\<用户名>\AppData\Local\Atlassian\SourceTree```目录下创建```accounts.json```，内容如下  
 
 ```json
@@ -66,15 +66,19 @@ ssh-keygen -t rsa -C '<登录邮箱>'
 </setting>
 ```
 
-> Git客户端工具[TortoiseGit](https://tortoisegit.org/)  
+> **Git客户端工具[TortoiseGit](https://tortoisegit.org/)**  
 
 > 使用PuTTYgen生成密钥  
 
 ![PuTTYgen生成密钥](../images/git-svn-1.png)
 
+![PuTTYgen生成密钥](../images/git-svn-2.png)
+
 > 配置使用私钥使用，私钥文件为.ppk文件  
 
-![使用](../images/git-svn-2.png)
+![使用](../images/git-svn-3.png)
+
+![使用](../images/git-svn-4.png)
 
 #### 常用操作
 
@@ -159,6 +163,50 @@ git checkout <分支名>
 
 # 创建并切换分支
 git checkout -b <分支名>
+```
+
+#### git 回退版本
+
+```bash
+# 查看提交记录
+git log
+#commit <commit id> (HEAD -> master, origin/master)
+#Author: <用户名> <邮箱>
+#Date:   <时间>
+#
+#    <commit message>
+#
+#commit <commit id>
+#Author: <用户名> <邮箱>
+#Date:   <时间>
+#
+#    <commit message>
+
+# 增加--pretty=oneline参数只显示commit id和commit message
+git log --pretty=oneline
+# <commit id> (HEAD -> master, origin/master) <commit message>
+# <commit id> <commit message>
+
+# 回退到指定commit id，这一步最好在当前代码 commit 之后操作，commit之后源代码可找回
+git reset --hard <commit id>
+# HEAD is now at xxxxxx commit
+
+# 已推送到远程仓库的代码回退后，需要强制推送到远程服务器，push时需要加--force
+git push origin HEAD --force
+
+# 回退被覆盖掉代码找回，查看操作记录，然后在使用 git reset --hard <commit id> 找回
+# 已推送到远程仓库的代码，回退被覆盖掉代码找回后，无需强制推送到远程服务器，push时不用加--force
+git reflog
+```
+
+#### git 恢复已删除的文件/文件夹
+
+```bash
+# 查看更改的文件
+git status
+
+# 恢复工作区删除的文件，如果已 commit 的需要通过回退版本找回
+git checkout <被删除的文件或文件夹>
 ```
 
 #### git log 状态下如何退出
