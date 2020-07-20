@@ -22,7 +22,7 @@ read_dir(){
             then
                 if test $file != "sitemap.html"
                 then
-                    sed -i '5i\<script id="handle">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||(window.location.host!="blog.wdg.pub"))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("handle").remove()</script>' $1"/"$file
+                    sed -i '5i\<script id="handle">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||(window.location.host!="blog.wdg.pub")||(window.location.host!="www.wdg.pub"))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("handle").remove()</script>' $1"/"$file
                 fi
             fi
         fi
