@@ -1276,7 +1276,7 @@ ssh-keygen -t rsa -C <span class="token string">&apos;&lt;&#x767B;&#x5F55;&#x90A
 <span class="token comment"># 5&#x3001;&#x5F00;&#x59CB;&#x4F7F;&#x7528;</span>
 </code></pre>
 <blockquote>
-<p>Git&#x5BA2;&#x6237;&#x7AEF;&#x5DE5;&#x5177;<a href="https://www.sourcetreeapp.com/" target="_blank">Sourcetree</a><br><code>C:\Users\<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>&#x7528;&#x6237;&#x540D;</span><span class="token punctuation">&gt;</span></span>\AppData\Local\Atlassian\SourceTree</code>&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;<code>accounts.json</code>&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;  </p>
+<p><strong>Git&#x5BA2;&#x6237;&#x7AEF;&#x5DE5;&#x5177;<a href="https://www.sourcetreeapp.com/" target="_blank">Sourcetree</a></strong><br><code>C:\Users\<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>&#x7528;&#x6237;&#x540D;</span><span class="token punctuation">&gt;</span></span>\AppData\Local\Atlassian\SourceTree</code>&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;<code>accounts.json</code>&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;  </p>
 </blockquote>
 <pre class="language-"><code class="lang-json"><span class="token punctuation">[</span>
   <span class="token punctuation">{</span>
@@ -1314,14 +1314,16 @@ ssh-keygen -t rsa -C <span class="token string">&apos;&lt;&#x767B;&#x5F55;&#x90A
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>setting</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <blockquote>
-<p>Git&#x5BA2;&#x6237;&#x7AEF;&#x5DE5;&#x5177;<a href="https://tortoisegit.org/" target="_blank">TortoiseGit</a>  </p>
+<p><strong>Git&#x5BA2;&#x6237;&#x7AEF;&#x5DE5;&#x5177;<a href="https://tortoisegit.org/" target="_blank">TortoiseGit</a></strong>  </p>
 <p>&#x4F7F;&#x7528;PuTTYgen&#x751F;&#x6210;&#x5BC6;&#x94A5;  </p>
 </blockquote>
 <p><img src="../images/git-svn-1.png" alt="PuTTYgen&#x751F;&#x6210;&#x5BC6;&#x94A5;"></p>
+<p><img src="../images/git-svn-2.png" alt="PuTTYgen&#x751F;&#x6210;&#x5BC6;&#x94A5;"></p>
 <blockquote>
 <p>&#x914D;&#x7F6E;&#x4F7F;&#x7528;&#x79C1;&#x94A5;&#x4F7F;&#x7528;&#xFF0C;&#x79C1;&#x94A5;&#x6587;&#x4EF6;&#x4E3A;.ppk&#x6587;&#x4EF6;  </p>
 </blockquote>
-<p><img src="../images/git-svn-2.png" alt="&#x4F7F;&#x7528;"></p>
+<p><img src="../images/git-svn-3.png" alt="&#x4F7F;&#x7528;"></p>
+<p><img src="../images/git-svn-4.png" alt="&#x4F7F;&#x7528;"></p>
 <h4 id="&#x5E38;&#x7528;&#x64CD;&#x4F5C;">&#x5E38;&#x7528;&#x64CD;&#x4F5C;</h4>
 <blockquote>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;git&#x5BF9;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x5927;&#x5C0F;&#x5199;&#x4E0D;&#x654F;&#x611F;</strong>  </p>
@@ -1399,6 +1401,44 @@ ssh-keygen -t rsa -C <span class="token string">&apos;&lt;&#x767B;&#x5F55;&#x90A
 <span class="token comment"># &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5206;&#x652F;</span>
 <span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
 </code></pre>
+<h4 id="git-&#x56DE;&#x9000;&#x7248;&#x672C;">git &#x56DE;&#x9000;&#x7248;&#x672C;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x67E5;&#x770B;&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;</span>
+<span class="token function">git</span> log
+<span class="token comment">#commit &lt;commit id&gt; (HEAD -&gt; master, origin/master)</span>
+<span class="token comment">#Author: &lt;&#x7528;&#x6237;&#x540D;&gt; &lt;&#x90AE;&#x7BB1;&gt;</span>
+<span class="token comment">#Date:   &lt;&#x65F6;&#x95F4;&gt;</span>
+<span class="token comment">#</span>
+<span class="token comment">#    &lt;commit message&gt;</span>
+<span class="token comment">#</span>
+<span class="token comment">#commit &lt;commit id&gt;</span>
+<span class="token comment">#Author: &lt;&#x7528;&#x6237;&#x540D;&gt; &lt;&#x90AE;&#x7BB1;&gt;</span>
+<span class="token comment">#Date:   &lt;&#x65F6;&#x95F4;&gt;</span>
+<span class="token comment">#</span>
+<span class="token comment">#    &lt;commit message&gt;</span>
+
+<span class="token comment"># &#x589E;&#x52A0;--pretty=oneline&#x53C2;&#x6570;&#x53EA;&#x663E;&#x793A;commit id&#x548C;commit message</span>
+<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
+<span class="token comment"># &lt;commit id&gt; (HEAD -&gt; master, origin/master) &lt;commit message&gt;</span>
+<span class="token comment"># &lt;commit id&gt; &lt;commit message&gt;</span>
+
+<span class="token comment"># &#x56DE;&#x9000;&#x5230;&#x6307;&#x5B9A;commit id&#xFF0C;&#x8FD9;&#x4E00;&#x6B65;&#x6700;&#x597D;&#x5728;&#x5F53;&#x524D;&#x4EE3;&#x7801; commit &#x4E4B;&#x540E;&#x64CD;&#x4F5C;&#xFF0C;commit&#x4E4B;&#x540E;&#x6E90;&#x4EE3;&#x7801;&#x53EF;&#x627E;&#x56DE;</span>
+<span class="token function">git</span> reset --hard <span class="token operator">&lt;</span>commit id<span class="token operator">&gt;</span>
+<span class="token comment"># HEAD is now at xxxxxx commit</span>
+
+<span class="token comment"># &#x5DF2;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x7684;&#x4EE3;&#x7801;&#x56DE;&#x9000;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x5F3A;&#x5236;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#xFF0C;push&#x65F6;&#x9700;&#x8981;&#x52A0;--force</span>
+<span class="token function">git</span> push origin HEAD --force
+
+<span class="token comment"># &#x56DE;&#x9000;&#x88AB;&#x8986;&#x76D6;&#x6389;&#x4EE3;&#x7801;&#x627E;&#x56DE;&#xFF0C;&#x67E5;&#x770B;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4F7F;&#x7528; git reset --hard &lt;commit id&gt; &#x627E;&#x56DE;</span>
+<span class="token comment"># &#x5DF2;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x56DE;&#x9000;&#x88AB;&#x8986;&#x76D6;&#x6389;&#x4EE3;&#x7801;&#x627E;&#x56DE;&#x540E;&#xFF0C;&#x65E0;&#x9700;&#x5F3A;&#x5236;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#xFF0C;push&#x65F6;&#x4E0D;&#x7528;&#x52A0;--force</span>
+<span class="token function">git</span> reflog
+</code></pre>
+<h4 id="git-&#x6062;&#x590D;&#x5DF2;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;&#x6587;&#x4EF6;&#x5939;">git &#x6062;&#x590D;&#x5DF2;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x5939;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x67E5;&#x770B;&#x66F4;&#x6539;&#x7684;&#x6587;&#x4EF6;</span>
+<span class="token function">git</span> status
+
+<span class="token comment"># &#x6062;&#x590D;&#x5DE5;&#x4F5C;&#x533A;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x5DF2; commit &#x7684;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x56DE;&#x9000;&#x7248;&#x672C;&#x627E;&#x56DE;</span>
+<span class="token function">git</span> checkout <span class="token operator">&lt;</span>&#x88AB;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x6587;&#x4EF6;&#x5939;<span class="token operator">&gt;</span>
+</code></pre>
 <h4 id="git-log-&#x72B6;&#x6001;&#x4E0B;&#x5982;&#x4F55;&#x9000;&#x51FA;">git log &#x72B6;&#x6001;&#x4E0B;&#x5982;&#x4F55;&#x9000;&#x51FA;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x65B9;&#x6CD5; 1</span>
 <span class="token comment"># &#x82F1;&#x6587;&#x72B6;&#x6001;&#x6441; q</span>
@@ -1440,7 +1480,7 @@ ctrl + c
 <span class="token function">git</span> log --author<span class="token operator">=</span><span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> config --get user.name<span class="token variable">)</span></span>&quot;</span> --pretty<span class="token operator">=</span>tformat: --numstat <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">&apos;{ add += <span class="token variable">$1</span>; subs += <span class="token variable">$2</span>; loc += <span class="token variable">$1</span> - <span class="token variable">$2</span> } END { printf &quot;added lines: %s, removed lines: %s, total lines: %s<span class="token entity" title="\n">\n</span>&quot;, add, subs, loc }&apos;</span> -
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-07-16 18:18:28
+2020-07-20 10:12:48
 </span></footer>
                                 
                                 </section>
@@ -1484,7 +1524,7 @@ ctrl + c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2020-07-16T10:18:28.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-16T10:18:41.454Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2020-07-20T02:12:48.288Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-20T02:15:50.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
