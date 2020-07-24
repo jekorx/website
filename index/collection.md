@@ -31,6 +31,7 @@
 > TypeScript
 
 [掘金] [1.2W字 | 了不起的 TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)  
+[掘金] [你可能不知道的 TypeScript 高级技巧](https://juejin.im/post/5e10a7f65188253a8d3ea3db)  
 
 > Vue  
 
@@ -42,6 +43,7 @@
 
 [掘金] [1.4万字 | 玩转前端 Video 播放器](https://juejin.im/post/5f0e52fe518825742109d9ee)  
 [掘金] [14期-连肝7个晚上，总结了计算机网络的知识点！（共66条）](https://juejin.im/post/5ee27de06fb9a047f7131eb2)  
+[掘金] [脱离996，Chrome DevTools 面板全攻略！！！](https://juejin.im/post/5f1542e16fb9a07e6f7b80fe)  
 
 #### Flutter
 
