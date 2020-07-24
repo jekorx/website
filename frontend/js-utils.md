@@ -4,8 +4,8 @@
 
 ```javascript
 /**
- * 日期格式化
- * dateFormat(new Date(), 'yyyy-MM-dd HH:mm:ss') // 2020-01-02 12:12:12
+ * @description 日期格式化
+ * @description dateFormat(new Date(), 'yyyy-MM-dd HH:mm:ss') // 2020-01-02 12:12:12
  * 
  * @param {Date|String|Number} date 日期
  * @param {String} fmt 格式
@@ -24,7 +24,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
         // 字符串时间戳转数字时间戳
         date = +date
       }
-    } else if (((date instanceof String) || (typeof date).toLowerCase() === 'string')) {
+    } else if ((date instanceof String) || (typeof date).toLowerCase() === 'string') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
     }
@@ -69,8 +69,8 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 
 ```javascript
 /**
- * 时间转换为xx时间前
- * getTimeInfo('2020-01-02 12:12:12') // 2月前
+ * @description 时间转换为xx时间前
+ * @description getTimeInfo('2020-01-02 12:12:12') // 2月前
  * 
  * @param {Date|String|Number} date 时间
  * @returns {String} 如：5天前
@@ -88,7 +88,7 @@ export const getTimeInfo = date => {
         // 字符串时间戳转数字时间戳
         date = +date
       }
-    } else if (((date instanceof String) || (typeof date).toLowerCase() === 'string')) {
+    } else if ((date instanceof String) || (typeof date).toLowerCase() === 'string') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
     }
@@ -112,7 +112,8 @@ export const getTimeInfo = date => {
 
 ```javascript
 /**
- * 手机号中间四位 *
+ * @description 手机号中间四位 *
+ * 
  * @param {String}  phone 手机号
  * @returns {String} 如：188****8888
  */
@@ -133,7 +134,7 @@ import { v1 as uuidv1 } from 'uuid'
 import axios from '@/libs/api.request'
 
 /**
- * 七牛上传
+ * @description 七牛上传
  * dependencies: {
  *   qiniu-js,
  *   uuid,
@@ -189,8 +190,8 @@ export default (file, complete, next, error) => {
 
 ```javascript
 /**
- * 滚动条滚动动画
- * scrollTo(window, 0, 1000)
+ * @description 滚动条滚动动画
+ * @description scrollTo(window, 0, 1000)
  * 
  * @param {HTMLDOM | window} el 滚动对象
  * @param {Number} from 滚动开始位置
@@ -238,7 +239,7 @@ export const scrollTo = (el, from, to = 0, duration = 500, endCallback) => {
 
 ```javascript
 /**
- * base64转file
+ * @description base64转file
  *
  * @param {String} dataURL base64
  * @param {String} filename 文件名，如：image.png
@@ -261,7 +262,7 @@ export const dataURLtoFile = (dataURL, filename) => {
 
 ```javascript
 /**
- * base64转blob
+ * @description base64转blob
  *
  * @param {String} dataURL base64
  * @returns {Blob} 返回Blob对象
@@ -283,7 +284,7 @@ export const dataURLToBlob = dataURL => {
 
 ```javascript
 /**
- * blob转file
+ * @description blob转file
  *
  * @param {Blob} blob Blob对象
  * @param {String} filename 文件名，如：image.png
@@ -301,9 +302,11 @@ export const blobToFile = (blob, filename) => {
 ```javascript
 /**
  * @description 绑定事件 eventOn(element, event, handler)
+ * @description eventOn(window, 'scroll', this.scroll)
  * 
- * 用法：
- * eventOn(window, 'scroll', this.scroll)
+ * @param {HTMLDOM | window} element 绑定对象
+ * @param {String} event 事件名称，如：scroll
+ * @param {Function} handler 事件方法
  */
 export const eventOn = (function () {
   // ssr中使用注意服务端无效
@@ -329,9 +332,11 @@ export const eventOn = (function () {
 ```javascript
 /**
  * @description 解绑事件 eventOff(element, event, handler)
+ * @description eventOff(window, 'scroll', this.scroll)
  * 
- * 用法：
- * eventOff(window, 'scroll', this.scroll)
+ * @param {HTMLDOM | window} element 解绑对象
+ * @param {String} event 事件名称，如：scroll
+ * @param {Function} handler 事件方法
  */
 export const eventOff = (function () {
   // ssr中使用注意服务端无效
@@ -350,4 +355,121 @@ export const eventOff = (function () {
     }
   }
 })()
+```
+
+#### 连字符转驼峰
+
+```javascript
+/**
+ * @description 连字符转驼峰
+ * @description toCamelCase('hello_world', '_') // helloWorld
+ * 
+ * @param {String} str 连字符字符串
+ * @param {String} separator 分隔符，默认为'-'，可不传
+ * @returns {String} 如：helloWorld
+ */
+export const toCamelCase = (str = '', separator = '-') => {
+  if (!(str instanceof String) && (typeof str).toLowerCase() !== 'string') {
+    throw new Error('Argument must be a string')
+  }
+  if (str === '') {
+    return str
+  }
+  const regExp = new RegExp(`\\${separator}\(\\w\)`, 'g')
+  return str.replace(regExp, (matched, $1) => $1.toUpperCase())
+}
+```
+
+#### 驼峰转连字符
+
+```javascript
+/**
+ * @description 驼峰转连字符
+ * @description fromCamelCase('helloWorld', '_') // hello_world
+ * 
+ * @param {String} str 驼峰字符串
+ * @param {String} separator 分隔符，默认为'-'，可不传
+ * @returns {String} 如：hello_world
+ */
+export const fromCamelCase = (str = '', separator = '-') => {
+  if (!(str instanceof String) && (typeof str).toLowerCase() !== 'string') {
+    throw new Error('Argument must be a string')
+  }
+  if (str === '') {
+    return str
+  }
+  return str.replace(/([A-Z])/g, `${separator}$1`).toLowerCase()
+}
+```
+
+#### 文件尺寸格式化
+
+```javascript
+/**
+ * @description 文件尺寸格式化
+ * @description formatSize(10240000) // 9.77MB
+ * 
+ * @param {String | Number} size 字节数
+ * @returns {String} 如：9.77MB
+ */
+export const formatSize = size => {
+  if (typeof +size !== 'number') {
+    throw new Error('Argument(s) is illegal !')
+	}
+  const unitsHash = 'B,KB,MB,GB'.split(',')
+  let index = 0
+  while (size > 1024 && index < unitsHash.length) {
+    size /= 1024
+    index++
+  }
+  return Math.round(size * 100) / 100 + unitsHash[index]
+}
+```
+
+#### 获取指定范围内的随机数
+
+```javascript
+/**
+ * @description 获取指定范围内的随机数
+ * @description getRandom(0, 10) // 9
+ * 
+ * @param {Number} min 最小范围，包含
+ * @param {Number} max 最大范围，包含
+ * @returns {Number} 如：9
+ */
+export const getRandom = (min = 0, max = 100) => {
+  if (typeof min !== 'number' || typeof max !== 'number') {
+    throw new Error('Argument(s) is illegal !')
+	}
+  if (min > max) {
+    [min, max] = [max, min]
+  }
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+```
+
+#### 打乱数组
+
+```javascript
+/**
+ * @description 打乱数组
+ * @description arrayShuffle([1, 2, 3]) // [2, 1, 3]
+ * 
+ * @param {Array} array 待乱序数组
+ * @returns {Array} 如：[2, 1, 3]
+ */
+export const arrayShuffle = array => {
+  if (!Array.isArray(array)) {
+    throw new Error('Argument must be an array')
+	}
+  let end = array.length
+  if (!end) {
+    return array
+  }
+  while (end) {
+    let start = Math.floor(Math.random() * end--);
+    [array[start], array[end]] = [array[end], array[start]]
+  }
+  return array
+}
 ```
