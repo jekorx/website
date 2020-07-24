@@ -205,6 +205,7 @@ git reflog
 # 查看更改的文件
 git status
 
+# 如果add到暂存区需要reset，重置暂存区最近一次提交
 # 如果已经commit，需要将文件回退到commit前
 git reset HEAD <文件名>
 
