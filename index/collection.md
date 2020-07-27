@@ -38,6 +38,8 @@
 [掘金] [史上最强vue总结---面试开发全靠它了](https://juejin.im/post/5f0dab7df265da22cc286e70)  
 [掘金] [实战技巧，Vue原来还可以这样写](https://juejin.im/post/5eef7799f265da02cd3b82fe)  
 [掘金] [前方高能，这是最新的一波Vue实战技巧，不用则已，一用惊人](https://juejin.im/post/5ef6d1325188252e75366ab5)  
+[掘金] [10个简单的技巧让你的 vue.js 代码更优雅🍊](https://juejin.im/post/5f18f3346fb9a07eb417d2d2)  
+[掘金] [一万字教你怎么用 Vue](https://juejin.im/post/5f1a8bbee51d45346e6b6b29)  
 
 > 其它
 
@@ -68,6 +70,8 @@
 [掘金] [flutter好用的轮子推荐十八-flutter液体效果的页面切换组件](https://juejin.im/post/5ddb54146fb9a07a8f412d62)  
 [掘金] [flutter好用的轮子推荐十九-flutter水波效果的进度器](https://juejin.im/post/5dde3194f265da06074f13c6)  
 [掘金] [flutter好用的轮子推荐二十一-flutter制作刮刮卡效果](https://juejin.im/post/5df5c48ae51d4558096d5887)  
+[掘金] [Flutter Candies 一桶天下](https://juejin.im/post/5d8d5a105188256ec311fa99)  
+[掘金] [flutter开发之Dart[必读篇]💯](https://juejin.im/post/5f1c54dff265da22f6164a81)  
 
 #### Git
 
