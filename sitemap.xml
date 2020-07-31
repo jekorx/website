@@ -9,553 +9,560 @@
 <url>
  <loc>https://blog.wdg.pub/frontend/nuxtjs.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/vuejs.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/flutter.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/cra.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/pgsql.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/eslint.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/cmd.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://blog.wdg.pub/applet/weapp-vehicle-panel.html</loc>
+ <loc>https://blog.wdg.pub/wx/weapp-vehicle-panel.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/markdown/ascii.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/springboot/run.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/jenkins/install.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://blog.wdg.pub/index/applet.html</loc>
+ <loc>https://blog.wdg.pub/index/wx.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/springboot/put-config.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/flutter/android-package.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/java/stream.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/markdown.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/java.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/vue-quill-editor.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/chrome-download.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/yum.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/java/compare.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/git-svn.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/mount.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/flutter/env.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/java/utils.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/others/sys.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/tomcat.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/solr.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/debounce-throttle.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
- <loc>https://blog.wdg.pub/applet/weapp-grant.html</loc>
+ <loc>https://blog.wdg.pub/wx/weapp-grant.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://blog.wdg.pub/wx/wx-mp.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/git-svn/gitlab.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/js-utils.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/css.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/springboot/excel.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/springboot/cors-config.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/vue-cli.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/others.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/axios.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/amap-selector.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/nodejs/yarn.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/git-svn/git.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/nodejs.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/jdk.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/springboot.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/spring.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/ide/idea.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/git-svn/svn.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/nodejs/http-server.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/redis.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/ide/editorconfig.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/linux.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/vw.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/spring/exception.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/less.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/frontend.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/php.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/regular.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/webpack.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/ide.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/maven.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/springboot/fastjson-config.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/nodejs/process-manager.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/jenkins.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/zentao.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/ftp.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/mysql.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/linux/nginx.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/ide/vscode.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/java/fastjson.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/nodejs.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/zentao/install.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/frontend/canvas.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/nodejs/npm.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/sql.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/sql/mysql.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/sql/postgresql.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/springboot/mybatis.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 
 <url>
  <loc>https://blog.wdg.pub/index/collection.html</loc>
  <priority>0.3</priority>
- <lastmod>2020-07-20</lastmod>
+ <lastmod>2020-07-28</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 

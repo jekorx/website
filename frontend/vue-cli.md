@@ -6,7 +6,8 @@
 
 #### 配置
 
-> 在项目根目录下添加```vue.config.js ```文件，内容如下 
+> 在项目根目录下添加```vue.config.js ```文件，内容如下  
+> [webpack-chain配置](https://github.com/Yatoo2018/webpack-chain/tree/zh-cmn-Hans)文档说明
 
 ```javascript
 const path = require('path')
