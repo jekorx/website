@@ -6,11 +6,12 @@ https://blog.wdg.pub/
 https://blog.wdg.pub/linux/pgsql.html
 https://blog.wdg.pub/frontend/eslint.html
 https://blog.wdg.pub/linux/cmd.html
-https://blog.wdg.pub/applet/weapp-vehicle-panel.html
+https://blog.wdg.pub/wx/weapp-vehicle-panel.html
+https://blog.wdg.pub/wx/wx-mp.html
 https://blog.wdg.pub/markdown/ascii.html
 https://blog.wdg.pub/springboot/run.html
 https://blog.wdg.pub/jenkins/install.html
-https://blog.wdg.pub/index/applet.html
+https://blog.wdg.pub/index/wx.html
 https://blog.wdg.pub/springboot/put-config.html
 https://blog.wdg.pub/flutter/android-package.html
 https://blog.wdg.pub/java/stream.html
@@ -28,7 +29,7 @@ https://blog.wdg.pub/others/sys.html
 https://blog.wdg.pub/linux/tomcat.html
 https://blog.wdg.pub/linux/solr.html
 https://blog.wdg.pub/frontend/debounce-throttle.html
-https://blog.wdg.pub/applet/weapp-grant.html
+https://blog.wdg.pub/wx/weapp-grant.html
 https://blog.wdg.pub/git-svn/gitlab.html
 https://blog.wdg.pub/frontend/js-utils.html
 https://blog.wdg.pub/frontend/css.html
