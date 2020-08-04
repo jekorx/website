@@ -566,4 +566,18 @@
  <changefreq>weekly</changefreq>
 </url>
 
+<url>
+ <loc>https://blog.wdg.pub/index/windows.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2020-08-04</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://blog.wdg.pub/windows/dos.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2020-08-04</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
 </urlset>

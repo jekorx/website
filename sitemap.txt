@@ -78,3 +78,5 @@ https://blog.wdg.pub/sql/mysql.html
 https://blog.wdg.pub/sql/postgresql.html
 https://blog.wdg.pub/springboot/mybatis.html
 https://blog.wdg.pub/index/collection.html
+https://blog.wdg.pub/index/windows.html
+https://blog.wdg.pub/windows/dos.html

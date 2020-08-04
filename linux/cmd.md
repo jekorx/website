@@ -23,3 +23,22 @@ lsof -i:<PORT>
 # -p 显示建立相关链接的程序名
 netstat -tunlp | grep <PORT>
 ```
+
+##### 删除当前目录及其子目录下所有指定文件
+
+```bash
+# ./ 为当前目录及其子目录
+# -type d 目标为文件夹
+# -name "<文件通配符>" 查找要删除的文件
+# xargs rm -rf 执行删除
+# 删除指定文件
+find ./ -name "<文件通配符>" | xargs rm -rf
+# 删除指定文件夹
+find ./ -type d -name "<文件夹通配符>" | xargs rm -rf
+
+# 如：删除所有.md文件
+find ./ -name "*.md" | xargs rm -rf
+
+# 如：删除所有含有md的文件夹
+find ./ -type d -name "*md*" | xargs rm -rf
+```

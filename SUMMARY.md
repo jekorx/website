@@ -67,6 +67,8 @@
   * [Redis](linux/redis.md)
   * [Solr](linux/solr.md)
   * [ftp服务器](linux/ftp.md)
+* [Windows](index/windows.md)
+  * [DOS](windows/dos.md)
 * [Jenkins](index/jenkins.md)
   * [安装](jenkins/install.md)
 * [ZenTao](index/zentao.md)
