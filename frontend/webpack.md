@@ -120,3 +120,20 @@ npm run build
 # or
 yarn build
 ```
+
+#### 相关问题
+
+> 1、使用域名访问开发阶段项目提示，如：微信公众号开发使用[cpolar](https://www.cpolar.com/)、natapp工具内网穿透访问  
+> ```Invalid Host header```  
+
+```javascript
+// 设置不检查hostname为true
+devServer: {
+  disableHostCheck: true
+}
+
+// webpack-chain方式配置
+config
+  .devServer
+    .disableHostCheck(true)
+```

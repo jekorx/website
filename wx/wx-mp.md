@@ -1,12 +1,12 @@
 # 微信公众号
 
-> 推荐使用[NATAPP工具](https://natapp.cn/)在开发阶段进行内网透传  
+> 推荐使用内网穿透在开发阶段进行内网穿透，如：[cpolar](https://www.cpolar.com/)  
 
-![NATAPP](../images/wx-mp-1.png)
+![cpolar](../images/wx-mp-1.png)
 
 > 正式环境需配置域名信息  
 
-![NATAPP](../images/wx-mp-2.png)
+![公众号设置-功能设置](../images/wx-mp-2.png)
 
 > 测试帐号申请，[请点击](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login)  
 

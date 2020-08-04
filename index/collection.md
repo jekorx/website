@@ -15,6 +15,7 @@
 [掘金] [[诚意满满✍]带你填一些JS容易出错的坑](https://juejin.im/post/5f0884c9e51d453462004fae)  
 [掘金] [你不知道的 WebSocket](https://juejin.im/post/5f1ef215e51d453473206df6)  
 [掘金] [「一劳永逸」送你21道高频JavaScript手写面试题](https://juejin.im/post/6855129007852093453)  
+[掘金] [[译] 你不知道的 console 命令](https://juejin.im/post/6844903718677118990)  
 
 > CSS
 
