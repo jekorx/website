@@ -473,3 +473,33 @@ export const arrayShuffle = array => {
   return array
 }
 ```
+
+#### 获取Url参数
+
+```javascript
+/**
+ * @description 获取Url参数，注意：获取的参数值均为String类型
+ * @description getUrlParam('f', 'https://www.baidu.com/s?ie=utf-8&f=8') // '8'
+ * 
+ * @param {String} variable 需要获取的参数名，传空值或者null会获取参数Object
+ * @param {String} url url，默认为当前url
+ * @returns {Object | String | Null} 如：variable为空值或null：{ ie: 'utf-8', f: '8' }，未查找到的参数或url无参数返：null，variable有值查询具体参数返回String类型值
+ */
+export const getUrlParam = (variable = '', url = window.location.href) => {
+  if (url === '' || !url.includes('=')) return null
+  const query = url.substr(url.lastIndexOf('?') + 1)
+  const vars = query.split('&')
+  if (!variable) {
+    return vars.reduce((params, v) => {
+      const pair = v.split('=')
+      params[pair[0]] = pair[1]
+      return params
+    }, {})
+  }
+  for (const v of vars) {
+    const pair = v.split('=')
+    if (pair[0] === variable) return pair[1]
+  }
+  return null
+}
+```

@@ -52,6 +52,7 @@
 [掘金] [14期-连肝7个晚上，总结了计算机网络的知识点！（共66条）](https://juejin.im/post/5ee27de06fb9a047f7131eb2)  
 [掘金] [脱离996，Chrome DevTools 面板全攻略！！！](https://juejin.im/post/5f1542e16fb9a07e6f7b80fe)  
 [掘金] [那些前端开发必不可少的生产力工具](https://juejin.im/post/5f1f8f7b5188252e65443f9c)  
+[SegmentFault 思否] [关于移动端适配，你必须要知道的](https://segmentfault.com/a/1190000019207842)  
 
 #### Flutter
 
