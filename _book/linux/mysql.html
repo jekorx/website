@@ -1421,12 +1421,30 @@ mysql -uroot -p
 <span class="token comment"># 3&#x3001;&#x91CD;&#x542F;mysql&#x670D;&#x52A1;</span>
 systemctl restart mysqld
 </code></pre>
+<h4 id="&#x4FEE;&#x6539;mysql&#x9ED8;&#x8BA4;&#x7F16;&#x7801;">&#x4FEE;&#x6539;mysql&#x9ED8;&#x8BA4;&#x7F16;&#x7801;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="token function">vim</span> /etc/my.cnf
+
+<span class="token comment"># 2&#x3001;&#x589E;&#x52A0;</span>
+<span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+default-character-set <span class="token operator">=</span> utf8mb4
+
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+character-set-server<span class="token operator">=</span>utf8mb4
+collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
+
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+default-character-set <span class="token operator">=</span> utf8mb4
+
+<span class="token comment"># 3&#x3001;&#x91CD;&#x542F;mysql&#x670D;&#x52A1;</span>
+systemctl restart mysqld
+</code></pre>
 <h4 id="&#x521B;&#x5EFA;&#x7528;&#x6237;&#x3001;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6388;&#x6743;&#x6570;&#x636E;&#x5E93;&#x6743;&#x9650;&#xFF0C;&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;">&#x521B;&#x5EFA;&#x7528;&#x6237;&#x3001;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6388;&#x6743;&#x6570;&#x636E;&#x5E93;&#x6743;&#x9650;&#xFF0C;&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;</h4>
 <pre class="language-"><code class="lang-sql"><span class="token comment">-- 1&#x3001;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x540D;&#xFF0C;%&#x4EE3;&#x8868;&#x53EF;&#x4EE5;&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;</span>
 <span class="token keyword">use</span> mysql<span class="token punctuation">;</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;%&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;password&apos;</span><span class="token punctuation">;</span>
-<span class="token comment">-- 2&#x3001;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;</span>
-<span class="token keyword">create</span> <span class="token keyword">database</span> testdb<span class="token punctuation">;</span>
+<span class="token comment">-- 2&#x3001;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x5236;&#x5B9A;&#x9ED8;&#x8BA4;&#x7F16;&#x7801;</span>
+<span class="token keyword">create</span> <span class="token keyword">database</span> testdb <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_unicode_ci<span class="token punctuation">;</span>
 <span class="token comment">-- 3&#x3001;&#x7528;&#x6237;&#x6388;&#x6743;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6307;&#x5B9A;&#x6743;&#x9650;</span>
 <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span><span class="token punctuation">,</span><span class="token keyword">UPDATE</span><span class="token punctuation">,</span><span class="token keyword">DELETE</span><span class="token punctuation">,</span><span class="token keyword">CREATE</span><span class="token punctuation">,</span><span class="token keyword">DROP</span><span class="token punctuation">,</span><span class="token keyword">ALTER</span> <span class="token keyword">ON</span> testdb<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">&apos;username&apos;</span><span class="token variable">@&apos;%&apos;</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">&apos;password&apos;</span><span class="token punctuation">;</span>
 FLUSH <span class="token keyword">PRIVILEGES</span><span class="token punctuation">;</span>
@@ -1464,8 +1482,15 @@ help contents<span class="token punctuation">;</span>
 <span class="token comment"># &#x91CD;&#x542F;mysql&#x670D;&#x52A1;</span>
 systemctl restart mysqld
 </code></pre>
+<blockquote>
+<p>Illegal mix of collations (utf8_general_ci,IMPLICIT) and (utf8mb4_general_ci,COERCIBLE) for operation xxx  </p>
+</blockquote>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x95EE;&#x9898;&#x539F;&#x56E0;&#xFF1A;emoji&#x8868;&#x60C5;&#x5BFC;&#x81F4;&#xFF0C;MySQL &#x7684; utf8 &#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684; utf8&#x3002;</span>
+<span class="token comment"># &#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;&#x53EF;&#x8BB2;&#x6570;&#x636E;&#x5E93; &#x6216;&#x8005; &#x6570;&#x636E;&#x8868; &#x6216;&#x8005; &#x5BF9;&#x5E94;&#x5B57;&#x6BB5;&#x7684;&#x7F16;&#x7801;&#x6539;&#x4E3A;utf8mb4&#xFF0C;</span>
+<span class="token comment">#          &#x9879;&#x76EE;&#x4E4B;&#x521D;&#x5EFA;&#x8BAE;&#x5728;&#x6570;&#x636E;&#x5E93;&#x7EA7;&#x522B;&#x6216;&#x8005;&#x8868;&#x7EA7;&#x522B;&#x8BBE;&#x7F6E;&#x7F16;&#x7801;&#xFF0C;&#x540E;&#x671F;&#x53EF;&#x4EE5;&#x5728;&#x5BF9;&#x5E94;&#x5B57;&#x6BB5;&#x4FEE;&#x6539;&#x7F16;&#x7801;&#x3002;</span>
+</code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-01-10 14:15:21
+2020-08-07 13:44:03
 </span></footer>
                                 
                                 </section>
@@ -1509,7 +1534,7 @@ systemctl restart mysqld
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.11.7","depth":2,"next":{"title":"PostgreSQL","level":"1.11.8","depth":2,"path":"linux/pgsql.md","ref":"linux/pgsql.md","articles":[]},"previous":{"title":"Maven","level":"1.11.6","depth":2,"path":"linux/maven.md","ref":"linux/maven.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/mysql.md","mtime":"2020-01-10T06:15:21.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-05T02:12:34.674Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.11.7","depth":2,"next":{"title":"PostgreSQL","level":"1.11.8","depth":2,"path":"linux/pgsql.md","ref":"linux/pgsql.md","articles":[]},"previous":{"title":"Maven","level":"1.11.6","depth":2,"path":"linux/maven.md","ref":"linux/maven.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/mysql.md","mtime":"2020-08-07T05:44:03.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-07T05:46:03.085Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

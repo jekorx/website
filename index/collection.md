@@ -54,6 +54,12 @@
 [掘金] [那些前端开发必不可少的生产力工具](https://juejin.im/post/5f1f8f7b5188252e65443f9c)  
 [SegmentFault 思否] [关于移动端适配，你必须要知道的](https://segmentfault.com/a/1190000019207842)  
 
+#### 微信开发
+
+> 公众号  
+
+[SegmentFault 思否] [vue使用微信JS-SDK实现分享功能](https://segmentfault.com/a/1190000020163797)  
+
 #### Flutter
 
 [掘金] [flutter好用的轮子推荐一-列表动画](https://juejin.im/post/5db3cd29518825645a5ba1f3)  

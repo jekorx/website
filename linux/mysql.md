@@ -121,14 +121,35 @@ port=<port>
 systemctl restart mysqld
 ```
 
+#### 修改mysql默认编码
+
+```bash
+# 1、修改配置文件
+vim /etc/my.cnf
+
+# 2、增加
+[client]
+default-character-set = utf8mb4
+
+[mysqld]
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+
+# 3、重启mysql服务
+systemctl restart mysqld
+```
+
 #### 创建用户、数据库，授权数据库权限，远程连接
 
 ```sql
 -- 1、创建用户名，%代表可以远程连接
 use mysql;
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
--- 2、创建数据库
-create database testdb;
+-- 2、创建数据库并制定默认编码
+create database testdb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 -- 3、用户授权使用指定数据库的指定权限
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER ON testdb.* TO 'username'@'%' IDENTIFIED BY 'password';
 FLUSH PRIVILEGES;
@@ -169,4 +190,12 @@ sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY
 
 # 重启mysql服务
 systemctl restart mysqld
+```
+
+> Illegal mix of collations (utf8_general_ci,IMPLICIT) and (utf8mb4_general_ci,COERCIBLE) for operation xxx  
+
+```bash
+# 问题原因：emoji表情导致，MySQL 的 utf8 并不是真正的 utf8。
+# 解决方法：可讲数据库 或者 数据表 或者 对应字段的编码改为utf8mb4，
+#          项目之初建议在数据库级别或者表级别设置编码，后期可以在对应字段修改编码。
 ```

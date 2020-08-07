@@ -83,3 +83,12 @@ public class GoodsDaoTest {
     }
 }
 ```
+
+##### 相关问题
+
+> 1、使用PageHelper分页时报错  
+>  
+> ```Cause: java.sql.SQLException: Parameter index out of range (5 > number of parameters, which is 4)```  
+>  
+> 原因：MyBatis的mapper.xml中存在sql注释，导致PageHelper无法赋值分页条件  
+> 解决方法：去掉mapper.xml中存在sql注释即可  
