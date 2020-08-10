@@ -1,6 +1,14 @@
 ### A magic page!
 
-<div style="height: 1660px"></div>
+<div style="height: 100vh">
+  <script>
+    var container = document.getElementsByClassName('body-inner')[0]
+    container.style.overflow = 'hidden'
+    document.getElementById('a-magic-page').ondblclick = function () {
+      container.style.overflow = ''
+    }
+  </script>
+</div>
 
 ### 吕座酸菜鱼秘籍
 
