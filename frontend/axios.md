@@ -20,7 +20,7 @@ npm i axios -S
  * 2、基础使用2，url不在配置中指定
  * axios(url[, config])
  * 3、默认请求方法别名
- * 使用别名方法时， url、method、data 这些属性都不必在配置中指定。
+ * 使用别名方法时，url、method、data 这些属性都不必在配置中指定。
  * axios.request(config)
  * axios.get(url[, config])
  * axios.delete(url[, config])
@@ -36,8 +36,8 @@ npm i axios -S
  *    axios.get('url1', { params: 'xxx' }),
  *    axios.get('url2', { params: 'xxx' })
  * ]
- * axios.all(axiosList).then(axios.spread((res1,res2) => {
- *   console.log(res1,res2) // 分别是两个请求的返回值
+ * axios.all(axiosList).then(axios.spread((res1, res2) => {
+ *   console.log(res1, res2) // 分别是两个请求的返回值
  * })
  * 5、创建实例
  * axios.create([config])

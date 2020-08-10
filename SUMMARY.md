@@ -82,3 +82,4 @@
 * [其它](index/others.md)
   * [操作系统](others/sys.md)
 * [文章收藏](index/collection.md)
+ [&emsp;](index/delicious.md)

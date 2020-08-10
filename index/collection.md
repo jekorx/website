@@ -16,6 +16,7 @@
 [掘金] [你不知道的 WebSocket](https://juejin.im/post/5f1ef215e51d453473206df6)  
 [掘金] [「一劳永逸」送你21道高频JavaScript手写面试题](https://juejin.im/post/6855129007852093453)  
 [掘金] [[译] 你不知道的 console 命令](https://juejin.im/post/6844903718677118990)  
+[掘金] [编写高质量可维护的代码之优化逻辑判断](https://juejin.im/post/6859125809655840776)  
 
 > CSS
 
@@ -53,6 +54,8 @@
 [掘金] [脱离996，Chrome DevTools 面板全攻略！！！](https://juejin.im/post/5f1542e16fb9a07e6f7b80fe)  
 [掘金] [那些前端开发必不可少的生产力工具](https://juejin.im/post/5f1f8f7b5188252e65443f9c)  
 [SegmentFault 思否] [关于移动端适配，你必须要知道的](https://segmentfault.com/a/1190000019207842)  
+[掘金] [前端10个灵魂拷问 吃透这些你就能摆脱初级前端工程师！](https://juejin.im/post/6857800782276902919)  
+[掘金] [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)  
 
 #### 微信开发
 
@@ -88,3 +91,9 @@
 #### Git
 
 [掘金] [三年 Git 使用心得 & 常见问题整理](https://juejin.im/post/5ee649ff51882542ea2b5108)  
+
+#### SQL
+
+> MySQL  
+
+[掘金] [MySQL的四种事务隔离级别](https://juejin.im/post/6844904192491028493)  
