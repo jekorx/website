@@ -235,3 +235,94 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
   background-image: repeating-conic-gradient(#fff 0 9deg, #000 9deg 18deg);
 }
 ```
+
+* **6、div + css 绘制六边形**
+
+<div style="display: flex; width: 400px; align-items: center; justify-content: space-around; padding: 20px">
+  <div class="corner"></div>
+  <div class="hexagon"></div>
+</div>
+<style>
+.corner {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #EEE;
+  border-top: 20px solid red;
+  border-bottom: 20px solid #CCC;
+  border-left: 20px solid #EEE;
+}
+.hexagon {
+  width: 40px;
+  height: 64px;
+  background-color: purple;
+  position: relative;
+  font-size: 14px;
+  color: #FFF;
+  border-radius: 0;
+  border: 0;
+}
+.hexagon:before {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  border-right: 20px solid purple;
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+}
+.hexagon:after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  border-left: 20px solid purple;
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+}
+</style>
+
+```css
+/**
+ * 关键点：使用border绘制三角形
+ * 箭头向上的三角形：border-bottom：颜色，border-left：透明色，border-right：透明色
+ * 箭头向右的三角形：border-left：颜色，border-top：透明色，border-bottom：透明色
+ * 箭头向下的三角形：border-top：颜色，border-left：透明色，border-right：透明色
+ * 箭头向左的三角形：border-right：颜色，border-top：透明色，border-bottom：透明色
+ */
+.hexagon {
+  width: 40px;
+  height: 64px;
+  background-color: purple;
+  position: relative;
+  font-size: 14px;
+  color: #FFF;
+  border-radius: 0;
+  border: 0;
+}
+.hexagon:before {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  border-right: 20px solid purple;
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+}
+.hexagon:after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  border-left: 20px solid purple;
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+}
+```

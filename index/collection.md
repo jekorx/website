@@ -32,6 +32,8 @@
 [掘金] [『真香警告』这33个超级好用的CSS选择器，你可能见都没见过。](https://juejin.im/post/5f0c08dd5188252e7f774b02)  
 [掘金] [css篇--100道近两万字帮你巩固css知识点](https://juejin.im/post/5ee0cf335188254ec9505381)  
 [掘金] [最强大的 CSS 布局 —— Grid 布局](https://juejin.im/post/5f1e70315188252e937c088b)  
+[阮一峰] [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
+[阮一峰] [CSS Grid 网格布局教程](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)  
 
 > TypeScript
 
@@ -56,6 +58,7 @@
 [SegmentFault 思否] [关于移动端适配，你必须要知道的](https://segmentfault.com/a/1190000019207842)  
 [掘金] [前端10个灵魂拷问 吃透这些你就能摆脱初级前端工程师！](https://juejin.im/post/6857800782276902919)  
 [掘金] [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)  
+[掘金] [「一劳永逸」由浅入深配置webpack4](https://juejin.im/post/6859888538004783118)  
 
 #### 微信开发
 
