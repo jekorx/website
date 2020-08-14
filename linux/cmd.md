@@ -1,5 +1,18 @@
 # Linux命令行
 
+###### 用户操作
+
+```bash
+# 创建用户并指定登录主目录
+useradd -d /www/testuser testuser
+
+# 设置密码，输入两遍密码即可
+passwd testuser
+
+# 设置访问权限
+chown -R testuser /www/testuser
+```
+
 ###### nohup后台执行命令
 
 ```bash
