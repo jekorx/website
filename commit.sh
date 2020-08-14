@@ -23,6 +23,7 @@ read_dir(){
                 if test $file != "sitemap.html"
                 then
                     sed -i '5i\<script id="handle">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||((window.location.host!="blog.wdg.pub")&&(window.location.host!="www.wdg.pub")))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("handle").remove()</script>' $1"/"$file
+                    sed -i '79i\<script type="text/javascript" color="77,77,77" opcity="0.77" count="77" src="https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js"></script>' $1"/"$file
                 fi
             fi
         fi
