@@ -6,7 +6,7 @@
 
 ```bash
 # 1、查看已安装的mysql
-rpm -qa|grep -i mysql
+rpm -qa | grep -i mysql
 
 # 2、删除之前版本
 yum -y remove 已安装的名称
