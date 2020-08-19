@@ -6,8 +6,7 @@ set -e
 # 构建
 gitbook build
 
-# 防盗处理
-#((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||((window.location.host!="blog.wdg.pub")&&(window.location.host!="www.wdg.pub")))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("handle").remove()
+# 动态插入js
 read_dir(){
     for file in `ls -a $1`
     do
@@ -22,8 +21,8 @@ read_dir(){
             then
                 if test $file != "sitemap.html"
                 then
-                    sed -i '5i\<script id="handle">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||((window.location.host!="blog.wdg.pub")&&(window.location.host!="www.wdg.pub")))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("handle").remove()</script>' $1"/"$file
-                    sed -i '/<\/body>/i <script type="text/javascript" color="77,77,77" opcity="0.77" count="77" src="https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js"></script>' $1"/"$file
+                    sed -i '5i\<script id="f0196b">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||((window.location.host!="blog.wdg.pub")&&(window.location.host!="www.wdg.pub")))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("f0196b").remove()</script>' $1"/"$file
+                    sed -i '/<\/body>/i <script id="b49ed9">document.writeln("<script type=\"text/javascript\" color=\"77,77,77\" opcity=\"0.77\" count=\""+(document.body.clientWidth?Math.floor(document.body.clientWidth/20):30)+"\" src=\"https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js\">"+"<"+"/script>"),document.getElementById("b49ed9").remove()</script>' $1"/"$file
                 fi
             fi
         fi
