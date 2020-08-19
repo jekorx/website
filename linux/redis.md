@@ -52,7 +52,7 @@ redis-server /usr/local/redis/redis.conf
 redis-cli
 
 # 有密码
-redis-cli -a <your password>
+redis-cli -a '<your password>'
 
 > ping
 pong
