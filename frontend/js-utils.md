@@ -1,5 +1,24 @@
 # JS 常用工具方法
 
+#### 类型判断
+
+```javascript
+// 以下为更精确的判断方式，某些场景下比使用 typeof & instanceof 更高效、准确
+// 判断变量是注意非undefined，toString.call(person) // person is not defined
+toString.call(() => {})     // [object Function]
+toString.call({})           // [object Object]
+toString.call([])           // [object Array]
+toString.call('')           // [object String]
+toString.call(123)          // [object Number]
+toString.call(undefined)    // [object undefined]
+toString.call(null)         // [object null]
+toString.call(new Date)     // [object Date]
+toString.call(Math)         // [object Math]
+toString.call(window)       // [object Window]
+toString.call(document)     // [object HTMLDocument]
+toString.call(Symbol())     // [object Symbol]
+```
+
 #### 日期格式化
 
 ```javascript
@@ -14,17 +33,21 @@
 export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
   if (!date) return ''
   // 不为Date类型进行处理
-  if (!(date instanceof Date)) {
+  if (toString.call(date) !== '[object Date]') {
     // 判断数字时间戳
     if (!isNaN(date)) {
       // 10位时间戳转13位
-      if ((date + '').length === 10) {
+      date = date + ''
+      if (date.length === 10) {
         date = +date * 1000
-      } else {
+      } else if (date.length === 13) {
         // 字符串时间戳转数字时间戳
         date = +date
+      } else {
+        // 时间戳格式错误返回''
+        return ''
       }
-    } else if ((date instanceof String) || (typeof date).toLowerCase() === 'string') {
+    } else if (toString.call(date) === '[object String]') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
     }
@@ -78,17 +101,21 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 export const getTimeInfo = date => {
   if (!date) return ''
   // 不为Date类型进行处理
-  if (!(date instanceof Date)) {
+  if (toString.call(date) !== '[object Date]') {
     // 判断数字时间戳
     if (!isNaN(date)) {
       // 10位时间戳转13位
-      if ((date + '').length === 10) {
+      date = date + ''
+      if (date.length === 10) {
         date = +date * 1000
-      } else {
+      } else if (date.length === 13) {
         // 字符串时间戳转数字时间戳
         date = +date
+      } else {
+        // 时间戳格式错误返回''
+        return ''
       }
-    } else if ((date instanceof String) || (typeof date).toLowerCase() === 'string') {
+    } else if (toString.call(date) === '[object String]') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
     }
@@ -369,7 +396,7 @@ export const eventOff = (function () {
  * @returns {String} 如：helloWorld
  */
 export const toCamelCase = (str = '', separator = '-') => {
-  if (!(str instanceof String) && (typeof str).toLowerCase() !== 'string') {
+  if (toString.call(str) !== '[object String]') {
     throw new Error('Argument must be a string')
   }
   if (str === '') {
@@ -392,7 +419,7 @@ export const toCamelCase = (str = '', separator = '-') => {
  * @returns {String} 如：hello_world
  */
 export const fromCamelCase = (str = '', separator = '-') => {
-  if (!(str instanceof String) && (typeof str).toLowerCase() !== 'string') {
+  if (toString.call(str) !== '[object String]') {
     throw new Error('Argument must be a string')
   }
   if (str === '') {
@@ -413,10 +440,10 @@ export const fromCamelCase = (str = '', separator = '-') => {
  * @returns {String} 如：9.77MB
  */
 export const formatSize = size => {
-  if (typeof +size !== 'number') {
+  if (toString.call(size) !== '[object Number]') {
     throw new Error('Argument(s) is illegal !')
 	}
-  const unitsHash = 'B,KB,MB,GB'.split(',')
+  const unitsHash = 'B,KB,MB,GB,TB,PB,EB,ZB,YB'.split(',')
   let index = 0
   while (size > 1024 && index < unitsHash.length) {
     size /= 1024
@@ -438,7 +465,7 @@ export const formatSize = size => {
  * @returns {Number} 如：9
  */
 export const getRandom = (min = 0, max = 100) => {
-  if (typeof min !== 'number' || typeof max !== 'number') {
+  if (toString.call(min) !== '[object Number]' || toString.call(max) !== '[object Number]') {
     throw new Error('Argument(s) is illegal !')
 	}
   if (min > max) {

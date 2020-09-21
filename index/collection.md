@@ -39,6 +39,7 @@
 
 [掘金] [1.2W字 | 了不起的 TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)  
 [掘金] [你可能不知道的 TypeScript 高级技巧](https://juejin.im/post/5e10a7f65188253a8d3ea3db)  
+[掘金] [一份不可多得的 TS 学习指南（1.8W字）](https://juejin.im/post/6872111128135073806)  
 
 > Vue  
 
@@ -47,6 +48,7 @@
 [掘金] [前方高能，这是最新的一波Vue实战技巧，不用则已，一用惊人](https://juejin.im/post/5ef6d1325188252e75366ab5)  
 [掘金] [10个简单的技巧让你的 vue.js 代码更优雅🍊](https://juejin.im/post/5f18f3346fb9a07eb417d2d2)  
 [掘金] [一万字教你怎么用 Vue](https://juejin.im/post/5f1a8bbee51d45346e6b6b29)  
+[掘金] [一个合格的中级前端工程师应该掌握的 20 个 Vue 技巧](https://juejin.im/post/6872128694639394830)  
 
 > 其它
 
@@ -59,6 +61,7 @@
 [掘金] [前端10个灵魂拷问 吃透这些你就能摆脱初级前端工程师！](https://juejin.im/post/6857800782276902919)  
 [掘金] [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)  
 [掘金] [「一劳永逸」由浅入深配置webpack4](https://juejin.im/post/6859888538004783118)  
+[掘金] [前端一键自动部署工具🛠](https://juejin.im/post/6872914108979609614)  
 
 #### 微信开发
 
@@ -94,6 +97,7 @@
 #### Git
 
 [掘金] [三年 Git 使用心得 & 常见问题整理](https://juejin.im/post/5ee649ff51882542ea2b5108)  
+[掘金] [「一劳永逸」一张脑图带你掌握Git命令](https://juejin.im/post/6869519303864123399)  
 
 #### SQL
 
