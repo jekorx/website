@@ -24,8 +24,9 @@ toString.call(Symbol())     // [object Symbol]
 ```javascript
 /**
  * @description 日期格式化
- * @description dateFormat(new Date(), 'yyyy-MM-dd HH:mm:ss') // 2020-01-02 12:12:12
- * 
+ * @description dateFormat(new Date(), 'yyyy-MM-dd EEE HH:mm:ss') // 2020-01-02 星期四 12:12:12
+ * @description dateFormat(new Date(), 'yyyy-MM-dd EE HH:mm:ss') // 2020-01-02 周四 12:12:12
+ *
  * @param {Date|String|Number} date 日期
  * @param {String} fmt 格式
  * @returns {String} 如：2020-01-02 12:12:12
@@ -64,20 +65,13 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
     'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
     'S': date.getMilliseconds() // 毫秒
   }
-  const week = {
-    '0': '/u65e5',
-    '1': '/u4e00',
-    '2': '/u4e8c',
-    '3': '/u4e09',
-    '4': '/u56db',
-    '5': '/u4e94',
-    '6': '/u516d'
-  }
+  // 星期
+  const week = ['日', '一', '二', '三', '四', '五', '六']
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
   }
   if (/(E+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? '/u661f/u671f' : '/u5468') : '') + week[date.getDay() + ''])
+    fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? '星期' : '周') : '') + week[+date.getDay()])
   }
   for (const k in o) {
     if (new RegExp('(' + k + ')').test(fmt)) {
@@ -94,7 +88,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 /**
  * @description 时间转换为xx时间前
  * @description getTimeInfo('2020-01-02 12:12:12') // 2月前
- * 
+ *
  * @param {Date|String|Number} date 时间
  * @returns {String} 如：5天前
  */
@@ -140,11 +134,11 @@ export const getTimeInfo = date => {
 ```javascript
 /**
  * @description 手机号中间四位 *
- * 
+ *
  * @param {String}  phone 手机号
  * @returns {String} 如：188****8888
  */
-export const hidePhone= phone => {
+export const hidePhone = phone => {
   if (!phone) return ''
   const arr = phone.split('')
   arr.splice(3, 4, '****')
@@ -156,7 +150,7 @@ export const hidePhone= phone => {
 
 ```javascript
 import * as qiniu from 'qiniu-js'
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 import { v1 as uuidv1 } from 'uuid'
 import axios from '@/libs/api.request'
 
@@ -193,7 +187,7 @@ const uploadHandler = (token, file, complete, next, error) => {
 }
 // 获取token，上传
 export default (file, complete, next, error) => {
-  let token = Cookie.get(UPTOKEN)
+  let token = Cookies.get(UPTOKEN)
   if (token === null || token === undefined) {
     axios.request({
       url: REQUEST_URL,
@@ -202,7 +196,7 @@ export default (file, complete, next, error) => {
       if (code === 1) {
         const date = new Date()
         date.setSeconds(date.getSeconds() + 3500)
-        Cookie.set(UPTOKEN, data, { expires: date })
+        Cookies.set(UPTOKEN, data, { expires: date })
         token = data
         uploadHandler(token, file, complete, next, error)
       }
@@ -219,7 +213,7 @@ export default (file, complete, next, error) => {
 /**
  * @description 滚动条滚动动画
  * @description scrollTo(window, 0, 1000)
- * 
+ *
  * @param {HTMLDOM | window} el 滚动对象
  * @param {Number} from 滚动开始位置
  * @param {Number} to 滚动结束位置
@@ -330,7 +324,7 @@ export const blobToFile = (blob, filename) => {
 /**
  * @description 绑定事件 eventOn(element, event, handler)
  * @description eventOn(window, 'scroll', this.scroll)
- * 
+ *
  * @param {HTMLDOM | window} element 绑定对象
  * @param {String} event 事件名称，如：scroll
  * @param {Function} handler 事件方法
@@ -360,7 +354,7 @@ export const eventOn = (function () {
 /**
  * @description 解绑事件 eventOff(element, event, handler)
  * @description eventOff(window, 'scroll', this.scroll)
- * 
+ *
  * @param {HTMLDOM | window} element 解绑对象
  * @param {String} event 事件名称，如：scroll
  * @param {Function} handler 事件方法
@@ -390,7 +384,7 @@ export const eventOff = (function () {
 /**
  * @description 连字符转驼峰
  * @description toCamelCase('hello_world', '_') // helloWorld
- * 
+ *
  * @param {String} str 连字符字符串
  * @param {String} separator 分隔符，默认为'-'，可不传
  * @returns {String} 如：helloWorld
@@ -402,7 +396,7 @@ export const toCamelCase = (str = '', separator = '-') => {
   if (str === '') {
     return str
   }
-  const regExp = new RegExp(`\\${separator}\(\\w\)`, 'g')
+  const regExp = new RegExp(`\\${separator}(\\w)`, 'g')
   return str.replace(regExp, (matched, $1) => $1.toUpperCase())
 }
 ```
@@ -413,7 +407,7 @@ export const toCamelCase = (str = '', separator = '-') => {
 /**
  * @description 驼峰转连字符
  * @description fromCamelCase('helloWorld', '_') // hello_world
- * 
+ *
  * @param {String} str 驼峰字符串
  * @param {String} separator 分隔符，默认为'-'，可不传
  * @returns {String} 如：hello_world
@@ -435,14 +429,14 @@ export const fromCamelCase = (str = '', separator = '-') => {
 /**
  * @description 文件尺寸格式化
  * @description formatSize(10240000) // 9.77MB
- * 
+ *
  * @param {String | Number} size 字节数
  * @returns {String} 如：9.77MB
  */
 export const formatSize = size => {
   if (toString.call(size) !== '[object Number]') {
     throw new Error('Argument(s) is illegal !')
-	}
+  }
   const unitsHash = 'B,KB,MB,GB,TB,PB,EB,ZB,YB'.split(',')
   let index = 0
   while (size > 1024 && index < unitsHash.length) {
@@ -459,7 +453,7 @@ export const formatSize = size => {
 /**
  * @description 获取指定范围内的随机数
  * @description getRandom(0, 10) // 9
- * 
+ *
  * @param {Number} min 最小范围，包含
  * @param {Number} max 最大范围，包含
  * @returns {Number} 如：9
@@ -467,7 +461,7 @@ export const formatSize = size => {
 export const getRandom = (min = 0, max = 100) => {
   if (toString.call(min) !== '[object Number]' || toString.call(max) !== '[object Number]') {
     throw new Error('Argument(s) is illegal !')
-	}
+  }
   if (min > max) {
     [min, max] = [max, min]
   }
@@ -481,20 +475,20 @@ export const getRandom = (min = 0, max = 100) => {
 /**
  * @description 打乱数组
  * @description arrayShuffle([1, 2, 3]) // [2, 1, 3]
- * 
+ *
  * @param {Array} array 待乱序数组
  * @returns {Array} 如：[2, 1, 3]
  */
 export const arrayShuffle = array => {
   if (!Array.isArray(array)) {
     throw new Error('Argument must be an array')
-	}
+  }
   let end = array.length
   if (!end) {
     return array
   }
   while (end) {
-    let start = Math.floor(Math.random() * end--);
+    const start = Math.floor(Math.random() * end--);
     [array[start], array[end]] = [array[end], array[start]]
   }
   return array
@@ -507,7 +501,7 @@ export const arrayShuffle = array => {
 /**
  * @description 获取Url参数，注意：获取的参数值均为String类型
  * @description getUrlParam('f', 'https://www.baidu.com/s?ie=utf-8&f=8') // '8'
- * 
+ *
  * @param {String} variable 需要获取的参数名，传空值或者null会获取参数Object
  * @param {String} url url，默认为当前url
  * @returns {Object | String | Null} 如：variable为空值或null：{ ie: 'utf-8', f: '8' }，未查找到的参数或url无参数返：null，variable有值查询具体参数返回String类型值
