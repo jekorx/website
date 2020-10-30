@@ -8,11 +8,11 @@
 toString.call(() => {})     // [object Function]
 toString.call({})           // [object Object]
 toString.call([])           // [object Array]
-toString.call('')           // [object String]
+toString.call('str')           // [object String]
 toString.call(123)          // [object Number]
 toString.call(undefined)    // [object undefined]
 toString.call(null)         // [object null]
-toString.call(new Date)     // [object Date]
+toString.call(new Date())     // [object Date]
 toString.call(Math)         // [object Math]
 toString.call(window)       // [object Window]
 toString.call(document)     // [object HTMLDocument]
@@ -152,7 +152,7 @@ export const hidePhone = phone => {
 import * as qiniu from 'qiniu-js'
 import Cookies from 'js-cookie'
 import { v1 as uuidv1 } from 'uuid'
-import axios from '@/libs/api.request'
+import axios from '@/libs/request'
 
 /**
  * @description 七牛上传
