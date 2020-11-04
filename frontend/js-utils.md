@@ -151,11 +151,11 @@ export const hidePhone = phone => {
 ```javascript
 import * as qiniu from 'qiniu-js'
 import Cookies from 'js-cookie'
-import { v1 as uuidv1 } from 'uuid'
-import axios from '@/libs/request'
+import uuid from 'uuid'
+import $http from '@/libs/request'
 
 /**
- * @description 七牛上传
+ * 七牛上传
  * dependencies: {
  *   qiniu-js,
  *   uuid,
@@ -163,47 +163,51 @@ import axios from '@/libs/request'
  * }
  * 图片处理（裁剪大小、缩略图等）https://developer.qiniu.com/dora/manual/3683/img-directions-for-use
  *
- * @param {File} file 上传的文件
- * @param {Function} complete 上传完成处理
- * @param {Function} next 上传中处理（进度条等）
- * @param {Function} error 上传错误处理
+ * @param file 上传的文件
+ * @param next 上传中处理（进度条等）
  *
- * @return { String } 文件名称
+ * @param then 上传完成处理
+ * @param catch 上传错误处理
+ *
+ * @return Promise
  */
 // 相关参数
-const UPTOKEN = 'uptoken' // uptoken 存储cookie的key
-const REQUEST_URL = '/upload/v1/uptoken' // 系统后端获取uptoken请求url
-const REGION = qiniu.region.z0 // 七牛云存储区域，默认z0：华东
+const UPTOKEN = '_UPTOKEN_'
+const REQUEST_URL = '/upload/v1/uptoken'
+const REGION = qiniu.region.z0
 // 上传处理
-const uploadHandler = (token, file, complete, next, error) => {
-  // 文件名为uuid生成，无后缀
-  const fileName = uuidv1()
+const uploadHandler = (token, file, next, complete, error) => {
+  const fileName = uuid()
   const observable = qiniu.upload(file, fileName, token, {}, { region: REGION })
   observable.subscribe({
-    next (res) { next && next(res) },
+    next ({ total }) { next && next(total) },
     error (err) { error && error(err) },
     complete (res) { complete && complete(res) }
   })
 }
 // 获取token，上传
-export default (file, complete, next, error) => {
+export default (file, next) => {
   let token = Cookies.get(UPTOKEN)
-  if (token === null || token === undefined) {
-    axios.request({
-      url: REQUEST_URL,
-      method: 'post'
-    }).then(({ code, data }) => {
-      if (code === 1) {
-        const date = new Date()
-        date.setSeconds(date.getSeconds() + 3500)
-        Cookies.set(UPTOKEN, data, { expires: date })
-        token = data
-        uploadHandler(token, file, complete, next, error)
-      }
-    })
-  } else {
-    uploadHandler(token, file, complete, next, error)
-  }
+  return new Promise((resolve, reject) => {
+    if (!token) {
+      $http.request({
+        url: REQUEST_URL,
+        method: 'post'
+      }).then(({ code, data }) => {
+        if (code === 1) {
+          const date = new Date()
+          date.setSeconds(date.getSeconds() + 3500) // uptoken失效前缓存
+          Cookies.set(UPTOKEN, data, { expires: date })
+          token = data
+          uploadHandler(token, file, next, res => resolve(res), err => reject(err))
+        } else {
+          reject(new Error('获取uptoken失败'))
+        }
+      })
+    } else {
+      uploadHandler(token, file, next, res => resolve(res), err => reject(err))
+    }
+  })
 }
 ```
 
