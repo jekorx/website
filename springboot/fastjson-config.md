@@ -2,6 +2,7 @@
 
 > SpringBoot中使用FastJson将响应的数据转成json相关配置  
 > springframework 版本 5.2 及之后，直接使用使用```MediaType.APPLICATION_JSON```即可，无需专门指定```charset=UTF-8```。  
+> FastJeon序列化属性[请查看](../java/fastjson.md)  
 
 ```java
 @Configuration

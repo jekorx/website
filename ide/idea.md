@@ -74,6 +74,10 @@ Flutter SDK path: <选择本地Flutter根目录>
 File -> Settings -> Appearance & Behavior -> System Settings -> Updates
 <取消选中 Automatically check updates for ...>
 
+# 关闭启动后自动打开项目
+File -> Settings -> Appearance & Behavior -> System Settings
+<取消选中 Reopen projects on startup>
+
 # 取消代码重复提示
 File -> Settings -> Editor -> Inspections -> General -> Duplicated Code
 <取消选中>
@@ -113,7 +117,7 @@ File -> Settings -> Editor -> File and Code Templates
 
 ```bash
 # 代码补全，Eclipse中Alt + /
-File -> Settings -> Keymap -> Main menu -> Code -> Completion
+File -> Settings -> Keymap -> Main menu -> Code -> Code Completion
 
 # 删除占用
 Cyclic Expand Word: <右键，Remove Alt + />

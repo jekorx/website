@@ -22,10 +22,10 @@
 |WriteEnumUsingToString        | Enum输出toString()，默认为false | |
 |WriteEnumUsingName            | Enum输出name()，默认为false | |
 |UseISO8601DateFormat          | Date使用ISO8601格式输出，默认为false | |
-|WriteNullListAsEmpty          | List字段如果为null，输出为[]，而非null | 常用 |
-|WriteNullStringAsEmpty        | 字符类型字段如果为null，输出为 ""，而非null | 常用 |
-|WriteNullNumberAsZero         | 数值字段如果为null，输出为0，而非null | 常用 |
-|WriteNullBooleanAsFalse       | Boolean字段如果为null，输出为false，而非null | |
+|WriteNullListAsEmpty          | 将Collection类型字段的字段空值输出为[] | 常用 |
+|WriteNullStringAsEmpty        | 将字符串类型字段的空值输出为空字符串 "" | 常用 |
+|WriteNullNumberAsZero         | 将数值类型字段的空值输出为0 | |
+|WriteNullBooleanAsFalse       | 将Boolean类型字段的空值输出为false | |
 |SkipTransientField            | 如果是true，类中的Get方法对应的Field是transient，序列化时将会被忽略。默认为true | |
 |SortField                     | 按字段名称排序后输出。默认为false | |
 |WriteTabAsSpecial             | 把\t做转义输出，默认为false | |
