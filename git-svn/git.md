@@ -125,6 +125,24 @@ git merge FETCH_HEAD
 git pull
 ```
 
+#### Github速度慢优化方法
+
+> 获取github域名最快访问ip，[https://github.com.ipaddress.com/](https://github.com.ipaddress.com/)，修改hosts文件，位置如下  
+
+> Linux下修改```/etc/hosts```文件，修改完后执行  
+
+```bash
+# 在命令行中输入以下命令是hosts生效
+sudo dscacheutil -flushcache
+```
+
+> Windows下修改 ```c:\Windows\System32\drivers\etc\hosts```文件，修改完后执行  
+
+```bash
+# 在命令行中输入以下命令是hosts生效
+ipconfig /flushdns
+```
+
 #### 提交gh-pages分支以供展示
 
 ```bash
