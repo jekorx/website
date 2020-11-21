@@ -1,5 +1,12 @@
 # Npm
 
+#### 设置淘宝镜像源
+
+```bash
+# 解决npm或者某些依赖于npm的命令（gitbook等）安装依赖慢的问题
+npm config set registry=http://registry.npm.taobao.org
+```
+
 #### 版本
 
 ```bash

@@ -2,6 +2,10 @@
 
 > 如果使用 [create-react-app创建项目](./cra.md) 可参照参照该文最后章节  
 
+> 该文测试所使用postcss版本为**7.0.x**  
+> 注意PostCSS插件等依赖与postcss的版本匹配，否则会报错  
+> 使用时也可根据报错信息调整各依赖版本  
+
 #### 1、安装PostCSS插件
 
 > 相关依赖  
@@ -100,6 +104,38 @@ module.exports = {
       preset: 'advanced',
       autoprefixer: false, // 有重复调用，关闭
       'postcss-zindex': false // 防止z-index的值重置为1
+    }
+  }
+}
+```
+
+> 关于兼容第三方UI库
+
+```javascript
+const path = require('path')
+
+module.exports = ({ file }) => {
+  // 解决UI框架与设计稿尺寸不一致的问题，如：vant有赞移动端web UI框架
+  //const designWidth = file.dirname.includes(path.join('node_modules', 'vant')) ? 375 : 750
+  // 默认设计稿宽度750
+  const designWidth = 750
+  return {
+    plugins: {
+
+      // ··· ··· 其他配置
+
+      'postcss-px-to-viewport': {
+        viewportWidth: designWidth, // (Number) 视窗的宽度，对应的是我们设计稿的宽度，一般是750
+        viewportHeight: 1334,       // (Number) 视窗的高度，根据750设备的宽度来指定，一般指定1334，也可以不配置
+        unitPrecision: 3,           // (Number) 指定`px`转换为视窗单位值的小数位数（很多时候无法整除）
+        viewportUnit: 'vw',         // (String) 指定需要转换成的视窗单位，建议使用vw
+        selectorBlackList: ['.ignore', '.hairlines', '.markdown'], // (Array) 指定不转换为视窗单位的类，可以自定义，可以无限添加，建议定义一至两个通用的类名，注意：第三方UI库也要在此添加
+        minPixelValue: 1,           // (Number) 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值
+        mediaQuery: false           // (Boolean) 允许在媒体查询中转换`px`
+      },
+      
+      // ··· ··· 其他配置
+
     }
   }
 }
