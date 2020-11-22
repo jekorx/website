@@ -153,6 +153,7 @@ module.exports = ({ file }) => {
 
 > 增加viewport-units-buggyfill、fastclick配置  
 > 在```index.html```中加入  
+> 注意：**fastclick可能引起一些点击问题**，参照 [FastClick 填坑及源码解析](https://www.cnblogs.com/vajoy/p/5522114.html)  
 
 ```html
 <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
