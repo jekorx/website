@@ -127,7 +127,13 @@ git pull
 
 #### Github速度慢优化方法
 
-> 获取github域名最快访问ip，[https://github.com.ipaddress.com/](https://github.com.ipaddress.com/)，修改hosts文件，位置如下  
+> 获取github域名最快访问ip，[https://github.com.ipaddress.com/](https://github.com.ipaddress.com/) 添加到hosts文件  
+
+```
+<获取的IP> github.com
+<获取的IP> global-ssl.fastly.Net
+<获取的IP> github.global.ssl.fastly.net
+```
 
 > Linux下修改```/etc/hosts```文件，修改完后执行  
 
