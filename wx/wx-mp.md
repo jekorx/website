@@ -4,6 +4,22 @@
 
 ![cpolar](../images/wx-mp-1.png)
 
+> Vue项目中通过内容穿透域名访问报错 ```Invalid Host header```，解决方法  
+
+```javascript
+// vue-cli@2.x修改webpack.dev.conf.js
+devServer: {
+  disableHostCheck: true,
+}
+
+// vue-cli@3.x以及4.x修改vue.config.js
+module.exports = {
+  devServer: {
+    disableHostCheck: true
+  }
+}
+```
+
 > 正式环境需配置域名信息  
 
 ![公众号设置-功能设置](../images/wx-mp-2.png)
