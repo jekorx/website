@@ -40,6 +40,7 @@
 [阮一峰] [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
 [阮一峰] [CSS Grid 网格布局教程](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)  
 [GitHub] [CSS 面试知识点总结](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/Css/Css.md)  
+[Others] [You-need-to-know-css](https://lhammer.cn/You-need-to-know-css/#/)  
 
 > TypeScript
 
