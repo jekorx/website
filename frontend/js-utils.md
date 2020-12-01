@@ -135,7 +135,7 @@ export const getTimeInfo = date => {
 /**
  * @description 手机号中间四位 *
  *
- * @param {String}  phone 手机号
+ * @param {String} phone 手机号
  * @returns {String} 如：188****8888
  */
 export const hidePhone = phone => {
@@ -143,6 +143,39 @@ export const hidePhone = phone => {
   const arr = phone.split('')
   arr.splice(3, 4, '****')
   return arr.join('')
+}
+```
+
+#### 限制数据框内容仅为数字
+
+```javascript
+/**
+ * @description 限制数据框内容仅为数字
+ * @description 校验、匹配规则可根据需求自定义，当前为保留正整数字符串
+ * 
+ * 某些情况下input[type=number]、InputNumber不能完全限制输入非数字字符使用
+ * 
+ * 以Element-ui Input为例，num可能为数组表单中的值，所以使用传值修改
+ * 
+ * <Input v-model="formData.num" @input="val => inputCheck(val, formData)" />
+ * 
+ * inputCheck (val, formData) {
+ *   formData.num = inputFilter(val)
+ * }
+ * 
+ * @param {String} val 输入字符
+ * @returns {String|Number} 过滤后数字字符串（正整数）
+ */
+export const inputFilter = val => {
+  if (val && !/(^[1-9]\d*$)/.test(val)) {
+    const valArr = val.match(/\d+/g)
+    if (valArr && valArr.length > 0) {
+      val = valArr[0]
+    } else {
+      val = ''
+    }
+  }
+  return val
 }
 ```
 
@@ -177,7 +210,10 @@ const REQUEST_URL = '/upload/v1/uptoken'
 const REGION = qiniu.region.z0
 // 上传处理
 const uploadHandler = (token, file, next, complete, error) => {
-  const fileName = uuid()
+  // 文件类型
+  const typeArr = file.type.split('/')
+  // uuid + .文件类型
+  const fileName = `${uuid()}.${typeArr[1]}`
   const observable = qiniu.upload(file, fileName, token, {}, { region: REGION })
   observable.subscribe({
     next ({ total }) { next && next(total) },
@@ -312,13 +348,15 @@ export const dataURLToBlob = dataURL => {
  * @description blob转file
  *
  * @param {Blob} blob Blob对象
- * @param {String} filename 文件名，如：image.png
+ * @param {String} filename 文件名，如：image
  * @returns {File} 返回File对象
  */
 export const blobToFile = (blob, filename) => {
-  blob.lastModifiedDate = new Date()
-  blob.name = filename
-  return blob
+  const typeArr = blob.type.split('/')
+  if (typeArr && typeArr.length > 1) {
+    filename = `${filename}.${typeArr[1]}`
+  }
+  return new File([blob], filename, { type: blob.type })
 }
 ```
 

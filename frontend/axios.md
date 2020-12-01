@@ -88,6 +88,8 @@ async function gets () {
 
 #### 常用配置
 
+> Java后端  
+
 ```javascript
 import axios from 'axios'
 import qs from 'qs'
@@ -101,14 +103,14 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? '/web/' : '/api
 axios.defaults.withCredentials = true
 /**
  * axios 默认 Content-Type: application/json;charset=UTF-8
- * 请求正文为Request Payload，格式是json格式的字符串
- * 用@RequestParam是接收不到参数的，只能用@RequestBody
- * 配置transformRequest，参数使用qs转换
- * 请求头Content-Type会被设置为: application/x-www-form-urlencoded
+ * 请求正文为Request Payload，格式是json格式的字符串，需要用 @RequestBody 方式接收参数
+ * 
+ * 如果后端使用 @RequestParam 方式接收，配置transformRequest，参数使用qs转换
+ * 请求头Content-Type会被设置为: Content-Type: application/x-www-form-urlencoded;charset=UTF-8
  * 请求正文为Form Data，格式是key=value&key1=value2
- * 对于 Form Data 请求，后台无需任何注解，即可解析参数
+ * 后端接收对象参数，无需任何注解可自动转换接收
  */
-// 请求数据转json字符串（JSON.stringify()不行）
+// 请求参数转转换，{ a: 123, b: 'str' } => a=123&b=str
 axios.defaults.transformRequest = [params => qs.stringify(params)]
 // 请求统一额外参数
 axios.defaults.params = { apiuser: 'debug' }
