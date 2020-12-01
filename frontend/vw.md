@@ -101,9 +101,10 @@ module.exports = {
       filterRule: rule => rule.nodes.findIndex(i => i.prop === 'content') === -1 // 过滤伪类content使用
     },
     'cssnano': {
-      preset: 'advanced',
-      autoprefixer: false, // 有重复调用，关闭
-      'postcss-zindex': false // 防止z-index的值重置为1
+      'cssnano-preset-advanced': {
+        zindex: false, // 防止z-index的值重置为1
+        autoprefixer: false // 有重复调用，关闭
+      }
     }
   }
 }
@@ -341,9 +342,10 @@ const postCssPlugins = [
     filterRule: rule => rule.nodes.findIndex(i => i.prop === 'content') === -1 // 过滤伪类content使用
   }),
   require('cssnano')({
-    preset: 'advanced',
-    autoprefixer: false,
-    'postcss-zindex': false
+    'cssnano-preset-advanced': {
+      zindex: false, // 防止z-index的值重置为1
+      autoprefixer: false // 有重复调用，关闭
+    }
   })
 ]
 
