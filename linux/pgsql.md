@@ -22,6 +22,24 @@ systemctl start postgresql-11
 
 # 6、设置自动启动
 systemctl enable postgresql-11
+
+# 7、设置postgres用户密码
+# 删除原密码
+sudo passwd -d postgres
+# 设置新密码
+sudo -u postgres passwd
+```
+
+#### 配置
+
+```bash
+# 1、修改配置
+vim /var/lib/pgsql/11/data/postgresql.conf
+
+# 修改监听地址，允许远程访问
+listen_addresses = '*' # line.59
+# 修改端口，云服务器配置开放端口，默认端口：5432
+port = 5432 # line.63
 ```
 
 #### 卸载
@@ -76,17 +94,6 @@ host <db> <user> 0.0.0.0/0 md5
 systemctl restart postgresql-11
 ```
 
-#### 配置
-
-```bash
-# 1、修改配置
-vim /var/lib/pgsql/11/data/postgresql.conf
-
-# 修改监听地址，允许远程访问
-listen_addresses = '*' # line.59
-# 修改端口，云服务器配置开放端口，默认端口：5432
-port = 5432 # line.63
-```
 
 #### 基本语法
 

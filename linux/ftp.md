@@ -12,7 +12,7 @@ rpm -qa | grep vsftpd
 yum install -y vsftpd
 
 # 创建ftp主目录
-mkdir /opt/www
+#mkdir /opt/www
 
 # 创建ftp用户
 useradd -d /opt/www -m ftpuser

@@ -1345,6 +1345,21 @@ systemctl start postgresql-11
 
 <span class="token comment"># 6&#x3001;&#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x542F;&#x52A8;</span>
 systemctl <span class="token builtin class-name">enable</span> postgresql-11
+
+<span class="token comment"># 7&#x3001;&#x8BBE;&#x7F6E;postgres&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
+<span class="token comment"># &#x5220;&#x9664;&#x539F;&#x5BC6;&#x7801;</span>
+<span class="token function">sudo</span> <span class="token function">passwd</span> -d postgres
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x65B0;&#x5BC6;&#x7801;</span>
+<span class="token function">sudo</span> -u postgres <span class="token function">passwd</span>
+</code></pre>
+<h4 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;</span>
+<span class="token function">vim</span> /var/lib/pgsql/11/data/postgresql.conf
+
+<span class="token comment"># &#x4FEE;&#x6539;&#x76D1;&#x542C;&#x5730;&#x5740;&#xFF0C;&#x5141;&#x8BB8;&#x8FDC;&#x7A0B;&#x8BBF;&#x95EE;</span>
+listen_addresses <span class="token operator">=</span> <span class="token string">&apos;*&apos;</span> <span class="token comment"># line.59</span>
+<span class="token comment"># &#x4FEE;&#x6539;&#x7AEF;&#x53E3;&#xFF0C;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;&#x5F00;&#x653E;&#x7AEF;&#x53E3;&#xFF0C;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#xFF1A;5432</span>
+port <span class="token operator">=</span> <span class="token number">5432</span> <span class="token comment"># line.63</span>
 </code></pre>
 <h4 id="&#x5378;&#x8F7D;">&#x5378;&#x8F7D;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x67E5;&#x8BE2;&#x5B89;&#x88C5;&#x7684;&#x5305;</span>
@@ -1388,15 +1403,6 @@ psql
 <span class="token comment"># 9&#x3001;&#x91CD;&#x542F;&#x670D;&#x52A1;</span>
 systemctl restart postgresql-11
 </code></pre>
-<h4 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h4>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;</span>
-<span class="token function">vim</span> /var/lib/pgsql/11/data/postgresql.conf
-
-<span class="token comment"># &#x4FEE;&#x6539;&#x76D1;&#x542C;&#x5730;&#x5740;&#xFF0C;&#x5141;&#x8BB8;&#x8FDC;&#x7A0B;&#x8BBF;&#x95EE;</span>
-listen_addresses <span class="token operator">=</span> <span class="token string">&apos;*&apos;</span> <span class="token comment"># line.59</span>
-<span class="token comment"># &#x4FEE;&#x6539;&#x7AEF;&#x53E3;&#xFF0C;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;&#x5F00;&#x653E;&#x7AEF;&#x53E3;&#xFF0C;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#xFF1A;5432</span>
-port <span class="token operator">=</span> <span class="token number">5432</span> <span class="token comment"># line.63</span>
-</code></pre>
 <h4 id="&#x57FA;&#x672C;&#x8BED;&#x6CD5;">&#x57FA;&#x672C;&#x8BED;&#x6CD5;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x67E5;&#x770B;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;</span>
 <span class="token punctuation">\</span>l
@@ -1411,7 +1417,7 @@ port <span class="token operator">=</span> <span class="token number">5432</span
 <span class="token punctuation">\</span>q
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-11-23
+2020-12-04
 </span></footer>
                                 
                                 </section>
@@ -1455,7 +1461,7 @@ port <span class="token operator">=</span> <span class="token number">5432</span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"PostgreSQL","level":"1.11.8","depth":2,"next":{"title":"挂载硬盘","level":"1.11.9","depth":2,"path":"linux/mount.md","ref":"linux/mount.md","articles":[]},"previous":{"title":"MySQL","level":"1.11.7","depth":2,"path":"linux/mysql.md","ref":"linux/mysql.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/pgsql.md","mtime":"2020-11-23T00:34:48.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T00:15:03.631Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"PostgreSQL","level":"1.11.8","depth":2,"next":{"title":"挂载硬盘","level":"1.11.9","depth":2,"path":"linux/mount.md","ref":"linux/mount.md","articles":[]},"previous":{"title":"MySQL","level":"1.11.7","depth":2,"path":"linux/mysql.md","ref":"linux/mysql.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/pgsql.md","mtime":"2020-12-04T05:12:10.874Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-04T05:26:43.527Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

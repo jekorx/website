@@ -3,12 +3,25 @@
 ###### 用户操作
 
 ```bash
-# 创建用户并指定登录主目录
-useradd -d /www/testuser testuser
-
+# 创建用户
+useradd testuser
 # 设置密码，输入两遍密码即可
 passwd testuser
+# 指定分组，如 root组
+usermod -g root testuser
+# 设置用户root权限，修改sudoers文件可编辑
+chmod -v u+w /etc/sudoers
+# 修改sudoers
+vim /etc/sudoers
+# line.101 增加以下内容，保存退出即可，NOPASSWD:标识不需要输入密码
+#testuser ALL=(ALL) ALL
+testuser ALL=(ALL) NOPASSWD: ALL
 
+
+# 创建用户并指定登录主目录
+useradd -d /www/testuser testuser
+# 设置密码，输入两遍密码即可
+passwd testuser
 # 设置访问权限
 chown -R testuser /www/testuser
 ```
