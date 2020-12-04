@@ -87,11 +87,15 @@ http {
 http {
     server {
         location /api/ {
+            # host 修改为真实的域名和端口
+            proxy_set_header Host $http_host;
             proxy_pass http://192.168.0.12:8080/api/;
         }
         # ^~ 表示以某前缀开头
-        location ^~ /admin/ {  
-            proxy_pass   http://admin;
+        location ^~ /admin/ { 
+            # host 修改为真实的域名和端口
+            proxy_set_header Host $http_host; 
+            proxy_pass http://admin;
         } 
     }
 }
@@ -125,6 +129,8 @@ html {
     server {
         # 默认请求设置
         location / {
+            # host 修改为真实的域名和端口
+            proxy_set_header Host $http_host;
             proxy_pass http://tomcat_pool; # 转向tomcat处理
             proxy_cookie_domain domino_server nginx_server; # 解决反向代理后Cookie不一致的问题
         }
