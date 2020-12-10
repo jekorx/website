@@ -177,6 +177,33 @@ export const inputFilter = val => {
   }
   return val
 }
+
+/**
+ * 整数，保留2位小数，最大100，最小0.01
+ * <input type="text" :value="value" :readonly="i === 0" @input="arrangeValue" />
+ * arrangeValue (e) {
+ *   let { value } = e.target
+ *   // 此处对0 和 未输入完的小数不作处理
+ *   if (+value === 0 || value.endsWith('.')) {
+ *     return
+ *   }
+ *   value = +inputFilter(value)
+ *   e.target.value = value
+ * }
+ */
+const inputFilter = val => {
+  if (val && !/^[+]{0,1}(\d{0,2})$|^[+]{0,1}(\d+\.\d{0,2})$/.test(val)) {
+    const valArr = val.match(/\d+\.\d{0,2}/g)
+    if (valArr && valArr.length > 0) {
+      val = valArr[0]
+    } else {
+      val = 1
+    }
+  }
+  if (val > 100) return 100
+  if (val < 0.01) return 0.01
+  return val
+}
 ```
 
 #### 七牛上传

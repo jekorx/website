@@ -93,3 +93,52 @@ chown -R ftpuser images/
 
 chmod 770 www
 ```
+
+#### SFTP服务器
+
+```bash
+# 创建用户组
+groupadd sftp
+
+# 创建用户，指定用户组，限定只能ftp登录
+useradd -d /opt/www -g sftp -s /sbin/nologin sftpuser
+
+# 设置密码
+passwd sftpuser
+
+# 修改ssh配置文件
+vim /etc/ssh/sshd_config
+# 注释掉
+X11Forwarding yes # line.102
+Subsystem sftp /usr/libexec/openssh/sftp-server # line.102
+# 在sshd_config末尾添加
+Subsystem sftp internal-sftp
+Match Group sftp
+    ChrootDirectory /opt/www/
+    ForceCommand internal-sftp
+    AllowTcpForwarding no
+    X11Forwarding no
+
+# 设置文件权限
+# ChrootDirectory /opt/www 目录所有者必须为root，设置sftp用户组
+# /opt/www 及 /opt/www/upload 目录权限不能超过755
+chown -R root:sftp /opt/www
+chmod -R 755 /opt/www
+cd /opt/www
+mkdir upload
+chown -R sftpuser:sftp /opt/www/upload
+chmod -R 755 /opt/www/upload
+
+# 重启ssh服务
+systemctl restart sshd
+```
+
+> 配合nginx相关配置
+
+```
+location ^~ /images/ {
+    root /opt/www/assets/;
+    autoindex on;
+    expires 24h;
+}
+```

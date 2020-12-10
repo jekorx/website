@@ -1412,8 +1412,52 @@ systemctl <span class="token builtin class-name">enable</span> vsftpd
 
 <span class="token function">chmod</span> <span class="token number">770</span> www
 </code></pre>
-<footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-12-04
+<h4 id="sftp&#x670D;&#x52A1;&#x5668;">SFTP&#x670D;&#x52A1;&#x5668;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;</span>
+<span class="token function">groupadd</span> <span class="token function">sftp</span>
+
+<span class="token comment"># &#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x9650;&#x5B9A;&#x53EA;&#x80FD;ftp&#x767B;&#x5F55;</span>
+<span class="token function">useradd</span> -d /opt/www -g <span class="token function">sftp</span> -s /sbin/nologin sftpuser
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5BC6;&#x7801;</span>
+<span class="token function">passwd</span> sftpuser
+
+<span class="token comment"># &#x4FEE;&#x6539;ssh&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="token function">vim</span> /etc/ssh/sshd_config
+<span class="token comment"># &#x6CE8;&#x91CA;&#x6389;</span>
+X11Forwarding <span class="token function">yes</span> <span class="token comment"># line.102</span>
+Subsystem <span class="token function">sftp</span> /usr/libexec/openssh/sftp-server <span class="token comment"># line.102</span>
+<span class="token comment"># &#x5728;sshd_config&#x672B;&#x5C3E;&#x6DFB;&#x52A0;</span>
+Subsystem <span class="token function">sftp</span> internal-sftp
+Match Group <span class="token function">sftp</span>
+    ChrootDirectory /opt/www/
+    ForceCommand internal-sftp
+    AllowTcpForwarding no
+    X11Forwarding no
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6743;&#x9650;</span>
+<span class="token comment"># ChrootDirectory /opt/www &#x76EE;&#x5F55;&#x6240;&#x6709;&#x8005;&#x5FC5;&#x987B;&#x4E3A;root&#xFF0C;&#x8BBE;&#x7F6E;sftp&#x7528;&#x6237;&#x7EC4;</span>
+<span class="token comment"># /opt/www &#x53CA; /opt/www/upload &#x76EE;&#x5F55;&#x6743;&#x9650;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;755</span>
+<span class="token function">chown</span> -R root:sftp /opt/www
+<span class="token function">chmod</span> -R <span class="token number">755</span> /opt/www
+<span class="token builtin class-name">cd</span> /opt/www
+<span class="token function">mkdir</span> upload
+<span class="token function">chown</span> -R sftpuser:sftp /opt/www/upload
+<span class="token function">chmod</span> -R <span class="token number">755</span> /opt/www/upload
+
+<span class="token comment"># &#x91CD;&#x542F;ssh&#x670D;&#x52A1;</span>
+systemctl restart sshd
+</code></pre>
+<blockquote>
+<p>&#x914D;&#x5408;nginx&#x76F8;&#x5173;&#x914D;&#x7F6E;</p>
+</blockquote>
+<pre class="language-"><code>location ^~ /images/ {
+    root /opt/www/assets/;
+    autoindex on;
+    expires 24h;
+}
+</code></pre><footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-12-10
 </span></footer>
                                 
                                 </section>
@@ -1457,7 +1501,7 @@ systemctl <span class="token builtin class-name">enable</span> vsftpd
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ftp服务器","level":"1.11.16","depth":2,"next":{"title":"Jenkins","level":"1.11.17","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},"previous":{"title":"RabbitMQ","level":"1.11.15","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/ftp.md","mtime":"2020-12-04T02:04:11.665Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-04T07:29:27.736Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ftp服务器","level":"1.11.16","depth":2,"next":{"title":"Jenkins","level":"1.11.17","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},"previous":{"title":"RabbitMQ","level":"1.11.15","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/ftp.md","mtime":"2020-12-10T07:48:37.437Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-10T07:49:05.152Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
