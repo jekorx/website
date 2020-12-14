@@ -121,13 +121,13 @@ Match Group sftp
 
 # 设置文件权限
 # ChrootDirectory /opt/www 目录所有者必须为root，设置sftp用户组
-# /opt/www 及 /opt/www/upload 目录权限不能超过755
+# /opt/www 及 /opt/www/assets 目录权限不能超过755
 chown -R root:sftp /opt/www
 chmod -R 755 /opt/www
 cd /opt/www
-mkdir upload
-chown -R sftpuser:sftp /opt/www/upload
-chmod -R 755 /opt/www/upload
+mkdir assets
+chown -R sftpuser:sftp /opt/www/assets
+chmod -R 755 /opt/www/assets
 
 # 重启ssh服务
 systemctl restart sshd
