@@ -94,7 +94,7 @@ chown -R ftpuser images/
 chmod 770 www
 ```
 
-#### SFTP服务器
+## SFTP服务器
 
 ```bash
 # 创建用户组
@@ -133,12 +133,41 @@ chmod -R 755 /opt/www/upload
 systemctl restart sshd
 ```
 
-> 配合nginx相关配置
+> 配合nginx相关配置，及允许跨域配置（主要是音视频）  
 
-```
-location ^~ /images/ {
-    root /opt/www/assets/;
+```bash
+location ^~ /assets/ {
+    root /opt/www/;
     autoindex on;
     expires 24h;
+    add_header Access-Control-Allow-Origin '*';
+    add_header 'Access-Control-Allow-Methods' 'PUT,POST,GET,DELETE,OPTIONS';
+    add_header 'Access-Control-Allow-Headers' 'Content-Type,Content-Length,Authorization,Accept,X-Requested-With';
 }
+```
+
+> 如果接口通过nginx代理，需要设置```client_max_body_size```，可在```http```、```server```或```location```中设置  
+
+```bash
+http{
+    # 控制全局nginx所有请求报文大小
+    client_max_body_size 10m;
+    server{
+        # 控制该server的所有请求报文大小
+        client_max_body_size 10m;
+        location a {
+            # 控制满足该路由规则的请求报文大小
+            client_max_body_size 10m;
+        }
+    }
+}
+```
+
+> Springboot 相关配置  
+
+```bash
+# 设置servlet最大请求尺寸
+spring.servlet.multipart.max-request-size = 10MB
+# 设置servlet最大文件上传尺寸
+spring.servlet.multipart.max-file-size = 10MB
 ```
