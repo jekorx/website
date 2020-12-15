@@ -1,5 +1,11 @@
 # 文章收藏
 
+#### 文档
+
+[JavaScript] [ES6 入门教程](https://es6.ruanyifeng.com/)  
+[JavaScript] [MDN](https://developer.mozilla.org/zh-CN/)  
+[JavaScript] [现代 JavaScript 教程](https://zh.javascript.info/)  
+
 #### 前端
 
 > Html

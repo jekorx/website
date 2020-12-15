@@ -252,6 +252,6 @@ ctrl + c
 #### 统计贡献者代码行数
 
 ```bash
-# --author="" 为贡献者用户名，$(git config --get user.name)表示当前用户
-git log --author="$(git config --get user.name)" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -
+# --author="" 为贡献者，$(git config --get user.email)表示当前用户账号
+git log --author="$(git config --get user.email)" --pretty=tformat: --numstat | gawk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "增加的行数:%s 删除的行数:%s 总行数: %s\n", add, subs, loc }'
 ```
