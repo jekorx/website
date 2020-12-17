@@ -51,7 +51,6 @@
 
 > TypeScript
 
-[掘金] [1.2W字 | 了不起的 TypeScript 入门教程](https://juejin.im/post/5edd8ad8f265da76fc45362c)  
 [掘金] [你可能不知道的 TypeScript 高级技巧](https://juejin.im/post/5e10a7f65188253a8d3ea3db)  
 [掘金] [一份不可多得的 TS 学习指南（1.8W字）](https://juejin.im/post/6872111128135073806)  
 

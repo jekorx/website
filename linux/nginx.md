@@ -101,6 +101,54 @@ http {
 }
 ```
 
+#### 请求相关配置
+
+> 可在```http```、```server```或```location```中设置，，优先级```location > server > http```  
+
+> ```client_max_body_size```：限制请求体的大小，若超过所设定的大小，返回413错误  
+> ```client_header_timeout```：读取请求头的超时时间，若超过所设定的大小，返回408错误  
+> ```client_body_timeout```：读取请求实体的超时时间，若超过所设定的大小，返回413错误  
+> ```proxy_connect_timeout```：http请求无法立即被容器(tomcat, netty等)处理，被放在nginx的待处理池中等待被处理。此参数为等待的最长时间，默认为60秒，官方推荐最长不要超过75秒  
+> ```proxy_read_timeout```：http请求被容器(tomcat, netty等)处理后，nginx会等待处理结果，也就是容器返回的response。此参数即为服务器响应时间，默认60秒  
+> ```proxy_send_timeout```：http请求被服务器处理完后，把数据传返回给Nginx的用时，默认60秒  
+
+```bash
+http{
+    server{
+        location a {
+            client_max_body_size 10m;
+        }
+    }
+}
+```
+
+#### 跨域配置
+
+> 可在```http```、```server```或```location```中设置，优先级```location > server > http```  
+> ```add_header Access-Control-Allow-Methods 'PUT,POST,GET,DELETE,OPTIONS';```：指定允许跨域的方法，*代表所有  
+> ```add_header Access-Control-Max-Age 3600;```：预检命令的缓存，如果不缓存每次会发送两次请求  
+> ```add_header Access-Control-Allow-Credentials true;```：带cookie请求需要加上这个字段，并设置为true  
+> ```add_header Access-Control-Allow-Origin $http_origin;```：表示允许这个域跨域调用（客户端发送请求的域名和端口），```$http_origin```动态获取请求客户端请求的域 不用&#42;的原因是带cookie的请求不支持&#42;号  
+> ```add_header Access-Control-Allow-Headers $http_access_control_request_headers;```：表示请求头的字段 动态获取  
+> ```if ($request_method = OPTIONS) { return 200; }```：检查请求的类型是不是预检命令
+
+```bash
+http{
+    server{
+        location a {
+            add_header Access-Control-Allow-Methods 'PUT,POST,GET,DELETE,OPTIONS';
+            add_header Access-Control-Max-Age 3600;
+            add_header Access-Control-Allow-Credentials true;
+            add_header Access-Control-Allow-Origin $http_origin;
+            add_header Access-Control-Allow-Headers $http_access_control_request_headers;
+            if ($request_method = OPTIONS){
+                return 200;
+            }
+        }
+    }
+}
+```
+
 #### HTML5 History模式
 
 ```bash

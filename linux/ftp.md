@@ -133,36 +133,7 @@ chmod -R 755 /opt/www/assets
 systemctl restart sshd
 ```
 
-> 配合nginx相关配置，及允许跨域配置（主要是音视频）  
-
-```bash
-location ^~ /assets/ {
-    root /opt/www/;
-    autoindex on;
-    expires 24h;
-    add_header Access-Control-Allow-Origin '*';
-    add_header 'Access-Control-Allow-Methods' 'PUT,POST,GET,DELETE,OPTIONS';
-    add_header 'Access-Control-Allow-Headers' 'Content-Type,Content-Length,Authorization,Accept,X-Requested-With';
-}
-```
-
-> 如果接口通过nginx代理，需要设置```client_max_body_size```，可在```http```、```server```或```location```中设置  
-
-```bash
-http{
-    # 控制全局nginx所有请求报文大小
-    client_max_body_size 10m;
-    server{
-        # 控制该server的所有请求报文大小
-        client_max_body_size 10m;
-        location a {
-            # 控制满足该路由规则的请求报文大小
-            client_max_body_size 10m;
-        }
-    }
-}
-```
-
+> 上传尺寸限制、静态资源访问跨域问题 [请点击此处参照](./nginx.md#请求相关配置)  
 > Springboot 相关配置  
 
 ```bash
