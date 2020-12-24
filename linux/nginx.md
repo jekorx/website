@@ -101,6 +101,41 @@ http {
 }
 ```
 
+#### HTML5 History模式
+
+> 解决URL无法匹配到静态资源的问题，如：非根目录刷新  
+> 原理：rewrite到index.html中，然后交给路由在处理请求资源  
+
+```bash
+# 方法 1
+http{
+    server{
+        location /path {
+            root html;
+            index index.html index.htm;
+            if (!-e $request_filename) {
+                rewrite ^/(.*) /path/index.html last;
+                break;
+            }
+        }
+    }
+}
+
+# 方法 2
+http{
+    server{
+        location /path {
+            root html;
+            index index.html index.htm;
+            try_files $uri $uri/ @router;
+        }
+        location @router {
+            rewrite ^.*$ /path/index.html last;
+        }
+    }
+}
+```
+
 #### 请求相关配置
 
 > 可在```http```、```server```或```location```中设置，，优先级```location > server > http```  
@@ -130,7 +165,7 @@ http{
 > ```add_header Access-Control-Allow-Credentials true;```：带cookie请求需要加上这个字段，并设置为true  
 > ```add_header Access-Control-Allow-Origin $http_origin;```：表示允许这个域跨域调用（客户端发送请求的域名和端口），```$http_origin```动态获取请求客户端请求的域 不用&#42;的原因是带cookie的请求不支持&#42;号  
 > ```add_header Access-Control-Allow-Headers $http_access_control_request_headers;```：表示请求头的字段 动态获取  
-> ```if ($request_method = OPTIONS) { return 200; }```：检查请求的类型是不是预检命令
+> ```if ($request_method = 'OPTIONS') { return 200; }```：检查请求的类型是不是预检命令
 
 ```bash
 http{
@@ -141,22 +176,11 @@ http{
             add_header Access-Control-Allow-Credentials true;
             add_header Access-Control-Allow-Origin $http_origin;
             add_header Access-Control-Allow-Headers $http_access_control_request_headers;
-            if ($request_method = OPTIONS){
+            if ($request_method = 'OPTIONS'){
                 return 200;
             }
         }
     }
-}
-```
-
-#### HTML5 History模式
-
-```bash
-# 访问路径 / 为根目录，如果非根目录则为 /具体路径
-location /path {
-    root html; # webapp的根目录，如果有具体访问路径，也写根目录
-    index index.html index.htm; # 默认首页
-    try_files $uri $uri/ /path; # 此处解决刷新404，如果找不到资源会callback 到/path/
 }
 ```
 
