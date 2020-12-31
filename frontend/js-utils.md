@@ -204,8 +204,8 @@ export const hidePhone = phone => {
  * @returns {String|Number} 过滤后数字字符串（正整数）
  */
 export const inputFilter = val => {
-  if (val && !/(^[1-9]\d*$)/.test(val)) {
-    const valArr = val.match(/\d+/g)
+  if (val) {
+    const valArr = val.match(/[1-9]\d*/g)
     if (valArr && valArr.length > 0) {
       val = valArr[0]
     } else {
@@ -229,16 +229,16 @@ export const inputFilter = val => {
  * }
  */
 const inputFilter = val => {
-  if (val && !/^[+]{0,1}(\d{0,2})$|^[+]{0,1}(\d+\.\d{0,2})$/.test(val)) {
-    const valArr = val.match(/\d+\.\d{0,2}/g)
+  if (+val >= 100) return 100
+  if (+val < 0.01) return 0.01
+  if (val) {
+    const valArr = val.match(/[+]?\d{0,2}(\.\d{1,2})?/g)
     if (valArr && valArr.length > 0) {
-      val = valArr[0]
+      val = +valArr[0]
     } else {
       val = 1
     }
   }
-  if (val > 100) return 100
-  if (val < 0.01) return 0.01
   return val
 }
 ```
