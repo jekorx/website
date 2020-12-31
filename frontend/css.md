@@ -326,3 +326,183 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
   border-bottom: 32px solid transparent;
 }
 ```
+
+* **7、div + css 实现四角边框**
+
+> **方式一**：通过```:before``` ```:after```伪类实现（也可使用4个div实现）  
+> 原包裹div实现顶部两个角，增加一个div实现底部两个角，确保新增加div与原包裹div重合  
+> **优点**：可以根据图片大小自适应，易于理解；**缺点**：实现复杂，dom多、代码多  
+
+<div class="qrcode-box">
+  <img style="filter:blur(5px)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=" />
+  <div class="qrcode-box-background"></div>
+</div>
+<style>
+  .qrcode-box {
+    display: inline-block;
+    border: 1px solid #3295D1;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+  }
+  .qrcode-box .qrcode-box-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .qrcode-box::before,
+  .qrcode-box::after,
+  .qrcode-box .qrcode-box-background::before,
+  .qrcode-box .qrcode-box-background::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+  }
+  .qrcode-box::before {
+    top: 0;
+    left: 0;
+    border-top: 3px solid #3295D1;
+    border-left: 3px solid #3295D1;
+  }
+  .qrcode-box::after {
+    top: 0;
+    right: 0;
+    border-top: 3px solid #3295D1;
+    border-right: 3px solid #3295D1;
+  }
+  .qrcode-box .qrcode-box-background::before {
+    bottom: 0;
+    left: 0;
+    border-bottom: 3px solid #3295D1;
+    border-left: 3px solid #3295D1;
+  }
+  .qrcode-box .qrcode-box-background::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 3px solid #3295D1;
+    border-right: 3px solid #3295D1;
+  }
+</style>
+
+```html
+<div class="qrcode-box">
+  <!-- <img src="..." /> -->
+  <div class="qrcode-box-background"></div>
+</div>
+```
+
+```css
+.qrcode-box {
+  display: inline-block;
+  border: 1px solid #3295D1;
+  box-sizing: border-box;
+  padding: 10px;
+  position: relative;
+}
+.qrcode-box .qrcode-box-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.qrcode-box::before,
+.qrcode-box::after,
+.qrcode-box .qrcode-box-background::before,
+.qrcode-box .qrcode-box-background::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+.qrcode-box::before {
+  top: 0;
+  left: 0;
+  border-top: 3px solid #3295D1;
+  border-left: 3px solid #3295D1;
+}
+.qrcode-box::after {
+  top: 0;
+  right: 0;
+  border-top: 3px solid #3295D1;
+  border-right: 3px solid #3295D1;
+}
+.qrcode-box .qrcode-box-background::before {
+  bottom: 0;
+  left: 0;
+  border-bottom: 3px solid #3295D1;
+  border-left: 3px solid #3295D1;
+}
+.qrcode-box .qrcode-box-background::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 3px solid #3295D1;
+  border-right: 3px solid #3295D1;
+}
+```
+
+> **方式二**：通过在```background```中使用8个```linear-gradient```渐变色，并将每个背景色偏移出div范围实现  
+> **优点**：dom少，代码少；**缺点**：固定宽高，计算位置复杂，不易理解  
+> **注意：偏移量计算方式，内部img需限制宽高**  
+
+<div class="qrcode-box1">
+  <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=" />
+</div>
+<style>
+.qrcode-box1 {
+    display: inline-block;
+    border: 1px solid #3295D1;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 160px;
+    height: 160px;
+    /* 
+      * 边角宽3px，高30px，计算方式
+      * box宽（160px）- border（1px）- 1px - 边角宽3px = 155px
+      * box宽（160px）- border（1px）- 1px - 边角高30px = 128px
+      */
+    background: linear-gradient(#3295D1, #3295D1) -155px -128px no-repeat,
+                linear-gradient(#3295D1, #3295D1) -128px -155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 128px -155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 155px -128px no-repeat,
+                linear-gradient(#3295D1, #3295D1) -155px 128px no-repeat,
+                linear-gradient(#3295D1, #3295D1) -128px 155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
+  }
+</style>
+
+```html
+<div class="qrcode-box">
+  <!-- <img src="..." /> -->
+</div>
+```
+
+```css
+.qrcode-box {
+  display: inline-block;
+  border: 1px solid #3295D1;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 160px;
+  height: 160px;
+  /* 
+   * 边角宽3px，高30px，偏移量计算方式
+   * box宽（160px）- border（1px）- 1px - 边角宽3px = 155px
+   * box宽（160px）- border（1px）- 1px - 边角高30px = 128px
+   */
+  background: linear-gradient(#3295D1, #3295D1) -155px -128px no-repeat,
+              linear-gradient(#3295D1, #3295D1) -128px -155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 128px -155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 155px -128px no-repeat,
+              linear-gradient(#3295D1, #3295D1) -155px 128px no-repeat,
+              linear-gradient(#3295D1, #3295D1) -128px 155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
+}
+```

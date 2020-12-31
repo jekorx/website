@@ -78,6 +78,8 @@
 [GitHub] [算法知识总结](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95.md)  
 [GitHub] [计算机网络知识总结](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md)  
 [GitHub] [半小时搞懂 HTTP、HTTPS和HTTP2](https://github.com/woai3c/Front-end-articles/blob/master/http-https-http2.md)  
+[掘金] [整理一批正在学、正在看、正在用，前端工具](https://juejin.cn/post/6911251933386768391)  
+[掘金] [拯救你的年底KPI：前端性能优化](https://juejin.cn/post/6911472693405548557)  
 
 #### 微信开发
 

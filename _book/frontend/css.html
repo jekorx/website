@@ -1643,8 +1643,179 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
   <span class="token property">border-bottom</span><span class="token punctuation">:</span> 32px solid transparent<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<ul>
+<li><strong>7&#x3001;div + css &#x5B9E;&#x73B0;&#x56DB;&#x89D2;&#x8FB9;&#x6846;</strong></li>
+</ul>
+<blockquote>
+<p><strong>&#x65B9;&#x5F0F;&#x4E00;</strong>&#xFF1A;&#x901A;&#x8FC7;<code>:before</code> <code>:after</code>&#x4F2A;&#x7C7B;&#x5B9E;&#x73B0;&#xFF08;&#x4E5F;&#x53EF;&#x4F7F;&#x7528;4&#x4E2A;div&#x5B9E;&#x73B0;&#xFF09;<br>&#x539F;&#x5305;&#x88F9;div&#x5B9E;&#x73B0;&#x9876;&#x90E8;&#x4E24;&#x4E2A;&#x89D2;&#xFF0C;&#x589E;&#x52A0;&#x4E00;&#x4E2A;div&#x5B9E;&#x73B0;&#x5E95;&#x90E8;&#x4E24;&#x4E2A;&#x89D2;&#xFF0C;&#x786E;&#x4FDD;&#x65B0;&#x589E;&#x52A0;div&#x4E0E;&#x539F;&#x5305;&#x88F9;div&#x91CD;&#x5408;<br><strong>&#x4F18;&#x70B9;</strong>&#xFF1A;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x6613;&#x4E8E;&#x7406;&#x89E3;&#xFF1B;<strong>&#x7F3A;&#x70B9;</strong>&#xFF1A;&#x5B9E;&#x73B0;&#x590D;&#x6742;&#xFF0C;dom&#x591A;&#x3001;&#x4EE3;&#x7801;&#x591A;  </p>
+</blockquote>
+<p><div class="qrcode-box">
+  <img style="filter:blur(5px)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">
+  <div class="qrcode-box-background"></div>
+&lt;/div&gt;</div></p>
+<style>
+  .qrcode-box {
+    display: inline-block;
+    border: 1px solid #3295D1;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+  }
+  .qrcode-box .qrcode-box-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .qrcode-box::before,
+  .qrcode-box::after,
+  .qrcode-box .qrcode-box-background::before,
+  .qrcode-box .qrcode-box-background::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+  }
+  .qrcode-box::before {
+    top: 0;
+    left: 0;
+    border-top: 3px solid #3295D1;
+    border-left: 3px solid #3295D1;
+  }
+  .qrcode-box::after {
+    top: 0;
+    right: 0;
+    border-top: 3px solid #3295D1;
+    border-right: 3px solid #3295D1;
+  }
+  .qrcode-box .qrcode-box-background::before {
+    bottom: 0;
+    left: 0;
+    border-bottom: 3px solid #3295D1;
+    border-left: 3px solid #3295D1;
+  }
+  .qrcode-box .qrcode-box-background::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 3px solid #3295D1;
+    border-right: 3px solid #3295D1;
+  }
+</style>
+
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrcode-box<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- &lt;img src=&quot;...&quot; /&gt; --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrcode-box-background<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class="language-"><code class="lang-css"><span class="token selector">.qrcode-box</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #3295D1<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.qrcode-box .qrcode-box-background</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.qrcode-box::before,
+.qrcode-box::after,
+.qrcode-box .qrcode-box-background::before,
+.qrcode-box .qrcode-box-background::after</span> <span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.qrcode-box::before</span> <span class="token punctuation">{</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.qrcode-box::after</span> <span class="token punctuation">{</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">border-top</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+  <span class="token property">border-right</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.qrcode-box .qrcode-box-background::before</span> <span class="token punctuation">{</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+  <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.qrcode-box .qrcode-box-background::after</span> <span class="token punctuation">{</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+  <span class="token property">border-right</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>&#x65B9;&#x5F0F;&#x4E8C;</strong>&#xFF1A;&#x901A;&#x8FC7;&#x5728;<code>background</code>&#x4E2D;&#x4F7F;&#x7528;8&#x4E2A;<code>linear-gradient</code>&#x6E10;&#x53D8;&#x8272;&#xFF0C;&#x5E76;&#x5C06;&#x6BCF;&#x4E2A;&#x80CC;&#x666F;&#x8272;&#x504F;&#x79FB;&#x51FA;div&#x8303;&#x56F4;&#x5B9E;&#x73B0;<br><strong>&#x4F18;&#x70B9;</strong>&#xFF1A;dom&#x5C11;&#xFF0C;&#x4EE3;&#x7801;&#x5C11;&#xFF1B;<strong>&#x7F3A;&#x70B9;</strong>&#xFF1A;&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#xFF0C;&#x8BA1;&#x7B97;&#x4F4D;&#x7F6E;&#x590D;&#x6742;&#xFF0C;&#x4E0D;&#x6613;&#x7406;&#x89E3;<br><strong>&#x6CE8;&#x610F;&#xFF1A;&#x504F;&#x79FB;&#x91CF;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#xFF0C;&#x5185;&#x90E8;img&#x9700;&#x9650;&#x5236;&#x5BBD;&#x9AD8;</strong>  </p>
+</blockquote>
+<p><div class="qrcode-box1">
+  <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">
+</div></p>
+<style>
+.qrcode-box1 {
+    display: inline-block;
+    border: 1px solid #3295D1;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 160px;
+    height: 160px;
+    /* 
+      * 边角宽3px，高30px，计算方式
+      * box宽（160px）- border（1px）- 1px - 边角宽3px = 155px
+      * box宽（160px）- border（1px）- 1px - 边角高30px = 128px
+      */
+    background: linear-gradient(#3295D1, #3295D1) -155px -128px no-repeat,
+                linear-gradient(#3295D1, #3295D1) -128px -155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 128px -155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 155px -128px no-repeat,
+                linear-gradient(#3295D1, #3295D1) -155px 128px no-repeat,
+                linear-gradient(#3295D1, #3295D1) -128px 155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
+                linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
+  }
+</style>
+
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrcode-box<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- &lt;img src=&quot;...&quot; /&gt; --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class="language-"><code class="lang-css"><span class="token selector">.qrcode-box</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #3295D1<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 160px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 160px<span class="token punctuation">;</span>
+  <span class="token comment">/* 
+   * &#x8FB9;&#x89D2;&#x5BBD;3px&#xFF0C;&#x9AD8;30px&#xFF0C;&#x504F;&#x79FB;&#x91CF;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;
+   * box&#x5BBD;&#xFF08;160px&#xFF09;- border&#xFF08;1px&#xFF09;- 1px - &#x8FB9;&#x89D2;&#x5BBD;3px = 155px
+   * box&#x5BBD;&#xFF08;160px&#xFF09;- border&#xFF08;1px&#xFF09;- 1px - &#x8FB9;&#x89D2;&#x9AD8;30px = 128px
+   */</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -155px -128px no-repeat<span class="token punctuation">,</span>
+              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -128px -155px no-repeat<span class="token punctuation">,</span>
+              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 128px -155px no-repeat<span class="token punctuation">,</span>
+              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 155px -128px no-repeat<span class="token punctuation">,</span>
+              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -155px 128px no-repeat<span class="token punctuation">,</span>
+              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -128px 155px no-repeat<span class="token punctuation">,</span>
+              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 128px 155px no-repeat<span class="token punctuation">,</span>
+              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 155px 128px no-repeat<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-11-23
+2020-12-31
 </span></footer>
                                 
                                 </section>
@@ -1688,7 +1859,7 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.2","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.3","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Axios","level":"1.3.1","depth":2,"path":"frontend/axios.md","ref":"frontend/axios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2020-11-23T00:34:48.051Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-24T01:37:58.776Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.2","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.3","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Axios","level":"1.3.1","depth":2,"path":"frontend/axios.md","ref":"frontend/axios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2020-12-31T03:20:27.149Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-31T05:38:39.861Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

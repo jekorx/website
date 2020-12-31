@@ -8,11 +8,11 @@
 toString.call(() => {})     // [object Function]
 toString.call({})           // [object Object]
 toString.call([])           // [object Array]
-toString.call('str')           // [object String]
+toString.call('str')        // [object String]
 toString.call(123)          // [object Number]
 toString.call(undefined)    // [object undefined]
 toString.call(null)         // [object null]
-toString.call(new Date())     // [object Date]
+toString.call(new Date())   // [object Date]
 toString.call(Math)         // [object Math]
 toString.call(window)       // [object Window]
 toString.call(document)     // [object HTMLDocument]
@@ -126,6 +126,43 @@ export const getTimeInfo = date => {
   // if (diff / 2592000000 < 12) return Math.floor(diff / 2592000000) + '月前'
   // return Math.floor(diff / 31536000000) + '年前'
   return dateFormat(date)
+}
+```
+
+#### 顺序执行 Promise
+
+```javascript
+/**
+ * @description 顺序执行 Promise
+ * 
+ * function p1(){return new Promise((n,o)=>{setTimeout(()=>{console.warn("测试错误 1"),o({msg:"测试错误 1"})},500)})} // 测试错误 1
+ * function p2(){return new Promise((n,o)=>{setTimeout(()=>{console.log("成功 2"),n({msg:"成功 2"})},600)})}          // 成功 2
+ * function p3(){return new Promise((n,o)=>{setTimeout(()=>{console.warn("测试错误 3"),o({msg:"测试错误 3"})},300)})} // 测试错误 3
+ * function p4(){return new Promise((n,o)=>{setTimeout(()=>{console.log("成功 4"),n({msg:"成功 4"})},400)})}          // 成功 4
+ * function p5(){return new Promise((n,o)=>{setTimeout(()=>{console.warn("测试错误 5"),o({msg:"测试错误 5"})},200)})} // 测试错误 5
+ *
+ * const promises = [p1, p2, p3, p4, p5]
+ *
+ * promiseQueue(promises).then(console.log)
+ * // 0: {msg: "测试错误 1"}
+ * // 1: {msg: "成功 2"}
+ * // 2: {msg: "测试错误 3"}
+ * // 3: {msg: "成功 4"}
+ * // 4: {msg: "测试错误 5"}
+ *
+ * @param {Array<Function: Promise>} 返回Promise对象的待执行方法数组
+ * @returns {Array<Object>} 返回Promise对象，通过resolve获取顺序执行的结果（包含reject）
+ */
+export const promiseQueue = async promises => {
+  const result = []
+  for (const promise of promises) {
+    try {
+      result.push(await promise())
+    } catch (error) {
+      result.push(error)
+    }
+  }
+  return Promise.resolve(result)
 }
 ```
 
@@ -330,12 +367,16 @@ export const scrollTo = (el, from, to = 0, duration = 500, endCallback) => {
  * @description base64转file
  *
  * @param {String} dataURL base64
- * @param {String} filename 文件名，如：image.png
+ * @param {String} filename 文件名（不带后缀），默认：当前时间戳
  * @returns {File} 返回File对象
  */
-export const dataURLtoFile = (dataURL, filename) => {
+export const dataURLtoFile = (dataURL, filename = Date.now()) => {
   const arr = dataURL.split(',')
   const mime = arr[0].match(/:(.*?);/)[1]
+  const typeArr = mime.split('/')
+  if (typeArr && typeArr.length > 1) {
+    filename = `${filename}.${typeArr[1]}`
+  }
   const bstr = atob(arr[1])
   let n = bstr.length
   const u8arr = new Uint8Array(n)
@@ -375,10 +416,10 @@ export const dataURLToBlob = dataURL => {
  * @description blob转file
  *
  * @param {Blob} blob Blob对象
- * @param {String} filename 文件名，如：image
+ * @param {String} filename 文件名（不带后缀），默认：当前时间戳
  * @returns {File} 返回File对象
  */
-export const blobToFile = (blob, filename) => {
+export const blobToFile = (blob, filename = Date.now()) => {
   const typeArr = blob.type.split('/')
   if (typeArr && typeArr.length > 1) {
     filename = `${filename}.${typeArr[1]}`
