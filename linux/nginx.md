@@ -138,7 +138,7 @@ http{
 
 #### 请求相关配置
 
-> 可在```http```、```server```或```location```中设置，，优先级```location > server > http```  
+> 可在```http```、```server```或```location```中设置，优先级```location > server > http```  
 
 > ```client_max_body_size```：限制请求体的大小，若超过所设定的大小，返回413错误  
 > ```client_header_timeout```：读取请求头的超时时间，若超过所设定的大小，返回408错误  
@@ -239,7 +239,7 @@ public String getClientIp(HttpServletRequest request) {
         ip = request.getRemoteAddr();
     }
     if(ip.trim().contains(",")){
-        //为什么会有这一步，因为经过多层代理后会有多个代理，取第一个ip地址就可以了
+        // 为什么会有这一步，因为经过多层代理后会有多个代理，取第一个ip地址就可以了
         String [] ips = ip.split(",");
         ip = ips[0];
     }

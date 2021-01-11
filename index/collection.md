@@ -29,6 +29,7 @@
 [掘金] [编写高质量可维护的代码之优化逻辑判断](https://juejin.im/post/6859125809655840776)  
 [GitHub] [JavaScript 面试知识点总结](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/JavaScript/JavaScript.md)  
 [掘金] [进阶必读：深入理解 JavaScript 原型](https://juejin.cn/post/6901494216074100750)  
+[掘金] [Javascript中常用的13种设计模式](https://juejin.cn/post/6911867371896602632)  
 
 > CSS
 

@@ -44,6 +44,6 @@ git push
 #git push origin --delete gh-pages
 
 # 重新提交gh-pages分支
-git subtree push --prefix _book origin gh-pages
+#git subtree push --prefix _book origin gh-pages
 
-echo "确认Enforce HTTPS选项被勾选"
+#echo "确认Enforce HTTPS选项被勾选"
