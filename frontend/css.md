@@ -1,12 +1,21 @@
 # Css样式
 
-* **1、文本域内容解析换行，解析换行符**
+> [文本域内容解析换行，解析换行符](#文本域内容解析换行解析换行符)
+> [网站全局黑白色](#网站全局黑白色)
+> [水平垂直居中](#水平垂直居中)
+> [文本超出省略号](#文本超出省略号)
+> [渐变色](#渐变色)
+> [div+css绘制六边形](#divcss绘制六边形)
+> [div+css实现四角边框](#divcss实现四角边框)
+
+
+#### 文本域内容解析换行，解析换行符
 
 ```css
 white-space: pre-wrap;
 ```
 
-* **2、网站全局黑白色**
+#### 网站全局黑白色
 
 ```css
 /* 须在html上设置 */
@@ -20,7 +29,7 @@ html {
 }
 ```
 
-* **3、水平垂直居中**
+#### 水平垂直居中
 
 ```html
 <div class="center">
@@ -138,7 +147,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-* **4、文本超出省略号**
+#### 文本超出省略号
 
 ```css
 /**
@@ -163,7 +172,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-* **5、渐变色**
+#### 渐变色
 
 <div style="display: flex; width: 400px; justify-content: space-around;">
   <div style="width: 100px; height: 100px; background-image: linear-gradient(to right, red, yellow, green);"></div>
@@ -236,7 +245,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-* **6、div + css 绘制六边形**
+#### div+css绘制六边形
 
 <div style="display: flex; width: 400px; align-items: center; justify-content: space-around; padding: 20px">
   <div class="corner"></div>
@@ -327,7 +336,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-* **7、div + css 实现四角边框**
+#### div+css实现四角边框
 
 <div class="qrcode-box1">
   <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">

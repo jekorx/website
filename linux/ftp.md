@@ -94,6 +94,27 @@ chown -R ftpuser images/
 chmod 770 www
 ```
 
+> 530 Login incorrect.   
+
+```bash
+# 确认密码正确的情况下报530
+vim /etc/pam.d/vsftpd
+
+# 注释掉以下两行
+
+#%PAM-1.0
+session    optional     pam_keyinit.so    force revoke
+#auth       required    pam_listfile.so item=user sense=deny file=/etc/vsftpd/ftpusers onerr=succeed
+#auth       required    pam_shells.so
+auth       include      password-auth
+account    include      password-auth
+session    required     pam_loginuid.so
+session    include      password-auth
+
+# 重启服务
+systemctl restart vsftpd
+```
+
 ## SFTP服务器
 
 ```bash

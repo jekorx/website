@@ -1,5 +1,25 @@
 # JS 常用工具方法
 
+> [日期格式化](#日期格式化)
+> [时间转换为xx时间前](#时间转换为xx时间前)
+> [顺序执行Promise](#顺序执行promise)
+> [隐藏手机号中间四位](#隐藏手机号中间四位)
+> [限制数据框内容仅为数字](#限制数据框内容仅为数字)
+> [七牛上传](#七牛上传)
+> [滚动条滚动动画](#滚动条滚动动画)
+> [base64转file](#base64转file)
+> [base64转blob](#base64转blob)
+> [blob转file](#blob转file)
+> [绑定事件](#绑定事件)
+> [解绑事件](#解绑事件)
+> [连字符转驼峰](#连字符转驼峰)
+> [驼峰转连字符](#驼峰转连字符)
+> [文件尺寸格式化](#文件尺寸格式化)
+> [获取指定范围内的随机数](#获取指定范围内的随机数)
+> [打乱数组](#打乱数组)
+> [获取Url参数](#获取Url参数)
+> [切分数组](#切分数组)
+
 #### 类型判断
 
 ```javascript
@@ -129,7 +149,7 @@ export const getTimeInfo = date => {
 }
 ```
 
-#### 顺序执行 Promise
+#### 顺序执行Promise
 
 ```javascript
 /**
@@ -144,6 +164,7 @@ export const getTimeInfo = date => {
  * const promises = [p1, p2, p3, p4, p5]
  *
  * promiseQueue(promises).then(console.log)
+ * // 一次性返回结构数组
  * // 0: {msg: "测试错误 1"}
  * // 1: {msg: "成功 2"}
  * // 2: {msg: "测试错误 3"}
@@ -166,7 +187,7 @@ export const promiseQueue = async promises => {
 }
 ```
 
-#### 手机号中间四位隐藏为 *
+#### 隐藏手机号中间四位
 
 ```javascript
 /**
@@ -632,5 +653,31 @@ export const getUrlParam = (variable = '', url = window.location.href) => {
     if (pair[0] === variable) return pair[1]
   }
   return null
+}
+```
+
+#### 切分数组
+
+```javascript
+/**
+ * @description 切分数组
+ *
+ * const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * splitArray(arr, 4) // [[1, 2, 3, 4], [5, 6, 7, 8], [9]]
+ *
+ * @param {Array} arr 带切分数组
+ * @param {Number} size 切分大小
+ * @returns {Array<Array>} 切分后数组
+ */
+export const splitArray = (arr, size = 10) => {
+  const tmpArr = []
+  if (size < 1 || size > arr.length) {
+    tmpArr.push(arr)
+  } else {
+    for (let i = 0; i < arr.length; i += size) {
+      tmpArr.push(arr.slice(i, i + size))
+    }
+  }
+  return tmpArr
 }
 ```

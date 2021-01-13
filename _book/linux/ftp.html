@@ -1412,6 +1412,26 @@ systemctl <span class="token builtin class-name">enable</span> vsftpd
 
 <span class="token function">chmod</span> <span class="token number">770</span> www
 </code></pre>
+<blockquote>
+<p>530 Login incorrect.   </p>
+</blockquote>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x786E;&#x8BA4;&#x5BC6;&#x7801;&#x6B63;&#x786E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x62A5;530</span>
+<span class="token function">vim</span> /etc/pam.d/vsftpd
+
+<span class="token comment"># &#x6CE8;&#x91CA;&#x6389;&#x4EE5;&#x4E0B;&#x4E24;&#x884C;</span>
+
+<span class="token comment">#%PAM-1.0</span>
+session    optional     pam_keyinit.so    force revoke
+<span class="token comment">#auth       required    pam_listfile.so item=user sense=deny file=/etc/vsftpd/ftpusers onerr=succeed</span>
+<span class="token comment">#auth       required    pam_shells.so</span>
+auth       include      password-auth
+account    include      password-auth
+session    required     pam_loginuid.so
+session    include      password-auth
+
+<span class="token comment"># &#x91CD;&#x542F;&#x670D;&#x52A1;</span>
+systemctl restart vsftpd
+</code></pre>
 <h2 id="sftp&#x670D;&#x52A1;&#x5668;">SFTP&#x670D;&#x52A1;&#x5668;</h2>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;</span>
 <span class="token function">groupadd</span> <span class="token function">sftp</span>
@@ -1457,7 +1477,7 @@ spring.servlet.multipart.max-request-size <span class="token operator">=</span> 
 spring.servlet.multipart.max-file-size <span class="token operator">=</span> 10MB
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-12-17
+2021-01-11
 </span></footer>
                                 
                                 </section>
@@ -1501,7 +1521,7 @@ spring.servlet.multipart.max-file-size <span class="token operator">=</span> 10M
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ftp服务器","level":"1.11.16","depth":2,"next":{"title":"Jenkins","level":"1.11.17","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},"previous":{"title":"RabbitMQ","level":"1.11.15","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/ftp.md","mtime":"2020-12-17T05:05:22.546Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-11T01:04:12.386Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ftp服务器","level":"1.11.16","depth":2,"next":{"title":"Jenkins","level":"1.11.17","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},"previous":{"title":"RabbitMQ","level":"1.11.15","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/ftp.md","mtime":"2021-01-11T06:59:15.072Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T02:17:52.947Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

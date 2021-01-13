@@ -30,6 +30,7 @@
 [GitHub] [JavaScript 面试知识点总结](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/JavaScript/JavaScript.md)  
 [掘金] [进阶必读：深入理解 JavaScript 原型](https://juejin.cn/post/6901494216074100750)  
 [掘金] [Javascript中常用的13种设计模式](https://juejin.cn/post/6911867371896602632)  
+[掘金] [「多图预警」那些年，被blob虐过的程序猿觉醒了！](https://juejin.cn/post/6916675943343849479)  
 
 > CSS
 
