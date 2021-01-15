@@ -5,6 +5,7 @@
 [JavaScript] [ES6 入门教程](https://es6.ruanyifeng.com/)  
 [JavaScript] [MDN](https://developer.mozilla.org/zh-CN/)  
 [JavaScript] [现代 JavaScript 教程](https://zh.javascript.info/)  
+[JavaScript] [30 秒就能理解的 JavaScript 代码片段](https://www.css88.com/30-seconds-of-code/)  
 
 #### 前端
 

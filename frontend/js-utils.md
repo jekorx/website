@@ -19,6 +19,7 @@
 > [打乱数组](#打乱数组)  
 > [获取Url参数](#获取Url参数)  
 > [切分数组](#切分数组)  
+> [两数组差集](#两数组差集)  
 
 #### 类型判断
 
@@ -669,15 +670,24 @@ export const getUrlParam = (variable = '', url = window.location.href) => {
  * @param {Number} size 切分大小
  * @returns {Array<Array>} 切分后数组
  */
-export const splitArray = (arr, size = 10) => {
-  const tmpArr = []
-  if (size < 1 || size > arr.length) {
-    tmpArr.push(arr)
-  } else {
-    for (let i = 0; i < arr.length; i += size) {
-      tmpArr.push(arr.slice(i, i + size))
-    }
-  }
-  return tmpArr
-}
+export const splitArray = (arr, size = 10) => Array.from({
+  length: Math.ceil(arr.length / size)
+}, (v, i) =>
+  arr.slice(i * size, i * size + size)
+)
+```
+
+#### 两数组差集
+
+```javascript
+/**
+ * @description 切分数组
+ *
+ * arrayDiffSet([1, 2, 3], [1, 2, 4]) // [3, 4]
+ *
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @returns {Array} 两数组差集数组
+ */
+export const arrayDiffSet = (a, b) => [...a, ...b].filter(x => !a.includes(x) || !b.includes(x))
 ```
