@@ -73,6 +73,7 @@ https://blog.wdg.pub/linux/pgsql.html
 https://blog.wdg.pub/linux/jenkins.html
 https://blog.wdg.pub/linux/yum.html
 https://blog.wdg.pub/frontend/axios.html
+https://blog.wdg.pub/frontend/html.html
 https://blog.wdg.pub/linux/mysql.html
 https://blog.wdg.pub/flutter/android-package.html
 https://blog.wdg.pub/index/wx.html
