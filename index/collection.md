@@ -51,6 +51,8 @@
 [阮一峰] [CSS Grid 网格布局教程](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)  
 [GitHub] [CSS 面试知识点总结](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/Css/Css.md)  
 [Others] [You-need-to-know-css](https://lhammer.cn/You-need-to-know-css/#/)  
+[掘金] [CSS 奇思妙想边框动画](https://juejin.cn/post/6918921604160290830)  
+[掘金] [灵活运用CSS开发技巧](https://juejin.cn/post/6844903926110617613)  
 
 > TypeScript
 
@@ -83,6 +85,7 @@
 [GitHub] [半小时搞懂 HTTP、HTTPS和HTTP2](https://github.com/woai3c/Front-end-articles/blob/master/http-https-http2.md)  
 [掘金] [整理一批正在学、正在看、正在用，前端工具](https://juejin.cn/post/6911251933386768391)  
 [掘金] [拯救你的年底KPI：前端性能优化](https://juejin.cn/post/6911472693405548557)  
+[掘金] [中高级前端必须注意的40条移动端H5坑位指南 | 网易三年实践](https://juejin.cn/post/6921886428158754829)  
 
 #### 微信开发
 

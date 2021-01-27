@@ -20,6 +20,7 @@
 > [获取Url参数](#获取Url参数)  
 > [切分数组](#切分数组)  
 > [两数组差集](#两数组差集)  
+> [深拷贝](#深拷贝)  
 
 #### 类型判断
 
@@ -690,4 +691,91 @@ export const splitArray = (arr, size = 10) => Array.from({
  * @returns {Array} 两数组差集数组
  */
 export const arrayDiffSet = (a, b) => [...a, ...b].filter(x => !a.includes(x) || !b.includes(x))
+```
+
+#### 深拷贝
+
+```javascript
+/**
+ * @description 深拷贝
+ *
+ * @param {any} target 需要拷贝目标，任何值
+ * @param cache 使用WeakSet处理循环引用，默认即可，无需传值
+ * @returns {any} 新拷贝结果
+ */
+export const deepClone = (target, cache = new WeakSet()) => {
+  const type = typeof target
+  // 拷贝基本类型值
+  if (!(target !== null && (type === 'object' || type === 'function'))) return target
+  // 如果之前已经拷贝过该对象，直接返回该对象
+  if (cache.has(target)) return target
+  // 将对象添加缓存
+  cache.add(target)
+  const arrayTag = '[object Array]'
+  const objectTag = '[object Object]'
+  const mapTag = '[object Map]'
+  const setTag = '[object Set]'
+  const functionTag = '[object Function]'
+  const boolTag = '[object Boolean]'
+  const dateTag = '[object Date]'
+  const numberTag = '[object Number]'
+  const stringTag = '[object String]'
+  const errorTag = '[object Error]'
+  const symbolTag = '[object Symbol]'
+  const regexpTag = '[object RegExp]'
+  const tag = Object.prototype.toString.call(target)
+  const Ctor = target.constructor
+  let cloneTarget
+  switch (tag) {
+    case boolTag:
+    case dateTag:
+      cloneTarget = new Ctor(+target)
+      break
+    case numberTag:
+    case stringTag:
+    case errorTag:
+      cloneTarget = new Ctor(target)
+      break
+    case objectTag:
+    case mapTag:
+    case setTag:
+      cloneTarget = new Ctor()
+      break
+    case arrayTag: {
+      const { length } = target
+      const result = new target.constructor(length)
+      if (length && typeof target[0] === 'string' && Object.hasOwnProperty.call(target, 'index')) {
+        result.index = target.index
+        result.input = target.input
+      }
+      cloneTarget = result
+    } break
+    case symbolTag:
+      cloneTarget = Object(Symbol.prototype.valueOf.call(target))
+      break
+    case regexpTag: {
+      const result = new target.constructor(target.source, /\w*$/.exec(target))
+      result.lastIndex = target.lastIndex
+      cloneTarget = result
+    } break
+  }
+  if (tag === mapTag) {
+    target.forEach((value, key) => {
+      cloneTarget.set(key, deepClone(value, cache))
+    })
+    return cloneTarget
+  }
+  if (tag === setTag) {
+    target.forEach(value => {
+      cloneTarget.add(deepClone(value, cache))
+    })
+    return cloneTarget
+  }
+  if (tag === functionTag) return target
+  Reflect.ownKeys(target).forEach(key => {
+    // 递归拷贝属性
+    cloneTarget[key] = deepClone(target[key], cache)
+  })
+  return cloneTarget
+}
 ```
