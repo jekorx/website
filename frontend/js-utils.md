@@ -21,6 +21,7 @@
 > [切分数组](#切分数组)  
 > [两数组差集](#两数组差集)  
 > [深拷贝](#深拷贝)  
+> [Object合并](#object合并)  
 
 #### 类型判断
 
@@ -777,5 +778,35 @@ export const deepClone = (target, cache = new WeakSet()) => {
     cloneTarget[key] = deepClone(target[key], cache)
   })
   return cloneTarget
+}
+```
+
+#### Object合并
+
+```javascript
+/**
+ * Object合并
+ * @param {Object} target 合并目标对象
+ * @param  {...Object} args 任意个待合并对象
+ */
+export const merge = (target, ...args) => {
+  return args.reduce((acc, cur) => Object.keys(cur).reduce((subAcc, key) => {
+    const srcVal = cur[key]
+    if (Object.prototype.toString.call(srcVal) === '[object Object]') {
+      subAcc[key] = merge(subAcc[key] ? subAcc[key] : {}, srcVal)
+    } else if (Array.isArray(srcVal)) {
+      subAcc[key] = srcVal.map((item, idx) => {
+        if (Object.prototype.toString.call(item) === '[object Object]') {
+          const curAccVal = subAcc[key] ? subAcc[key] : []
+          return merge(curAccVal[idx] ? curAccVal[idx] : {}, item)
+        } else {
+          return item
+        }
+      })
+    } else {
+      subAcc[key] = srcVal
+    }
+    return subAcc
+  }, acc), target)
 }
 ```
