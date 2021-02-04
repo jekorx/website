@@ -787,7 +787,7 @@ export const deepClone = (target, cache = new WeakSet()) => {
 /**
  * Object合并
  * @param {Object} target 合并目标对象
- * @param  {...Object} args 任意个待合并对象
+ * @param {...Object} args 任意个待合并对象
  */
 export const merge = (target, ...args) => {
   return args.reduce((acc, cur) => Object.keys(cur).reduce((subAcc, key) => {
