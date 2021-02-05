@@ -22,6 +22,7 @@
 > [两数组差集](#两数组差集)  
 > [深拷贝](#深拷贝)  
 > [Object合并](#object合并)  
+> [四舍五入到指定小数位](#四舍五入到指定小数位)  
 
 #### 类型判断
 
@@ -785,7 +786,9 @@ export const deepClone = (target, cache = new WeakSet()) => {
 
 ```javascript
 /**
- * Object合并
+ * @description Object合并
+ * @description 后面的Object覆盖合并到前面的Object
+ *
  * @param {Object} target 合并目标对象
  * @param {...Object} args 任意个待合并对象
  */
@@ -809,4 +812,16 @@ export const merge = (target, ...args) => {
     return subAcc
   }, acc), target)
 }
+```
+
+#### 四舍五入到指定小数位
+
+```javascript
+/**
+ * @description 四舍五入到指定小数位
+ *
+ * @param {Number} number 待转换数字
+ * @param {Number} decimals 小数位数
+ */
+export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e${decimals}`)}e-${decimals}`)
 ```
