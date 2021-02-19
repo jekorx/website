@@ -4,67 +4,39 @@
 
 ```json
 {
-    // 取消提示js装饰器的错误提示
-    "javascript.implicitProjectConfig.experimentalDecorators": true,
-    "explorer.autoReveal": false,
+    "breadcrumbs.enabled": false,
+    "dart.debugExternalLibraries": true,
+    "dart.debugSdkLibraries": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.minimap.enabled": true,
     "editor.fontSize": 17,
-    /* "files.autoSave": "onFocusChange", */
-    "terminal.integrated.fontSize": 17,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
-    "editor.formatOnPaste": true,
-    "workbench.colorTheme": "Monokai",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.sideBar.location": "left",
-    "window.zoomLevel": 0,
-    "breadcrumbs.enabled": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    // eslint 代码自动检查相关配置
-    "eslint.enable": true,
-    "eslint.run": "onType",
-    "eslint.options": {
-        "extensions": [
-            ".js",
-            ".ts",
-            ".vue",
-            ".jsx",
-            ".tsx"
-        ]
+    "editor.tabSize": 2,
+    "emmet.includeLanguages": {
+        "wxml": "html"
     },
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        {
-            "language": "vue",
-            "autoFix": true
-        },
-        "html",
-        {
-            "language": "html",
-            "autoFix": true
-        }
-    ],
-    "vetur.validation.template": false,
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "html"],
+    "explorer.autoReveal": false,
     "files.associations": {
         "*.cjson": "jsonc",
         "*.wxss": "css",
         "*.wxs": "javascript"
     },
-    "emmet.includeLanguages": {
-        "wxml": "html"
-    },
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
     "minapp-vscode.disableAutoConfig": true,
+    "terminal.integrated.fontSize": 17,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
     "vsicons.dontShowNewVersionMessage": true,
+    "vetur.validation.template": true,
+    "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "vscode-icons",
-    "dart.debugExternalLibraries": true,
-    "dart.debugSdkLibraries": false/* ,
-    "px2rem.rootFontSize": 50,
-    "px2rem.isNeedNotes": false */
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.sideBar.location": "left",
+    "window.zoomLevel": 0
 }
 ```
 
@@ -79,20 +51,24 @@ EditorConfig for VS Code
 ESLint
 # git忽略
 gitignore
-# css预编译stylus
-language-stylus
 # 路径自动补全
 Path Intellisense
-# react
-Simple React Snippets
 # sublime键位
 Sublime Text Keymap
-# vue
-Vetur
 # 资源管理器图标
 vscode-icons
-# () [] {} 匹配高亮区分，有版本2可用
-Bracket Pair Colorizer
+# () [] {} 匹配高亮区分
+Bracket Pair Colorizer 2
+# markdown文件预览
+Markdown Preview Enhanced
+# svn
+SVN
+# vue
+Vetur
+# react
+Simple React Snippets
+# css预编译stylus
+language-stylus
 # flutter开发插件，自动安装dart插件
 Flutter
 # flutter 模版

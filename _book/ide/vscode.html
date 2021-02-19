@@ -1339,67 +1339,39 @@
                                 <h1 id="vscode">VSCode</h1>
 <h4 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h4>
 <pre class="language-"><code class="lang-json"><span class="token punctuation">{</span>
-    <span class="token comment">// &#x53D6;&#x6D88;&#x63D0;&#x793A;js&#x88C5;&#x9970;&#x5668;&#x7684;&#x9519;&#x8BEF;&#x63D0;&#x793A;</span>
-    <span class="token property">&quot;javascript.implicitProjectConfig.experimentalDecorators&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;explorer.autoReveal&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;breadcrumbs.enabled&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;dart.debugExternalLibraries&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;dart.debugSdkLibraries&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;diffEditor.ignoreTrimWhitespace&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;editor.minimap.enabled&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token property">&quot;editor.fontSize&quot;</span><span class="token operator">:</span> <span class="token number">17</span><span class="token punctuation">,</span>
-    <span class="token comment">/* &quot;files.autoSave&quot;: &quot;onFocusChange&quot;, */</span>
-    <span class="token property">&quot;terminal.integrated.fontSize&quot;</span><span class="token operator">:</span> <span class="token number">17</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;terminal.integrated.shell.windows&quot;</span><span class="token operator">:</span> <span class="token string">&quot;C:\\Program Files\\Git\\bin\\bash.exe&quot;</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;editor.tabSize&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;editor.formatOnPaste&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token property">&quot;editor.multiCursorModifier&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ctrlCmd&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;editor.snippetSuggestions&quot;</span><span class="token operator">:</span> <span class="token string">&quot;top&quot;</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;editor.formatOnPaste&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;workbench.colorTheme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Monokai&quot;</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;workbench.startupEditor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;newUntitledFile&quot;</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;workbench.sideBar.location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;left&quot;</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;window.zoomLevel&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;breadcrumbs.enabled&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;diffEditor.ignoreTrimWhitespace&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-    <span class="token comment">// eslint &#x4EE3;&#x7801;&#x81EA;&#x52A8;&#x68C0;&#x67E5;&#x76F8;&#x5173;&#x914D;&#x7F6E;</span>
-    <span class="token property">&quot;eslint.enable&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;eslint.run&quot;</span><span class="token operator">:</span> <span class="token string">&quot;onType&quot;</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;eslint.options&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">&quot;extensions&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-            <span class="token string">&quot;.js&quot;</span><span class="token punctuation">,</span>
-            <span class="token string">&quot;.ts&quot;</span><span class="token punctuation">,</span>
-            <span class="token string">&quot;.vue&quot;</span><span class="token punctuation">,</span>
-            <span class="token string">&quot;.jsx&quot;</span><span class="token punctuation">,</span>
-            <span class="token string">&quot;.tsx&quot;</span>
-        <span class="token punctuation">]</span>
+    <span class="token property">&quot;editor.tabSize&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;emmet.includeLanguages&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;wxml&quot;</span><span class="token operator">:</span> <span class="token string">&quot;html&quot;</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;eslint.validate&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token string">&quot;javascript&quot;</span><span class="token punctuation">,</span>
-        <span class="token string">&quot;javascriptreact&quot;</span><span class="token punctuation">,</span>
-        <span class="token string">&quot;typescript&quot;</span><span class="token punctuation">,</span>
-        <span class="token string">&quot;typescriptreact&quot;</span><span class="token punctuation">,</span>
-        <span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-            <span class="token property">&quot;language&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;autoFix&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token string">&quot;html&quot;</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-            <span class="token property">&quot;language&quot;</span><span class="token operator">:</span> <span class="token string">&quot;html&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;autoFix&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;vetur.validation.template&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;eslint.validate&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;javascript&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;javascriptreact&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;typescript&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;typescriptreact&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;html&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;explorer.autoReveal&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
     <span class="token property">&quot;files.associations&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
         <span class="token property">&quot;*.cjson&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jsonc&quot;</span><span class="token punctuation">,</span>
         <span class="token property">&quot;*.wxss&quot;</span><span class="token operator">:</span> <span class="token string">&quot;css&quot;</span><span class="token punctuation">,</span>
         <span class="token property">&quot;*.wxs&quot;</span><span class="token operator">:</span> <span class="token string">&quot;javascript&quot;</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;emmet.includeLanguages&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">&quot;wxml&quot;</span><span class="token operator">:</span> <span class="token string">&quot;html&quot;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;javascript.implicitProjectConfig.experimentalDecorators&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token property">&quot;minapp-vscode.disableAutoConfig&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;terminal.integrated.fontSize&quot;</span><span class="token operator">:</span> <span class="token number">17</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;terminal.integrated.shell.windows&quot;</span><span class="token operator">:</span> <span class="token string">&quot;C:\\Program Files\\Git\\bin\\bash.exe&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;update.enableWindowsBackgroundUpdates&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;update.mode&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;vsicons.dontShowNewVersionMessage&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;vetur.validation.template&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;workbench.colorTheme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Monokai&quot;</span><span class="token punctuation">,</span>
     <span class="token property">&quot;workbench.iconTheme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vscode-icons&quot;</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;dart.debugExternalLibraries&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token property">&quot;dart.debugSdkLibraries&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token comment">/* ,
-    &quot;px2rem.rootFontSize&quot;: 50,
-    &quot;px2rem.isNeedNotes&quot;: false */</span>
+    <span class="token property">&quot;workbench.startupEditor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;newUntitledFile&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;workbench.sideBar.location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;left&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;window.zoomLevel&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h4 id="&#x5E38;&#x7528;&#x63D2;&#x4EF6;">&#x5E38;&#x7528;&#x63D2;&#x4EF6;</h4>
@@ -1411,20 +1383,24 @@ EditorConfig <span class="token keyword">for</span> VS Code
 ESLint
 <span class="token comment"># git&#x5FFD;&#x7565;</span>
 gitignore
-<span class="token comment"># css&#x9884;&#x7F16;&#x8BD1;stylus</span>
-language-stylus
 <span class="token comment"># &#x8DEF;&#x5F84;&#x81EA;&#x52A8;&#x8865;&#x5168;</span>
 Path Intellisense
-<span class="token comment"># react</span>
-Simple React Snippets
 <span class="token comment"># sublime&#x952E;&#x4F4D;</span>
 Sublime Text Keymap
-<span class="token comment"># vue</span>
-Vetur
 <span class="token comment"># &#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x5668;&#x56FE;&#x6807;</span>
 vscode-icons
-<span class="token comment"># () [] {} &#x5339;&#x914D;&#x9AD8;&#x4EAE;&#x533A;&#x5206;&#xFF0C;&#x6709;&#x7248;&#x672C;2&#x53EF;&#x7528;</span>
-Bracket Pair Colorizer
+<span class="token comment"># () [] {} &#x5339;&#x914D;&#x9AD8;&#x4EAE;&#x533A;&#x5206;</span>
+Bracket Pair Colorizer <span class="token number">2</span>
+<span class="token comment"># markdown&#x6587;&#x4EF6;&#x9884;&#x89C8;</span>
+Markdown Preview Enhanced
+<span class="token comment"># svn</span>
+SVN
+<span class="token comment"># vue</span>
+Vetur
+<span class="token comment"># react</span>
+Simple React Snippets
+<span class="token comment"># css&#x9884;&#x7F16;&#x8BD1;stylus</span>
+language-stylus
 <span class="token comment"># flutter&#x5F00;&#x53D1;&#x63D2;&#x4EF6;&#xFF0C;&#x81EA;&#x52A8;&#x5B89;&#x88C5;dart&#x63D2;&#x4EF6;</span>
 Flutter
 <span class="token comment"># flutter &#x6A21;&#x7248;</span>
@@ -1440,7 +1416,7 @@ px2rem
 <span class="token comment"># &#x6587;&#x4EF6; -&gt; &#x9996;&#x9009;&#x9879; -&gt; &#x952E;&#x76D8;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#xFF0C;&#x641C;&#x7D22;&#x201C;&#x89E6;&#x53D1;&#x5EFA;&#x8BAE;&#x201D;&#xFF0C;&#x4FEE;&#x6539;&#x4E3A; Alt + / &#xFF0C;&#x6309;enter&#x952E;&#x4FDD;&#x5B58;&#x5373;&#x53EF;</span>
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 blog.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-11-23
+2021-02-19
 </span></footer>
                                 
                                 </section>
@@ -1484,7 +1460,7 @@ px2rem
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"VSCode","level":"1.13.1","depth":2,"next":{"title":"IDEA","level":"1.13.2","depth":2,"path":"ide/idea.md","ref":"ide/idea.md","articles":[]},"previous":{"title":"开发工具","level":"1.13","depth":1,"path":"index/ide.md","ref":"index/ide.md","articles":[{"title":"VSCode","level":"1.13.1","depth":2,"path":"ide/vscode.md","ref":"ide/vscode.md","articles":[]},{"title":"IDEA","level":"1.13.2","depth":2,"path":"ide/idea.md","ref":"ide/idea.md","articles":[]},{"title":"EditorConfig","level":"1.13.3","depth":2,"path":"ide/editorconfig.md","ref":"ide/editorconfig.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"ide/vscode.md","mtime":"2020-11-23T00:34:48.060Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-05T08:51:59.473Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"VSCode","level":"1.13.1","depth":2,"next":{"title":"IDEA","level":"1.13.2","depth":2,"path":"ide/idea.md","ref":"ide/idea.md","articles":[]},"previous":{"title":"开发工具","level":"1.13","depth":1,"path":"index/ide.md","ref":"index/ide.md","articles":[{"title":"VSCode","level":"1.13.1","depth":2,"path":"ide/vscode.md","ref":"ide/vscode.md","articles":[]},{"title":"IDEA","level":"1.13.2","depth":2,"path":"ide/idea.md","ref":"ide/idea.md","articles":[]},{"title":"EditorConfig","level":"1.13.3","depth":2,"path":"ide/editorconfig.md","ref":"ide/editorconfig.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 blog.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"ide/vscode.md","mtime":"2021-02-19T08:34:09.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-19T08:41:08.005Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
