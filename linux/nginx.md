@@ -108,8 +108,8 @@ http {
 
 ```bash
 # 方法 1
-http{
-    server{
+http {
+    server {
         location /path {
             root html;
             index index.html index.htm;
@@ -122,8 +122,8 @@ http{
 }
 
 # 方法 2
-http{
-    server{
+http {
+    server {
         location /path {
             root html;
             index index.html index.htm;
@@ -148,8 +148,8 @@ http{
 > ```proxy_send_timeout```：http请求被服务器处理完后，把数据传返回给Nginx的用时，默认60秒  
 
 ```bash
-http{
-    server{
+http {
+    server {
         location a {
             client_max_body_size 10m;
         }
@@ -168,15 +168,15 @@ http{
 > ```if ($request_method = 'OPTIONS') { return 200; }```：检查请求的类型是不是预检命令
 
 ```bash
-http{
-    server{
+http {
+    server {
         location a {
             add_header Access-Control-Allow-Methods 'PUT,POST,GET,DELETE,OPTIONS';
             add_header Access-Control-Max-Age 3600;
             add_header Access-Control-Allow-Credentials true;
             add_header Access-Control-Allow-Origin $http_origin;
             add_header Access-Control-Allow-Headers $http_access_control_request_headers;
-            if ($request_method = 'OPTIONS'){
+            if ($request_method = 'OPTIONS') {
                 return 200;
             }
         }
