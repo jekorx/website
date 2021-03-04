@@ -1812,7 +1812,7 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
 </div>
 
 <blockquote>
-<p>&#x6838;&#x5FC3;&#xFF1A;<code>padding-top</code> <code>padding-bottom</code> <code>margin-top</code> <code>margin-bottom</code> &#x4E3A;<strong>&#x767E;&#x5206;&#x6BD4;</strong>&#x662F;&#x76F8;&#x5BF9;<strong>&#x7236;&#x5143;&#x7D20;</strong> <strong>&#x5BBD;&#x5EA6;</strong><br>&#x4F7F;&#x7528;&#x4F2A;&#x5143;&#x7D20;&#x7684;<code>padding-top</code>&#x6216;<code>padding-bottom</code>&#x6216;<code>margin-top</code>&#x6216;<code>margin-bottom</code>&#x4E3A;<strong>&#x767E;&#x5206;&#x6BD4;</strong>&#x6491;&#x8D77;&#x7236;&#x5143;&#x7D20;&#x9AD8;&#x5EA6;&#x5B9E;&#x73B0;<br>&#x4F7F;&#x7528;<code>margin-top</code> <code>margin-bottom</code>&#x65F6;&#xFF0C;&#x7236;&#x5143;&#x7D20;&#x9700;&#x89E6;&#x53D1;<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank">BFC</a>&#xFF0C;&#x5E38;&#x89C1;&#x89E6;&#x53D1;&#x65B9;&#x5F0F;&#xFF1A;<code>display: inline-block</code> &#x6216; <code>overflow: hidden</code>  </p>
+<p>&#x6838;&#x5FC3;&#xFF1A;<code>padding-top</code> <code>padding-bottom</code> <code>margin-top</code> <code>margin-bottom</code> &#x4E3A;<strong>&#x767E;&#x5206;&#x6BD4;</strong>&#x662F;&#x76F8;&#x5BF9;<strong>&#x7236;&#x5143;&#x7D20;</strong> <strong>&#x5BBD;&#x5EA6;</strong><br>&#x4F7F;&#x7528;&#x4F2A;&#x5143;&#x7D20;&#x7684;<code>padding-top</code>&#x6216;<code>padding-bottom</code>&#x6216;<code>margin-top</code>&#x6216;<code>margin-bottom</code>&#x4E3A;<strong>&#x767E;&#x5206;&#x6BD4;</strong>&#x6491;&#x8D77;&#x7236;&#x5143;&#x7D20;&#x9AD8;&#x5EA6;&#x5B9E;&#x73B0;<br>&#x4F7F;&#x7528;<code>margin-top</code> <code>margin-bottom</code>&#x65F6;&#xFF0C;&#x7236;&#x5143;&#x7D20;&#x9700;&#x89E6;&#x53D1;<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank">BFC</a>&#xFF0C;&#x5E38;&#x7528;&#x89E6;&#x53D1;&#x65B9;&#x5F0F;&#xFF1A;<code>display: inline-block</code> &#x6216; <code>overflow: hidden</code>  </p>
 </blockquote>
 <pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>rect-item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>rect-wrap<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
@@ -2052,87 +2052,88 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 }
 </code></pre>
 <h4>九宫格图片展示</h4>
-<p><style>
-  .album-wrap {
-    width: 100%;
-    max-width: 540px;
-    min-width: 200px;
-    box-sizing: border-box;
-    padding: 5px;
-    background-color: #EEE;
-    font-size: 0;
-    margin-bottom: 10px;
-  }
-  .album-wrap img {
-    width: 100%;
-    height: 100%;
-    background-color: #CCC;
-    -o-object-fit: cover;
-    object-fit: cover;
-  }
-  .album-wrap .rect-item {
-    width: calc(100% / 3);
-    position: relative;
-    display: inline-block;
-    width: calc(100% / 3);
-    min-width: initial;
-    max-width: initial;
-  }
-  .album-wrap .rect-wrap {
-    padding: 5px;
-  }
-  .album-wrap .rect-item:first-child:last-child {
-    width: 100%;
-  }
-  .album-wrap .rect-item:first-child:last-child:after {
-    padding-top: 50%;
-  }
-  .album-wrap .rect-item:first-child:nth-last-child(2),
-  .album-wrap .rect-item:first-child:nth-last-child(2) ~ .rect-item {
-    width: 50%;
-  }
-  .album-wrap .rect-item:first-child:nth-last-child(4),
-  .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item {
-    width: 50%;
-  }
-  .album-wrap .rect-item:first-child:nth-last-child(4):after,
-  .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item:after {
-    padding-top: 70%;
-  }
-</style></p>
-<p><div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px;">
-  <button id="add-img">Add a image</button>
-  <button id="remove-img">Remove last image</button>
-</div></p>
-<p><div class="album-wrap"></div></p>
-<script>
-  const imgContainer = document.querySelector('.album-wrap')
-  function addImageItem () {
-    const div = document.createElement('div')
-    div.className = 'rect-item'
-    const wrap = document.createElement('div')
-    wrap.className = 'rect-wrap'
-    div.appendChild(wrap)
-    const img = document.createElement('img')
-    img.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/wgALCABIAEgBAREA/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/aAAgBAQAAAAH0AAEdLN7YOdx9PTTMQz8Wv2rBjz6pb7sgpcJ3rg1hoy220jXG4AB//8QAIhAAAgEDBAIDAAAAAAAAAAAAAQIDAAQQERITIDEzFDBA/9oACAEBAAEFAvtdgi/LjoXcZPnte+pmLYi9WUffi5mVxAm+RFcHpvMdxNOZcW6CRlG1ek8PICNCBqYIuNepXbUwD3M6qlaB64xSgaY80FC/g//EACoQAAECBAMGBwAAAAAAAAAAAAEAIQIRIFEQEkEDIjEycYEwQEKCkZKx/9oACAEBAAY/AvFmVwiUnrHVCejYQdKIm4GWAhhfWaYyk63tpm7UxEXVhbAg2QFqZjmUjopBPzVTGc+5Q5mZbOKxA7IF/ler7FN+0MAPIf/EACcQAQABAgYBAgcAAAAAAAAAAAERACEQIDFBUWGhcfAwQLHB0eHx/9oACAEBAAE/IfiqHgPNfyz80AgZdWLeaEEjI75va9NXBmEPTDxv0ycQn164W0Q/op4pYgxO9S6JGkTK8189k1EkQ+q+HK/jp5q+8wDKe0S3fVI1hUNIdxWCtvSusXOsqSJQwBZ0l92hlxTaJm+lWpi+cUhyxS0Irt97ugXVG8qcUBCSO1FQRwHyH//aAAgBAQAAABAAAwOMReAgWAAAf//EACQQAQACAgIBAwUBAAAAAAAAAAERIQAxQVEQIGFxMECBkfCh/9oACAEBAAE/EPqjvAtoKiYJ2+IFTvEIJcrwwyYEgsfV/h4cOXToaPH8fp5cf96ikX7b8UNIrEMJRPzOfPj1gcfLjGRwKl7k/r9DrFu4zB2Sx6zsnLHITMTzrwd3M72AQOpzu02ImCPS3qtNwB7Bt3hXSgSMM9lbMOaGCQlmiWt4YxWkSQNiZBPSbiwiUo/syCEUDe9giVrGn2HIl7jUzuc93viwSxHMR84msSUejZQnfjkT0ukPvKteXJgQqxxi8Mogn8fYf//Z'
-    wrap.appendChild(img)
-    imgContainer.appendChild(div)
-  }
-  addImageItem()
-  addImageItem()
-  document.getElementById('add-img').onclick = function () {
-    const imgs = imgContainer.children
-    if (imgs && imgs.length < 9) {
-      addImageItem()
+<div>
+  <style>
+    .album-wrap {
+      width: 100%;
+      max-width: 540px;
+      min-width: 200px;
+      box-sizing: border-box;
+      padding: 5px;
+      background-color: #EEE;
+      font-size: 0;
+      margin-bottom: 10px;
     }
-  }
-  document.getElementById('remove-img').onclick = function () {
-    const imgs = imgContainer.children
-    if (imgs && imgs.length) {
-      imgContainer.removeChild(imgs[imgs.length - 1])
+    .album-wrap img {
+      width: 100%;
+      height: 100%;
+      background-color: #CCC;
+      -o-object-fit: cover;
+      object-fit: cover;
     }
-  }
-</script>
+    .album-wrap .rect-item {
+      width: calc(100% / 3);
+      position: relative;
+      display: inline-block;
+      width: calc(100% / 3);
+      min-width: initial;
+      max-width: initial;
+    }
+    .album-wrap .rect-wrap {
+      padding: 5px;
+    }
+    .album-wrap .rect-item:first-child:last-child {
+      width: 100%;
+    }
+    .album-wrap .rect-item:first-child:last-child:after {
+      padding-top: 50%;
+    }
+    .album-wrap .rect-item:first-child:nth-last-child(2),
+    .album-wrap .rect-item:first-child:nth-last-child(2) ~ .rect-item {
+      width: 50%;
+    }
+    .album-wrap .rect-item:first-child:nth-last-child(4),
+    .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item {
+      width: 50%;
+    }
+    .album-wrap .rect-item:first-child:nth-last-child(4):after,
+    .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item:after {
+      padding-top: 70%;
+    }
+  </style>
+  <div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px;">
+    <button id="add-img">Add a image</button>
+    <button id="remove-img">Remove last image</button>
+  </div>
+  <div id="album-wrap" class="album-wrap"></div>
+  <script>
+    function addImageItem () {
+      var div = document.createElement('div')
+      div.className = 'rect-item'
+      var wrap = document.createElement('div')
+      wrap.className = 'rect-wrap'
+      div.appendChild(wrap)
+      var img = document.createElement('img')
+      img.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/wgALCABIAEgBAREA/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/aAAgBAQAAAAH0AAEdLN7YOdx9PTTMQz8Wv2rBjz6pb7sgpcJ3rg1hoy220jXG4AB//8QAIhAAAgEDBAIDAAAAAAAAAAAAAQIDAAQQERITIDEzFDBA/9oACAEBAAEFAvtdgi/LjoXcZPnte+pmLYi9WUffi5mVxAm+RFcHpvMdxNOZcW6CRlG1ek8PICNCBqYIuNepXbUwD3M6qlaB64xSgaY80FC/g//EACoQAAECBAMGBwAAAAAAAAAAAAEAIQIRIFEQEkEDIjEycYEwQEKCkZKx/9oACAEBAAY/AvFmVwiUnrHVCejYQdKIm4GWAhhfWaYyk63tpm7UxEXVhbAg2QFqZjmUjopBPzVTGc+5Q5mZbOKxA7IF/ler7FN+0MAPIf/EACcQAQABAgYBAgcAAAAAAAAAAAERACEQIDFBUWGhcfAwQLHB0eHx/9oACAEBAAE/IfiqHgPNfyz80AgZdWLeaEEjI75va9NXBmEPTDxv0ycQn164W0Q/op4pYgxO9S6JGkTK8189k1EkQ+q+HK/jp5q+8wDKe0S3fVI1hUNIdxWCtvSusXOsqSJQwBZ0l92hlxTaJm+lWpi+cUhyxS0Irt97ugXVG8qcUBCSO1FQRwHyH//aAAgBAQAAABAAAwOMReAgWAAAf//EACQQAQACAgIBAwUBAAAAAAAAAAERIQAxQVEQIGFxMECBkfCh/9oACAEBAAE/EPqjvAtoKiYJ2+IFTvEIJcrwwyYEgsfV/h4cOXToaPH8fp5cf96ikX7b8UNIrEMJRPzOfPj1gcfLjGRwKl7k/r9DrFu4zB2Sx6zsnLHITMTzrwd3M72AQOpzu02ImCPS3qtNwB7Bt3hXSgSMM9lbMOaGCQlmiWt4YxWkSQNiZBPSbiwiUo/syCEUDe9giVrGn2HIl7jUzuc93viwSxHMR84msSUejZQnfjkT0ukPvKteXJgQqxxi8Mogn8fYf//Z'
+      wrap.appendChild(img)
+      document.getElementById('album-wrap').appendChild(div)
+    }
+    addImageItem()
+    addImageItem()
+    document.getElementById('add-img').onclick = function () {
+      var imgs = document.getElementById('album-wrap').children
+      if (imgs && imgs.length < 9) {
+        addImageItem()
+      }
+    }
+    document.getElementById('remove-img').onclick = function () {
+      var imgs = document.getElementById('album-wrap').children
+      if (imgs && imgs.length) {
+        document.getElementById('album-wrap').removeChild(imgs[imgs.length - 1])
+      }
+    }
+  </script>
+
 
 <blockquote>
 <p>&#x56FE;&#x7247;&#x5C55;&#x793A;&#x6839;&#x636E;&#x6570;&#x91CF;&#x4E0D;&#x540C;&#x800C;&#x81EA;&#x52A8;&#x9002;&#x914D;&#x4E0D;&#x540C;&#x5E03;&#x5C40;&#x6548;&#x679C;&#xFF0C;&#x4E3B;&#x8981;&#x9488;&#x5BF9;&#x4EC5;&#x6709;1&#x4E2A;&#x3001;2&#x4E2A;&#x3001;4&#x4E2A;&#x7684;&#x60C5;&#x51B5;<br>&#x5E03;&#x5C40;&#x6839;&#x636E; <a href="#&#x6839;&#x636E;&#x5144;&#x5F1F;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x6765;&#x8BBE;&#x7F6E;&#x6837;&#x5F0F;">&#x6839;&#x636E;&#x5144;&#x5F1F;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x6765;&#x8BBE;&#x7F6E;&#x6837;&#x5F0F;</a> &#x5B9E;&#x73B0;<br>&#x81EA;&#x9002;&#x5E94;&#x6839;&#x636E; <a href="#&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x6BD4;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x77E9;&#x5F62;">&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x6BD4;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x77E9;&#x5F62;</a> &#x5B9E;&#x73B0;  </p>
@@ -2161,7 +2162,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
 2021-03-04
-</span></footer>
+</span></footer></p>
                                 
                                 </section>
                             
@@ -2204,7 +2205,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.3","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.4","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Html","level":"1.3.2","depth":2,"path":"frontend/html.md","ref":"frontend/html.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 www.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2021-03-04T06:11:22.751Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T06:11:50.899Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.3","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.4","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Html","level":"1.3.2","depth":2,"path":"frontend/html.md","ref":"frontend/html.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 www.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2021-03-04T06:26:48.496Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T06:26:59.514Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

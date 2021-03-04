@@ -516,7 +516,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 > 核心：```padding-top``` ```padding-bottom``` ```margin-top``` ```margin-bottom``` 为**百分比**是相对**父元素** **宽度**  
 > 使用伪元素的```padding-top```或```padding-bottom```或```margin-top```或```margin-bottom```为**百分比**撑起父元素高度实现  
-> 使用```margin-top``` ```margin-bottom```时，父元素需触发[BFC](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)，常见触发方式：```display: inline-block``` 或 ```overflow: hidden```  
+> 使用```margin-top``` ```margin-bottom```时，父元素需触发[BFC](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)，常用触发方式：```display: inline-block``` 或 ```overflow: hidden```  
 
 ```html
 <div class="rect-item">
@@ -777,87 +777,88 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 
 #### 九宫格图片展示
 
-<style>
-  .album-wrap {
-    width: 100%;
-    max-width: 540px;
-    min-width: 200px;
-    box-sizing: border-box;
-    padding: 5px;
-    background-color: #EEE;
-    font-size: 0;
-    margin-bottom: 10px;
-  }
-  .album-wrap img {
-    width: 100%;
-    height: 100%;
-    background-color: #CCC;
-    -o-object-fit: cover;
-    object-fit: cover;
-  }
-  .album-wrap .rect-item {
-    width: calc(100% / 3);
-    position: relative;
-    display: inline-block;
-    width: calc(100% / 3);
-    min-width: initial;
-    max-width: initial;
-  }
-  .album-wrap .rect-wrap {
-    padding: 5px;
-  }
-  .album-wrap .rect-item:first-child:last-child {
-    width: 100%;
-  }
-  .album-wrap .rect-item:first-child:last-child:after {
-    padding-top: 50%;
-  }
-  .album-wrap .rect-item:first-child:nth-last-child(2),
-  .album-wrap .rect-item:first-child:nth-last-child(2) ~ .rect-item {
-    width: 50%;
-  }
-  .album-wrap .rect-item:first-child:nth-last-child(4),
-  .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item {
-    width: 50%;
-  }
-  .album-wrap .rect-item:first-child:nth-last-child(4):after,
-  .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item:after {
-    padding-top: 70%;
-  }
-</style>
-<div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px;">
-  <button id="add-img">Add a image</button>
-  <button id="remove-img">Remove last image</button>
+<div>
+  <style>
+    .album-wrap {
+      width: 100%;
+      max-width: 540px;
+      min-width: 200px;
+      box-sizing: border-box;
+      padding: 5px;
+      background-color: #EEE;
+      font-size: 0;
+      margin-bottom: 10px;
+    }
+    .album-wrap img {
+      width: 100%;
+      height: 100%;
+      background-color: #CCC;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+    .album-wrap .rect-item {
+      width: calc(100% / 3);
+      position: relative;
+      display: inline-block;
+      width: calc(100% / 3);
+      min-width: initial;
+      max-width: initial;
+    }
+    .album-wrap .rect-wrap {
+      padding: 5px;
+    }
+    .album-wrap .rect-item:first-child:last-child {
+      width: 100%;
+    }
+    .album-wrap .rect-item:first-child:last-child:after {
+      padding-top: 50%;
+    }
+    .album-wrap .rect-item:first-child:nth-last-child(2),
+    .album-wrap .rect-item:first-child:nth-last-child(2) ~ .rect-item {
+      width: 50%;
+    }
+    .album-wrap .rect-item:first-child:nth-last-child(4),
+    .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item {
+      width: 50%;
+    }
+    .album-wrap .rect-item:first-child:nth-last-child(4):after,
+    .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item:after {
+      padding-top: 70%;
+    }
+  </style>
+  <div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px;">
+    <button id="add-img">Add a image</button>
+    <button id="remove-img">Remove last image</button>
+  </div>
+  <div id="album-wrap" class="album-wrap"></div>
+  <script>
+    function addImageItem () {
+      var div = document.createElement('div')
+      div.className = 'rect-item'
+      var wrap = document.createElement('div')
+      wrap.className = 'rect-wrap'
+      div.appendChild(wrap)
+      var img = document.createElement('img')
+      img.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/wgALCABIAEgBAREA/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/aAAgBAQAAAAH0AAEdLN7YOdx9PTTMQz8Wv2rBjz6pb7sgpcJ3rg1hoy220jXG4AB//8QAIhAAAgEDBAIDAAAAAAAAAAAAAQIDAAQQERITIDEzFDBA/9oACAEBAAEFAvtdgi/LjoXcZPnte+pmLYi9WUffi5mVxAm+RFcHpvMdxNOZcW6CRlG1ek8PICNCBqYIuNepXbUwD3M6qlaB64xSgaY80FC/g//EACoQAAECBAMGBwAAAAAAAAAAAAEAIQIRIFEQEkEDIjEycYEwQEKCkZKx/9oACAEBAAY/AvFmVwiUnrHVCejYQdKIm4GWAhhfWaYyk63tpm7UxEXVhbAg2QFqZjmUjopBPzVTGc+5Q5mZbOKxA7IF/ler7FN+0MAPIf/EACcQAQABAgYBAgcAAAAAAAAAAAERACEQIDFBUWGhcfAwQLHB0eHx/9oACAEBAAE/IfiqHgPNfyz80AgZdWLeaEEjI75va9NXBmEPTDxv0ycQn164W0Q/op4pYgxO9S6JGkTK8189k1EkQ+q+HK/jp5q+8wDKe0S3fVI1hUNIdxWCtvSusXOsqSJQwBZ0l92hlxTaJm+lWpi+cUhyxS0Irt97ugXVG8qcUBCSO1FQRwHyH//aAAgBAQAAABAAAwOMReAgWAAAf//EACQQAQACAgIBAwUBAAAAAAAAAAERIQAxQVEQIGFxMECBkfCh/9oACAEBAAE/EPqjvAtoKiYJ2+IFTvEIJcrwwyYEgsfV/h4cOXToaPH8fp5cf96ikX7b8UNIrEMJRPzOfPj1gcfLjGRwKl7k/r9DrFu4zB2Sx6zsnLHITMTzrwd3M72AQOpzu02ImCPS3qtNwB7Bt3hXSgSMM9lbMOaGCQlmiWt4YxWkSQNiZBPSbiwiUo/syCEUDe9giVrGn2HIl7jUzuc93viwSxHMR84msSUejZQnfjkT0ukPvKteXJgQqxxi8Mogn8fYf//Z'
+      wrap.appendChild(img)
+      document.getElementById('album-wrap').appendChild(div)
+    }
+    addImageItem()
+    addImageItem()
+    document.getElementById('add-img').onclick = function () {
+      var imgs = document.getElementById('album-wrap').children
+      if (imgs && imgs.length < 9) {
+        addImageItem()
+      }
+    }
+    document.getElementById('remove-img').onclick = function () {
+      var imgs = document.getElementById('album-wrap').children
+      if (imgs && imgs.length) {
+        document.getElementById('album-wrap').removeChild(imgs[imgs.length - 1])
+      }
+    }
+  </script>
 </div>
-<div class="album-wrap"></div>
-<script>
-  const imgContainer = document.querySelector('.album-wrap')
-  function addImageItem () {
-    const div = document.createElement('div')
-    div.className = 'rect-item'
-    const wrap = document.createElement('div')
-    wrap.className = 'rect-wrap'
-    div.appendChild(wrap)
-    const img = document.createElement('img')
-    img.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/wgALCABIAEgBAREA/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/aAAgBAQAAAAH0AAEdLN7YOdx9PTTMQz8Wv2rBjz6pb7sgpcJ3rg1hoy220jXG4AB//8QAIhAAAgEDBAIDAAAAAAAAAAAAAQIDAAQQERITIDEzFDBA/9oACAEBAAEFAvtdgi/LjoXcZPnte+pmLYi9WUffi5mVxAm+RFcHpvMdxNOZcW6CRlG1ek8PICNCBqYIuNepXbUwD3M6qlaB64xSgaY80FC/g//EACoQAAECBAMGBwAAAAAAAAAAAAEAIQIRIFEQEkEDIjEycYEwQEKCkZKx/9oACAEBAAY/AvFmVwiUnrHVCejYQdKIm4GWAhhfWaYyk63tpm7UxEXVhbAg2QFqZjmUjopBPzVTGc+5Q5mZbOKxA7IF/ler7FN+0MAPIf/EACcQAQABAgYBAgcAAAAAAAAAAAERACEQIDFBUWGhcfAwQLHB0eHx/9oACAEBAAE/IfiqHgPNfyz80AgZdWLeaEEjI75va9NXBmEPTDxv0ycQn164W0Q/op4pYgxO9S6JGkTK8189k1EkQ+q+HK/jp5q+8wDKe0S3fVI1hUNIdxWCtvSusXOsqSJQwBZ0l92hlxTaJm+lWpi+cUhyxS0Irt97ugXVG8qcUBCSO1FQRwHyH//aAAgBAQAAABAAAwOMReAgWAAAf//EACQQAQACAgIBAwUBAAAAAAAAAAERIQAxQVEQIGFxMECBkfCh/9oACAEBAAE/EPqjvAtoKiYJ2+IFTvEIJcrwwyYEgsfV/h4cOXToaPH8fp5cf96ikX7b8UNIrEMJRPzOfPj1gcfLjGRwKl7k/r9DrFu4zB2Sx6zsnLHITMTzrwd3M72AQOpzu02ImCPS3qtNwB7Bt3hXSgSMM9lbMOaGCQlmiWt4YxWkSQNiZBPSbiwiUo/syCEUDe9giVrGn2HIl7jUzuc93viwSxHMR84msSUejZQnfjkT0ukPvKteXJgQqxxi8Mogn8fYf//Z'
-    wrap.appendChild(img)
-    imgContainer.appendChild(div)
-  }
-  addImageItem()
-  addImageItem()
-  document.getElementById('add-img').onclick = function () {
-    const imgs = imgContainer.children
-    if (imgs && imgs.length < 9) {
-      addImageItem()
-    }
-  }
-  document.getElementById('remove-img').onclick = function () {
-    const imgs = imgContainer.children
-    if (imgs && imgs.length) {
-      imgContainer.removeChild(imgs[imgs.length - 1])
-    }
-  }
-</script>
 
 > 图片展示根据数量不同而自动适配不同布局效果，主要针对仅有1个、2个、4个的情况  
 > 布局根据 [根据兄弟元素的数量来设置样式](#根据兄弟元素的数量来设置样式) 实现  
