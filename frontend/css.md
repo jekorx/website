@@ -503,6 +503,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
     font-size: 12px;
   }
 </style>
+
 <div class="rect-item" style="margin-bottom: 14px">
   <div class="rect-wrap">
     <p style="margin: 0">正方形</p>
@@ -655,6 +656,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
   vertical-align: middle;
 }
 </style>
+
 <div id="count-selector">
   <div style="top: 17px; left: 52px">
     <pre style="border-radius: 20px; color: #b30096">ul >li:only-child</pre> 等价
@@ -826,7 +828,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       padding-top: 70%;
     }
   </style>
-  <div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px;">
+  <div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px; font-size: 12px">
     <button id="add-img">Add a image</button>
     <button id="remove-img">Remove last image</button>
   </div>

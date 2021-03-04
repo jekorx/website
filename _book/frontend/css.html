@@ -1571,7 +1571,7 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
 <span class="token punctuation">}</span>
 </code></pre>
 <h4 id="divcss&#x7ED8;&#x5236;&#x516D;&#x8FB9;&#x5F62;">div+css&#x7ED8;&#x5236;&#x516D;&#x8FB9;&#x5F62;</h4>
-<p><style>
+<style>
 .corner {
   width: 0;
   height: 0;
@@ -1591,7 +1591,7 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
   border: 0;
 }
 .hexagon:before {
-  content: &#39;&#39;;
+  content: '';
   width: 0;
   height: 0;
   position: absolute;
@@ -1602,7 +1602,7 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
   border-bottom: 32px solid transparent;
 }
 .hexagon:after {
-  content: &#39;&#39;;
+  content: '';
   width: 0;
   height: 0;
   position: absolute;
@@ -1612,54 +1612,57 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
   border-top: 32px solid transparent;
   border-bottom: 32px solid transparent;
 }
-</style></p>
+</style>
 <div style="display: flex; width: 400px; align-items: center; justify-content: space-around; padding: 20px">
   <div class="corner"></div>
   <div class="hexagon"></div>
 </div>
 
-<pre class="language-"><code class="lang-css"><span class="token comment">/**
+```css
+/**
  * &#x5173;&#x952E;&#x70B9;&#xFF1A;&#x4F7F;&#x7528;border&#x7ED8;&#x5236;&#x4E09;&#x89D2;&#x5F62;
  * &#x7BAD;&#x5934;&#x5411;&#x4E0A;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#xFF1A;border-bottom&#xFF1A;&#x989C;&#x8272;&#xFF0C;border-left&#xFF1A;&#x900F;&#x660E;&#x8272;&#xFF0C;border-right&#xFF1A;&#x900F;&#x660E;&#x8272;
  * &#x7BAD;&#x5934;&#x5411;&#x53F3;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#xFF1A;border-left&#xFF1A;&#x989C;&#x8272;&#xFF0C;border-top&#xFF1A;&#x900F;&#x660E;&#x8272;&#xFF0C;border-bottom&#xFF1A;&#x900F;&#x660E;&#x8272;
  * &#x7BAD;&#x5934;&#x5411;&#x4E0B;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#xFF1A;border-top&#xFF1A;&#x989C;&#x8272;&#xFF0C;border-left&#xFF1A;&#x900F;&#x660E;&#x8272;&#xFF0C;border-right&#xFF1A;&#x900F;&#x660E;&#x8272;
  * &#x7BAD;&#x5934;&#x5411;&#x5DE6;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#xFF1A;border-right&#xFF1A;&#x989C;&#x8272;&#xFF0C;border-top&#xFF1A;&#x900F;&#x660E;&#x8272;&#xFF0C;border-bottom&#xFF1A;&#x900F;&#x660E;&#x8272;
- */</span>
-<span class="token selector">.hexagon</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> purple<span class="token punctuation">;</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
-  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> #FFF<span class="token punctuation">;</span>
-  <span class="token property">border-radius</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.hexagon:before</span> <span class="token punctuation">{</span>
-  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">left</span><span class="token punctuation">:</span> -20px<span class="token punctuation">;</span>
-  <span class="token property">border-right</span><span class="token punctuation">:</span> 20px solid purple<span class="token punctuation">;</span>
-  <span class="token property">border-top</span><span class="token punctuation">:</span> 32px solid transparent<span class="token punctuation">;</span>
-  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 32px solid transparent<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.hexagon:after</span> <span class="token punctuation">{</span>
-  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">right</span><span class="token punctuation">:</span> -20px<span class="token punctuation">;</span>
-  <span class="token property">border-left</span><span class="token punctuation">:</span> 20px solid purple<span class="token punctuation">;</span>
-  <span class="token property">border-top</span><span class="token punctuation">:</span> 32px solid transparent<span class="token punctuation">;</span>
-  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 32px solid transparent<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h4 id="divcss&#x5B9E;&#x73B0;&#x56DB;&#x89D2;&#x8FB9;&#x6846;">div+css&#x5B9E;&#x73B0;&#x56DB;&#x89D2;&#x8FB9;&#x6846;</h4>
-<p><style>
+ */
+.hexagon {
+  width: 40px;
+  height: 64px;
+  background-color: purple;
+  position: relative;
+  font-size: 14px;
+  color: #FFF;
+  border-radius: 0;
+  border: 0;
+}
+.hexagon:before {
+  content: &apos;&apos;;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  border-right: 20px solid purple;
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+}
+.hexagon:after {
+  content: &apos;&apos;;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  border-left: 20px solid purple;
+  border-top: 32px solid transparent;
+  border-bottom: 32px solid transparent;
+}
+```
+
+#### div+css&#x5B9E;&#x73B0;&#x56DB;&#x89D2;&#x8FB9;&#x6846;
+
+<style>
 .qrcode-box1 {
     display: inline-block;
     border: 1px solid #3295D1;
@@ -1676,99 +1679,110 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
                 linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
                 linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
   }
-</style></p>
+</style>
 <div class="qrcode-box1">
   <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">
 </div>
 
-<blockquote>
-<p><strong>&#x65B9;&#x5F0F;&#x4E00;</strong>&#xFF1A;&#x901A;&#x8FC7;<code>:before</code> <code>:after</code>&#x4F2A;&#x7C7B;&#x5B9E;&#x73B0;&#xFF08;&#x4E5F;&#x53EF;&#x4F7F;&#x7528;4&#x4E2A;div&#x5B9E;&#x73B0;&#xFF09;<br>&#x539F;&#x5305;&#x88F9;div&#x5B9E;&#x73B0;&#x9876;&#x90E8;&#x4E24;&#x4E2A;&#x89D2;&#xFF0C;&#x589E;&#x52A0;&#x4E00;&#x4E2A;div&#x5B9E;&#x73B0;&#x5E95;&#x90E8;&#x4E24;&#x4E2A;&#x89D2;&#xFF0C;&#x786E;&#x4FDD;&#x65B0;&#x589E;&#x52A0;div&#x4E0E;&#x539F;&#x5305;&#x88F9;div&#x91CD;&#x5408;<br><strong>&#x4F18;&#x70B9;</strong>&#xFF1A;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x6613;&#x4E8E;&#x7406;&#x89E3;&#xFF1B;<strong>&#x7F3A;&#x70B9;</strong>&#xFF1A;&#x5B9E;&#x73B0;&#x590D;&#x6742;&#xFF0C;dom&#x591A;&#x3001;&#x4EE3;&#x7801;&#x591A;  </p>
-</blockquote>
-<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrcode-box<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-  <span class="token comment">&lt;!-- &lt;img src=&quot;...&quot; /&gt; --&gt;</span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrcode-box-background<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-</code></pre>
-<pre class="language-"><code class="lang-css"><span class="token selector">.qrcode-box</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #3295D1<span class="token punctuation">;</span>
-  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
-  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.qrcode-box .qrcode-box-background</span> <span class="token punctuation">{</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.qrcode-box::before,
+&gt; **&#x65B9;&#x5F0F;&#x4E00;**&#xFF1A;&#x901A;&#x8FC7;```:before``` ```:after```&#x4F2A;&#x7C7B;&#x5B9E;&#x73B0;&#xFF08;&#x4E5F;&#x53EF;&#x4F7F;&#x7528;4&#x4E2A;div&#x5B9E;&#x73B0;&#xFF09;  
+&gt; &#x539F;&#x5305;&#x88F9;div&#x5B9E;&#x73B0;&#x9876;&#x90E8;&#x4E24;&#x4E2A;&#x89D2;&#xFF0C;&#x589E;&#x52A0;&#x4E00;&#x4E2A;div&#x5B9E;&#x73B0;&#x5E95;&#x90E8;&#x4E24;&#x4E2A;&#x89D2;&#xFF0C;&#x786E;&#x4FDD;&#x65B0;&#x589E;&#x52A0;div&#x4E0E;&#x539F;&#x5305;&#x88F9;div&#x91CD;&#x5408;  
+&gt; **&#x4F18;&#x70B9;**&#xFF1A;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x6613;&#x4E8E;&#x7406;&#x89E3;&#xFF1B;**&#x7F3A;&#x70B9;**&#xFF1A;&#x5B9E;&#x73B0;&#x590D;&#x6742;&#xFF0C;dom&#x591A;&#x3001;&#x4EE3;&#x7801;&#x591A;  
+
+```html
+<div class="qrcode-box">
+  <!-- <img src="..." /> -->
+  <div class="qrcode-box-background"></div>
+</div>
+```
+
+```css
+.qrcode-box {
+  display: inline-block;
+  border: 1px solid #3295D1;
+  box-sizing: border-box;
+  padding: 10px;
+  position: relative;
+}
+.qrcode-box .qrcode-box-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.qrcode-box::before,
 .qrcode-box::after,
 .qrcode-box .qrcode-box-background::before,
-.qrcode-box .qrcode-box-background::after</span> <span class="token punctuation">{</span>
-  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.qrcode-box::before</span> <span class="token punctuation">{</span>
-  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">border-top</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-  <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.qrcode-box::after</span> <span class="token punctuation">{</span>
-  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">border-top</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-  <span class="token property">border-right</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.qrcode-box .qrcode-box-background::before</span> <span class="token punctuation">{</span>
-  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-  <span class="token property">border-left</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.qrcode-box .qrcode-box-background::after</span> <span class="token punctuation">{</span>
-  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">border-bottom</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-  <span class="token property">border-right</span><span class="token punctuation">:</span> 3px solid #3295D1<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<blockquote>
-<p><strong>&#x65B9;&#x5F0F;&#x4E8C;</strong>&#xFF1A;&#x901A;&#x8FC7;&#x5728;<code>background</code>&#x4E2D;&#x4F7F;&#x7528;8&#x4E2A;<code>linear-gradient</code>&#x6E10;&#x53D8;&#x8272;&#xFF0C;&#x5E76;&#x5C06;&#x6BCF;&#x4E2A;&#x80CC;&#x666F;&#x8272;&#x504F;&#x79FB;&#x51FA;div&#x8303;&#x56F4;&#x5B9E;&#x73B0;<br><strong>&#x4F18;&#x70B9;</strong>&#xFF1A;dom&#x5C11;&#xFF0C;&#x4EE3;&#x7801;&#x5C11;&#xFF1B;<strong>&#x7F3A;&#x70B9;</strong>&#xFF1A;&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#xFF0C;&#x8BA1;&#x7B97;&#x4F4D;&#x7F6E;&#x590D;&#x6742;&#xFF0C;&#x4E0D;&#x6613;&#x7406;&#x89E3;<br><strong>&#x6CE8;&#x610F;&#xFF1A;&#x504F;&#x79FB;&#x91CF;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#xFF0C;&#x5185;&#x90E8;img&#x9700;&#x9650;&#x5236;&#x5BBD;&#x9AD8;</strong>  </p>
-</blockquote>
-<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrcode-box<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-  <span class="token comment">&lt;!-- &lt;img src=&quot;...&quot; /&gt; --&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-</code></pre>
-<pre class="language-"><code class="lang-css"><span class="token selector">.qrcode-box</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #3295D1<span class="token punctuation">;</span>
-  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
-  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 160px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 160px<span class="token punctuation">;</span>
-  <span class="token comment">/* 
+.qrcode-box .qrcode-box-background::after {
+  content: &quot;&quot;;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+.qrcode-box::before {
+  top: 0;
+  left: 0;
+  border-top: 3px solid #3295D1;
+  border-left: 3px solid #3295D1;
+}
+.qrcode-box::after {
+  top: 0;
+  right: 0;
+  border-top: 3px solid #3295D1;
+  border-right: 3px solid #3295D1;
+}
+.qrcode-box .qrcode-box-background::before {
+  bottom: 0;
+  left: 0;
+  border-bottom: 3px solid #3295D1;
+  border-left: 3px solid #3295D1;
+}
+.qrcode-box .qrcode-box-background::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 3px solid #3295D1;
+  border-right: 3px solid #3295D1;
+}
+```
+
+&gt; **&#x65B9;&#x5F0F;&#x4E8C;**&#xFF1A;&#x901A;&#x8FC7;&#x5728;```background```&#x4E2D;&#x4F7F;&#x7528;8&#x4E2A;```linear-gradient```&#x6E10;&#x53D8;&#x8272;&#xFF0C;&#x5E76;&#x5C06;&#x6BCF;&#x4E2A;&#x80CC;&#x666F;&#x8272;&#x504F;&#x79FB;&#x51FA;div&#x8303;&#x56F4;&#x5B9E;&#x73B0;  
+&gt; **&#x4F18;&#x70B9;**&#xFF1A;dom&#x5C11;&#xFF0C;&#x4EE3;&#x7801;&#x5C11;&#xFF1B;**&#x7F3A;&#x70B9;**&#xFF1A;&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#xFF0C;&#x8BA1;&#x7B97;&#x4F4D;&#x7F6E;&#x590D;&#x6742;&#xFF0C;&#x4E0D;&#x6613;&#x7406;&#x89E3;  
+&gt; **&#x6CE8;&#x610F;&#xFF1A;&#x504F;&#x79FB;&#x91CF;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#xFF0C;&#x5185;&#x90E8;img&#x9700;&#x9650;&#x5236;&#x5BBD;&#x9AD8;**  
+
+```html
+<div class="qrcode-box">
+  <!-- <img src="..." /> -->
+</div>
+```
+
+```css
+.qrcode-box {
+  display: inline-block;
+  border: 1px solid #3295D1;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 160px;
+  height: 160px;
+  /* 
    * &#x8FB9;&#x89D2;&#x5BBD;3px&#xFF0C;&#x9AD8;30px&#xFF0C;&#x504F;&#x79FB;&#x91CF;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;
    * box&#x5BBD;&#xFF08;160px&#xFF09;- border&#xFF08;1px&#xFF09;- 1px - &#x8FB9;&#x89D2;&#x5BBD;3px = 155px
    * box&#x5BBD;&#xFF08;160px&#xFF09;- border&#xFF08;1px&#xFF09;- 1px - &#x8FB9;&#x89D2;&#x9AD8;30px = 128px
-   */</span>
-  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -155px -128px no-repeat<span class="token punctuation">,</span>
-              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -128px -155px no-repeat<span class="token punctuation">,</span>
-              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 128px -155px no-repeat<span class="token punctuation">,</span>
-              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 155px -128px no-repeat<span class="token punctuation">,</span>
-              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -155px 128px no-repeat<span class="token punctuation">,</span>
-              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> -128px 155px no-repeat<span class="token punctuation">,</span>
-              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 128px 155px no-repeat<span class="token punctuation">,</span>
-              <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#3295D1<span class="token punctuation">,</span> #3295D1<span class="token punctuation">)</span> 155px 128px no-repeat<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h4 id="&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x6BD4;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x77E9;&#x5F62;">&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x6BD4;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x77E9;&#x5F62;</h4>
-<p><style>
+   */
+  background: linear-gradient(#3295D1, #3295D1) -155px -128px no-repeat,
+              linear-gradient(#3295D1, #3295D1) -128px -155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 128px -155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 155px -128px no-repeat,
+              linear-gradient(#3295D1, #3295D1) -155px 128px no-repeat,
+              linear-gradient(#3295D1, #3295D1) -128px 155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
+              linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
+}
+```
+
+#### &#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x6BD4;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x77E9;&#x5F62;
+
+<style>
   .rect-item {
     overflow: hidden;
     position: relative;
@@ -1780,7 +1794,7 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
     vertical-align: middle;
   }
   .rect-item:after {
-    content: &quot;&quot;;
+    content: "";
     display: block;
     padding-top: 100%;
   }
@@ -1799,7 +1813,8 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
     justify-content: center;
     font-size: 12px;
   }
-</style></p>
+</style>
+
 <div class="rect-item" style="margin-bottom: 14px">
   <div class="rect-wrap">
     <p style="margin: 0">&#x6B63;&#x65B9;&#x5F62;</p>
@@ -1868,16 +1883,16 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
 <span class="token punctuation">}</span>
 </code></pre>
 <h4 id="&#x6839;&#x636E;&#x5144;&#x5F1F;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x6765;&#x8BBE;&#x7F6E;&#x6837;&#x5F0F;">&#x6839;&#x636E;&#x5144;&#x5F1F;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x6765;&#x8BBE;&#x7F6E;&#x6837;&#x5F0F;</h4>
-<p><style></p>
-<h1>count-selector ul {</h1>
-<p>  padding: 0 0 10px;
+<style>
+#count-selector ul {
+  padding: 0 0 10px;
   margin: 0;
   list-style: none;
   font-size: 0;
   user-select: none;
-}</p>
-<h1>count-selector ul &gt;li {</h1>
-<p>  display: inline-block;
+}
+#count-selector ul >li {
+  display: inline-block;
   width: 36px;
   height: 36px;
   background-color: #CCC;
@@ -1887,91 +1902,92 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
   line-height: 36px;
   font-size: 12px;
   margin-left: 10px;
-}</p>
-<h1>count-selector ul &gt;li:only-child {</h1>
-<p>  color: #b30096;
+}
+#count-selector ul >li:only-child {
+  color: #b30096;
   font-weight: 700;
   font-size: 16px;
   border-radius: 50%;
-}</p>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(2),</h1>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(2) ~ li {</h1>
-<p>  color: #d89a00;
+}
+#count-selector ul >li:first-child:nth-last-child(2),
+#count-selector ul >li:first-child:nth-last-child(2) ~ li {
+  color: #d89a00;
   font-weight: 700;
   font-size: 16px;
   border-radius: 50%;
-}</p>
-<h1>count-selector ul &gt;li:nth-child(1):nth-last-child(3),</h1>
-<h1>count-selector ul &gt;li:nth-child(1):nth-last-child(3) ~ li {</h1>
-<p>  color: #4441f1;
+}
+#count-selector ul >li:nth-child(1):nth-last-child(3),
+#count-selector ul >li:nth-child(1):nth-last-child(3) ~ li {
+  color: #4441f1;
   font-weight: 700;
   font-size: 16px;
   border-radius: 50%;
-}</p>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(n+8),</h1>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(n+8) ~ li {</h1>
-<p>  background-color: brown;
-}</p>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(-n+2),</h1>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(-n+2) ~ li {</h1>
-<p>  background-color: forestgreen;
-}</p>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6),</h1>
-<h1>count-selector ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {</h1>
-<p>  background-color: #008eff;
-}</p>
-<h1>count-selector {</h1>
-<p>  margin-top: -10px;
+}
+#count-selector ul >li:first-child:nth-last-child(n+8),
+#count-selector ul >li:first-child:nth-last-child(n+8) ~ li {
+  background-color: brown;
+}
+#count-selector ul >li:first-child:nth-last-child(-n+2),
+#count-selector ul >li:first-child:nth-last-child(-n+2) ~ li {
+  background-color: forestgreen;
+}
+#count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+#count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
+  background-color: #008eff;
+}
+#count-selector {
+  margin-top: -10px;
   padding-top: 10px;
   position: relative;
   min-width: 700px;
   overflow-x: auto;
-}</p>
-<h1>count-selector &gt;div {</h1>
-<p>  position: absolute;
+}
+#count-selector >div {
+  position: absolute;
   font-size: 12px;
-}</p>
-<h1>count-selector pre {</h1>
-<p>  padding: 3px;
+}
+#count-selector pre {
+  padding: 3px;
   border-radius: 3px;
   margin: 0;
   display: inline-block;
   font-size: 12px;
   background-color: #CCC;
   color: #FFF;
-  font-family: Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   direction: ltr;
   font-weight: 600;
   user-select: all;
   vertical-align: middle;
 }
-&lt;/style&gt;</p>
+</style>
+
 <div id="count-selector">
   <div style="top: 17px; left: 52px">
-    <pre style="border-radius: 20px; color: #b30096">ul >li:only-child</pre> 等价
+    <pre style="border-radius: 20px; color: #b30096" class="language-">ul &gt;li:only-child</pre> &#x7B49;&#x4EF7;
   </div>
   <div style="top: 17px; left: 201px">
-    <pre style="border-radius: 20px; color: #b30096">ul >li:first-child:last-child</pre> 等价
+    <pre style="border-radius: 20px; color: #b30096" class="language-">ul &gt;li:first-child:last-child</pre> &#x7B49;&#x4EF7;
   </div>
   <div style="top: 17px; left: 429px">
-    <pre style="border-radius: 20px; color: #b30096">ul >li:nth-child(1):nth-last-child(1)</pre>
+    <pre style="border-radius: 20px; color: #b30096" class="language-">ul &gt;li:nth-child(1):nth-last-child(1)</pre>
   </div>
   <div style="top: 65px; left: 99px">
-    <pre style="border-radius: 20px; color: #d89a00">ul >li:first-child:nth-last-child(2), ul >li:first-child:nth-last-child(2) ~ li</pre>
+    <pre style="border-radius: 20px; color: #d89a00" class="language-">ul &gt;li:first-child:nth-last-child(2), ul &gt;li:first-child:nth-last-child(2) ~ li</pre>
   </div>
   <div style="top: 110px; left: 144px">
-    <pre style="border-radius: 20px; color: #4441f1">ul >li:nth-child(1):nth-last-child(3), ul >li:nth-child(1):nth-last-child(3) ~ li</pre>
+    <pre style="border-radius: 20px; color: #4441f1" class="language-">ul &gt;li:nth-child(1):nth-last-child(3), ul &gt;li:nth-child(1):nth-last-child(3) ~ li</pre>
   </div>
   <div style="top: 41px; left: 30px">
-    <pre style="background-color: forestgreen">ul >li:first-child:nth-last-child(-n+2), ul >li:first-child:nth-last-child(-n+2) ~ li</pre>
+    <pre style="background-color: forestgreen" class="language-">ul &gt;li:first-child:nth-last-child(-n+2), ul &gt;li:first-child:nth-last-child(-n+2) ~ li</pre>
   </div>
   <div style="top: 215px; left: 225px">
-    <pre style="background-color: #008eff">ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
-ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</pre>
+    <pre style="background-color: #008eff" class="language-">ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</pre>
   </div>
   <div style="top: 353px; left: 363px">
-    <pre style="background-color: brown">ul >li:first-child:nth-last-child(n+8),
-ul >li:first-child:nth-last-child(n+8) ~ li</pre>
+    <pre style="background-color: brown" class="language-">ul &gt;li:first-child:nth-last-child(n+8),
+ul &gt;li:first-child:nth-last-child(n+8) ~ li</pre>
   </div>
   <ul>
     <li>1</li>
@@ -2003,55 +2019,55 @@ ul >li:first-child:nth-last-child(n+8) ~ li</pre>
 </div>
 
 <blockquote>
-<p><strong>核心</strong>：<br><strong>1</strong>、CSS选择器 <code>~</code>，表示某元素后所有同级的指定元素<br><strong>2</strong>、<code>:nth-child</code>（正数）<code>:nth-last-child</code>（倒数）：选择属于其父元素的指定第几个子元素的每个指定元素，常用使用如下：<br><code>:nth-child(2)</code>：正数第2个元素<br><code>:nth-child(n)</code>：正数 &gt;= 1 的元素，即：全部指定元素<br><code>:nth-child(n+2)</code>：正数 &gt;= 2 的元素，即：正数第2个以及后面全部指定元素<br><code>:nth-child(-n+2)</code>：正数 &lt;= 2 的元素，即：正数第1、2个指定元素<br><code>:nth-child(2n-1)</code>：正数 奇数 的元素，等价于<code>:nth-child(odd)</code>，即：正数数第1、3、5、...个指定元素<br><code>:nth-last-child(2)</code>：倒数第2个元素<br><code>:nth-last-child(n)</code>：倒数 &gt;= 1 的元素，即：全部指定元素<br><code>:nth-last-child(n+2)</code>：倒数 &gt;= 2 的元素，即：倒数第2个以及前面全部指定元素<br><code>:nth-last-child(-n+2)</code>：倒数 &lt;= 2 的元素，即：倒数第1、2个指定元素<br><code>:nth-last-child(2n)</code>：倒数 偶数 的元素，等价于<code>:nth-last-child(even)</code>，即：倒数第2、4、6、...个指定元素<br><strong>注意</strong>：2 中涉及的选择器会选择其父级元素下所有指定子元素，具体可参照下图：  </p>
+<p><strong>&#x6838;&#x5FC3;</strong>&#xFF1A;<br><strong>1</strong>&#x3001;CSS&#x9009;&#x62E9;&#x5668; <code>~</code>&#xFF0C;&#x8868;&#x793A;&#x67D0;&#x5143;&#x7D20;&#x540E;&#x6240;&#x6709;&#x540C;&#x7EA7;&#x7684;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><strong>2</strong>&#x3001;<code>:nth-child</code>&#xFF08;&#x6B63;&#x6570;&#xFF09;<code>:nth-last-child</code>&#xFF08;&#x5012;&#x6570;&#xFF09;&#xFF1A;&#x9009;&#x62E9;&#x5C5E;&#x4E8E;&#x5176;&#x7236;&#x5143;&#x7D20;&#x7684;&#x6307;&#x5B9A;&#x7B2C;&#x51E0;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x6BCF;&#x4E2A;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#xFF0C;&#x5E38;&#x7528;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#xFF1A;<br><code>:nth-child(2)</code>&#xFF1A;&#x6B63;&#x6570;&#x7B2C;2&#x4E2A;&#x5143;&#x7D20;<br><code>:nth-child(n)</code>&#xFF1A;&#x6B63;&#x6570; &gt;= 1 &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#xFF1A;&#x5168;&#x90E8;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><code>:nth-child(n+2)</code>&#xFF1A;&#x6B63;&#x6570; &gt;= 2 &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#xFF1A;&#x6B63;&#x6570;&#x7B2C;2&#x4E2A;&#x4EE5;&#x53CA;&#x540E;&#x9762;&#x5168;&#x90E8;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><code>:nth-child(-n+2)</code>&#xFF1A;&#x6B63;&#x6570; &lt;= 2 &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#xFF1A;&#x6B63;&#x6570;&#x7B2C;1&#x3001;2&#x4E2A;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><code>:nth-child(2n-1)</code>&#xFF1A;&#x6B63;&#x6570; &#x5947;&#x6570; &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x7B49;&#x4EF7;&#x4E8E;<code>:nth-child(odd)</code>&#xFF0C;&#x5373;&#xFF1A;&#x6B63;&#x6570;&#x6570;&#x7B2C;1&#x3001;3&#x3001;5&#x3001;...&#x4E2A;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><code>:nth-last-child(2)</code>&#xFF1A;&#x5012;&#x6570;&#x7B2C;2&#x4E2A;&#x5143;&#x7D20;<br><code>:nth-last-child(n)</code>&#xFF1A;&#x5012;&#x6570; &gt;= 1 &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#xFF1A;&#x5168;&#x90E8;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><code>:nth-last-child(n+2)</code>&#xFF1A;&#x5012;&#x6570; &gt;= 2 &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#xFF1A;&#x5012;&#x6570;&#x7B2C;2&#x4E2A;&#x4EE5;&#x53CA;&#x524D;&#x9762;&#x5168;&#x90E8;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><code>:nth-last-child(-n+2)</code>&#xFF1A;&#x5012;&#x6570; &lt;= 2 &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#xFF1A;&#x5012;&#x6570;&#x7B2C;1&#x3001;2&#x4E2A;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><code>:nth-last-child(2n)</code>&#xFF1A;&#x5012;&#x6570; &#x5076;&#x6570; &#x7684;&#x5143;&#x7D20;&#xFF0C;&#x7B49;&#x4EF7;&#x4E8E;<code>:nth-last-child(even)</code>&#xFF0C;&#x5373;&#xFF1A;&#x5012;&#x6570;&#x7B2C;2&#x3001;4&#x3001;6&#x3001;...&#x4E2A;&#x6307;&#x5B9A;&#x5143;&#x7D20;<br><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;2 &#x4E2D;&#x6D89;&#x53CA;&#x7684;&#x9009;&#x62E9;&#x5668;&#x4F1A;&#x9009;&#x62E9;&#x5176;&#x7236;&#x7EA7;&#x5143;&#x7D20;&#x4E0B;&#x6240;&#x6709;&#x6307;&#x5B9A;&#x5B50;&#x5143;&#x7D20;&#xFF0C;&#x5177;&#x4F53;&#x53EF;&#x53C2;&#x7167;&#x4E0B;&#x56FE;&#xFF1A;  </p>
 </blockquote>
 <p><img src="../images/front-end-css-1.jpg" alt="css-selector"></p>
-<pre><code class="lang-css">/**
- * 只包含一个元素
- * :only-child 等价于 :first-child:last-child 等价于 :nth-child(1):nth-last-child(1)
- * 只包含一个元素
- */
-ul &gt;li:only-child {
-/* ul &gt;li:first-child:last-child { */
-/* ul &gt;li:nth-child(1):nth-last-child(1) { */
-}
+<pre class="language-"><code class="lang-css"><span class="token comment">/**
+ * &#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;
+ * :only-child &#x7B49;&#x4EF7;&#x4E8E; :first-child:last-child &#x7B49;&#x4EF7;&#x4E8E; :nth-child(1):nth-last-child(1)
+ * &#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;
+ */</span>
+<span class="token selector">ul &gt;li:only-child</span> <span class="token punctuation">{</span>
+<span class="token comment">/* ul &gt;li:first-child:last-child { */</span>
+<span class="token comment">/* ul &gt;li:nth-child(1):nth-last-child(1) { */</span>
+<span class="token punctuation">}</span>
 
-/**
- * 元素数 = 2 的全部元素
- */
-ul &gt;li:first-child:nth-last-child(2),
-ul &gt;li:first-child:nth-last-child(2) ~ li {
-}
+<span class="token comment">/**
+ * &#x5143;&#x7D20;&#x6570; = 2 &#x7684;&#x5168;&#x90E8;&#x5143;&#x7D20;
+ */</span>
+<span class="token selector">ul &gt;li:first-child:nth-last-child(2),
+ul &gt;li:first-child:nth-last-child(2) ~ li</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
 
-/**
- * 元素数 = 3 的全部元素
- */
-ul &gt;li:nth-child(1):nth-last-child(3),
-ul &gt;li:nth-child(1):nth-last-child(3) ~ li {
-}
+<span class="token comment">/**
+ * &#x5143;&#x7D20;&#x6570; = 3 &#x7684;&#x5168;&#x90E8;&#x5143;&#x7D20;
+ */</span>
+<span class="token selector">ul &gt;li:nth-child(1):nth-last-child(3),
+ul &gt;li:nth-child(1):nth-last-child(3) ~ li</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
 
-/**
- * 元素数 &gt;= 8 的全部元素
- */
-ul &gt;li:first-child:nth-last-child(n+8),
-ul &gt;li:first-child:nth-last-child(n+8) ~ li {
-}
+<span class="token comment">/**
+ * &#x5143;&#x7D20;&#x6570; &gt;= 8 &#x7684;&#x5168;&#x90E8;&#x5143;&#x7D20;
+ */</span>
+<span class="token selector">ul &gt;li:first-child:nth-last-child(n+8),
+ul &gt;li:first-child:nth-last-child(n+8) ~ li</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
 
-/**
- * 元素数 &lt;= 2 的全部元素
- */
-ul &gt;li:first-child:nth-last-child(-n+2),
-ul &gt;li:first-child:nth-last-child(-n+2) ~ li {
-}
+<span class="token comment">/**
+ * &#x5143;&#x7D20;&#x6570; &lt;= 2 &#x7684;&#x5168;&#x90E8;&#x5143;&#x7D20;
+ */</span>
+<span class="token selector">ul &gt;li:first-child:nth-last-child(-n+2),
+ul &gt;li:first-child:nth-last-child(-n+2) ~ li</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
 
-/**
- * 元素数 &gt;= 5 &amp;&amp; &lt;= 6 的全部元素
- */
-ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
-ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
-}
+<span class="token comment">/**
+ * &#x5143;&#x7D20;&#x6570; &gt;= 5 &amp;&amp; &lt;= 6 &#x7684;&#x5168;&#x90E8;&#x5143;&#x7D20;
+ */</span>
+<span class="token selector">ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<h4>九宫格图片展示</h4>
+<h4 id="&#x4E5D;&#x5BAB;&#x683C;&#x56FE;&#x7247;&#x5C55;&#x793A;">&#x4E5D;&#x5BAB;&#x683C;&#x56FE;&#x7247;&#x5C55;&#x793A;</h4>
 <div>
   <style>
     .album-wrap {
@@ -2101,7 +2117,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       padding-top: 70%;
     }
   </style>
-  <div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px;">
+  <div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px; font-size: 12px">
     <button id="add-img">Add a image</button>
     <button id="remove-img">Remove last image</button>
   </div>
@@ -2133,7 +2149,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       }
     }
   </script>
-
+</div>
 
 <blockquote>
 <p>&#x56FE;&#x7247;&#x5C55;&#x793A;&#x6839;&#x636E;&#x6570;&#x91CF;&#x4E0D;&#x540C;&#x800C;&#x81EA;&#x52A8;&#x9002;&#x914D;&#x4E0D;&#x540C;&#x5E03;&#x5C40;&#x6548;&#x679C;&#xFF0C;&#x4E3B;&#x8981;&#x9488;&#x5BF9;&#x4EC5;&#x6709;1&#x4E2A;&#x3001;2&#x4E2A;&#x3001;4&#x4E2A;&#x7684;&#x60C5;&#x51B5;<br>&#x5E03;&#x5C40;&#x6839;&#x636E; <a href="#&#x6839;&#x636E;&#x5144;&#x5F1F;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x6765;&#x8BBE;&#x7F6E;&#x6837;&#x5F0F;">&#x6839;&#x636E;&#x5144;&#x5F1F;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x6765;&#x8BBE;&#x7F6E;&#x6837;&#x5F0F;</a> &#x5B9E;&#x73B0;<br>&#x81EA;&#x9002;&#x5E94;&#x6839;&#x636E; <a href="#&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x6BD4;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x77E9;&#x5F62;">&#x56FA;&#x5B9A;&#x5BBD;&#x9AD8;&#x6BD4;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x77E9;&#x5F62;</a> &#x5B9E;&#x73B0;  </p>
@@ -2162,7 +2178,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2020 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
 2021-03-04
-</span></footer></p>
+</span></footer>
                                 
                                 </section>
                             
@@ -2205,7 +2221,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.3","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.4","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Html","level":"1.3.2","depth":2,"path":"frontend/html.md","ref":"frontend/html.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 www.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2021-03-04T06:26:48.496Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T06:26:59.514Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.3","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.4","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Html","level":"1.3.2","depth":2,"path":"frontend/html.md","ref":"frontend/html.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2020 www.wdg.pub","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2021-03-04T06:51:25.867Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T06:52:28.775Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
