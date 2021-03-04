@@ -187,15 +187,17 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### 渐变色
 
-<div style="display: flex; width: 400px; justify-content: space-around;">
-  <div style="width: 100px; height: 100px; background-image: linear-gradient(to right, red, yellow, green);"></div>
-  <div style="width: 100px; height: 100px; background-image: radial-gradient(red, green);"></div>
-  <div style="width: 100px; height: 100px; background-image: conic-gradient(from 45deg at 50% 50%, red, orange, yellow, green, blue, purple, red);"></div>
-</div>
-<div style="display: flex; width: 400px; justify-content: space-around;">
-  <span>线性渐变</span>
-  <span>径向渐变</span>
-  <span>圆锥渐变</span>
+<div>
+  <div style="display: flex; width: 400px; justify-content: space-around;">
+    <div style="width: 100px; height: 100px; background-image: linear-gradient(to right, red, yellow, green);"></div>
+    <div style="width: 100px; height: 100px; background-image: radial-gradient(red, green);"></div>
+    <div style="width: 100px; height: 100px; background-image: conic-gradient(from 45deg at 50% 50%, red, orange, yellow, green, blue, purple, red);"></div>
+  </div>
+  <div style="display: flex; width: 400px; justify-content: space-around;">
+    <span>线性渐变</span>
+    <span>径向渐变</span>
+    <span>圆锥渐变</span>
+  </div>
 </div>
 
 ```css
@@ -260,51 +262,53 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### div+css绘制六边形
 
-<style>
-.corner {
-  width: 0;
-  height: 0;
-  border-right: 20px solid #EEE;
-  border-top: 20px solid red;
-  border-bottom: 20px solid #CCC;
-  border-left: 20px solid #EEE;
-}
-.hexagon {
-  width: 40px;
-  height: 64px;
-  background-color: purple;
-  position: relative;
-  font-size: 14px;
-  color: #FFF;
-  border-radius: 0;
-  border: 0;
-}
-.hexagon:before {
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 0;
-  left: -20px;
-  border-right: 20px solid purple;
-  border-top: 32px solid transparent;
-  border-bottom: 32px solid transparent;
-}
-.hexagon:after {
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 0;
-  right: -20px;
-  border-left: 20px solid purple;
-  border-top: 32px solid transparent;
-  border-bottom: 32px solid transparent;
-}
-</style>
-<div style="display: flex; width: 400px; align-items: center; justify-content: space-around; padding: 20px">
-  <div class="corner"></div>
-  <div class="hexagon"></div>
+<div>
+  <style>
+  .corner {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #EEE;
+    border-top: 20px solid red;
+    border-bottom: 20px solid #CCC;
+    border-left: 20px solid #EEE;
+  }
+  .hexagon {
+    width: 40px;
+    height: 64px;
+    background-color: purple;
+    position: relative;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 0;
+    border: 0;
+  }
+  .hexagon:before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    border-right: 20px solid purple;
+    border-top: 32px solid transparent;
+    border-bottom: 32px solid transparent;
+  }
+  .hexagon:after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    border-left: 20px solid purple;
+    border-top: 32px solid transparent;
+    border-bottom: 32px solid transparent;
+  }
+  </style>
+  <div style="display: flex; width: 400px; align-items: center; justify-content: space-around; padding: 20px">
+    <div class="corner"></div>
+    <div class="hexagon"></div>
+  </div>
 </div>
 
 ```css
@@ -351,26 +355,28 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### div+css实现四角边框
 
-<style>
-.qrcode-box1 {
-    display: inline-block;
-    border: 1px solid #3295D1;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 160px;
-    height: 160px;
-    background: linear-gradient(#3295D1, #3295D1) -155px -128px no-repeat,
-                linear-gradient(#3295D1, #3295D1) -128px -155px no-repeat,
-                linear-gradient(#3295D1, #3295D1) 128px -155px no-repeat,
-                linear-gradient(#3295D1, #3295D1) 155px -128px no-repeat,
-                linear-gradient(#3295D1, #3295D1) -155px 128px no-repeat,
-                linear-gradient(#3295D1, #3295D1) -128px 155px no-repeat,
-                linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
-                linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
-  }
-</style>
-<div class="qrcode-box1">
-  <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">
+<div>
+  <style>
+    .qrcode-box1 {
+      display: inline-block;
+      border: 1px solid #3295D1;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 160px;
+      height: 160px;
+      background: linear-gradient(#3295D1, #3295D1) -155px -128px no-repeat,
+                  linear-gradient(#3295D1, #3295D1) -128px -155px no-repeat,
+                  linear-gradient(#3295D1, #3295D1) 128px -155px no-repeat,
+                  linear-gradient(#3295D1, #3295D1) 155px -128px no-repeat,
+                  linear-gradient(#3295D1, #3295D1) -155px 128px no-repeat,
+                  linear-gradient(#3295D1, #3295D1) -128px 155px no-repeat,
+                  linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
+                  linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
+    }
+  </style>
+  <div class="qrcode-box1">
+    <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">
+  </div>
 </div>
 
 > **方式一**：通过```:before``` ```:after```伪类实现（也可使用4个div实现）  
@@ -471,47 +477,48 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### 固定宽高比的自适应矩形
 
-<style>
-  .rect-item {
-    overflow: hidden;
-    position: relative;
-    background-color: #EEE;
-    width: 20%;
-    min-width: 100px;
-    max-width: 300px;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .rect-item:after {
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-  .react:after {
-    padding-top: 50%;
-  }
-  .rect-wrap {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    font-size: 12px;
-  }
-</style>
-
-<div class="rect-item" style="margin-bottom: 14px">
-  <div class="rect-wrap">
-    <p style="margin: 0">正方形</p>
+<div>
+  <style>
+    .rect-item {
+      overflow: hidden;
+      position: relative;
+      background-color: #EEE;
+      width: 20%;
+      min-width: 100px;
+      max-width: 300px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .rect-item:after {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+    .react:after {
+      padding-top: 50%;
+    }
+    .rect-wrap {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+  </style>
+  <div class="rect-item" style="margin-bottom: 14px">
+    <div class="rect-wrap">
+      <p style="margin: 0">正方形</p>
+    </div>
   </div>
-</div>
-<div class="rect-item react">
-  <div class="rect-wrap">
-    <p style="margin: 0">宽高比 2:1的矩形</p>
+  <div class="rect-item react">
+    <div class="rect-wrap">
+      <p style="margin: 0">宽高比 2:1的矩形</p>
+    </div>
   </div>
 </div>
 
@@ -578,139 +585,140 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### 根据兄弟元素的数量来设置样式
 
-<style>
-#count-selector ul {
-  padding: 0 0 10px;
-  margin: 0;
-  list-style: none;
-  font-size: 0;
-  user-select: none;
-}
-#count-selector ul >li {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  background-color: #CCC;
-  border-radius: 6px;
-  color: #FFF;
-  text-align: center;
-  line-height: 36px;
-  font-size: 12px;
-  margin-left: 10px;
-}
-#count-selector ul >li:only-child {
-  color: #b30096;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 50%;
-}
-#count-selector ul >li:first-child:nth-last-child(2),
-#count-selector ul >li:first-child:nth-last-child(2) ~ li {
-  color: #d89a00;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 50%;
-}
-#count-selector ul >li:nth-child(1):nth-last-child(3),
-#count-selector ul >li:nth-child(1):nth-last-child(3) ~ li {
-  color: #4441f1;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 50%;
-}
-#count-selector ul >li:first-child:nth-last-child(n+8),
-#count-selector ul >li:first-child:nth-last-child(n+8) ~ li {
-  background-color: brown;
-}
-#count-selector ul >li:first-child:nth-last-child(-n+2),
-#count-selector ul >li:first-child:nth-last-child(-n+2) ~ li {
-  background-color: forestgreen;
-}
-#count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
-#count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
-  background-color: #008eff;
-}
-#count-selector {
-  margin-top: -10px;
-  padding-top: 10px;
-  position: relative;
-  min-width: 700px;
-  overflow-x: auto;
-}
-#count-selector >div {
-  position: absolute;
-  font-size: 12px;
-}
-#count-selector pre {
-  padding: 3px;
-  border-radius: 3px;
-  margin: 0;
-  display: inline-block;
-  font-size: 12px;
-  background-color: #CCC;
-  color: #FFF;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  direction: ltr;
-  font-weight: 600;
-  user-select: all;
-  vertical-align: middle;
-}
-</style>
-
-<div id="count-selector">
-  <div style="top: 17px; left: 52px">
-    <pre style="border-radius: 20px; color: #b30096">ul >li:only-child</pre> 等价
-  </div>
-  <div style="top: 17px; left: 201px">
-    <pre style="border-radius: 20px; color: #b30096">ul >li:first-child:last-child</pre> 等价
-  </div>
-  <div style="top: 17px; left: 429px">
-    <pre style="border-radius: 20px; color: #b30096">ul >li:nth-child(1):nth-last-child(1)</pre>
-  </div>
-  <div style="top: 65px; left: 99px">
-    <pre style="border-radius: 20px; color: #d89a00">ul >li:first-child:nth-last-child(2), ul >li:first-child:nth-last-child(2) ~ li</pre>
-  </div>
-  <div style="top: 110px; left: 144px">
-    <pre style="border-radius: 20px; color: #4441f1">ul >li:nth-child(1):nth-last-child(3), ul >li:nth-child(1):nth-last-child(3) ~ li</pre>
-  </div>
-  <div style="top: 41px; left: 30px">
-    <pre style="background-color: forestgreen">ul >li:first-child:nth-last-child(-n+2), ul >li:first-child:nth-last-child(-n+2) ~ li</pre>
-  </div>
-  <div style="top: 215px; left: 225px">
-    <pre style="background-color: #008eff">ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+<div>
+  <style>
+  #count-selector ul {
+    padding: 0 0 10px;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+    user-select: none;
+  }
+  #count-selector ul >li {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-color: #CCC;
+    border-radius: 6px;
+    color: #FFF;
+    text-align: center;
+    line-height: 36px;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  #count-selector ul >li:only-child {
+    color: #b30096;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 50%;
+  }
+  #count-selector ul >li:first-child:nth-last-child(2),
+  #count-selector ul >li:first-child:nth-last-child(2) ~ li {
+    color: #d89a00;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 50%;
+  }
+  #count-selector ul >li:nth-child(1):nth-last-child(3),
+  #count-selector ul >li:nth-child(1):nth-last-child(3) ~ li {
+    color: #4441f1;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 50%;
+  }
+  #count-selector ul >li:first-child:nth-last-child(n+8),
+  #count-selector ul >li:first-child:nth-last-child(n+8) ~ li {
+    background-color: brown;
+  }
+  #count-selector ul >li:first-child:nth-last-child(-n+2),
+  #count-selector ul >li:first-child:nth-last-child(-n+2) ~ li {
+    background-color: forestgreen;
+  }
+  #count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+  #count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
+    background-color: #008eff;
+  }
+  #count-selector {
+    margin-top: -10px;
+    padding-top: 10px;
+    position: relative;
+    min-width: 700px;
+    overflow-x: auto;
+  }
+  #count-selector >div {
+    position: absolute;
+    font-size: 12px;
+  }
+  #count-selector pre {
+    padding: 3px;
+    border-radius: 3px;
+    margin: 0;
+    display: inline-block;
+    font-size: 12px;
+    background-color: #CCC;
+    color: #FFF;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    direction: ltr;
+    font-weight: 600;
+    user-select: all;
+    vertical-align: middle;
+  }
+  </style>
+  <div id="count-selector">
+    <div style="top: 17px; left: 52px">
+      <pre style="border-radius: 20px; color: #b30096">ul >li:only-child</pre> 等价
+    </div>
+    <div style="top: 17px; left: 201px">
+      <pre style="border-radius: 20px; color: #b30096">ul >li:first-child:last-child</pre> 等价
+    </div>
+    <div style="top: 17px; left: 429px">
+      <pre style="border-radius: 20px; color: #b30096">ul >li:nth-child(1):nth-last-child(1)</pre>
+    </div>
+    <div style="top: 65px; left: 99px">
+      <pre style="border-radius: 20px; color: #d89a00">ul >li:first-child:nth-last-child(2), ul >li:first-child:nth-last-child(2) ~ li</pre>
+    </div>
+    <div style="top: 110px; left: 144px">
+      <pre style="border-radius: 20px; color: #4441f1">ul >li:nth-child(1):nth-last-child(3), ul >li:nth-child(1):nth-last-child(3) ~ li</pre>
+    </div>
+    <div style="top: 41px; left: 30px">
+      <pre style="background-color: forestgreen">ul >li:first-child:nth-last-child(-n+2), ul >li:first-child:nth-last-child(-n+2) ~ li</pre>
+    </div>
+    <div style="top: 215px; left: 225px">
+      <pre style="background-color: #008eff">ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
 ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</pre>
-  </div>
-  <div style="top: 353px; left: 363px">
-    <pre style="background-color: brown">ul >li:first-child:nth-last-child(n+8),
+    </div>
+    <div style="top: 353px; left: 363px">
+      <pre style="background-color: brown">ul >li:first-child:nth-last-child(n+8),
 ul >li:first-child:nth-last-child(n+8) ~ li</pre>
+    </div>
+    <ul>
+      <li>1</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li><li>3</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li><li>3</li><li>4</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
+    </ul>
+    <ul>
+      <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+    </ul>
   </div>
-  <ul>
-    <li>1</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li><li>3</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li><li>3</li><li>4</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
-  </ul>
-  <ul>
-    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
-  </ul>
 </div>
 
 > **核心**：  
