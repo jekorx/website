@@ -1,13 +1,15 @@
 # Css样式
 
-> [文本域内容解析换行，解析换行符](#文本域内容解析换行解析换行符)  
-> [网站全局黑白色](#网站全局黑白色)  
-> [水平垂直居中](#水平垂直居中)  
-> [文本超出省略号](#文本超出省略号)  
-> [渐变色](#渐变色)  
-> [div+css绘制六边形](#divcss绘制六边形)  
-> [div+css实现四角边框](#divcss实现四角边框)  
-
+> 1、[文本域内容解析换行，解析换行符](#文本域内容解析换行解析换行符)  
+> 2、[网站全局黑白色](#网站全局黑白色)  
+> 3、[水平垂直居中](#水平垂直居中)  
+> 4、[文本超出省略号](#文本超出省略号)  
+> 5、[渐变色](#渐变色)  
+> 6、[div+css绘制六边形](#divcss绘制六边形)  
+> 7、[div+css实现四角边框](#divcss实现四角边框)  
+> 8、[固定宽高比的自适应矩形](#固定宽高比的自适应矩形)  
+> 9、[根据兄弟元素的数量来设置样式](#根据兄弟元素的数量来设置样式)  
+> 10、[九宫格图片展示](#九宫格图片展示)  
 
 #### 文本域内容解析换行，解析换行符
 
@@ -18,7 +20,10 @@ white-space: pre-wrap;
 #### 网站全局黑白色
 
 ```css
-/* 须在html上设置 */
+/**
+ * 全局黑白色
+ * 须在html上设置
+ */
 html {
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
@@ -26,6 +31,14 @@ html {
   -o-filter: grayscale(100%);
   filter: grayscale(100%);
   filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+}
+
+/**
+ * 黑色主题
+ */
+html {
+  -webkit-filter: invert(1) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg);
 }
 ```
 
@@ -247,10 +260,6 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### div+css绘制六边形
 
-<div style="display: flex; width: 400px; align-items: center; justify-content: space-around; padding: 20px">
-  <div class="corner"></div>
-  <div class="hexagon"></div>
-</div>
 <style>
 .corner {
   width: 0;
@@ -293,6 +302,10 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
   border-bottom: 32px solid transparent;
 }
 </style>
+<div style="display: flex; width: 400px; align-items: center; justify-content: space-around; padding: 20px">
+  <div class="corner"></div>
+  <div class="hexagon"></div>
+</div>
 
 ```css
 /**
@@ -338,9 +351,6 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### div+css实现四角边框
 
-<div class="qrcode-box1">
-  <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">
-</div>
 <style>
 .qrcode-box1 {
     display: inline-block;
@@ -359,6 +369,9 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
                 linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
   }
 </style>
+<div class="qrcode-box1">
+  <img style="filter:blur(5px); width: 100%; height: 100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAIKSURBVHjatZZNkqMwDIXl8sJLjsBFUuZaWdDQ3AyqL+IjeHYsaDRPsslkgJlKA3FlET7/SJbkZxNv2kRXs5GITHDMjiPP+KD6HKuYOx4NjxasYI5gLfOgzFzMbGwX1pAb2PUFHLBzQWaXfbw4LrMge7I8+jUzmbUvsvrfTO2auPXlIpZiRUhWQf6v+B1jKb9E98zCUgfYlRvi6J9r4zQLC0v1CovjTX34U88H2VwiPljdwoblqYqZiUXxxQirzzEObkZPQVW0ffEe9il1hTSRJ90YPbPbf1izwz6Ie3Ldei4HrI7IoQ7wQ2nxDvs+wSRHMJrOB2qX2pS311m3Zl+/+EuZtnYmsI51OvphV1h9js2lQ7igf1MB/Wv7dzBmBAoCi5M9ebHbPlgAG3325RjjtA9JO84bdAP5yPV8iqFNVEKfJ/mTbFClclJFlo1t2dFxAeyuuuFV/2ZCFHmISUua40yEzpcSrkm1bpYzs2Hti2x/7ogoUTk1RL6EUTggd1QJCUE3hsoFtM+aHVbvMpW/IJniqFfcFSwmdgebFs1mpznC3mz/Dib3EQpXnhyLL6eY3slOZULseZRWZvxg0Lqfsvhgeb34PC4zuUPFF8NW32FnGU5BgbeK5WiHx3tDmLmGpbcAZPsmgWLR7BVrf8q6NdOcI0ROTQPXlzCoaonQfEp+t29gPsG+99hvI1wxCxAb1yIAAAAASUVORK5CYII=">
+</div>
 
 > **方式一**：通过```:before``` ```:after```伪类实现（也可使用4个div实现）  
 > 原包裹div实现顶部两个角，增加一个div实现底部两个角，确保新增加div与原包裹div重合  
@@ -453,5 +466,423 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
               linear-gradient(#3295D1, #3295D1) -128px 155px no-repeat,
               linear-gradient(#3295D1, #3295D1) 128px 155px no-repeat,
               linear-gradient(#3295D1, #3295D1) 155px 128px no-repeat;
+}
+```
+
+#### 固定宽高比的自适应矩形
+
+<style>
+  .rect-item {
+    overflow: hidden;
+    position: relative;
+    background-color: #EEE;
+    width: 20%;
+    min-width: 100px;
+    max-width: 300px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .rect-item:after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  .react:after {
+    padding-top: 50%;
+  }
+  .rect-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+</style>
+<div class="rect-item" style="margin-bottom: 14px">
+  <div class="rect-wrap">
+    <p style="margin: 0">正方形</p>
+  </div>
+</div>
+<div class="rect-item react">
+  <div class="rect-wrap">
+    <p style="margin: 0">宽高比 2:1的矩形</p>
+  </div>
+</div>
+
+> 核心：```padding-top``` ```padding-bottom``` ```margin-top``` ```margin-bottom``` 为**百分比**是相对**父元素** **宽度**  
+> 使用伪元素的```padding-top```或```padding-bottom```或```margin-top```或```margin-bottom```为**百分比**撑起父元素高度实现  
+> 使用```margin-top``` ```margin-bottom```时，父元素需触发[BFC](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)，常见触发方式：```display: inline-block``` 或 ```overflow: hidden```  
+
+```html
+<div class="rect-item">
+  <div class="rect-wrap">
+    <p>正方形</p>
+  </div>
+</div>
+```
+
+```css
+/**
+ * 1、通过padding-top
+ * padding-top使用百分比，可以控制宽高比
+ */
+.rect-item {
+  position: relative;
+
+  background-color: #EEE;
+  width: 50%;
+}
+.rect-item:after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.rect-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * 2、通过margin-bottom
+ * margin-bottom使用百分比，可以控制宽高比
+ */
+.rect-item {
+  position: relative;
+  display: inline-block;
+
+  background-color: #EEE;
+  width: 50%;
+}
+.rect-item:after {
+  content: "";
+  display: block;
+  margin-bottom: 50%;
+}
+.rect-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+```
+
+#### 根据兄弟元素的数量来设置样式
+
+<style>
+#count-selector ul {
+  padding: 0 0 10px;
+  margin: 0;
+  list-style: none;
+  font-size: 0;
+  user-select: none;
+}
+#count-selector ul >li {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background-color: #CCC;
+  border-radius: 6px;
+  color: #FFF;
+  text-align: center;
+  line-height: 36px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+#count-selector ul >li:only-child {
+  color: #b30096;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50%;
+}
+#count-selector ul >li:first-child:nth-last-child(2),
+#count-selector ul >li:first-child:nth-last-child(2) ~ li {
+  color: #d89a00;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50%;
+}
+#count-selector ul >li:nth-child(1):nth-last-child(3),
+#count-selector ul >li:nth-child(1):nth-last-child(3) ~ li {
+  color: #4441f1;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50%;
+}
+#count-selector ul >li:first-child:nth-last-child(n+8),
+#count-selector ul >li:first-child:nth-last-child(n+8) ~ li {
+  background-color: brown;
+}
+#count-selector ul >li:first-child:nth-last-child(-n+2),
+#count-selector ul >li:first-child:nth-last-child(-n+2) ~ li {
+  background-color: forestgreen;
+}
+#count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+#count-selector ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
+  background-color: #008eff;
+}
+#count-selector {
+  margin-top: -10px;
+  padding-top: 10px;
+  position: relative;
+  min-width: 700px;
+  overflow-x: auto;
+}
+#count-selector >div {
+  position: absolute;
+  font-size: 12px;
+}
+#count-selector pre {
+  padding: 3px;
+  border-radius: 3px;
+  margin: 0;
+  display: inline-block;
+  font-size: 12px;
+  background-color: #CCC;
+  color: #FFF;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  direction: ltr;
+  font-weight: 600;
+  user-select: all;
+  vertical-align: middle;
+}
+</style>
+<div id="count-selector">
+  <div style="top: 17px; left: 52px">
+    <pre style="border-radius: 20px; color: #b30096">ul >li:only-child</pre> 等价
+  </div>
+  <div style="top: 17px; left: 201px">
+    <pre style="border-radius: 20px; color: #b30096">ul >li:first-child:last-child</pre> 等价
+  </div>
+  <div style="top: 17px; left: 429px">
+    <pre style="border-radius: 20px; color: #b30096">ul >li:nth-child(1):nth-last-child(1)</pre>
+  </div>
+  <div style="top: 65px; left: 99px">
+    <pre style="border-radius: 20px; color: #d89a00">ul >li:first-child:nth-last-child(2), ul >li:first-child:nth-last-child(2) ~ li</pre>
+  </div>
+  <div style="top: 110px; left: 144px">
+    <pre style="border-radius: 20px; color: #4441f1">ul >li:nth-child(1):nth-last-child(3), ul >li:nth-child(1):nth-last-child(3) ~ li</pre>
+  </div>
+  <div style="top: 41px; left: 30px">
+    <pre style="background-color: forestgreen">ul >li:first-child:nth-last-child(-n+2), ul >li:first-child:nth-last-child(-n+2) ~ li</pre>
+  </div>
+  <div style="top: 215px; left: 225px">
+    <pre style="background-color: #008eff">ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</pre>
+  </div>
+  <div style="top: 353px; left: 363px">
+    <pre style="background-color: brown">ul >li:first-child:nth-last-child(n+8),
+ul >li:first-child:nth-last-child(n+8) ~ li</pre>
+  </div>
+  <ul>
+    <li>1</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li><li>3</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li><li>3</li><li>4</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
+  </ul>
+  <ul>
+    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+  </ul>
+</div>
+
+> **核心**：  
+> **1**、CSS选择器 ```~```，表示某元素后所有同级的指定元素  
+> **2**、```:nth-child```（正数）```:nth-last-child```（倒数）：选择属于其父元素的指定第几个子元素的每个指定元素，常用使用如下：  
+> ```:nth-child(2)```：正数第2个元素  
+> ```:nth-child(n)```：正数 >= 1 的元素，即：全部指定元素  
+> ```:nth-child(n+2)```：正数 >= 2 的元素，即：正数第2个以及后面全部指定元素  
+> ```:nth-child(-n+2)```：正数 <= 2 的元素，即：正数第1、2个指定元素  
+> ```:nth-child(2n-1)```：正数 奇数 的元素，等价于```:nth-child(odd)```，即：正数数第1、3、5、...个指定元素  
+> ```:nth-last-child(2)```：倒数第2个元素  
+> ```:nth-last-child(n)```：倒数 >= 1 的元素，即：全部指定元素  
+> ```:nth-last-child(n+2)```：倒数 >= 2 的元素，即：倒数第2个以及前面全部指定元素  
+> ```:nth-last-child(-n+2)```：倒数 <= 2 的元素，即：倒数第1、2个指定元素  
+> ```:nth-last-child(2n)```：倒数 偶数 的元素，等价于```:nth-last-child(even)```，即：倒数第2、4、6、...个指定元素  
+> **注意**：2 中涉及的选择器会选择其父级元素下所有指定子元素，具体可参照下图：  
+
+![css-selector](../images/front-end-css-1.jpg)
+
+```css
+/**
+ * 只包含一个元素
+ * :only-child 等价于 :first-child:last-child 等价于 :nth-child(1):nth-last-child(1)
+ * 只包含一个元素
+ */
+ul >li:only-child {
+/* ul >li:first-child:last-child { */
+/* ul >li:nth-child(1):nth-last-child(1) { */
+}
+
+/**
+ * 元素数 = 2 的全部元素
+ */
+ul >li:first-child:nth-last-child(2),
+ul >li:first-child:nth-last-child(2) ~ li {
+}
+
+/**
+ * 元素数 = 3 的全部元素
+ */
+ul >li:nth-child(1):nth-last-child(3),
+ul >li:nth-child(1):nth-last-child(3) ~ li {
+}
+
+/**
+ * 元素数 >= 8 的全部元素
+ */
+ul >li:first-child:nth-last-child(n+8),
+ul >li:first-child:nth-last-child(n+8) ~ li {
+}
+
+/**
+ * 元素数 <= 2 的全部元素
+ */
+ul >li:first-child:nth-last-child(-n+2),
+ul >li:first-child:nth-last-child(-n+2) ~ li {
+}
+
+/**
+ * 元素数 >= 5 && <= 6 的全部元素
+ */
+ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6),
+ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
+}
+```
+
+#### 九宫格图片展示
+
+<style>
+  .album-wrap {
+    width: 100%;
+    max-width: 540px;
+    min-width: 200px;
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: #EEE;
+    font-size: 0;
+    margin-bottom: 10px;
+  }
+  .album-wrap img {
+    width: 100%;
+    height: 100%;
+    background-color: #CCC;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .album-wrap .rect-item {
+    width: calc(100% / 3);
+    position: relative;
+    display: inline-block;
+    width: calc(100% / 3);
+    min-width: initial;
+    max-width: initial;
+  }
+  .album-wrap .rect-wrap {
+    padding: 5px;
+  }
+  .album-wrap .rect-item:first-child:last-child {
+    width: 100%;
+  }
+  .album-wrap .rect-item:first-child:last-child:after {
+    padding-top: 50%;
+  }
+  .album-wrap .rect-item:first-child:nth-last-child(2),
+  .album-wrap .rect-item:first-child:nth-last-child(2) ~ .rect-item {
+    width: 50%;
+  }
+  .album-wrap .rect-item:first-child:nth-last-child(4),
+  .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item {
+    width: 50%;
+  }
+  .album-wrap .rect-item:first-child:nth-last-child(4):after,
+  .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item:after {
+    padding-top: 70%;
+  }
+</style>
+<div style="display: flex; justify-content: space-around; padding-bottom: 10px; max-width: 540px; min-width: 200px;">
+  <button id="add-img">Add a image</button>
+  <button id="remove-img">Remove last image</button>
+</div>
+<div class="album-wrap"></div>
+<script>
+  const imgContainer = document.querySelector('.album-wrap')
+  function addImageItem () {
+    const div = document.createElement('div')
+    div.className = 'rect-item'
+    const wrap = document.createElement('div')
+    wrap.className = 'rect-wrap'
+    div.appendChild(wrap)
+    const img = document.createElement('img')
+    img.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/wgALCABIAEgBAREA/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/aAAgBAQAAAAH0AAEdLN7YOdx9PTTMQz8Wv2rBjz6pb7sgpcJ3rg1hoy220jXG4AB//8QAIhAAAgEDBAIDAAAAAAAAAAAAAQIDAAQQERITIDEzFDBA/9oACAEBAAEFAvtdgi/LjoXcZPnte+pmLYi9WUffi5mVxAm+RFcHpvMdxNOZcW6CRlG1ek8PICNCBqYIuNepXbUwD3M6qlaB64xSgaY80FC/g//EACoQAAECBAMGBwAAAAAAAAAAAAEAIQIRIFEQEkEDIjEycYEwQEKCkZKx/9oACAEBAAY/AvFmVwiUnrHVCejYQdKIm4GWAhhfWaYyk63tpm7UxEXVhbAg2QFqZjmUjopBPzVTGc+5Q5mZbOKxA7IF/ler7FN+0MAPIf/EACcQAQABAgYBAgcAAAAAAAAAAAERACEQIDFBUWGhcfAwQLHB0eHx/9oACAEBAAE/IfiqHgPNfyz80AgZdWLeaEEjI75va9NXBmEPTDxv0ycQn164W0Q/op4pYgxO9S6JGkTK8189k1EkQ+q+HK/jp5q+8wDKe0S3fVI1hUNIdxWCtvSusXOsqSJQwBZ0l92hlxTaJm+lWpi+cUhyxS0Irt97ugXVG8qcUBCSO1FQRwHyH//aAAgBAQAAABAAAwOMReAgWAAAf//EACQQAQACAgIBAwUBAAAAAAAAAAERIQAxQVEQIGFxMECBkfCh/9oACAEBAAE/EPqjvAtoKiYJ2+IFTvEIJcrwwyYEgsfV/h4cOXToaPH8fp5cf96ikX7b8UNIrEMJRPzOfPj1gcfLjGRwKl7k/r9DrFu4zB2Sx6zsnLHITMTzrwd3M72AQOpzu02ImCPS3qtNwB7Bt3hXSgSMM9lbMOaGCQlmiWt4YxWkSQNiZBPSbiwiUo/syCEUDe9giVrGn2HIl7jUzuc93viwSxHMR84msSUejZQnfjkT0ukPvKteXJgQqxxi8Mogn8fYf//Z'
+    wrap.appendChild(img)
+    imgContainer.appendChild(div)
+  }
+  addImageItem()
+  addImageItem()
+  document.getElementById('add-img').onclick = function () {
+    const imgs = imgContainer.children
+    if (imgs && imgs.length < 9) {
+      addImageItem()
+    }
+  }
+  document.getElementById('remove-img').onclick = function () {
+    const imgs = imgContainer.children
+    if (imgs && imgs.length) {
+      imgContainer.removeChild(imgs[imgs.length - 1])
+    }
+  }
+</script>
+
+> 图片展示根据数量不同而自动适配不同布局效果，主要针对仅有1个、2个、4个的情况  
+> 布局根据 [根据兄弟元素的数量来设置样式](#根据兄弟元素的数量来设置样式) 实现  
+> 自适应根据 [固定宽高比的自适应矩形](#固定宽高比的自适应矩形) 实现  
+
+```css
+/* 仅有1个元素 */
+.album-wrap .rect-item:first-child:last-child {
+  width: 100%;
+}
+.album-wrap .rect-item:first-child:last-child:after {
+  padding-top: 50%;
+}
+/* 仅有2个元素 */
+.album-wrap .rect-item:first-child:nth-last-child(2),
+.album-wrap .rect-item:first-child:nth-last-child(2) ~ .rect-item {
+  width: 50%;
+}
+/* 仅有4个元素 */
+.album-wrap .rect-item:first-child:nth-last-child(4),
+.album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item {
+  width: 50%;
+}
+.album-wrap .rect-item:first-child:nth-last-child(4):after,
+.album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item:after {
+  padding-top: 70%;
 }
 ```
