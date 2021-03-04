@@ -668,10 +668,10 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
     <div style="top: 17px; left: 52px">
       <pre style="border-radius: 20px; color: #b30096">ul >li:only-child</pre> 等价
     </div>
-    <div style="top: 17px; left: 201px">
+    <div style="top: 17px; left: 203px">
       <pre style="border-radius: 20px; color: #b30096">ul >li:first-child:last-child</pre> 等价
     </div>
-    <div style="top: 17px; left: 429px">
+    <div style="top: 17px; left: 437px">
       <pre style="border-radius: 20px; color: #b30096">ul >li:nth-child(1):nth-last-child(1)</pre>
     </div>
     <div style="top: 65px; left: 99px">
