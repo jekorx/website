@@ -10,6 +10,7 @@
 > 8、[固定宽高比的自适应矩形](#固定宽高比的自适应矩形)  
 > 9、[根据兄弟元素的数量来设置样式](#根据兄弟元素的数量来设置样式)  
 > 10、[九宫格图片展示](#九宫格图片展示)  
+> 11、[输入框占位符交互](#输入框占位符交互)  
 
 #### 文本域内容解析换行，解析换行符
 
@@ -175,13 +176,14 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 /**
  * 多行文本
  * 注意：固定宽度，容器padding属性会导致文本无法隐藏
+ * 只适用于WebKit内核的浏览器
  */
 .text {
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 ```
 
@@ -890,5 +892,121 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 .album-wrap .rect-item:first-child:nth-last-child(4):after,
 .album-wrap .rect-item:first-child:nth-last-child(4) ~ .rect-item:after {
   padding-top: 70%;
+}
+```
+
+#### 输入框占位符交互
+
+<div style="padding-bottom: 10px">
+  <style>
+    .input-control {
+      font-size: 14px;
+      padding: 0 12px;
+      height: 32px;
+      line-height: 32px;
+      box-sizing: border-box;
+      border: 1px solid #DCDFE6;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    }
+    .input-control::placeholder {
+      color: #C0C4CC
+    }
+    .input-control:hover {
+      border-color: #C0C4CC
+    }
+    .input-control:focus {
+      outline: none;
+      border-color: #409EFF
+    }
+    .input-box {
+      display: inline-block;
+      position: relative;
+    }
+    .input-control:placeholder-shown::placeholder {
+      color: transparent;
+    }
+    .input-label {
+      color: #C0C4CC;
+      font-size: 14px;
+      position: absolute;
+      left: 13px;
+      top: 6px;
+      pointer-events: none;
+      background-color: #FFF;
+      transition: transform .2s cubic-bezier(.645, .045, .355, 1), color .2s cubic-bezier(.645, .045, .355, 1);
+    }
+    .input-control:not(:placeholder-shown) ~ .input-label,
+    .input-control:focus ~ .input-label {
+      color: #409EFF;
+      transform: scale(0.8) translate(-2px, -20px);
+    }
+  </style>
+  <div class="input-box">
+    <input class="input-control" type="text" placeholder="姓名" />
+    <label class="input-label">姓名</label>
+  </div>
+</div>
+
+> 输入框聚焦时，输入框的占位符内容以动画形式移动到左上角作为标题  
+> 借助```:placeholder-shown```伪类实现  
+
+```html
+<div class="input-box">
+  <input class="input-control" type="text" placeholder="姓名" />
+  <label class="input-label">姓名</label>
+</div>
+```
+
+```css
+/* 输入框美化 start */
+.input-control {
+  font-size: 14px;
+  padding: 0 12px;
+  height: 32px;
+  line-height: 32px;
+  box-sizing: border-box;
+  border: 1px solid #DCDFE6;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+}
+.input-control::placeholder {
+  color: #C0C4CC
+}
+.input-control:hover {
+  border-color: #C0C4CC
+}
+.input-control:focus {
+  outline: none;
+  border-color: #409EFF
+}
+/* 输入框美化 end */
+
+.input-box {
+  display: inline-block;
+  position: relative;
+}
+/* 使默认placeholder效果不可见 */
+.input-control:placeholder-shown::placeholder {
+  color: transparent;
+}
+/* 使用.input-label代替原来占位符 */
+.input-label {
+  color: #C0C4CC;
+  font-size: 14px;
+  position: absolute;
+  left: 13px;
+  top: 6px;
+  pointer-events: none;
+  background-color: #FFF;
+  transition: transform .2s cubic-bezier(.645, .045, .355, 1), color .2s cubic-bezier(.645, .045, .355, 1);
+}
+/* 输入框获取焦点 */
+.input-control:not(:placeholder-shown) ~ .input-label,
+.input-control:focus ~ .input-label {
+  color: #409EFF;
+  transform: scale(0.8) translate(-2px, -20px);
 }
 ```
