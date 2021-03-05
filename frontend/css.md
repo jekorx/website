@@ -897,13 +897,13 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 
 #### 输入框占位符交互
 
-<div style="padding-bottom: 10px">
+<div style="padding-bottom: 10px;">
   <style>
     .input-control {
       font-size: 14px;
       padding: 0 12px;
-      height: 32px;
-      line-height: 32px;
+      height: 34px;
+      line-height: 34px;
       box-sizing: border-box;
       border: 1px solid #DCDFE6;
       border-radius: 4px;
@@ -932,15 +932,17 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       font-size: 14px;
       position: absolute;
       left: 13px;
-      top: 6px;
+      top: 16px;
       pointer-events: none;
+      line-height: 0;
+      height: 2px;
       background-color: #FFF;
       transition: transform .2s cubic-bezier(.645, .045, .355, 1), color .2s cubic-bezier(.645, .045, .355, 1);
     }
     .input-control:not(:placeholder-shown) ~ .input-label,
     .input-control:focus ~ .input-label {
       color: #409EFF;
-      transform: scale(0.8) translate(-2px, -20px);
+      transform: scale(0.84) translate(-1px, -20px);
     }
   </style>
   <div class="input-box">
@@ -964,8 +966,8 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 .input-control {
   font-size: 14px;
   padding: 0 12px;
-  height: 32px;
-  line-height: 32px;
+  height: 34px;
+  line-height: 34px;
   box-sizing: border-box;
   border: 1px solid #DCDFE6;
   border-radius: 4px;
@@ -998,8 +1000,10 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
   font-size: 14px;
   position: absolute;
   left: 13px;
-  top: 6px;
+  top: 16px;
   pointer-events: none;
+  line-height: 0;
+  height: 2px;
   background-color: #FFF;
   transition: transform .2s cubic-bezier(.645, .045, .355, 1), color .2s cubic-bezier(.645, .045, .355, 1);
 }
@@ -1007,6 +1011,6 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 .input-control:not(:placeholder-shown) ~ .input-label,
 .input-control:focus ~ .input-label {
   color: #409EFF;
-  transform: scale(0.8) translate(-2px, -20px);
+  transform: scale(0.84) translate(-1px, -20px);
 }
 ```
