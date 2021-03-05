@@ -900,6 +900,10 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 <div style="padding-bottom: 10px;">
   <style>
     .input-control {
+      appearance: none;
+      -webkit-appearance: none;
+      background-color: #FFF;
+      background-image: none;
       font-size: 14px;
       padding: 0 12px;
       height: 34px;
@@ -964,6 +968,10 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 ```css
 /* 输入框美化 start */
 .input-control {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #FFF;
+  background-image: none;
   font-size: 14px;
   padding: 0 12px;
   height: 34px;
