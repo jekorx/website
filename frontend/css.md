@@ -975,14 +975,14 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
   transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
 }
 .input-control::placeholder {
-  color: #C0C4CC
+  color: #C0C4CC;
 }
 .input-control:hover {
-  border-color: #C0C4CC
+  border-color: #C0C4CC;
 }
 .input-control:focus {
   outline: none;
-  border-color: #409EFF
+  border-color: #409EFF;
 }
 /* 输入框美化 end */
 
