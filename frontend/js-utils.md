@@ -28,19 +28,22 @@
 
 ```javascript
 // 以下为更精确的判断方式，某些场景下比使用 typeof & instanceof 更高效、准确
-// 判断变量是注意非undefined，toString.call(person) // person is not defined
-toString.call(() => {})     // [object Function]
-toString.call({})           // [object Object]
-toString.call([])           // [object Array]
-toString.call('str')        // [object String]
-toString.call(123)          // [object Number]
-toString.call(undefined)    // [object undefined]
-toString.call(null)         // [object null]
-toString.call(new Date())   // [object Date]
-toString.call(Math)         // [object Math]
-toString.call(window)       // [object Window]
-toString.call(document)     // [object HTMLDocument]
-toString.call(Symbol())     // [object Symbol]
+// 判断变量是注意非undefined，Object.prototype.toString.call(person) // person is not defined
+Object.prototype.toString.call(123)           // [object Number]
+Object.prototype.toString.call('str')         // [object String]
+Object.prototype.toString.call(true)          // [object Boolean]
+Object.prototype.toString.call(null)          // [object Null]
+Object.prototype.toString.call(undefined)     // [object Undefined]
+Object.prototype.toString.call({})            // [object Object]
+Object.prototype.toString.call([])            // [object Array]
+Object.prototype.toString.call(() => {})      // [object Function]
+Object.prototype.toString.call(/reg/g)        // [object RegExp]
+Object.prototype.toString.call(new Date())    // [object Date]
+Object.prototype.toString.call(Math)          // [object Math]
+Object.prototype.toString.call(window)        // [object Window]
+Object.prototype.toString.call(document)      // [object HTMLDocument]
+Object.prototype.toString.call(10n)           // [object BigInt]
+Object.prototype.toString.call(Symbol())      // [object Symbol]
 ```
 
 #### 日期格式化
