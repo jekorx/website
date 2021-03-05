@@ -748,35 +748,30 @@ ul >li:only-child {
 /* ul >li:first-child:last-child { */
 /* ul >li:nth-child(1):nth-last-child(1) { */
 }
-
 /**
  * 元素数 = 2 的全部元素
  */
 ul >li:first-child:nth-last-child(2),
 ul >li:first-child:nth-last-child(2) ~ li {
 }
-
 /**
  * 元素数 = 3 的全部元素
  */
 ul >li:nth-child(1):nth-last-child(3),
 ul >li:nth-child(1):nth-last-child(3) ~ li {
 }
-
 /**
  * 元素数 >= 8 的全部元素
  */
 ul >li:first-child:nth-last-child(n+8),
 ul >li:first-child:nth-last-child(n+8) ~ li {
 }
-
 /**
  * 元素数 <= 2 的全部元素
  */
 ul >li:first-child:nth-last-child(-n+2),
 ul >li:first-child:nth-last-child(-n+2) ~ li {
 }
-
 /**
  * 元素数 >= 5 && <= 6 的全部元素
  */
@@ -863,7 +858,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
     }
     document.getElementById('remove-img').onclick = function () {
       var imgs = document.getElementById('album-wrap').children
-      if (imgs && imgs.length) {
+      if (imgs && imgs.length > 1) {
         document.getElementById('album-wrap').removeChild(imgs[imgs.length - 1])
       }
     }
