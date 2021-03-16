@@ -51,9 +51,13 @@
 [阮一峰] [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
 [阮一峰] [CSS Grid 网格布局教程](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)  
 [GitHub] [CSS 面试知识点总结](https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/Css/Css.md)  
-[Others] [You-need-to-know-css](https://lhammer.cn/You-need-to-know-css/#/)  
+[Others] [You-need-to-know-css](https://lhammer.cn/You-need-to-know-css/#/zh-cn/)  
 [掘金] [CSS 奇思妙想边框动画](https://juejin.cn/post/6918921604160290830)  
 [掘金] [灵活运用CSS开发技巧](https://juejin.cn/post/6844903926110617613)  
+[掘金] [【建议收藏】css晦涩难懂的点都在这啦](https://juejin.cn/post/6888102016007176200)  
+[掘金] [超详|2020年你不应该错过的CSS新特性](https://juejin.cn/post/6886258269137043464)  
+[掘金] [Flexbox布局中不为人知的细节](https://juejin.cn/post/6938292463605907492)  
+[掘金] [你可能不太熟知的CSS布局技巧](https://juejin.cn/post/6932768256683933703)  
 
 > TypeScript
 
@@ -88,6 +92,8 @@
 [掘金] [整理一批正在学、正在看、正在用，前端工具](https://juejin.cn/post/6911251933386768391)  
 [掘金] [拯救你的年底KPI：前端性能优化](https://juejin.cn/post/6911472693405548557)  
 [掘金] [中高级前端必须注意的40条移动端H5坑位指南 | 网易三年实践](https://juejin.cn/post/6921886428158754829)  
+[掘金] [前端优秀实践不完全指南](https://juejin.cn/post/6932647134944886797)  
+[开源中国] [硬核操作系统讲解](https://my.oschina.net/u/4511602/blog/4966551)  
 
 #### 微信开发
 

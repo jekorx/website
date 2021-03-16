@@ -357,7 +357,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### div+css实现四角边框
 
-<div>
+<div style="padding-bottom: 10px;">
   <style>
     .qrcode-box1 {
       display: inline-block;
@@ -587,7 +587,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 #### 根据兄弟元素的数量来设置样式
 
-<div>
+<div style="padding-bottom: 10px;">
   <style>
   #count-selector ul {
     padding: 0 0 10px;
@@ -784,7 +784,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 
 #### 九宫格图片展示
 
-<div>
+<div style="padding-bottom: 10px;">
   <style>
     .album-wrap {
       width: 100%;
