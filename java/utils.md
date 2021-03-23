@@ -2,7 +2,7 @@
 
 #### JWT常用工具
 
-> 依赖  
+> 依赖```io.jsonwebtoken.jjwt```  
 
 ```xml
 <dependency>
@@ -259,5 +259,145 @@ public class ResultUtil {
     public static <T> Result<T> error(int code, String msg) {
         return new Result<T>(code, msg);
     }
+}
+```
+
+#### MultipartFile转File
+
+> 转换后File文件存放于系统临时目录，使用完需删除该临时文件  
+
+```java
+/**
+ * MultipartFile 转 File
+ * @param file 文件
+ * @return
+ * @throws IOException
+ */
+public static File multipartFile2File(MultipartFile file) throws IOException {
+    return multipartFile2File(file, null, null);
+}
+
+/**
+ * MultipartFile 转 File
+ * @param file 文件
+ * @param path 路径（不带 /）
+ * @param name 文件名
+ * @return
+ * @throws IOException
+ */
+public static File multipartFile2File(MultipartFile file, String path, String name) throws IOException {
+    // 获取系统临时目录
+    String tmpPath = System.getProperty("java.io.tmpdir");
+    // 处理路径为空的情况
+    if (StrUtil.isEmpty(path)) {
+        path = "";
+    } else {
+        path += "/";
+    }
+    if (StrUtil.isEmpty(name)) {
+        // 文件名为空，设置默认，文件名前增加4位随机字符串，防止重复
+        name = RandomUtil.randomString(4) + file.getOriginalFilename();
+    }
+    File dir = new File(StrUtil.format("{}/{}", tmpPath, path));
+    // 目录不存在，创建目录
+    if (!dir.exists()) {
+        dir.mkdirs();
+    }
+    // 将转换后的新文件暂存到临时目录，文件使用完后需删除
+    File newFile = new File(StrUtil.format("{}/{}{}", tmpPath, path, name));
+    BufferedInputStream bis = null;
+    BufferedOutputStream bos = null;
+    try {
+        bis = new BufferedInputStream(file.getInputStream());
+        bos = new BufferedOutputStream(new FileOutputStream(newFile));
+        int bytesRead;
+        byte[] buffer = new byte[8192];
+        while ((bytesRead = bis.read(buffer, 0, 8192)) >= 0) {
+            bos.write(buffer, 0, bytesRead);
+        }
+        bos.flush();
+    } catch (IOException e) {
+        throw e;
+    } finally {
+        if (ObjectUtil.isNotNull(bos)) {
+            bos.close();
+        }
+        if (ObjectUtil.isNotNull(bis)) {
+            bis.close();
+        }
+    }
+    return newFile;
+}
+```
+
+#### 切片文件合并
+
+> 涉及工具类```cn.hutool.hutool-all```  
+> 自定义业务异常[请参照](../spring/exception.md)  
+
+```java
+/**
+ * 合并文件
+ * @param path 文件在系统临时目录中的路径，md5
+ * @param chunks 切片数量
+ * @param suffix 文件后缀
+ * @param md5 文件后缀
+ * @return
+ * @throws IOException
+ * @throws BusinessException
+ */
+public static File fileMerge(String path, int chunks, String suffix, String md5) throws IOException, BusinessException {
+    // 获取系统临时目录
+    String tmpPath = System.getProperty("java.io.tmpdir");
+    File dir = new File(StrUtil.format("{}/{}", tmpPath, path));
+    // 如果不存在或者不为文件夹，直接返回null
+    if (!dir.exists() || !dir.isDirectory()) {
+        throw new BusinessException(ResultEnums.FAILED.getCode(), "切片文件不存在，请重新上传");
+    }
+    File[] files = dir.listFiles();
+    if (files.length < chunks) {
+        throw new BusinessException(ResultEnums.FAILED.getCode(), "切片文件缺失，请重新上传");
+    }
+    BufferedOutputStream bos = null;
+    // 合并后新文件
+    File newFile = new File(StrUtil.format("{}/{}{}", tmpPath, path, suffix));
+    try {
+        bos = new BufferedOutputStream(new FileOutputStream(newFile));
+        File f;
+        BufferedInputStream bis;
+        byte[] buffer;
+        int bytesRead;
+        // 循环将切片文件数据写入新文件
+        for (int i = 0; i < chunks; i++) {
+            f = new File(StrUtil.format("{}/{}/{}", tmpPath, path, i));
+            if (f.isFile() && f.exists()) {
+                bis = new BufferedInputStream(new FileInputStream(f));
+                buffer = new byte[1024];
+                while ((bytesRead = bis.read(buffer, 0, 1024)) >= 0) {
+                    bos.write(buffer, 0, bytesRead);
+                }
+                bis.close();
+                f.delete();
+            }
+        }
+        bos.flush();
+    } catch (IOException e) {
+        throw e;
+    } finally {
+        if (ObjectUtil.isNotNull(bos)) {
+            bos.close();
+        }
+    }
+    // 文件处理完后删除目录
+    dir.delete();
+    // 校验文件MD5是否与上传前一致
+    if (StrUtil.isNotEmpty(md5)) {
+        String newFileMd5 = SecureUtil.md5(newFile);
+        if (!md5.equals(newFileMd5)) {
+            throw new BusinessException(ResultEnums.FAILED.getCode(), "文件合并失败，请重新上传");
+        }
+    }
+    // 返回合并后的新文件
+    return newFile;
 }
 ```

@@ -23,6 +23,7 @@
 > 21、[深拷贝](#深拷贝)  
 > 22、[Object合并](#object合并)  
 > 23、[四舍五入到指定小数位](#四舍五入到指定小数位)  
+> 24、[大文件切片上传](#大文件切片上传)  
 
 #### 类型判断
 
@@ -827,4 +828,634 @@ export const merge = (target, ...args) => {
  * @param {Number} decimals 小数位数
  */
 export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e${decimals}`)}e-${decimals}`)
+```
+
+#### 大文件切片上传
+
+> 过程：
+> 1、实例化```ChunkUpload```对象  
+> 2、使用```load()```方法加载文件并切片  
+> 3、切片完成后自动开始上传切片文件  
+> 4、切片文件上传完成后自动合并切片文件，合并后后端最好对新文件进行md5校验，后端对完整的文件进行后续处理  
+> 5、完成上传  
+
+> 依赖```spark-md5```计算文件md5  
+> 使用```axios```封装$http，[可参照](./axios.md#常用配置)  
+> 后端合并请[参照](../java/utils.md#切片文件合并)  
+> 以下提供ts版本和js版本  
+
+```javascript
+////////////////////
+///TypeScript版本///
+////////////////////
+
+import SparkMD5 from 'spark-md5'
+import $http from './http'
+
+/**
+ * 大文件切片上传
+ *
+ * 注意：复合后缀，如：.tar.gz，需对fileSuffix变量初始化时进行判断
+ *
+ * ------------------------------------------------------------------
+ *
+ * // 实例化ChunkUpload对象
+ * const chunkUpload = new ChunkUpload(file, {
+ *   // uploadIndex: 0,
+ *   // chunkSize: 4 * 1024 * 1024,
+ *   next: (state: { loading: number, uploading: number, merging: number, uploadIndex: number, status: string }) => {
+ *     const { loading, uploading, merging, uploadIndex, status } = state
+ *     console.log(loading, uploading, merging, uploadIndex, status)
+ *   },
+ *   success: (data: string, md5: string) => {
+ *     console.log(md5)
+ *   },
+ *   error: (code: number, msg: string) => {
+ *     console.log(msg)
+ *   }
+ * })
+ * // 调用load方法开始切片并上传
+ * chunkUpload.load()
+ *
+ * ------------------------------------------------------------------
+ *
+ * @param file 上传的文件
+ * @param options.chunkSize 切片大小，默认：4 * 1024 * 1024
+ * @param options.uploadIndex 上传索引，用于初始化时的断点续传，默认：0
+ * @param options.next ({ loading, uploading, merging, uploadIndex, status }) => {} 上传进度，
+ *                      loading：加载切片进度
+ *                      uploading：上传进度
+ *                      merging：合并进度
+ *                      uploadIndex：已上传索引，只有uploading状态才会改变
+ *                      status：状态'pending' | 'loading' | 'uploading' | 'merging' | 'finished'
+ * @param options.success: (data, md5) => {} 上传成功回调，data：文件上传文件名，md5：文件md5
+ * @param options.error: (code, msg) => {} 上传错误回调，code：状态码，msg：错误信息
+ *
+ * @function load 初始化之后，调用load开始上传
+ * @function stop 暂停上传，返回当前上传的切片索引
+ * @function proceed 继续上传
+ *
+ * ------------------------------------------------------------------
+ *
+ * @backend 后端上传切片参数
+ *           @PathVariable("part") String part,
+ *           @RequestParam("file") MultipartFile file,
+ *           @RequestParam("md5") String md5
+ * @backend 后端检查文件数量参数
+ *           @PathVariable("md5") String md5
+ * @backend 后端文件合并参数
+ *           @PathVariable("md5") String md5,
+ *           @RequestParam("chunks") int chunks,
+ *           @RequestParam("suffix") String suffix
+ */
+
+type StatusEnum = 'pending' | 'loading' | 'uploading' | 'merging' | 'finished'
+type NextFunction = (state: {
+  loading: number,
+  uploading: number,
+  merging: number,
+  uploadIndex: number,
+  status: StatusEnum
+}) => void
+
+const CHECK_URL = (md5: string): string => `upload/v1/file/check/${md5}`
+const UPLOAD_URL = (i: number): string => `upload/v1/upload/chunk/${i}`
+const MERGE_URL = (md5: string): string => `upload/v1/file/merge/${md5}`
+
+export default class ChunkUpload {
+  // 待处理文件
+  private file: File
+  // 文件尺寸
+  private fileSize: number
+  // 文件后缀
+  private fileSuffix: string
+  // 切片大小
+  chunkSize: number
+  // 切片数量
+  chunkCount: number
+  // 取消上传标记
+  private isStop: boolean
+  // 切片文件数组
+  private chunkList: Blob[]
+  // MD5
+  md5: string
+  // 实例化spark用于计算文件md5
+  private spark: SparkMD5.ArrayBuffer
+  // 通过FileReader读取文件进行切分、计算文件md5
+  private fileReader: FileReader
+  // 加载切片索引
+  private loadIndex: number
+  // 上传切片索引
+  private uploadIndex: number
+  // 上传状态
+  private status: StatusEnum
+  // 上传进度
+  private next: NextFunction
+
+  // 成功
+  private success: (data: string, md5: string) => void
+
+  // 错误
+  private error: (code: number, msg: string) => void
+
+  constructor (file: File, options?: {
+    chunkSize?: number,
+    uploadIndex?: number,
+    next?: NextFunction,
+    success?: (data: string, md: string) => void,
+    error?: (code: number, msg: string) => void
+  }) {
+    const { name, size } = file
+    this.file = file
+    this.fileSize = size
+    this.fileSuffix = name.substring(name.lastIndexOf('.'))
+    this.chunkSize = +(options?.chunkSize || 4 * 1024 * 1024)
+    this.chunkCount = Math.ceil(size / this.chunkSize)
+    this.isStop = false
+    this.chunkList = []
+    this.md5 = ''
+    this.uploadIndex = +(options?.uploadIndex || 0)
+    this.loadIndex = 0
+    this.spark = new SparkMD5.ArrayBuffer()
+    this.fileReader = new FileReader()
+    this.status = 'pending'
+    this.next = options?.next || (() => null)
+    this.success = options?.success || (() => null)
+    this.error = options?.error || (() => null)
+    // 初始化
+    this.init()
+  }
+
+  // 读取文件并进行切片
+  private init (): void {
+    const { chunkCount, spark, fileReader, uploadIndex, status, next } = this
+    // 设置进度
+    next({
+      loading: 0,
+      uploading: 0,
+      merging: 0,
+      uploadIndex,
+      status
+    })
+    fileReader.onload = ({ target }) => {
+      const { loadIndex, uploadIndex, status } = this
+      let i: number = loadIndex
+      // spark-md5读取当前片
+      spark.append(target?.result as ArrayBuffer)
+      // 读取完之后，切片索引+1
+      i++
+      // 设置进度
+      next({
+        loading: +(i / chunkCount * 100).toFixed(1),
+        uploading: 0,
+        merging: 0,
+        uploadIndex,
+        status
+      })
+      // 递归切片
+      if (i < chunkCount) {
+        this.loadIndex = i
+        this.load()
+      } else {
+        // 切片完成，计算md5
+        this.md5 = spark.end()
+        // 设置上传状态
+        this.status = 'uploading'
+        // 如果初始化时断点续传
+        if (uploadIndex > 0) {
+          // 检查服务器临时目录已上传切片
+          this.check()
+        } else {
+          // 开始上传
+          this.upload()
+        }
+      }
+    }
+  }
+
+  // 检查切片
+  private check (): void {
+    const { md5, uploadIndex, error } = this
+    axios.post(CHECK_URL(md5)).then(({ data, code, msg }) => {
+      if (code === 1) {
+        // 当前索引不大于存在数量
+        if (data >= uploadIndex) {
+          this.upload()
+        } else {
+          this.uploadIndex = 0
+          this.upload()
+        }
+      } else {
+        error(code, msg)
+      }
+    }).catch(err => error(-1, err.message))
+  }
+
+  // 文件切片
+  load (): void {
+    const { chunkSize, fileSize, file, loadIndex, fileReader, isStop } = this
+    // 设置上传状态
+    this.status = 'loading'
+    if (isStop) return
+    const start: number = loadIndex * chunkSize
+    const end: number = ((start + chunkSize) >= fileSize) ? fileSize : start + chunkSize
+    const blob: Blob = file.slice(start, end)
+    this.chunkList.push(blob)
+    fileReader.readAsArrayBuffer(blob)
+  }
+
+  // 上传切片
+  private upload (): void {
+    const { md5, chunkList, chunkCount, uploadIndex, isStop, status, next, error } = this
+    // 取消上传
+    if (isStop) return
+    // 当前上传切片索引
+    let i: number = uploadIndex
+    // 拼装FormData对象，上传文件
+    const formData = new FormData()
+    formData.append('file', chunkList[i])
+    formData.append('md5', md5)
+    // 上传切片
+    axios.post(UPLOAD_URL(i), formData, {
+      transformRequest: [(params: FormData, headers: { [key: string]: string }) => {
+        headers = { // eslint-disable-line
+          'Content-Type': 'multipart/form-data'
+        }
+        return params
+      }],
+      onUploadProgress (e: { loaded: number, total: number }) {
+        const { loaded, total } = e
+        // 设置进度
+        next({
+          loading: 100,
+          uploading: +((loaded / total + i) * 100 / chunkCount).toFixed(1),
+          merging: 0,
+          uploadIndex: i,
+          status
+        })
+      }
+    }).then(({ code, msg }) => {
+      if (code === 1) {
+        i++
+        if (i < chunkCount) {
+          this.uploadIndex = i
+          this.upload()
+        } else {
+          // 设置上传状态
+          this.status = 'merging'
+          this.merge()
+        }
+      } else {
+        error(code, msg)
+      }
+    }).catch(err => error(-1, err.message))
+  }
+
+  // 合并文件
+  private merge (): void {
+    const { md5, chunkCount, uploadIndex, fileSuffix, isStop, status, next, success, error } = this
+    // 取消上传
+    if (isStop) return
+    next({
+      loading: 100,
+      uploading: 100,
+      merging: 0,
+      uploadIndex,
+      status
+    })
+    axios.post(MERGE_URL(md5), {
+      chunks: chunkCount,
+      suffix: fileSuffix
+    }).then(({ data, code, msg }) => {
+      if (code === 1) {
+        // 设置状态
+        this.status = 'finished'
+        // 设置进度
+        next({
+          loading: 100,
+          uploading: 100,
+          merging: 100,
+          uploadIndex,
+          status: this.status
+        })
+        // 上传完成回调，返回md5值
+        success(data, md5)
+      } else {
+        error(code, msg)
+      }
+    }).catch(err => error(-1, err.message))
+  }
+
+  // 取消操作，返回当前已上传索引
+  stop (): number {
+    this.isStop = true
+    return this.uploadIndex
+  }
+
+  // 继续操作
+  proceed (): void {
+    this.isStop = false
+    const { chunkCount, status, loadIndex, uploadIndex } = this
+    // 继续切片
+    if (status === 'loading' && loadIndex < chunkCount) {
+      this.load()
+    } else if (status === 'uploading' && uploadIndex < chunkCount) {
+      // 检查并继续上传
+      this.check()
+    } else if (status === 'merging') {
+      // 继续合并
+      this.merge()
+    }
+  }
+}
+```
+
+```javascript
+////////////////////
+///JavaScript版本///
+////////////////////
+
+import SparkMD5 from 'spark-md5'
+import $http from './http'
+
+/**
+ * 大文件切片上传
+ *
+ * 注意：复合后缀，如：.tar.gz，需对fileSuffix变量初始化时进行判断
+ *
+ * ------------------------------------------------------------------
+ *
+ * // 实例化ChunkUpload对象
+ * const chunkUpload = new ChunkUpload(file, {
+ *   // uploadIndex: 0,
+ *   // chunkSize: 4 * 1024 * 1024,
+ *   next: ({ loading, uploading, merging, uploadIndex, status }) => {
+ *     console.log(loading, uploading, merging, uploadIndex, status)
+ *   },
+ *   success: (data, md5) => {
+ *     console.log(md5)
+ *   },
+ *   error: (code, msg) => {
+ *     console.log(msg)
+ *   }
+ * })
+ * // 调用load方法开始切片并上传
+ * chunkUpload.load()
+ *
+ * ------------------------------------------------------------------
+ *
+ * @param file 上传的文件
+ * @param options.chunkSize 切片大小，默认：4 * 1024 * 1024
+ * @param options.uploadIndex 上传索引，用于初始化时的断点续传，默认：0
+ * @param options.next ({ loading, uploading, merging, uploadIndex, status }) => {} 上传进度，
+ *                      loading：加载切片进度
+ *                      uploading：上传进度
+ *                      merging：合并进度
+ *                      uploadIndex：已上传索引，只有uploading状态才会改变
+ *                      status：状态'pending' | 'loading' | 'uploading' | 'merging' | 'finished'
+ * @param options.success: (data, md5) => {} 上传成功回调，data：文件上传文件名，md5：文件md5
+ * @param options.error: (code, msg) => {} 上传错误回调，code：状态码，msg：错误信息
+ *
+ * @function load 初始化之后，调用load开始上传
+ * @function stop 暂停上传，返回当前上传的切片索引
+ * @function proceed 继续上传
+ *
+ * ------------------------------------------------------------------
+ *
+ * @backend 后端上传切片参数
+ *           @PathVariable("part") String part,
+ *           @RequestParam("file") MultipartFile file,
+ *           @RequestParam("md5") String md5
+ * @backend 后端检查文件数量参数
+ *           @PathVariable("md5") String md5
+ * @backend 后端文件合并参数
+ *           @PathVariable("md5") String md5,
+ *           @RequestParam("chunks") int chunks,
+ *           @RequestParam("suffix") String suffix
+ */
+
+const CHECK_URL = md5 => `upload/v1/file/check/${md5}`
+const UPLOAD_URL = i => `upload/v1/upload/chunk/${i}`
+const MERGE_URL = md5 => `upload/v1/file/merge/${md5}`
+
+export default class ChunkUpload {
+  constructor (file, options) {
+    const { name, size } = file
+    // 待处理文件
+    this.file = file
+    // 文件尺寸
+    this.fileSize = size
+    // 文件后缀
+    this.fileSuffix = name.substring(name.lastIndexOf('.'))
+    // 切片大小
+    this.chunkSize = +(options && options.chunkSize ? options.chunkSize : 4 * 1024 * 1024)
+    // 切片数量
+    this.chunkCount = Math.ceil(size / this.chunkSize)
+    // 取消上传标记
+    this.isStop = false
+    // 切片文件数组
+    this.chunkList = []
+    // MD5
+    this.md5 = ''
+    // 加载切片索引
+    this.uploadIndex = +(options && options.uploadIndex ? options.uploadIndex : 0)
+    // 上传切片索引
+    this.loadIndex = 0
+    // 实例化spark用于计算文件md5
+    this.spark = new SparkMD5.ArrayBuffer()
+    // 通过FileReader读取文件进行切分、计算文件md5
+    this.fileReader = new FileReader()
+    // 上传状态 'pending' | 'loading' | 'uploading' | 'merging' | 'finished'
+    this.status = 'pending'
+    // 上传进度
+    this.next = options && options.next ? options.next : () => null
+    // (data, md5) => {} 上传成功回调，data：文件上传文件名，md5：文件md5
+    this.success = options && options.success ? options.success : () => null
+    // (msg) => {} 上传错误回调，msg：错误信息
+    this.error = options && options.error ? options.error : () => null
+    // 初始化
+    this.init()
+  }
+
+  // 读取文件并进行切片
+  init () {
+    const { chunkCount, spark, fileReader, uploadIndex, status, next } = this
+    // 设置进度
+    next({
+      loading: 0,
+      uploading: 0,
+      merging: 0,
+      uploadIndex,
+      status
+    })
+    fileReader.onload = ({ target }) => {
+      const { loadIndex, status } = this
+      let i = loadIndex
+      // spark-md5读取当前片
+      spark.append(target.result)
+      // 读取完之后，切片索引+1
+      i++
+      // 设置进度
+      next({
+        loading: +(i / chunkCount * 100).toFixed(1),
+        uploading: 0,
+        merging: 0,
+        uploadIndex,
+        status
+      })
+      // 递归切片
+      if (i < chunkCount) {
+        this.loadIndex = i
+        this.load()
+      } else {
+        // 切片完成，计算md5
+        this.md5 = spark.end()
+        // 设置上传状态
+        this.status = 'uploading'
+        // 如果初始化时断点续传
+        if (uploadIndex > 0) {
+          // 检查服务器临时目录已上传切片
+          this.check()
+        } else {
+          // 开始上传
+          this.upload()
+        }
+      }
+    }
+  }
+
+  // 检查切片
+  check () {
+    const { md5, uploadIndex, error } = this
+    $http.post(CHECK_URL(md5)).then(({ data, code, msg }) => {
+      if (code === 1) {
+        // 当前索引不大于存在数量
+        if (data >= uploadIndex) {
+          this.upload()
+        } else {
+          this.uploadIndex = 0
+          this.upload()
+        }
+      } else {
+        error(code, msg)
+      }
+    }).catch(err => error(-1, err.message))
+  }
+
+  // 文件切片
+  load () {
+    const { chunkSize, fileSize, file, loadIndex, fileReader, isStop } = this
+    // 设置上传状态
+    this.status = 'loading'
+    if (isStop) return
+    const start = loadIndex * chunkSize
+    const end = ((start + chunkSize) >= fileSize) ? fileSize : start + chunkSize
+    const blob = file.slice(start, end)
+    this.chunkList.push(blob)
+    fileReader.readAsArrayBuffer(blob)
+  }
+
+  // 上传切片
+  upload () {
+    const { md5, chunkList, chunkCount, uploadIndex, isStop, status, next, error } = this
+    // 取消上传
+    if (isStop) return
+    // 当前上传切片索引
+    let i = uploadIndex
+    // 拼装FormData对象，上传文件
+    const formData = new FormData()
+    formData.append('file', chunkList[i])
+    formData.append('md5', md5)
+    // 上传切片
+    $http.post(UPLOAD_URL(i), formData, {
+      transformRequest: [(params, headers) => {
+        headers = { // eslint-disable-line
+          'Content-Type': 'multipart/form-data'
+        }
+        return params
+      }],
+      onUploadProgress ({ loaded, total }) {
+        // 设置进度
+        next({
+          loading: 100,
+          uploading: +((loaded / total + i) * 100 / chunkCount).toFixed(1),
+          merging: 0,
+          uploadIndex: i,
+          status
+        })
+      }
+    }).then(({ code, msg }) => {
+      if (code === 1) {
+        i++
+        if (i < chunkCount) {
+          this.uploadIndex = i
+          this.upload()
+        } else {
+          // 设置上传状态
+          this.status = 'merging'
+          this.merge()
+        }
+      } else {
+        error(code, msg)
+      }
+    }).catch(err => error(-1, err.message))
+  }
+
+  // 合并文件
+  merge () {
+    const { md5, chunkCount, uploadIndex, fileSuffix, isStop, status, next, success, error } = this
+    // 取消上传
+    if (isStop) return
+    next({
+      loading: 100,
+      uploading: 100,
+      merging: 0,
+      uploadIndex,
+      status
+    })
+    $http.post(MERGE_URL(md5), {
+      chunks: chunkCount,
+      suffix: fileSuffix
+    }).then(({ data, code, msg }) => {
+      if (code === 1) {
+        // 设置状态
+        this.status = 'finished'
+        // 设置进度
+        next({
+          loading: 100,
+          uploading: 100,
+          merging: 100,
+          uploadIndex,
+          status: this.status
+        })
+        // 上传完成回调，返回md5值
+        success(data, md5)
+      } else {
+        error(msg)
+      }
+    }).catch(err => error(err.message))
+  }
+
+  // 取消操作，返回当前已上传索引
+  stop () {
+    this.isStop = true
+    return this.uploadIndex
+  }
+
+  // 继续操作
+  proceed () {
+    this.isStop = false
+    const { chunkCount, status, loadIndex, uploadIndex } = this
+    // 继续切片
+    if (status === 'loading' && loadIndex < chunkCount) {
+      this.load()
+    } else if (status === 'uploading' && uploadIndex < chunkCount) {
+      // 检查并继续上传
+      this.check()
+    } else if (status === 'merging') {
+      // 继续合并
+      this.merge()
+    }
+  }
+}
 ```

@@ -88,8 +88,6 @@ async function gets () {
 
 #### 常用配置
 
-> Java后端  
-
 ```javascript
 import axios from 'axios'
 import qs from 'qs'
@@ -125,7 +123,8 @@ axios.interceptors.request.use(config => {
 // 响应拦截器
 axios.interceptors.response.use(response => {
   // 接收到响应处理，停止加载动画之类操作
-  return response
+  // 只返回后端返回的结果，即：response.data
+  return response.data
 }, error => {
   // 响应错误处理，统一异常处理
   console.log(error.stack)
