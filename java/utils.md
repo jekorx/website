@@ -307,9 +307,13 @@ public static File multipartFile2File(MultipartFile file, String path, String na
     File newFile = new File(StrUtil.format("{}/{}{}", tmpPath, path, name));
     BufferedInputStream bis = null;
     BufferedOutputStream bos = null;
+    InputStream is = null;
+    FileOutputStream fos = null;
     try {
-        bis = new BufferedInputStream(file.getInputStream());
-        bos = new BufferedOutputStream(new FileOutputStream(newFile));
+        is = file.getInputStream();
+        bis = new BufferedInputStream(is);
+        fos = new FileOutputStream(newFile);
+        bos = new BufferedOutputStream(fos);
         int bytesRead;
         byte[] buffer = new byte[8192];
         while ((bytesRead = bis.read(buffer, 0, 8192)) >= 0) {
@@ -324,6 +328,12 @@ public static File multipartFile2File(MultipartFile file, String path, String na
         }
         if (ObjectUtil.isNotNull(bis)) {
             bis.close();
+        }
+        if (ObjectUtil.isNotNull(fos)) {
+            fos.close();
+        }
+        if (ObjectUtil.isNotNull(is)) {
+            is.close();
         }
     }
     return newFile;
@@ -358,12 +368,15 @@ public static File fileMerge(String path, int chunks, String suffix, String md5)
     if (files.length < chunks) {
         throw new BusinessException(ResultEnums.FAILED.getCode(), "切片文件缺失，请重新上传");
     }
+    FileOutputStream fos = null;
     BufferedOutputStream bos = null;
     // 合并后新文件
     File newFile = new File(StrUtil.format("{}/{}{}", tmpPath, path, suffix));
     try {
-        bos = new BufferedOutputStream(new FileOutputStream(newFile));
+        fos = new FileOutputStream(newFile);
+        bos = new BufferedOutputStream(fos);
         File f;
+        FileInputStream fis;
         BufferedInputStream bis;
         byte[] buffer;
         int bytesRead;
@@ -371,12 +384,14 @@ public static File fileMerge(String path, int chunks, String suffix, String md5)
         for (int i = 0; i < chunks; i++) {
             f = new File(StrUtil.format("{}/{}/{}", tmpPath, path, i));
             if (f.isFile() && f.exists()) {
-                bis = new BufferedInputStream(new FileInputStream(f));
+                fis = new FileInputStream(f);
+                bis = new BufferedInputStream(fis);
                 buffer = new byte[1024];
                 while ((bytesRead = bis.read(buffer, 0, 1024)) >= 0) {
                     bos.write(buffer, 0, bytesRead);
                 }
                 bis.close();
+                fis.close();
                 f.delete();
             }
         }
@@ -386,6 +401,9 @@ public static File fileMerge(String path, int chunks, String suffix, String md5)
     } finally {
         if (ObjectUtil.isNotNull(bos)) {
             bos.close();
+        }
+        if (ObjectUtil.isNotNull(fos)) {
+            fos.close();
         }
     }
     // 文件处理完后删除目录
