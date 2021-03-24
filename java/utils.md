@@ -110,7 +110,7 @@ public class JwtUtil {
 
 #### 返回值包装工具
 
-> [异常处理参照请点击此处](../spring/exception.md)  
+> 异常处理[可参照](../spring/exception.md)  
 
 ```java
 /**
@@ -343,7 +343,7 @@ public static File multipartFile2File(MultipartFile file, String path, String na
 #### 切片文件合并
 
 > 涉及工具类```cn.hutool.hutool-all```  
-> 自定义业务异常[请参照](../spring/exception.md)  
+> 自定义业务异常[可参照](../spring/exception.md)  
 
 ```java
 /**

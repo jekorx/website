@@ -170,4 +170,4 @@ function drawCanvas (args) {
 > vue组件  
 > 直接使用[npm组件](https://www.npmjs.com/package/vue-canvas-sign)  
 > ```yarn add vue-canvas-sign``` or ```npm i vue-canvas-sign```  
-> 输出base64图片，如需转为file文件，[请参照base64转file](./js-utils.md#base64转file)  
+> 输出base64图片，如需转为file文件，[可参照](./js-utils.md#base64转file)  

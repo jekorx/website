@@ -29,7 +29,7 @@ function downloadImg (src, filename, ext) {
 
 #### Excel下载
 
-> 后端通过输出流导出Excel，前端下载文件，[后端代码请点击此处参照](../springboot/excel.md)。  
+> 后端通过输出流导出Excel，前端下载文件，后端Java代码[可参照](../springboot/excel.md)。  
 
 ```javascript
 // 以 axios 为例，需要设置响应参数类型为 blob

@@ -233,7 +233,7 @@ android {
 
 1、```cd <app dir>``` (```<app dir>``` 为工程目录)；  
 2、运行```flutter build apk``` (```flutter build``` 默认会包含 ```--release```选项)；  
-3、Flutter 1.16.2及之后版本压缩混淆打包[请参照](#flutter-1162及之后版本)。  
+3、Flutter 1.16.2及之后版本压缩混淆打包[可参照](#flutter-1162及之后版本)。  
 
 ```bash
 # 输出调试文件的目录为项目根目录下debug-info

@@ -18,7 +18,7 @@ php -v
 
 #### 支持nginx HTTP服务
 
-> nginx linux环境安装，请[参照](./nginx.md)
+> nginx linux环境安装[可参照](./nginx.md)
 
 ```bash
 # 修改配置文件

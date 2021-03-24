@@ -7,7 +7,7 @@
 
 #### create-react-app中使用ESLint
 
-> create-react-app中使用ESLint，[请参照](./cra.md)  
+> create-react-app中使用ESLint，[可参照](./cra.md)  
 
 #### 在Vuejs脚手架vue-cli@2.x.x 3.x.x 4.x.x中使用ESLint
 

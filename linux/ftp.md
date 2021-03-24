@@ -154,7 +154,7 @@ chmod -R 755 /opt/www/assets
 systemctl restart sshd
 ```
 
-> 上传尺寸限制、静态资源访问跨域问题 [请点击此处参照](./nginx.md#请求相关配置)  
+> 上传尺寸限制、静态资源访问跨域问题 [可参照](./nginx.md#请求相关配置)  
 > Springboot 相关配置  
 
 ```bash

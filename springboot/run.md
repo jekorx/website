@@ -27,7 +27,7 @@ echo start application
 source start.sh
 ```
 
-> start.sh，如需配置远程调试，[请参照](../ide/idea.md#远程调试)  
+> start.sh，如需配置远程调试，[可参照](../ide/idea.md#远程调试)  
 
 ```bash
 nohup java -Xms256m -Xmx256m -jar <JAR NAME>.jar >/dev/null 2>&1 &

@@ -1,6 +1,6 @@
 # Jenkins安装
 
-> Jenkins安装前需先安装JDK，可参照[JDK安装及配置](/linux/jdk.md)
+> Jenkins安装前需先安装JDK[可参照](/linux/jdk.md)
 
 #### 安装
 

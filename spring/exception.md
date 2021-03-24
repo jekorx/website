@@ -174,7 +174,7 @@ public class ControllerExceptionAspect {
 }
 ```
 
-> 异常处理，返回json格式的异常包装信息，而非错误页面，[返回值包装类参照请点击此处](../java/utils.md)  
+> 异常处理，返回json格式的异常包装信息[可参照](../java/utils.md)，而非错误页面  
 
 ```java
 /**

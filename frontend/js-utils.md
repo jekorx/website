@@ -832,7 +832,7 @@ export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e$
 
 #### 大文件切片上传
 
-> 过程：
+> 过程：  
 > 1、实例化```ChunkUpload```对象  
 > 2、使用```load()```方法加载文件并切片  
 > 3、切片完成后自动开始上传切片文件  
@@ -841,7 +841,7 @@ export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e$
 
 > 依赖```spark-md5```计算文件md5  
 > 使用```axios```封装$http，[可参照](./axios.md#常用配置)  
-> 后端合并请[参照](../java/utils.md#切片文件合并)  
+> 后端切片文件合并，[可参照](../java/utils.md#切片文件合并)  
 > 以下提供ts版本和js版本  
 
 ```javascript

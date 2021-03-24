@@ -1,7 +1,7 @@
 # Excel
 
 > SpringBoot 使用 POI 生成并导出 Excel。  
-> 以下为后端代码，[前端代码请点击此处参照](../frontend/chrome-download.md#excel下载)。  
+> 以下为后端代码，前端代码[可参照](../frontend/chrome-download.md#excel下载)。  
 
 ```xml
 <!-- POI 依赖 -->
