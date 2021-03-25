@@ -55,7 +55,7 @@ nginx
 #### 配置SSL（https）
 
 ```bash
-# 安装时--with-http_ssl_module，添加ssl模块
+# 安装 --with-http_ssl_module，添加ssl模块
 http {
     server {
         listen 443 ssl; # 此处加ssl参数，可以不用使用ssl on配置
@@ -77,6 +77,20 @@ http {
         listen 80;
         server_name xxx.com www.xxx.com;
         rewrite ^(.*) https://$host$1 permanent;
+    }
+}
+```
+
+#### 启用http2
+
+> ```Nginx 1.9.5```及以上版本，```OpenSSL 1.0.2```及以上版本  
+> 监听```443```端口时配置```http2```，启用http2，```80```端口无法启用http2  
+
+```bash
+# 安装 --with-http_v2_module，添加http2模块
+http {
+    server {
+        listen 443 http2 ssl; # 监听443端口时配置http2，启用http2
     }
 }
 ```
