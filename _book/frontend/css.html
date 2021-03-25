@@ -1780,10 +1780,8 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
     .rect-item {
       overflow: hidden;
       position: relative;
-      background-color: #EEE;
-      width: 20%;
-      min-width: 100px;
-      max-width: 300px;
+      background-color: #CCC;
+      width: 40%;
       display: inline-block;
       vertical-align: middle;
     }
@@ -1807,15 +1805,26 @@ top&#x3001;left&#x504F;&#x79FB;&#x7236;&#x5BB9;&#x5668;&#x7684;50%&#xFF0C;&#x901
       justify-content: center;
       font-size: 12px;
     }
+    .auto-resize-rect-wrap {
+      resize: horizontal;
+      overflow: auto;
+      width: 540px;
+      min-width: 300px;
+      max-width: 700px;
+      margin-bottom: 10px;
+      background-color: #EEE;
+    }
   </style>
-  <div class="rect-item" style="margin-bottom: 14px">
-    <div class="rect-wrap">
-      <p style="margin: 0">&#x6B63;&#x65B9;&#x5F62;</p>
+  <div class="auto-resize-rect-wrap">
+    <div class="rect-item" style="margin: 10px">
+      <div class="rect-wrap">
+        <p style="margin: 0">&#x6B63;&#x65B9;&#x5F62;</p>
+      </div>
     </div>
-  </div>
-  <div class="rect-item react">
-    <div class="rect-wrap">
-      <p style="margin: 0">&#x5BBD;&#x9AD8;&#x6BD4; 2:1&#x7684;&#x77E9;&#x5F62;</p>
+    <div class="rect-item react">
+      <div class="rect-wrap">
+        <p style="margin: 0">&#x5BBD;&#x9AD8;&#x6BD4; 2:1&#x7684;&#x77E9;&#x5F62;</p>
+      </div>
     </div>
   </div>
 </div>
@@ -2061,14 +2070,16 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</span> <span
 <div style="padding-bottom: 10px;">
   <style>
     .album-wrap {
-      width: 100%;
-      max-width: 540px;
+      width: 540px;
       min-width: 200px;
+      max-width: 700px;
       box-sizing: border-box;
       padding: 5px;
       background-color: #EEE;
       font-size: 0;
       margin-bottom: 10px;
+      resize: horizontal;
+      overflow: auto;
     }
     .album-wrap img {
       width: 100%;
@@ -2290,7 +2301,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</span> <span
 <span class="token punctuation">}</span>
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2021 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
-2021-03-11
+2021-03-25
 </span></footer>
                                 
                                 </section>
@@ -2334,7 +2345,7 @@ ul &gt;li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li</span> <span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.3","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.4","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Html","level":"1.3.2","depth":2,"path":"frontend/html.md","ref":"frontend/html.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2021 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2021-03-11T03:54:28.899Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-25T04:04:21.142Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Css","level":"1.3.3","depth":2,"next":{"title":"移动端vw适配方案","level":"1.3.4","depth":2,"path":"frontend/vw.md","ref":"frontend/vw.md","articles":[]},"previous":{"title":"Html","level":"1.3.2","depth":2,"path":"frontend/html.md","ref":"frontend/html.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2021 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/css.md","mtime":"2021-03-25T06:43:37.112Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-25T08:17:15.012Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

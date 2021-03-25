@@ -44,7 +44,7 @@
 [掘金] [每天一个小技巧：变形汉堡按钮（Hamburger Menu）](https://juejin.im/post/5f043b886fb9a07e9b1ab409)  
 [掘金] [每天一个小技巧：CSS clip-path 的妙用](https://juejin.im/post/5f151aaef265da22aa0f1091)  
 [掘金] [【收藏】你不知道的css技巧](https://juejin.im/post/5ed3c27ee51d455f9a6368c9)  
-[掘金] [令人头疼的skew()倾斜函数之我见](https://juejin.im/post/5f15a14ae51d453470306f76)  
+[掘金] [令人头疼的skew()倾斜函数之我见](http://www.javashuo.com/article/p-fsfapmuo-kc.html)  
 [掘金] [『真香警告』这33个超级好用的CSS选择器，你可能见都没见过。](https://juejin.im/post/5f0c08dd5188252e7f774b02)  
 [掘金] [css篇--100道近两万字帮你巩固css知识点](https://juejin.im/post/5ee0cf335188254ec9505381)  
 [掘金] [最强大的 CSS 布局 —— Grid 布局](https://juejin.im/post/5f1e70315188252e937c088b)  

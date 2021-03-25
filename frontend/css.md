@@ -484,10 +484,8 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
     .rect-item {
       overflow: hidden;
       position: relative;
-      background-color: #EEE;
-      width: 20%;
-      min-width: 100px;
-      max-width: 300px;
+      background-color: #CCC;
+      width: 40%;
       display: inline-block;
       vertical-align: middle;
     }
@@ -511,15 +509,26 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
       justify-content: center;
       font-size: 12px;
     }
+    .auto-resize-rect-wrap {
+      resize: horizontal;
+      overflow: auto;
+      width: 540px;
+      min-width: 300px;
+      max-width: 700px;
+      margin-bottom: 10px;
+      background-color: #EEE;
+    }
   </style>
-  <div class="rect-item" style="margin-bottom: 14px">
-    <div class="rect-wrap">
-      <p style="margin: 0">正方形</p>
+  <div class="auto-resize-rect-wrap">
+    <div class="rect-item" style="margin: 10px">
+      <div class="rect-wrap">
+        <p style="margin: 0">正方形</p>
+      </div>
     </div>
-  </div>
-  <div class="rect-item react">
-    <div class="rect-wrap">
-      <p style="margin: 0">宽高比 2:1的矩形</p>
+    <div class="rect-item react">
+      <div class="rect-wrap">
+        <p style="margin: 0">宽高比 2:1的矩形</p>
+      </div>
     </div>
   </div>
 </div>
@@ -787,14 +796,16 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 <div style="padding-bottom: 10px;">
   <style>
     .album-wrap {
-      width: 100%;
-      max-width: 540px;
+      width: 540px;
       min-width: 200px;
+      max-width: 700px;
       box-sizing: border-box;
       padding: 5px;
       background-color: #EEE;
       font-size: 0;
       margin-bottom: 10px;
+      resize: horizontal;
+      overflow: auto;
     }
     .album-wrap img {
       width: 100%;
