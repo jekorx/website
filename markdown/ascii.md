@@ -2,7 +2,7 @@
 
 #### Emoji表情
 
-> Emoji代码查询参照 [Emoji Unicode Tables](https://apps.timwhitlock.info/emoji/tables/unicode#block-4-enclosed-characters)  
+> Emoji代码查询参照 [Emoji Unicode Tables](https://apps.timwhitlock.info/emoji/tables/unicode)  
 > 使用方式如下所示：  
 
 | Emoji | Unicode | 使用 |
@@ -12,7 +12,7 @@
 #### ASCII转义字符
 
 |结果 |	描述 | 实体编号|
-|:--:|:---|:--:|
+|:--:|:--|:--:|
 | &#32; | space	| ```&#32;``` |
 | &#33; | exclamation mark	| ```&#33;``` |
 | &#34; | quotation mark	| ```&#34;``` |

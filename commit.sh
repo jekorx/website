@@ -52,5 +52,4 @@ git push
 
 rm _book/**/*.md
 rm _book/.gitignore
-rm _book/CNAME
 rm _book/*.sh
