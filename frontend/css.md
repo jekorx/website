@@ -821,6 +821,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       width: calc(100% / 3);
       min-width: initial;
       max-width: initial;
+      background-color: #EEE;
     }
     .album-wrap .rect-wrap {
       padding: 5px;
