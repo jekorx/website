@@ -268,9 +268,9 @@ public class ResultUtil {
 
 ```java
 /**
- * MultipartFile 转 File
+ * MultipartFile 转 File，并存放到系统临时目录中
  * @param file 文件
- * @return
+ * @return File
  * @throws IOException
  */
 public static File multipartFile2File(MultipartFile file) throws IOException {
@@ -278,11 +278,11 @@ public static File multipartFile2File(MultipartFile file) throws IOException {
 }
 
 /**
- * MultipartFile 转 File
+ * MultipartFile 转 File，并存放到系统临时目录中
  * @param file 文件
  * @param path 路径（不带 /）
  * @param name 文件名
- * @return
+ * @return File
  * @throws IOException
  */
 public static File multipartFile2File(MultipartFile file, String path, String name) throws IOException {
@@ -321,20 +321,30 @@ public static File multipartFile2File(MultipartFile file, String path, String na
         }
         bos.flush();
     } catch (IOException e) {
+        if (bos != null) {
+            bos.close();
+            bos = null;
+        }
+        if (bis != null) {
+            bis.close();
+            bis = null;
+        }
+        if (fos != null) {
+            fos.close();
+            fos = null;
+        }
+        if (is != null) {
+            is.close();
+            is = null;
+        }
+        // 如果出现异常，删除该文件，需先关闭流
+        newFile.delete();
         throw e;
     } finally {
-        if (ObjectUtil.isNotNull(bos)) {
-            bos.close();
-        }
-        if (ObjectUtil.isNotNull(bis)) {
-            bis.close();
-        }
-        if (ObjectUtil.isNotNull(fos)) {
-            fos.close();
-        }
-        if (ObjectUtil.isNotNull(is)) {
-            is.close();
-        }
+        if (bos != null) bos.close();
+        if (bis != null) bis.close();
+        if (fos != null) fos.close();
+        if (is != null) is.close();
     }
     return newFile;
 }
@@ -347,12 +357,12 @@ public static File multipartFile2File(MultipartFile file, String path, String na
 
 ```java
 /**
- * 合并文件
+ * 系统临时目录中，合并文件
  * @param path 文件在系统临时目录中的路径，md5
  * @param chunks 切片数量
  * @param suffix 文件后缀
- * @param md5 文件后缀
- * @return
+ * @param md5 文件md5
+ * @return File
  * @throws IOException
  * @throws BusinessException
  */
@@ -365,7 +375,7 @@ public static File fileMerge(String path, int chunks, String suffix, String md5)
         throw new BusinessException(ResultEnums.FAILED.getCode(), "切片文件不存在，请重新上传");
     }
     File[] files = dir.listFiles();
-    if (files.length < chunks) {
+    if (files == null || files.length < chunks) {
         throw new BusinessException(ResultEnums.FAILED.getCode(), "切片文件缺失，请重新上传");
     }
     FileOutputStream fos = null;
@@ -396,15 +406,9 @@ public static File fileMerge(String path, int chunks, String suffix, String md5)
             }
         }
         bos.flush();
-    } catch (IOException e) {
-        throw e;
     } finally {
-        if (ObjectUtil.isNotNull(bos)) {
-            bos.close();
-        }
-        if (ObjectUtil.isNotNull(fos)) {
-            fos.close();
-        }
+        if (bos != null) bos.close();
+        if (fos != null) fos.close();
     }
     // 文件处理完后删除目录
     dir.delete();
@@ -412,6 +416,9 @@ public static File fileMerge(String path, int chunks, String suffix, String md5)
     if (StrUtil.isNotEmpty(md5)) {
         String newFileMd5 = SecureUtil.md5(newFile);
         if (!md5.equals(newFileMd5)) {
+            // 删除该文件
+            newFile.delete();
+            // 文件校验失败提示
             throw new BusinessException(ResultEnums.FAILED.getCode(), "文件合并失败，请重新上传");
         }
     }
