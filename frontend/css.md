@@ -2,15 +2,16 @@
 
 > 1、[文本域内容解析换行，解析换行符](#文本域内容解析换行解析换行符)  
 > 2、[网站全局黑白色](#网站全局黑白色)  
-> 3、[水平垂直居中](#水平垂直居中)  
-> 4、[文本超出省略号](#文本超出省略号)  
-> 5、[渐变色](#渐变色)  
-> 6、[div+css绘制六边形](#divcss绘制六边形)  
-> 7、[div+css实现四角边框](#divcss实现四角边框)  
-> 8、[固定宽高比的自适应矩形](#固定宽高比的自适应矩形)  
-> 9、[根据兄弟元素的数量来设置样式](#根据兄弟元素的数量来设置样式)  
-> 10、[九宫格图片展示](#九宫格图片展示)  
-> 11、[输入框占位符交互](#输入框占位符交互)  
+> 3、[自定义光标](#自定义光标)  
+> 4、[水平垂直居中](#水平垂直居中)  
+> 5、[文本超出省略号](#文本超出省略号)  
+> 6、[渐变色](#渐变色)  
+> 7、[div+css绘制六边形](#divcss绘制六边形)  
+> 8、[div+css实现四角边框](#divcss实现四角边框)  
+> 9、[固定宽高比的自适应矩形](#固定宽高比的自适应矩形)  
+> 10、[根据兄弟元素的数量来设置样式](#根据兄弟元素的数量来设置样式)  
+> 11、[九宫格图片展示](#九宫格图片展示)  
+> 12、[输入框占位符交互](#输入框占位符交互)  
 
 #### 文本域内容解析换行，解析换行符
 
@@ -40,6 +41,20 @@ html {
 html {
   -webkit-filter: invert(1) hue-rotate(180deg);
   filter: invert(1) hue-rotate(180deg);
+}
+```
+
+#### 自定义光标
+
+<div style="width: 100px; height: 100px; margin-bottom: 10px; background-color: #EEE; cursor: url(https://www.wdg.pub/gitbook/images/favicon.ico), auto; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 12px;">
+光标移动到此处
+</div>
+
+```css
+/* 除浏览器默认支持的光标，还支持自定义图片，.ico 或 .cur格式 */
+/* 建议：1、图片地址为绝对路径，2、图片大小最好是32*32 */
+div {
+  cursor: url(../gitbook/images/favicon.ico), auto;
 }
 ```
 

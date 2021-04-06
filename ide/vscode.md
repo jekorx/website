@@ -24,19 +24,20 @@
         "*.wxss": "css",
         "*.wxs": "javascript"
     },
-    "javascript.implicitProjectConfig.experimentalDecorators": true,
     "minapp-vscode.disableAutoConfig": true,
     "terminal.integrated.fontSize": 17,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "update.enableWindowsBackgroundUpdates": false,
-    "update.mode": "none",
     "vsicons.dontShowNewVersionMessage": true,
-    "vetur.validation.template": true,
+    "vetur.validation.template": false,
+    "volar.codeLens.pugTools": false,
     "workbench.colorTheme": "Monokai",
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.sideBar.location": "left",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "extensions.autoUpdate": true,
+    "update.mode": "manual"
 }
 ```
 
