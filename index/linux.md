@@ -20,3 +20,5 @@
 > * [ftp服务器](../linux/ftp.md)
 > * [Jenkins](../linux/jenkins.md)
 > * [禅道](../linux/zentao.md)
+
+![linux系统目录结构](../images/linux-dir-1.png)
