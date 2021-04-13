@@ -85,7 +85,7 @@
 [掘金] [14期-连肝7个晚上，总结了计算机网络的知识点！（共66条）](https://juejin.im/post/5ee27de06fb9a047f7131eb2)  
 [掘金] [脱离996，Chrome DevTools 面板全攻略！！！](https://juejin.im/post/5f1542e16fb9a07e6f7b80fe)  
 [掘金] [那些前端开发必不可少的生产力工具](https://juejin.im/post/5f1f8f7b5188252e65443f9c)  
-[SegmentFault 思否] [关于移动端适配，你必须要知道的](https://segmentfault.com/a/1190000019207842)  
+[SegmentFault] [关于移动端适配，你必须要知道的](https://segmentfault.com/a/1190000019207842)  
 [掘金] [前端10个灵魂拷问 吃透这些你就能摆脱初级前端工程师！](https://juejin.im/post/6857800782276902919)  
 [掘金] [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)  
 [掘金] [「一劳永逸」由浅入深配置webpack4](https://juejin.im/post/6859888538004783118)  
@@ -99,6 +99,7 @@
 [掘金] [前端优秀实践不完全指南](https://juejin.cn/post/6932647134944886797)  
 [开源中国] [硬核操作系统讲解](https://my.oschina.net/u/4511602/blog/4966551)  
 [掘金] [ES6、ES7、ES8、ES9、ES10新特性一览](https://juejin.cn/post/6844903811622912014)  
+[SegmentFault] [JS语法 ES6、ES7、ES8、ES9、ES10、ES11、ES12新特性](https://segmentfault.com/a/1190000039272641)  
 
 #### Server
 
@@ -109,7 +110,7 @@
 
 > 公众号  
 
-[SegmentFault 思否] [vue使用微信JS-SDK实现分享功能](https://segmentfault.com/a/1190000020163797)  
+[SegmentFault] [vue使用微信JS-SDK实现分享功能](https://segmentfault.com/a/1190000020163797)  
 
 #### Flutter
 
