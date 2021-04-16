@@ -550,7 +550,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 
 > 核心：```padding-top``` ```padding-bottom``` ```margin-top``` ```margin-bottom``` 为**百分比**是相对**父元素** **宽度**  
 > 使用伪元素的```padding-top```或```padding-bottom```或```margin-top```或```margin-bottom```为**百分比**撑起父元素高度实现  
-> 使用```margin-top``` ```margin-bottom```时，父元素需触发[BFC](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)，常用触发方式：```display: inline-block``` 或 ```overflow: hidden```  
+> 使用```margin-top``` ```margin-bottom```时，父元素需触发[**BFC**](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)，常用触发方式：```display: inline-block``` 或 ```overflow: hidden```  
 
 ```html
 <div class="rect-item">
