@@ -70,15 +70,15 @@ ssh-keygen -t rsa -C '<登录邮箱>'
 
 > 使用PuTTYgen生成密钥  
 
-![PuTTYgen生成密钥](../images/git-svn-1.png)
+![PuTTYgen生成密钥](../assets/git-svn-1.png)
 
-![PuTTYgen生成密钥](../images/git-svn-2.png)
+![PuTTYgen生成密钥](../assets/git-svn-2.png)
 
 > 配置使用私钥使用，私钥文件为.ppk文件  
 
-![使用](../images/git-svn-3.png)
+![使用](../assets/git-svn-3.png)
 
-![使用](../images/git-svn-4.png)
+![使用](../assets/git-svn-4.png)
 
 #### 常用操作
 

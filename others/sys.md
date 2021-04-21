@@ -22,11 +22,11 @@ certutil -hashfile <文件路径> SHA256
 
 > CentOS USB安装盘示例  
 
-![Rufus设置](../images/others-sys-1.png)
+![Rufus设置](../assets/others-sys-1.png)
 
 > Windows USB安装盘示例  
 
-![Rufus设置](../images/others-sys-2.png)
+![Rufus设置](../assets/others-sys-2.png)
 
 #### CentOS安装
 
@@ -37,7 +37,7 @@ certutil -hashfile <文件路径> SHA256
 > 5、按```TAB```编辑配置，改为```vmlinuz initrd=initrd.img inst.stage2=hd:/dev/sdb4 quiet```  
 > 6、sdb4对应U盘的设备名，然后按回车进入图形安装界面  
 
-![CentOS设置](../images/others-sys-3.png)
+![CentOS设置](../assets/others-sys-3.png)
 
 #### Windows安装
 

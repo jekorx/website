@@ -297,7 +297,7 @@ module.exports = ({ file }) => {
 }
 ```
 
-![对比效果](../images/vw-1px-line.jpg)
+![对比效果](../assets/vw-1px-line.jpg)
 
 ## 在 create-react-app 中使用
 

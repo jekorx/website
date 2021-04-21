@@ -762,7 +762,7 @@ ul >li:first-child:nth-last-child(n+8) ~ li</pre>
 > ```:nth-last-child(2n)```：倒数 偶数 的元素，等价于```:nth-last-child(even)```，即：倒数第2、4、6、...个指定元素  
 > **注意**：2 中涉及的选择器会选择其父级元素下所有指定子元素，具体可参照下图：  
 
-![css-selector](../images/front-end-css-1.jpg)
+![css-selector](../assets/front-end-css-1.jpg)
 
 ```css
 /**

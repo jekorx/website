@@ -34,6 +34,7 @@
 [掘金] [Javascript中常用的13种设计模式](https://juejin.cn/post/6911867371896602632)  
 [掘金] [「多图预警」那些年，被blob虐过的程序猿觉醒了！](https://juejin.cn/post/6916675943343849479)  
 [开源中国] [基于vue的h5文件切片上传（获取文件md5，实现秒传、进度条实现）](https://my.oschina.net/kaikai1/blog/1859976)  
+[掘金] [从原型链出发，看看 Class 被编译成了什么样子](https://juejin.cn/post/6952545529247039524)  
 
 > CSS
 

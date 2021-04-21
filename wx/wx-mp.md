@@ -2,7 +2,7 @@
 
 > 推荐使用内网穿透在开发阶段进行内网穿透，如：[cpolar](https://www.cpolar.com/)  
 
-![cpolar](../images/wx-mp-1.png)
+![cpolar](../assets/wx-mp-1.png)
 
 > Vue项目中通过内容穿透域名访问报错 ```Invalid Host header```，解决方法  
 
@@ -22,13 +22,13 @@ module.exports = {
 
 > 正式环境需配置域名信息  
 
-![公众号设置-功能设置](../images/wx-mp-2.png)
+![公众号设置-功能设置](../assets/wx-mp-2.png)
 
 > 测试帐号申请，[请点击](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login)  
 
 #### 服务器配置校验TOKEN
 
-![服务器配置](../images/wx-mp-3.png)
+![服务器配置](../assets/wx-mp-3.png)
 
 > 1）将token、timestamp、nonce三个参数进行字典序排序  
 > 2）将三个参数字符串拼接成一个字符串进行sha1加密  

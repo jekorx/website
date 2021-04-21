@@ -4,8 +4,8 @@
 
 #### 效果
 
-![效果1](../images/weapp-vehicle-panel-1.jpg)
-![效果2](../images/weapp-vehicle-panel-2.jpg)
+![效果1](../assets/weapp-vehicle-panel-1.jpg)
+![效果2](../assets/weapp-vehicle-panel-2.jpg)
 
 #### 目录结构
 
@@ -19,7 +19,7 @@
 
 #### del.png
 
-![删除按钮](../images/weapp-vehicle-panel-3.png)
+![删除按钮](../assets/weapp-vehicle-panel-3.png)
 
 #### index.js
 

@@ -4,7 +4,7 @@
 
 > 提供原生js版本和vue版本  
 
-![Canvas签名效果](../images/canvas-sign.jpg)
+![Canvas签名效果](../assets/canvas-sign.jpg)
 
 ##### 1、原生JavaScript版本
 

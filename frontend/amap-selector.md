@@ -30,7 +30,7 @@ VueAMap.initAMapApiLoader({
 
 #### map-selector 地图选择组件
 
-![效果展示](../images/amap-selector-1.jpg)
+![效果展示](../assets/amap-selector-1.jpg)
 
 > 组件使用
 
@@ -186,7 +186,7 @@ export default {
 
 #### map-selector-modal 地图选择组件弹出框
 
-![效果展示](../images/amap-selector-2.jpg)
+![效果展示](../assets/amap-selector-2.jpg)
 
 > 组件使用
 
