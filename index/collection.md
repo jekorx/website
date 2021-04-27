@@ -35,6 +35,7 @@
 [掘金] [「多图预警」那些年，被blob虐过的程序猿觉醒了！](https://juejin.cn/post/6916675943343849479)  
 [开源中国] [基于vue的h5文件切片上传（获取文件md5，实现秒传、进度条实现）](https://my.oschina.net/kaikai1/blog/1859976)  
 [掘金] [从原型链出发，看看 Class 被编译成了什么样子](https://juejin.cn/post/6952545529247039524)  
+[SegmentFault] [JavaScript: 数组reduce实例方法](https://segmentfault.com/a/1190000039774558)  
 
 > CSS
 
@@ -72,6 +73,7 @@
 
 > Vue  
 
+[掘金] [从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境](https://juejin.cn/post/6951649464637636622)  
 [掘金] [揭秘 Vue.js 九个性能优化技巧](https://juejin.cn/post/6922641008106668045)  
 [掘金] [史上最强vue总结---面试开发全靠它了](https://juejin.im/post/5f0dab7df265da22cc286e70)  
 [掘金] [实战技巧，Vue原来还可以这样写](https://juejin.im/post/5eef7799f265da02cd3b82fe)  
@@ -105,6 +107,7 @@
 [开源中国] [硬核操作系统讲解](https://my.oschina.net/u/4511602/blog/4966551)  
 [掘金] [ES6、ES7、ES8、ES9、ES10新特性一览](https://juejin.cn/post/6844903811622912014)  
 [SegmentFault] [JS语法 ES6、ES7、ES8、ES9、ES10、ES11、ES12新特性](https://segmentfault.com/a/1190000039272641)  
+[掘金] [让我告诉你一些强无敌的 NPM 软件包](https://juejin.cn/post/6950584088462163982)  
 
 #### Server
 
