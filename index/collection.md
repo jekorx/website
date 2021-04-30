@@ -108,6 +108,7 @@
 [掘金] [ES6、ES7、ES8、ES9、ES10新特性一览](https://juejin.cn/post/6844903811622912014)  
 [SegmentFault] [JS语法 ES6、ES7、ES8、ES9、ES10、ES11、ES12新特性](https://segmentfault.com/a/1190000039272641)  
 [掘金] [让我告诉你一些强无敌的 NPM 软件包](https://juejin.cn/post/6950584088462163982)  
+[掘金] [【设计模式】这样学也太简单了吧！](https://juejin.cn/post/6953423646664687652)  
 
 #### Server
 

@@ -24,6 +24,7 @@
         "*.wxss": "css",
         "*.wxs": "javascript"
     },
+    "http.proxyAuthorization": "false",
     "minapp-vscode.disableAutoConfig": true,
     "terminal.integrated.fontSize": 17,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
