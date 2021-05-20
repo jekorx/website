@@ -76,7 +76,25 @@ body {
   border: 1px solid #666;
 }
 
-/* 1、line-height水平垂直居中 */
+/* 1、flex水平垂直居中，👍推荐使用🔥 */
+/* 设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效 */
+.center {
+  display: flex;
+}
+.center >span {
+  margin: auto;
+}
+
+/* 2、grid水平垂直居中 */
+/* ❗ 注意兼容性要求浏览器版本较高 */
+.center {
+  display: grid;
+}
+.center >span {
+  margin: auto;
+}
+
+/* 3、line-height水平垂直居中 */
 /* 
 父节点固定px高度
 */
@@ -86,7 +104,7 @@ body {
   line-height: 100px;
 }
 
-/* 2、绝对定位水平垂直居中 */
+/* 4、绝对定位水平垂直居中 */
 /* 
 子节点固定px高度
 .center {
@@ -106,11 +124,11 @@ body {
 }
 */
 /*
-衍生写法，🔥推荐使用
+衍生写法，❗ 基于Chromium的浏览器中会导致文本的模糊问题 ❗
 top、left偏移父容器的50%，通过transform: translate偏移自身-50%实现居中
 可不设置子节点宽高
 */
-.center span {
+.center >span {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -118,8 +136,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
   text-align: center;
 }
 
-
-/* 3、伪类水平垂直居中 */
+/* 5、伪类水平垂直居中 */
 /* 
 容器before伪类生成一个行内节点，高100%，宽1px，margin-right: -1px，消除1px的占用
 容器所有子节点都需要设置vertical-align: middle
@@ -140,22 +157,6 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 .center span {
   font-size: 16px;
   vertical-align: middle;
-}
-
-/* 4、flex水平垂直居中，🔥推荐使用 */
-/* 设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效 */
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 5、grid水平垂直居中 */
-/* 注意兼容性要求浏览器版本较高 */
-.center {
-  display: grid;
-  justify-content: center;
-  align-items: center;
 }
 
 /* 6、table-cell水平垂直居中 */
@@ -199,6 +200,180 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+```
+
+> CSS 实现多行文本“展开收起”  
+
+<div style="padding-bottom: 20px;">
+  <style>
+    .line-clamp .wrapper {
+      display: flex;
+      width: 600px;
+      overflow: hidden;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 5px 5px 15px #BEBEBE, -5px -5px 15px #FFFFFF;
+    }
+    .line-clamp .text {
+      font-size: 18px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: justify;
+      position: relative;
+      line-height: 1.5;
+      max-height: 3em;
+      transition: .3s max-height;
+    }
+    .line-clamp .text::before {
+      content: "";
+      height: 100%;
+      margin-bottom: -26px;
+      float: right;
+    }
+    .line-clamp .text::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: #FFF;
+    }
+    .line-clamp .btn {
+      position: relative;
+      float: right;
+      clear: both;
+      margin-left: 20px;
+      font-size: 14px;
+      padding: 0 8px;
+      background: #3F51B5;
+      line-height: 24px;
+      border-radius: 4px;
+      color: #FFF;
+      cursor: pointer;
+    }
+    .line-clamp .btn::after {
+      content: "展开";
+    }
+    .line-clamp .exp {
+      display: none;
+    }
+    .line-clamp .exp:checked + .text {
+      max-height: 180px;
+    }
+    .line-clamp .exp:checked + .text::after {
+      visibility: hidden;
+    }
+    .line-clamp .exp:checked + .text .btn::before {
+      visibility: hidden;
+    }
+    .line-clamp .exp:checked + .text .btn::after {
+      content: "收起";
+    }
+    .line-clamp .btn::before {
+      content: "...";
+      position: absolute;
+      left: -5px;
+      color: #333;
+      transform: translateX(-100%);
+    }
+  </style>
+  <div class="line-clamp">
+    <div class="wrapper">
+      <input id="exp-check" class="exp" type="checkbox">
+      <div class="text">
+        <label class="btn" for="exp-check"></label>
+        原文链接：https://juejin.cn/post/6963904955262435336， 1、文本环绕效果首先考虑浮动 float； 2、flex 布局子元素可以通过百分比计算高度； 3、多行文本截断还可以结合文本环绕效果用max-height模拟实现； 4、状态切换可以借助 checkbox； 5、CSS 改变文本可以采用伪元素生成。
+      </div>
+    </div>
+  </div>
+</div>
+
+```html
+<div class="wrapper">
+  <input id="exp-check" class="exp" type="checkbox">
+  <div class="text">
+    <label class="btn" for="exp-check"></label>
+    很长的文字内容 ... ...
+  </div>
+</div>
+```
+
+```css
+.wrapper {
+  display: flex;
+  width: 600px;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 20px 20px 60px #BEBEBE, -20px -20px 60px #FFFFFF;
+}
+.text {
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+  position: relative;
+  line-height: 1.5;
+  /* 最大高度（px） = 字体大小（px） x 行高 x 行数 */
+  /* 最大高度（em） = 行高 x 行数 */
+  max-height: 3em;
+  transition: .3s max-height;
+}
+/* 控制按钮一直在最右下角 */
+.text::before {
+  content: "";
+  height: 100%;
+  /* -(btn高度 + 2)，可通过调试获取 */
+  margin-bottom: -26px;
+  float: right;
+}
+/* 在内容未发生截断时，遮盖btn，也可通过 el.scrollHeight > el.clientHeight 时判断文本超出 */
+.text::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #FFF;
+}
+.btn {
+  position: relative;
+  float: right;
+  clear: both;
+  margin-left: 20px;
+  font-size: 14px;
+  padding: 0 8px;
+  background: #3F51B5;
+  line-height: 24px;
+  border-radius: 4px;
+  color: #FFF;
+  cursor: pointer;
+}
+.btn::after {
+  content: "展开";
+}
+/* 用过checkbox的:checked状态控制按钮、省略号显示以及文本高度 */
+.exp {
+  display: none;
+}
+.exp:checked + .text {
+  /* 展开后文本区域高度，直接设置最大高度为一个较大的值，或者直接设置为none，设置none后transition动画效果失效 */
+  max-height: none;
+}
+.exp:checked + .text::after {
+  visibility: hidden;
+}
+.exp:checked + .text .btn::before {
+  visibility: hidden;
+}
+.exp:checked + .text .btn::after {
+  content: "收起";
+}
+.btn::before {
+  content: "...";
+  position: absolute;
+  left: -5px;
+  color: #333;
+  transform: translateX(-100%);
 }
 ```
 
