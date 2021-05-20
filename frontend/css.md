@@ -203,7 +203,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-> CSS 实现多行文本“展开收起”  
+###### CSS 实现多行文本“展开收起”
 
 <div style="padding-bottom: 20px;">
   <style>
