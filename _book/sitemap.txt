@@ -82,3 +82,5 @@ https://www.wdg.pub/linux/php.html
 https://www.wdg.pub/wx/weapp-vehicle-panel.html
 https://www.wdg.pub/frontend/debounce-throttle.html
 https://www.wdg.pub/windows/dos.html
+https://www.wdg.pub/windows/excel.html
+https://www.wdg.pub/frontend/js-snippet.html

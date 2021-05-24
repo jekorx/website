@@ -20,3 +20,4 @@
 > * [高德vue地图选择器](../frontend/amap-selector.md)
 > * [VueQuillEditor](../frontend/vue-quill-editor.md)
 > * [Chrome文件下载](../frontend/chrome-download.md)
+> * [Js代码片段收藏](../frontend/js-snippet.md)
