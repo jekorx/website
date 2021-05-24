@@ -10,6 +10,7 @@
 ```javascript
 import JsBarCode from 'jsbarcode'
 import QRCode from 'qrcode'
+
 /**
  * 生成条码Promise，仅条形码可以生成内容
  */
@@ -153,6 +154,8 @@ export default = codeArr => {
 > ```splitArray```切分数组[可参照](./js-utils.md#切分数组) 
 
 ```javascript
+import XLSX from 'xlsx'
+
 /**
  * 导出Excel，不考虑切分sheet页
  */
