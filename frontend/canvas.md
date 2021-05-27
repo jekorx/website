@@ -59,7 +59,7 @@
       cxt.shadowColor = this.color
       cxt.font = 'bold 20px Arial'
       cxt.fillStyle = '#000'
-      cxt.fillText('Canvas签名，在此处绘制', 100, 100)
+      cxt.fillText('Canvas签名，在此处绘制', 30, 100)
       cxt.closePath()
       var offsetTop = canvas.offsetTop
       var offsetLeft = canvas.offsetLeft

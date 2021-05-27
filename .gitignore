@@ -25,6 +25,11 @@ build/Release
 node_modules
 
 _book
+.book
+book
+_book/
+.book/
+book/
 # _book/**/*.md
 # _book/*.sh
 # _book/.gitignore
