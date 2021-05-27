@@ -116,7 +116,7 @@
         })
       }.bind(this), false)
     }
-    window.onload = function () {
+    setTimeout(() => {
       new drawCanvas({
         el: 'canvasBox',
         width: 300,
@@ -131,7 +131,7 @@
           document.getElementById('signImage').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII='
         }
       })
-    }
+    }, 1)
   </script>
 </div>
 
