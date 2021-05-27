@@ -190,3 +190,29 @@ export const exportData = (data, name) => {
   XLSX.writeFile(wb, name)
 }
 ```
+
+##### 4、vue-router@3.x部署更新提示
+
+> ```vue-router@3.x```中检测网络异常提示  
+> 加载资源失败时，提示重新加载（结合```Element-UI```）  
+
+```javascript
+this.$router.push({
+  name,
+  params,
+  query
+}).catch(e => {
+  if (!navigator.onLine) {
+    this.$msg.warning('网络异常，请检查网络连接！')
+    return
+  }
+  /^Loading.*?failed./i.test(e.message) && this.$confirm('系统已更新，需要刷新重新加载页面！', '提示', {
+    type: 'warning',
+    confirmButtonText: '刷新',
+    showCancelButton: false,
+    closeOnHashChange: false
+  }).then(() => {
+    location.reload()
+  }).catch(() => {})
+})
+```

@@ -1367,7 +1367,136 @@
 <blockquote>
 <p>&#x63D0;&#x4F9B;&#x539F;&#x751F;js&#x7248;&#x672C;&#x548C;vue&#x7248;&#x672C;  </p>
 </blockquote>
-<p><img src="../assets/canvas-sign.jpg" alt="Canvas&#x7B7E;&#x540D;&#x6548;&#x679C;"></p>
+<!-- ![Canvas签名效果](../assets/canvas-sign.jpg) -->
+<div>
+  <style>
+    #canvasBox, #signImage {
+      border: 1px solid #EEE;
+      width: 300px;
+      height: 200px;
+    }
+  </style>
+  <div style="display: inline-block;">
+    <canvas id="canvasBox"></canvas>
+    <img id="signImage" width="300" height="200" src="data:image/png;base64,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" alt="&#x751F;&#x6210;&#x7684;&#x56FE;&#x7247;">
+    <div style="display: flex; justify-content: space-around; padding: 0 20%">
+      <button id="saveBtn">&#x751F;&#x6210;&#x56FE;&#x7247;</button>
+      <button id="clearBtn">&#x6E05;&#x7A7A;&#x753B;&#x5E03;</button>
+    </div>
+  </div>
+  <script>
+    function drawCanvas(args) {
+      this.el = 'canvas'
+      this.saveEl = 'saveBtn'
+      this.clearEl = 'clearBtn'
+      this.width = document.documentElement.clientWidth || document.body.clientWidth
+      this.height = 200
+      this.lineWidth = 2
+      this.color = '#000'
+      this.background = 'rgba(255, 255, 255, 0)'
+      this.borderWidth = 1
+      this.borderColor = '#333'
+      this.imageType = 'image/png'
+      this.imageQual = 0.92
+      this.saveCallback = function (imgBase64, clearCanvas) { }
+      this.clearCallback = function () { }
+      for (var k in args) {
+        this[k] = args[k]
+      }
+      var canvas = document.getElementById(this.el)
+      if (this.borderWidth > 0 && this.width > this.borderWidth * 2) {
+        this.width = this.width - this.borderWidth * 2
+        canvas.style.border = this.borderWidth + 'px solid' + this.borderColor
+      }
+      canvas.width = this.width
+      canvas.height = this.height
+      var cxt = canvas.getContext('2d')
+      cxt.fillStyle = this.background
+      cxt.fillRect(0, 0, this.width, this.height)
+      cxt.strokeStyle = this.color
+      cxt.lineWidth = this.lineWidth
+      cxt.lineCap = 'round'
+      cxt.lineJoin = 'round'
+      cxt.shadowBlur = 1
+      cxt.shadowColor = this.color
+      cxt.font = 'bold 20px Arial'
+      cxt.fillStyle = '#000'
+      cxt.fillText('Canvas签名，在此处绘制', 100, 100)
+      cxt.closePath()
+      var offsetTop = canvas.offsetTop
+      var offsetLeft = canvas.offsetLeft
+      var isDraw = false
+      canvas.addEventListener('touchstart', function (e) {
+        cxt.beginPath()
+        cxt.moveTo(e.changedTouches[0].pageX - offsetLeft, e.changedTouches[0].pageY - offsetTop)
+      }, false)
+      canvas.addEventListener('mousedown', function (e) {
+        isDraw = true
+        cxt.beginPath()
+        cxt.moveTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+      }, false)
+      canvas.addEventListener('touchmove', function (e) {
+        e.stopPropagation()
+        e.preventDefault()
+        cxt.lineTo(e.changedTouches[0].pageX - offsetLeft, e.changedTouches[0].pageY - offsetTop)
+        cxt.stroke()
+      }, false)
+      canvas.addEventListener('mousemove', function (e) {
+        if (isDraw) {
+          e.stopPropagation()
+          e.preventDefault()
+          cxt.lineTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+          cxt.stroke()
+          if (e.pageX - offsetLeft <= this.borderWidth
+            || e.pageX - offsetLeft >= canvas.width - this.borderWidth * 2
+            || e.pageY - offsetTop <= this.borderWidth
+            || e.pageY - offsetTop >= canvas.height - this.borderWidth * 2) {
+            isDraw = false
+          }
+        }
+      }.bind(this), false)
+      canvas.addEventListener('touchend', function () {
+        cxt.closePath()
+      }, false)
+      canvas.addEventListener('mouseup', function () {
+        isDraw = false
+        cxt.closePath()
+      }, false)
+      document.getElementById(this.clearEl) && document.getElementById(this.clearEl).addEventListener('click', function () {
+        cxt.clearRect(0, 0, canvas.width, canvas.height)
+        this.clearCallback()
+      }.bind(this), false)
+      document.getElementById(this.saveEl) && document.getElementById(this.saveEl).addEventListener('click', function () {
+        var imgBase64
+        if (this.imageType === 'image/jpeg') {
+          imgBase64 = canvas.toDataURL('image/jpeg', this.imageQual)
+        } else {
+          imgBase64 = canvas.toDataURL()
+        }
+        this.saveCallback(imgBase64, function () {
+          cxt.clearRect(0, 0, canvas.width, canvas.height)
+        })
+      }.bind(this), false)
+    }
+    window.onload = function () {
+      new drawCanvas({
+        el: 'canvasBox',
+        width: 300,
+        height: 200,
+        borderColor: '#EEE',
+        saveCallback: function (imgBase64, clearCanvas) {
+          document.getElementById('signImage').src = imgBase64
+          // 清空canvas
+          // clearCanvas()
+        },
+        clearCallback: function () {
+          document.getElementById('signImage').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII='
+        }
+      })
+    }
+  </script>
+</div>
+
 <h5 id="1&#x3001;&#x539F;&#x751F;javascript&#x7248;&#x672C;">1&#x3001;&#x539F;&#x751F;JavaScript&#x7248;&#x672C;</h5>
 <blockquote>
 <p>&#x5229;&#x7528;canvas&#x753B;&#x5E03;&#x5B9E;&#x73B0;&#x7B7E;&#x540D;&#x6548;&#x679C;  </p>
@@ -1392,11 +1521,12 @@
  * &lt;String&gt; background&#xFF1A;&#x5BB9;&#x5668;&#x80CC;&#x666F;&#x989C;&#x8272;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;rgba(255, 255, 255, 0)&apos;
  * &lt;Number&gt; borderWidth&#xFF1A;&#x5BB9;&#x5668;&#x8FB9;&#x6846;&#x5BBD;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;1
  * &lt;String&gt; borderColor&#xFF1A;&#x5BB9;&#x5668;&#x8FB9;&#x6846;&#x989C;&#x8272;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;#333&apos;
- * &lt;String&gt; imageType&#xFF1A;&#x56FE;&#x7247;&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;image/png&#xFF0C;&#x53EF;&#x9009;&#xFF1A;image/jpeg&#xFF08;&#x6CE8;&#x610F;&#x4FEE;&#x6539;background&#xFF09;&#xFF0C;image/webp&#xFF08;Chrome&#x652F;&#x6301;&#xFF09;&#xFF0C;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x5747;&#x4E3A;image/png
+ * &lt;String&gt; imageType&#xFF1A;&#x56FE;&#x7247;&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;image/png&#xFF08;&#x63A8;&#x8350;&#xFF09;&#xFF0C;&#x53EF;&#x9009;&#xFF1A;image/jpeg&#xFF08;&#x6CE8;&#x610F;&#x4FEE;&#x6539;background&#xFF1B;&#x4E0D;&#x63A8;&#x8350;&#xFF1A;&#x6E05;&#x7A7A;&#x753B;&#x5E03;&#x518D;&#x6B21;&#x7ED8;&#x5236;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x751F;&#x6210;base64&#xFF09;&#xFF0C;image/webp&#xFF08;Chrome&#x652F;&#x6301;&#xFF09;&#xFF0C;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x5747;&#x4E3A;image/png
  * &lt;Number&gt; imageQual&#xFF1A;&#x56FE;&#x7247;&#x8D28;&#x91CF;&#xFF0C;&#x5F53;imageType&#x4E3A;image/jpeg&#x65F6;&#x751F;&#x6548;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;0.92&#xFF0C;&#x53EF;&#x9009;0~1&#x4E4B;&#x95F4;&#xFF0C;&#x8D85;&#x51FA;&#x8303;&#x56F4;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;0.92
- * &lt;Function&gt; saveCallback(imgBase64, clearCallback)&#xFF1A;&#x4FDD;&#x5B58;&#x56DE;&#x8C03;(base64&#x56FE;&#x7247;&#xFF0C;&#x6E05;&#x7A7A;&#x753B;&#x5E03;&#x56DE;&#x8C03;)
+ * &lt;Function&gt; saveCallback(imgBase64, clearCanvas)&#xFF1A;&#x4FDD;&#x5B58;&#x56DE;&#x8C03;(base64&#x56FE;&#x7247;&#xFF0C;&#x6E05;&#x7A7A;&#x753B;&#x5E03;)
+ * &lt;Function&gt; clearCallback()&#xFF1A;&#x6E05;&#x7A7A;&#x753B;&#x5E03;&#x56DE;&#x8C03;
  */</span>
-<span class="token keyword">function</span> <span class="token function">drawCanvas</span> <span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">function</span> <span class="token function">drawCanvas</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>el <span class="token operator">=</span> <span class="token string">&apos;canvas&apos;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>saveEl <span class="token operator">=</span> <span class="token string">&apos;saveBtn&apos;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>clearEl <span class="token operator">=</span> <span class="token string">&apos;clearBtn&apos;</span>
@@ -1409,7 +1539,8 @@
   <span class="token keyword">this</span><span class="token punctuation">.</span>borderColor <span class="token operator">=</span> <span class="token string">&apos;#333&apos;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>imageType <span class="token operator">=</span> <span class="token string">&apos;image/png&apos;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>imageQual <span class="token operator">=</span> <span class="token number">0.92</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">saveCallback</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">imgBase64<span class="token punctuation">,</span> clearCallback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">saveCallback</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">imgBase64<span class="token punctuation">,</span> clearCanvas</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">clearCallback</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> k <span class="token keyword">in</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> args<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
@@ -1464,9 +1595,9 @@
       cxt<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
       cxt<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft <span class="token operator">&lt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth
-       <span class="token operator">||</span> e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span>
-       <span class="token operator">||</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop <span class="token operator">&lt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth
-       <span class="token operator">||</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">||</span> e<span class="token punctuation">.</span>pageX <span class="token operator">-</span> offsetLeft <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span>
+        <span class="token operator">||</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop <span class="token operator">&lt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth
+        <span class="token operator">||</span> e<span class="token punctuation">.</span>pageY <span class="token operator">-</span> offsetTop <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         isDraw <span class="token operator">=</span> <span class="token boolean">false</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
@@ -1484,7 +1615,8 @@
   <span class="token comment">// &#x6E05;&#x9664;&#x753B;&#x5E03;</span>
   document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>clearEl<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>clearEl<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     cxt<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">clearCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
 
   <span class="token comment">// &#x4FDD;&#x5B58;&#x56FE;&#x7247;</span>
   document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>saveEl<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>saveEl<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1510,15 +1642,16 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
   window.onload = function () {
     new drawCanvas({
+      el: &apos;canvasBox&apos;,
       width: 300,
       height: 200,
-      imageType: &apos;image/jpeg&apos;,
-      imageQual: 0.01,
-      background: &apos;#FFF&apos;,
-      saveCallback: function (imgBase64, clearCallback) {
+      saveCallback: function (imgBase64, clearCanvas) {
         document.getElementById(&apos;signImage&apos;).src = imgBase64
         // &#x6E05;&#x7A7A;canvas
-        // clearCallback()
+        // clearCanvas()
+      },
+      clearCallback: function () {
+        document.getElementById(&apos;signImage&apos;).src = &apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=&apos;
       }
     })
   }
@@ -1529,7 +1662,7 @@
 <p>vue&#x7EC4;&#x4EF6;<br>&#x76F4;&#x63A5;&#x4F7F;&#x7528;<a href="https://www.npmjs.com/package/vue-canvas-sign" target="_blank">npm&#x7EC4;&#x4EF6;</a><br><code>yarn add vue-canvas-sign</code> or <code>npm i vue-canvas-sign</code><br>&#x8F93;&#x51FA;base64&#x56FE;&#x7247;&#xFF0C;&#x5982;&#x9700;&#x8F6C;&#x4E3A;file&#x6587;&#x4EF6;&#xFF0C;<a href="js-utils.html#base64&#x8F6C;file">&#x53EF;&#x53C2;&#x7167;</a>  </p>
 </blockquote>
 <footer class="page-footer"><span class="copyright">&#xA9; 2021 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
-2021-04-21
+2021-05-27
 </span></footer>
                                 
                                 </section>
@@ -1573,7 +1706,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Canvas","level":"1.3.12","depth":2,"next":{"title":"防抖节流","level":"1.3.13","depth":2,"path":"frontend/debounce-throttle.md","ref":"frontend/debounce-throttle.md","articles":[]},"previous":{"title":"Less","level":"1.3.11","depth":2,"path":"frontend/less.md","ref":"frontend/less.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2021 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/canvas.md","mtime":"2021-04-21T05:27:38.050Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-24T08:21:08.330Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Canvas","level":"1.3.12","depth":2,"next":{"title":"防抖节流","level":"1.3.13","depth":2,"path":"frontend/debounce-throttle.md","ref":"frontend/debounce-throttle.md","articles":[]},"previous":{"title":"Less","level":"1.3.11","depth":2,"path":"frontend/less.md","ref":"frontend/less.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2021 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/canvas.md","mtime":"2021-05-27T02:21:44.283Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-27T02:21:59.271Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
