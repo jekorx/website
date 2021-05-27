@@ -117,22 +117,24 @@
         })
       }.bind(this), false)
     }
-    setTimeout(() => {
-      new drawCanvas({
-        el: 'canvasBox',
-        width: 300,
-        height: 200,
-        borderColor: '#EEE',
-        saveCallback: function (imgBase64, clearCanvas) {
-          document.getElementById('signImage').src = imgBase64
-          // 清空canvas
-          // clearCanvas()
-        },
-        clearCallback: function () {
-          document.getElementById('signImage').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII='
-        }
-      })
-    }, 1)
+    window.onload = function () {
+      setTimeout(() => {
+        new drawCanvas({
+          el: 'canvasBox',
+          width: 300,
+          height: 200,
+          borderColor: '#EEE',
+          saveCallback: function (imgBase64, clearCanvas) {
+            document.getElementById('signImage').src = imgBase64
+            // 清空canvas
+            // clearCanvas()
+          },
+          clearCallback: function () {
+            document.getElementById('signImage').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII='
+          }
+        })
+      }, 100)
+    }
   </script>
 </div>
 
