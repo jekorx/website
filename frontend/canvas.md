@@ -61,8 +61,9 @@
       cxt.fillStyle = '#000'
       cxt.fillText('Canvas签名，在此处绘制', 30, 100)
       cxt.closePath()
-      var offsetTop = canvas.offsetTop
-      var offsetLeft = canvas.offsetLeft
+      var rect = canvas.getBoundingClientRect()
+      var offsetTop = rect.top
+      var offsetLeft = rect.left
       var isDraw = false
       canvas.addEventListener('touchstart', function (e) {
         cxt.beginPath()
@@ -206,9 +207,11 @@ function drawCanvas(args) {
   cxt.shadowBlur = 1
   cxt.shadowColor = this.color
 
-  var offsetTop = canvas.offsetTop // canvas上边距
-  var offsetLeft = canvas.offsetLeft // canvas左边距
+  var rect = canvas.getBoundingClientRect()
+  var offsetTop = rect.top // canvas上边距
+  var offsetLeft = rect.left // canvas左边距
   var isDraw = false // 是否绘制中，用于mousemove
+
   // 开始绘制
   canvas.addEventListener('touchstart', function (e) {
     cxt.beginPath()
