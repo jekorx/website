@@ -14,7 +14,6 @@ function downloadImg (src, filename, ext) {
   const ctx = canvas.getContext('2d')
   const link = document.createElement('a')
   img.setAttribute('crossOrigin', 'anonymous') // 设置允许跨域访问
-  img.src = src
   img.onload = () => {
     canvas.width = img.width
     canvas.height = img.height
@@ -24,6 +23,7 @@ function downloadImg (src, filename, ext) {
     link.setAttribute('download', filename + '.' + ext)
     link.click()
   }
+  img.src = src
 }
 ```
 
