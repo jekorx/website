@@ -1230,7 +1230,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 
 <div style="padding-bottom: 10px;">
   <style>
-    a.link1 {
+    span.link1 {
       display: inline-block;
       color: #409EFF;
       cursor: pointer;
@@ -1238,7 +1238,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       text-decoration: none;
       position: relative;
     }
-    a.link1:after {
+    span.link1:after {
       content: "";
       position: absolute;
       width: 100%;
@@ -1250,12 +1250,12 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       transform-origin: bottom right;
       transition: transform .3s ease-in-out;
     }
-    a.link1:hover:after {
+    span.link1:hover:after {
       transform: scaleX(1);
       transform-origin: bottom left;
     }
   </style>
-  <div><a class="link1" href="#">hover效果 - 1，underline划过效果</a></div>
+  <div><span class="link1">hover效果 - 1，underline划过效果</span></div>
 </div>
 
 ```css
