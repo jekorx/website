@@ -12,6 +12,7 @@
 > 10、[根据兄弟元素的数量来设置样式](#根据兄弟元素的数量来设置样式)  
 > 11、[九宫格图片展示](#九宫格图片展示)  
 > 12、[输入框占位符交互](#输入框占位符交互)  
+> 13、[hover效果](#hover效果)  
 
 #### 文本域内容解析换行，解析换行符
 
@@ -1222,5 +1223,65 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 .input-control:focus ~ .input-label {
   color: #409EFF;
   transform: scale(0.84) translate(-1px, -20px);
+}
+```
+
+#### hover效果
+
+<div style="padding-bottom: 10px;">
+  <style>
+    a.link1 {
+      display: inline-block;
+      color: #409EFF;
+      cursor: pointer;
+      padding-bottom: 4px;
+      text-decoration: none;
+      position: relative;
+    }
+    a.link1:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      background-color: #409EFF;
+      transform-origin: bottom right;
+      transition: transform .3s ease-in-out;
+    }
+    a.link1:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  </style>
+  <div><a class="link1" href="#">hover效果 - 1，underline划过效果</a></div>
+</div>
+
+```css
+/* hover效果 - 1，underline划过效果，核心：transform-origin 更改一个元素变形的原点 */
+.link1 {
+  display: inline-block;
+  color: #409EFF;
+  cursor: pointer;
+  padding-bottom: 4px;
+  text-decoration: none;
+  position: relative;
+}
+.link1:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  background-color: #409EFF;
+  transform-origin: bottom right;
+  transition: transform .3s ease-in-out;
+}
+.link1:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 ```

@@ -36,6 +36,7 @@
 [开源中国] [基于vue的h5文件切片上传（获取文件md5，实现秒传、进度条实现）](https://my.oschina.net/kaikai1/blog/1859976)  
 [掘金] [从原型链出发，看看 Class 被编译成了什么样子](https://juejin.cn/post/6952545529247039524)  
 [SegmentFault] [JavaScript: 数组reduce实例方法](https://segmentfault.com/a/1190000039774558)  
+[掘金] [最全的手写JS面试题](https://juejin.cn/post/6968713283884974088)  
 
 > CSS
 
