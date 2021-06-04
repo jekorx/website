@@ -216,3 +216,247 @@ this.$router.push({
   }).catch(() => {})
 })
 ```
+
+##### 5、vue指令，右键打开数字软键盘
+
+> 数字软键盘指令，配合ElementUI InputNumber、Input组件使用  
+> 注册指令：Vue.directive('num-input', NumInput)  
+> 使用指令：&#60;InputNumber v-num-input />  
+
+```javascript
+import Vue from 'vue'
+import NumBox from './main.vue'
+
+const NumBoxConstructor = Vue.extend(NumBox)
+
+// 软键盘实例，只生成一个到body
+let instance
+const initInstance = () => {
+  instance = new NumBoxConstructor({
+    el: document.createElement('div')
+  })
+  document.body.appendChild(instance.$el)
+}
+
+export default {
+  bind (el, binding, vnode) {
+    if (!instance) {
+      initInstance()
+    }
+    // 右键打开数字软键盘，触摸设备长按激活
+    el.addEventListener('contextmenu', e => {
+      e.preventDefault()
+      const { top, left, height } = el.getBoundingClientRect()
+      instance.position = { top: top + height, left }
+      instance.vnode = vnode.child
+      instance.value = vnode.child.value || ''
+      setTimeout(() => {
+        instance.visible = true
+      }, 1)
+    })
+  }
+}
+```
+
+```html
+<template>
+  <transition name="num-box-fade">
+    <div v-show="visible" class="num-box-container" :style="positionStyle" @click="clickHandle">
+      <div class="show-box">
+        <span v-text="value"></span>
+      </div>
+      <div class="input-box">
+        <Button @click="() => inputHandle('1')">1</Button>
+        <Button @click="() => inputHandle('2')">2</Button>
+        <Button @click="() => inputHandle('3')">3</Button>
+        <Button @click="() => inputHandle('4')">4</Button>
+        <Button @click="() => inputHandle('5')">5</Button>
+        <Button @click="() => inputHandle('6')">6</Button>
+        <Button @click="() => inputHandle('7')">7</Button>
+        <Button @click="() => inputHandle('8')">8</Button>
+        <Button @click="() => inputHandle('9')">9</Button>
+        <Button @click="() => inputHandle('.')">.</Button>
+        <Button @click="() => inputHandle('0')">0</Button>
+        <Button icon="el-icon-back" :disabled="value.length <= 0" @click="backspaceHandle"></Button>
+      </div>
+      <div class="operate-box">
+        <Button icon="el-icon-close" @click="closeHandle"></Button>
+        <Button icon="el-icon-check" type="success" @click="commitHandle"></Button>
+      </div>
+    </div>
+  </transition>
+</template>
+<script>
+import store from '@/store'
+
+export default {
+  name: 'NumBox',
+  computed: {
+    positionStyle ({ position }) {
+      const { allWidth } = store.state.app.screen
+      let { top, left } = position
+      if (allWidth - left < 209) {
+        left = allWidth - 209
+      }
+      return `top: ${top}px; left: ${left}px`
+    }
+  },
+  watch: {
+    visible (value) {
+      if (value) {
+        document.body.addEventListener('click', this.closeHandle)
+      } else {
+        document.body.removeEventListener('click', this.closeHandle)
+      }
+    }
+  },
+  data () {
+    return {
+      visible: false,
+      position: {
+        top: 0,
+        left: 0
+      },
+      vnode: null, // InputNumber 虚拟节点
+      value: '' // 当前输入的值
+    }
+  },
+  methods: {
+    // 确认输入
+    commitHandle () {
+      if (!this.vnode) return
+      const { setCurrentValue, handleInput } = this.vnode
+      // 调用InputNumber的setCurrentValue设置输入的值
+      if (setCurrentValue) {
+        setCurrentValue(this.value)
+      } else if (handleInput) {
+        handleInput({ target: { value: this.value } })
+      }
+      // 确认输入后关闭软键盘
+      this.closeHandle()
+    },
+    // 输入处理，祖父穿拼接
+    inputHandle (val) {
+      this.value += val
+    },
+    // 退格键删除最后一个字符
+    backspaceHandle () {
+      const val = `${this.value}`
+      if (val.length > 1) {
+        this.value = val.substring(0, val.length - 1)
+      } else {
+        // 如果仅剩一个字符摁退格键时直接清空
+        this.value = ''
+      }
+    },
+    // 关闭数字软键盘
+    closeHandle () {
+      this.visible = false
+      const { blur, focus, setCurrentValue } = this.vnode
+      if (!setCurrentValue) {
+        focus && focus()
+        setTimeout(() => {
+          blur && blur()
+          this.vnode = null
+        }, 100)
+      } else {
+        this.vnode = null
+      }
+    },
+    // 数字软键盘点击时阻止冒泡，防止触发body事件关闭
+    clickHandle (e) {
+      e.stopPropagation()
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+.num-box-container {
+  position: fixed;
+  z-index: 5000;
+  padding: 6px;
+  background-color: #FFF;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, .2);
+  .show-box {
+    height: 34px;
+    line-height: 34px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 600;
+    width: 192px;
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid #EEE;
+    box-sizing: border-box;
+    padding: 0 6px;
+    user-select: none;
+    span {
+      text-align: right;
+    }
+  }
+  .input-box {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(4, 40px);
+    grid-gap: 6px;
+  }
+  .operate-box {
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, 93px);
+    grid-template-rows: repeat(1, 32px);
+    grid-gap: 6px;
+    button {
+      padding: 0;
+    }
+  }
+  button {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+.num-box-fade-enter-active {
+  -webkit-animation: num-box-fade-in .3s;
+  animation: num-box-fade-in .3s;
+}
+.num-box-fade-leave-active {
+  -webkit-animation: num-box-fade-out .3s;
+  animation: num-box-fade-out .3s;
+}
+@-webkit-keyframes num-box-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes num-box-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes num-box-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes num-box-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+</style>
+```
