@@ -219,6 +219,8 @@ this.$router.push({
 
 ##### 5、vue指令，右键打开数字软键盘
 
+![v-num-input](../assets/js-snippet-2.jpg)
+
 > 数字软键盘指令，配合ElementUI InputNumber、Input组件使用  
 > 注册指令：Vue.directive('num-input', NumInput)  
 > 使用指令：&#60;InputNumber v-num-input />  
@@ -301,15 +303,6 @@ export default {
       return `top: ${top}px; left: ${left}px`
     }
   },
-  watch: {
-    visible (value) {
-      if (value) {
-        document.body.addEventListener('click', this.closeHandle)
-      } else {
-        document.body.removeEventListener('click', this.closeHandle)
-      }
-    }
-  },
   data () {
     return {
       visible: false,
@@ -320,6 +313,17 @@ export default {
       vnode: null, // InputNumber 虚拟节点
       value: '' // 当前输入的值
     }
+  },
+  mounted () {
+    // 点击软键盘以外的区域关闭软键盘
+    document.body.addEventListener('click', this.closeHandle)
+    // esc 关闭软键盘
+    document.body.addEventListener('keydown', this.escapeHandle)
+  },
+  beforeDestroy () {
+    // 解除事件绑定
+    document.body.removeEventListener('click', this.closeHandle)
+    document.body.removeEventListener('keydown', this.escapeHandle)
   },
   methods: {
     // 确认输入
@@ -352,6 +356,7 @@ export default {
     // 关闭数字软键盘
     closeHandle () {
       this.visible = false
+      if (!this.vnode) return
       const { blur, focus, setCurrentValue } = this.vnode
       if (!setCurrentValue) {
         focus && focus()
@@ -361,6 +366,12 @@ export default {
         }, 100)
       } else {
         this.vnode = null
+      }
+    },
+    // esc 关闭软键盘
+    escapeHandle (e) {
+      if (e.code === 'Escape') {
+        this.closeHandle()
       }
     },
     // 数字软键盘点击时阻止冒泡，防止触发body事件关闭
