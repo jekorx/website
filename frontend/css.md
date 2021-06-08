@@ -13,6 +13,7 @@
 > 11、[九宫格图片展示](#九宫格图片展示)  
 > 12、[输入框占位符交互](#输入框占位符交互)  
 > 13、[hover效果](#hover效果)  
+> 14、[background-image网格背景](#background-image网格背景)  
 
 #### 文本域内容解析换行，解析换行符
 
@@ -84,6 +85,11 @@ body {
 }
 .center >span {
   margin: auto;
+}
+/* 衍生写法，可直接居中容器中的文本 */
+.center {
+  justify-content: center;
+  align-items: center;
 }
 
 /* 2、grid水平垂直居中 */
@@ -1283,5 +1289,34 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 .link1:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+```
+
+#### background-image网格背景
+
+<div style="padding-bottom: 10px;">
+  <style>
+    #grid-bg {
+      height: 101px;
+      width: 101px;
+      background-image: linear-gradient(0deg, #EEE 1px, transparent 0%),
+                        linear-gradient(90deg, #EEE 1px, transparent 0%);
+      background-size: 20px 20px;
+      background-position: 0 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <div id="grid-bg">网格背景</div>
+</div>
+
+```css
+/* 通过background-image: linear-gradient绘制网格背景 */
+.box {
+  background-image: linear-gradient(0deg, #EEE 1px, transparent 0%),
+                    linear-gradient(90deg, #EEE 1px, transparent 0%);
+  background-size: 20px 20px;
+  background-position: 0 1px;
 }
 ```
