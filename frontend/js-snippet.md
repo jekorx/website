@@ -1,5 +1,12 @@
 # JavaScript代码片段收藏
 
+> 1、[同时生成条码二维码](#1-同时生成条码二维码)  
+> 2、[批量下载图片](#2-批量下载图片)  
+> 3、[导出Excel](#3-导出Excel)  
+> 4、[解析Excel，修改后导出](#4-解析excel修改后导出)  
+> 5、[vue-router@3.x部署更新提示](#5-vue-router3x部署更新提示)  
+> 6、[vue指令，右键打开数字软键盘](#6-vue指令右键打开数字软键盘)  
+
 ##### 1、同时生成条码二维码
 
 ![bar-qr-code](../assets/js-snippet-1.png)
@@ -157,7 +164,18 @@ export default = codeArr => {
 import XLSX from 'xlsx'
 
 /**
- * 导出Excel，不考虑切分sheet页
+ * 导出Excel
+ */
+export const exportExcel = (data, name) => {
+  if (!name) name = `${Date.now()}.xlsx`
+  const wb = XLSX.utils.book_new()
+  const ws = XLSX.utils.aoa_to_sheet(data)
+  XLSX.utils.book_append_sheet(wb, ws, 'SheetJS')
+  XLSX.writeFile(wb, name)
+}
+
+/**
+ * 导出Excel，多sheet页
  */
 export const exportExcel = (datas, name) => {
   if (!name) name = `${Date.now()}.xlsx`
@@ -169,12 +187,13 @@ export const exportExcel = (datas, name) => {
   }
   XLSX.writeFile(wb, name)
 }
+
 /**
  * 导出excel，超过60000条自动分sheet页
  * @param {*} data
  * @param {*} name
  */
-export const exportData = (data, name) => {
+export const exportExcel = (data, name) => {
   if (!name) name = `${Date.now()}.xlsx`
   const wb = XLSX.utils.book_new()
   const header = data[0]
@@ -191,7 +210,60 @@ export const exportData = (data, name) => {
 }
 ```
 
-##### 4、vue-router@3.x部署更新提示
+##### 4、解析Excel，修改后导出
+
+> 使用excel公式 ```{ t:'n', f: 'excel公式' }```  
+> 使用excel公式导出后需要启用编辑公式才能生效  
+
+```javascript
+/*
+<form id="formWrap">
+  <input type="file" id="fileInput" />
+</form>
+*/
+import XLSX from 'xlsx'
+
+const formWrap = document.getElementById('formWrap')
+const keys = ['id', 'productCode', 'printePrice', 'paperPrice', 'totalPrice', 'totalTechfee', '误差']
+function dataArrange (items, arr) {
+  arr.forEach((item, index) => {
+    try {
+      const reqinfo = JSON.parse(item.reqinfo)
+      const resinfo = JSON.parse(item.resinfo)
+      const { productCode } = reqinfo.data
+      const { printePrice, paperPrice, totalPrice, totalTechfee } = resinfo.data
+      items.push([
+        item.id,
+        productCode,
+        printePrice,
+        paperPrice,
+        totalPrice,
+        totalTechfee,
+        { t:'n', f: `=ROUND(E${index + 2}-C${index + 2}-D${index + 2}-F${index + 2}, 2)` } // 使用excel公式
+      ])
+    } catch (error) {
+    }
+  })
+}
+document.getElementById('fileInput').onchange = e => {
+  const [file] = e.target.files
+  if (!file) return
+  const reader = new FileReader()
+  reader.onload = ({ target }) => {
+    const data = new Uint8Array(target.result)
+    const workbook = XLSX.read(data, { type: 'array' }) // 读取excel文件
+    const worksheet = workbook.Sheets[workbook.SheetNames[0]] // 取第一个sheet页
+    const dataArr = XLSX.utils.sheet_to_json(worksheet) // 将数据转为json
+    const items = [keys]
+    dataArrange(items, dataArr)
+    exportExcel(items, file.name) // 上面 3 中导出excel
+    setTimeout(() => formWrap.reset(), 1) // 重置表单情况input file
+  }
+  reader.readAsArrayBuffer(file)
+}
+```
+
+##### 5、vue-router@3.x部署更新提示
 
 > ```vue-router@3.x```中检测网络异常提示  
 > 加载资源失败时，提示重新加载（结合```Element-UI```）  
@@ -217,7 +289,7 @@ this.$router.push({
 })
 ```
 
-##### 5、vue指令，右键打开数字软键盘
+##### 6、vue指令，右键打开数字软键盘
 
 ![v-num-input](../assets/js-snippet-2.jpg)
 
