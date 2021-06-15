@@ -21,3 +21,6 @@
 > * [VueQuillEditor](../frontend/vue-quill-editor.md)
 > * [Chrome文件下载](../frontend/chrome-download.md)
 > * [Js代码片段收藏](../frontend/js-snippet.md)
+
+![JavaScript原型链1](../assets/frontend-js-prototype-chain-1.jpg)
+![JavaScript原型链2](../assets/frontend-js-prototype-chain-2.jpg)
