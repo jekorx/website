@@ -11,6 +11,7 @@
 > * [Vue Cli](../frontend/vue-cli.md)
 > * [Js Utils](../frontend/js-utils.md)
 > * [正则表达式](../frontend/regular.md)
+> * [TypeScript](../frontend/typescript.md)
 > * [ESLint](../frontend/eslint.md)
 > * [Less](../frontend/less.md)
 > * [Canvas](../frontend/canvas.md)
