@@ -5,6 +5,74 @@
 > 开发工具中需添加ESLint扩展，如：VSCode中ESLint插件。  
 > 个人更倾向于使用standard规范，以standard规范为例。  
 
+#### vite中使用ESLint
+
+> vite版本为2.x，编辑器需要安装ESLint插件  
+> 更多配置可参照 [[掘金] 1.4万字 | 玩转前端 Video 播放器](https://juejin.im/post/5f0e52fe518825742109d9ee)  
+
+```javascript
+// 1、安装 ESLint
+yarn add eslint -D
+
+// 2、配置 ESLint，建议使用系统命令行执行该命令
+yarn eslint --init
+// or
+npx eslint --init
+
+// 3、根据提示进行配置
+//
+// (1) How would you like to use ESLint? （你想如何使用 ESLint?）
+//    选择 To check syntax, find problems, and enforce code style（检查语法、发现问题并强制执行代码风格）
+// (2) What type of modules does your project use?（你的项目使用哪种类型的模块?）
+//    选择 JavaScript modules (import/export)
+// (3) Which framework does your project use? （你的项目使用哪种框架?）
+//    选择 Vue.js
+// (4) Does your project use TypeScript?（你的项目是否使用 TypeScript?）
+//    选择 Yes
+// (5) Where does your code run?（你的代码在哪里运行?）
+//    选择 Browser 和 Node（按空格键进行选择，选完按回车键确定
+// (6) How would you like to define a style for your project?（你想怎样为你的项目定义风格？）
+//    选择 Use a popular style guide（使用一种流行的风格指南）
+// (7) Which style guide do you want to follow?（你想遵循哪一种风格指南?）
+//    选择 Standard: https://github.com/standard/standard（根据个人喜好）
+// (8) What format do you want your config file to be in?（你希望你的配置文件是什么格式?）
+//    选择 JavaScript
+// (9) Would you like to install them now with npm?（你想现在就用 NPM 安装它们吗?）
+//    选择 No（稍后使用yarn自行安装）
+//
+// 会自动生成.eslintrc.js文件
+
+// 4、安装其它依赖
+yarn add eslint-plugin-vue @typescript-eslint/eslint-plugin eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise @typescript-eslint/parser -D
+
+// 5、修改.eslintrc.js
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true
+  },
+  extends: [
+    'plugin:vue/essential',
+    'standard'
+  ],
+  parserOptions: {
+    ecmaVersion: 2021,
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module'
+  },
+  plugins: [
+    'vue',
+    '@typescript-eslint'
+  ],
+  rules: {
+    'vue/no-multiple-template-root': 'off',
+    'vue/comment-directive': 'off'
+  },
+  settings: {}
+}
+```
+
 #### create-react-app中使用ESLint
 
 > create-react-app中使用ESLint，[可参照](./cra.md)  

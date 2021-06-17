@@ -11,41 +11,43 @@
 > 9、[base64转file](#base64转file)  
 > 10、[base64转blob](#base64转blob)  
 > 11、[blob转file](#blob转file)  
-> 12、[绑定事件](#绑定事件)  
-> 13、[解绑事件](#解绑事件)  
-> 14、[连字符转驼峰](#连字符转驼峰)  
-> 15、[驼峰转连字符](#驼峰转连字符)  
-> 16、[文件尺寸格式化](#文件尺寸格式化)  
-> 17、[获取指定范围内的随机数](#获取指定范围内的随机数)  
-> 18、[打乱数组](#打乱数组)  
-> 19、[获取Url参数](#获取Url参数)  
-> 20、[切分数组](#切分数组)  
-> 21、[两数组差集](#两数组差集)  
-> 22、[深拷贝](#深拷贝)  
-> 23、[Object合并](#object合并)  
-> 24、[四舍五入到指定小数位](#四舍五入到指定小数位)  
-> 25、[大文件切片上传](#大文件切片上传)  
+> 12、[blob转json](#blob转json)  
+> 13、[绑定事件](#绑定事件)  
+> 14、[解绑事件](#解绑事件)  
+> 15、[连字符转驼峰](#连字符转驼峰)  
+> 16、[驼峰转连字符](#驼峰转连字符)  
+> 17、[文件尺寸格式化](#文件尺寸格式化)  
+> 18、[获取指定范围内的随机数](#获取指定范围内的随机数)  
+> 19、[打乱数组](#打乱数组)  
+> 20、[获取Url参数](#获取Url参数)  
+> 21、[切分数组](#切分数组)  
+> 22、[两数组差集](#两数组差集)  
+> 23、[深拷贝](#深拷贝)  
+> 24、[Object合并](#object合并)  
+> 25、[四舍五入到指定小数位](#四舍五入到指定小数位)  
+> 26、[大文件切片上传](#大文件切片上传)  
+> 27、[防抖](#防抖)  
 
 #### 类型判断
 
 ```javascript
 // 以下为更精确的判断方式，某些场景下比使用 typeof & instanceof 更高效、准确
-// 判断变量是注意非undefined，Object.prototype.toString.call(person) // person is not defined
-Object.prototype.toString.call(123)           // [object Number]
-Object.prototype.toString.call('str')         // [object String]
-Object.prototype.toString.call(true)          // [object Boolean]
-Object.prototype.toString.call(null)          // [object Null]
-Object.prototype.toString.call(undefined)     // [object Undefined]
-Object.prototype.toString.call({})            // [object Object]
-Object.prototype.toString.call([])            // [object Array]
-Object.prototype.toString.call(() => {})      // [object Function]
-Object.prototype.toString.call(/reg/g)        // [object RegExp]
-Object.prototype.toString.call(new Date())    // [object Date]
-Object.prototype.toString.call(Math)          // [object Math]
-Object.prototype.toString.call(window)        // [object Window]
-Object.prototype.toString.call(document)      // [object HTMLDocument]
-Object.prototype.toString.call(10n)           // [object BigInt]
-Object.prototype.toString.call(Symbol())      // [object Symbol]
+// 判断变量是注意非undefined，toString.call(person) // person is not defined
+toString.call(123)         // '[object Number]'
+toString.call('str')       // '[object String]'
+toString.call(true)        // '[object Boolean]'
+toString.call(null)        // '[object Null]'
+toString.call(undefined)   // '[object Undefined]'
+toString.call({})          // '[object Object]'
+toString.call([])          // '[object Array]'
+toString.call(() => {})    // '[object Function]'
+toString.call(/reg/g)      // '[object RegExp]'
+toString.call(new Date())  // '[object Date]'
+toString.call(Math)        // '[object Math]'
+toString.call(window)      // '[object Window]'
+toString.call(document)    // '[object HTMLDocument]'
+toString.call(10n)         // '[object BigInt]'
+toString.call(Symbol())    // '[object Symbol]'
 ```
 
 #### 日期格式化
@@ -455,6 +457,37 @@ export const blobToFile = (blob, filename = Date.now()) => {
     filename = `${filename}.${typeArr[1]}`
   }
   return new File([blob], filename, { type: blob.type })
+}
+```
+
+#### blob转json
+
+```javascript
+/**
+ * @description blob转json
+ *
+ * @param {Blob} blob Blob对象，type为 text/xml 或 application/json
+ * @returns {Promise} 返回Promise对象，then(json => {})
+ */
+export const blobToJson = blob => {
+  return new Promise((resolve, reject) => {
+    if (blob.size <= 0) {
+      reject(new Error('blob is empty'))
+    }
+    if (['text/xml', 'application/json'].includes(blob.type)) {
+      const reader = new FileReader()
+      reader.onload = () => {
+        try {
+          resolve(JSON.parse(reader.result))
+        } catch (e) {
+          reject(e)
+        }
+      }
+      reader.readAsText(blob)
+    } else {
+      reject(new Error('blob type is not text/xml or application/json'))
+    }
+  })
 }
 ```
 
@@ -1457,6 +1490,25 @@ export default class ChunkUpload {
       // 继续合并
       this.merge()
     }
+  }
+}
+```
+
+#### 防抖
+
+> 更多防抖、节流介绍[可参照](./debounce-throttle.md)  
+
+```javascript
+/**
+ * @description 防抖
+ * @param {Function} fn 具体执行方法
+ * @param {Number} delay 间隔时间，默认500毫秒
+ */
+export const debounce = (fn, delay = 500) => {
+  let timer = null
+  return () => {
+    clearTimeout(timer)
+    timer = setTimeout(() => fn && fn(), delay)
   }
 }
 ```
