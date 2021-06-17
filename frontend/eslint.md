@@ -8,7 +8,7 @@
 #### vite中使用ESLint
 
 > vite版本为2.x，编辑器需要安装ESLint插件  
-> 更多配置可参照 [[掘金] 1.4万字 | 玩转前端 Video 播放器](https://juejin.im/post/5f0e52fe518825742109d9ee)  
+> 更多配置可参照 [[掘金] 从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境](https://juejin.cn/post/6951649464637636622)   
 
 ```javascript
 // 1、安装 ESLint
