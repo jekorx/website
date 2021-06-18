@@ -70,38 +70,57 @@
       cxt.font = 'bold 20px Arial'
       cxt.fillStyle = '#000'
       cxt.fillText('Canvas签名，在此处绘制', 30, 100)
-      var rect = canvas.getBoundingClientRect()
-      var offsetTop = rect.top // canvas上边距
-      var offsetLeft = rect.left // canvas左边距
       var isDraw = false // 是否绘制中，用于mousemove
       // 开始绘制
       canvas.ontouchstart = function (e) {
-        cxt.beginPath()
-        cxt.moveTo(e.changedTouches[0].pageX - offsetLeft, e.changedTouches[0].pageY - offsetTop)
+        var touch = e.changedTouches[0]
+        var tagName = touch.target.tagName
+        if (tagName === 'CANVAS') {
+          var offsetTop = touch.target.offsetTop
+          var offsetLeft = touch.target.offsetLeft
+          cxt.beginPath()
+          cxt.moveTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+        }
       }
       canvas.onmousedown = function (e) {
-        isDraw = true
-        cxt.beginPath()
-        cxt.moveTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+        var tagName = e.target.tagName
+        if (tagName === 'CANVAS') {
+          var offsetTop = e.target.offsetTop
+          var offsetLeft = e.target.offsetLeft
+          isDraw = true
+          cxt.beginPath()
+          cxt.moveTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+        }
       }
       // 绘制中
       canvas.ontouchmove = function (e) {
         e.stopPropagation()
         e.preventDefault()
-        cxt.lineTo(e.changedTouches[0].pageX - offsetLeft, e.changedTouches[0].pageY - offsetTop)
-        cxt.stroke()
+        var touch = e.changedTouches[0]
+        var tagName = touch.target.tagName
+        if (tagName === 'CANVAS') {
+          var offsetTop = touch.target.offsetTop
+          var offsetLeft = touch.target.offsetLeft
+          cxt.lineTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+          cxt.stroke()
+        }
       }
       canvas.onmousemove = function (e) {
+        e.stopPropagation()
+        e.preventDefault()
         if (isDraw) {
-          e.stopPropagation()
-          e.preventDefault()
-          cxt.lineTo(e.pageX - offsetLeft, e.pageY - offsetTop)
-          cxt.stroke()
-          if (e.pageX - offsetLeft <= this.borderWidth
-            || e.pageX - offsetLeft >= canvas.width - this.borderWidth * 2
-            || e.pageY - offsetTop <= this.borderWidth
-            || e.pageY - offsetTop >= canvas.height - this.borderWidth * 2) {
-            isDraw = false
+          var tagName = e.target.tagName
+          if (tagName === 'CANVAS') {
+            var offsetTop = e.target.offsetTop
+            var offsetLeft = e.target.offsetLeft
+            cxt.lineTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+            cxt.stroke()
+            if (e.pageX - offsetLeft <= this.borderWidth
+              || e.pageX - offsetLeft >= canvas.width - this.borderWidth * 2
+              || e.pageY - offsetTop <= this.borderWidth
+              || e.pageY - offsetTop >= canvas.height - this.borderWidth * 2) {
+              isDraw = false
+            }
           }
         }
       }.bind(this)
@@ -235,40 +254,59 @@ function drawCanvas(args) {
   cxt.shadowBlur = 1
   cxt.shadowColor = this.color
 
-  var rect = canvas.getBoundingClientRect()
-  var offsetTop = rect.top // canvas上边距
-  var offsetLeft = rect.left // canvas左边距
   var isDraw = false // 是否绘制中，用于mousemove
 
   // 开始绘制
   canvas.ontouchstart = function (e) {
-    cxt.beginPath()
-    cxt.moveTo(e.changedTouches[0].pageX - offsetLeft, e.changedTouches[0].pageY - offsetTop)
+    var touch = e.changedTouches[0]
+    var tagName = touch.target.tagName
+    if (tagName === 'CANVAS') {
+      var offsetTop = touch.target.offsetTop
+      var offsetLeft = touch.target.offsetLeft
+      cxt.beginPath()
+      cxt.moveTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+    }
   }
   canvas.onmousedown = function (e) {
-    isDraw = true
-    cxt.beginPath()
-    cxt.moveTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+    var tagName = e.target.tagName
+    if (tagName === 'CANVAS') {
+      var offsetTop = e.target.offsetTop
+      var offsetLeft = e.target.offsetLeft
+      isDraw = true
+      cxt.beginPath()
+      cxt.moveTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+    }
   }
 
   // 绘制中
   canvas.ontouchmove = function (e) {
     e.stopPropagation()
     e.preventDefault()
-    cxt.lineTo(e.changedTouches[0].pageX - offsetLeft, e.changedTouches[0].pageY - offsetTop)
-    cxt.stroke()
+    var touch = e.changedTouches[0]
+    var tagName = touch.target.tagName
+    if (tagName === 'CANVAS') {
+      var offsetTop = touch.target.offsetTop
+      var offsetLeft = touch.target.offsetLeft
+      cxt.lineTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+      cxt.stroke()
+    }
   }
   canvas.onmousemove = function (e) {
+    e.stopPropagation()
+    e.preventDefault()
     if (isDraw) {
-      e.stopPropagation()
-      e.preventDefault()
-      cxt.lineTo(e.pageX - offsetLeft, e.pageY - offsetTop)
-      cxt.stroke()
-      if (e.pageX - offsetLeft <= this.borderWidth
-        || e.pageX - offsetLeft >= canvas.width - this.borderWidth * 2
-        || e.pageY - offsetTop <= this.borderWidth
-        || e.pageY - offsetTop >= canvas.height - this.borderWidth * 2) {
-        isDraw = false
+      var tagName = e.target.tagName
+      if (tagName === 'CANVAS') {
+        var offsetTop = e.target.offsetTop
+        var offsetLeft = e.target.offsetLeft
+        cxt.lineTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+        cxt.stroke()
+        if (e.pageX - offsetLeft <= this.borderWidth
+          || e.pageX - offsetLeft >= canvas.width - this.borderWidth * 2
+          || e.pageY - offsetTop <= this.borderWidth
+          || e.pageY - offsetTop >= canvas.height - this.borderWidth * 2) {
+          isDraw = false
+        }
       }
     }
   }.bind(this)
