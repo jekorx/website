@@ -74,22 +74,22 @@
       // 开始绘制
       canvas.ontouchstart = function (e) {
         var touch = e.changedTouches[0]
-        var tagName = touch.target.tagName
-        if (tagName === 'CANVAS') {
-          var offsetTop = touch.target.offsetTop
-          var offsetLeft = touch.target.offsetLeft
+        if (touch.target.tagName === 'CANVAS') {
+          var rect = canvas.getBoundingClientRect()
+          var offsetTop = rect.top
+          var offsetLeft = rect.left
           cxt.beginPath()
-          cxt.moveTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+          cxt.moveTo(touch.clientX - offsetLeft, touch.clientY - offsetTop)
         }
       }
       canvas.onmousedown = function (e) {
-        var tagName = e.target.tagName
-        if (tagName === 'CANVAS') {
-          var offsetTop = e.target.offsetTop
-          var offsetLeft = e.target.offsetLeft
+        if (e.target.tagName === 'CANVAS') {
+          var rect = canvas.getBoundingClientRect()
+          var offsetTop = rect.top
+          var offsetLeft = rect.left
           isDraw = true
           cxt.beginPath()
-          cxt.moveTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+          cxt.moveTo(e.clientX - offsetLeft, e.clientY - offsetTop)
         }
       }
       // 绘制中
@@ -97,11 +97,11 @@
         e.stopPropagation()
         e.preventDefault()
         var touch = e.changedTouches[0]
-        var tagName = touch.target.tagName
-        if (tagName === 'CANVAS') {
-          var offsetTop = touch.target.offsetTop
-          var offsetLeft = touch.target.offsetLeft
-          cxt.lineTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+        if (touch.target.tagName === 'CANVAS') {
+          var rect = canvas.getBoundingClientRect()
+          var offsetTop = rect.top
+          var offsetLeft = rect.left
+          cxt.lineTo(touch.clientX - offsetLeft, touch.clientY - offsetTop)
           cxt.stroke()
         }
       }
@@ -109,16 +109,16 @@
         e.stopPropagation()
         e.preventDefault()
         if (isDraw) {
-          var tagName = e.target.tagName
-          if (tagName === 'CANVAS') {
-            var offsetTop = e.target.offsetTop
-            var offsetLeft = e.target.offsetLeft
-            cxt.lineTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+          if (e.target.tagName === 'CANVAS') {
+            var rect = canvas.getBoundingClientRect()
+            var offsetTop = rect.top
+            var offsetLeft = rect.left
+            cxt.lineTo(e.clientX - offsetLeft, e.clientY - offsetTop)
             cxt.stroke()
-            if (e.pageX - offsetLeft <= this.borderWidth
-              || e.pageX - offsetLeft >= canvas.width - this.borderWidth * 2
-              || e.pageY - offsetTop <= this.borderWidth
-              || e.pageY - offsetTop >= canvas.height - this.borderWidth * 2) {
+            if (e.clientX - offsetLeft <= this.borderWidth
+              || e.clientX - offsetLeft >= canvas.width - this.borderWidth * 2
+              || e.clientY - offsetTop <= this.borderWidth
+              || e.clientY - offsetTop >= canvas.height - this.borderWidth * 2) {
               isDraw = false
             }
           }
@@ -259,22 +259,22 @@ function drawCanvas(args) {
   // 开始绘制
   canvas.ontouchstart = function (e) {
     var touch = e.changedTouches[0]
-    var tagName = touch.target.tagName
-    if (tagName === 'CANVAS') {
-      var offsetTop = touch.target.offsetTop
-      var offsetLeft = touch.target.offsetLeft
+    if (touch.target.tagName === 'CANVAS') {
+      var rect = canvas.getBoundingClientRect()
+      var offsetTop = rect.top
+      var offsetLeft = rect.left
       cxt.beginPath()
-      cxt.moveTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+      cxt.moveTo(touch.clientX - offsetLeft, touch.clientY - offsetTop)
     }
   }
   canvas.onmousedown = function (e) {
-    var tagName = e.target.tagName
-    if (tagName === 'CANVAS') {
-      var offsetTop = e.target.offsetTop
-      var offsetLeft = e.target.offsetLeft
+    if (e.target.tagName === 'CANVAS') {
+      var rect = canvas.getBoundingClientRect()
+      var offsetTop = rect.top
+      var offsetLeft = rect.left
       isDraw = true
       cxt.beginPath()
-      cxt.moveTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+      cxt.moveTo(e.clientX - offsetLeft, e.clientY - offsetTop)
     }
   }
 
@@ -283,11 +283,11 @@ function drawCanvas(args) {
     e.stopPropagation()
     e.preventDefault()
     var touch = e.changedTouches[0]
-    var tagName = touch.target.tagName
-    if (tagName === 'CANVAS') {
-      var offsetTop = touch.target.offsetTop
-      var offsetLeft = touch.target.offsetLeft
-      cxt.lineTo(touch.pageX - offsetLeft, touch.pageY - offsetTop)
+    if (touch.target.tagName === 'CANVAS') {
+      var rect = canvas.getBoundingClientRect()
+      var offsetTop = rect.top
+      var offsetLeft = rect.left
+      cxt.lineTo(touch.clientX - offsetLeft, touch.clientY - offsetTop)
       cxt.stroke()
     }
   }
@@ -295,16 +295,16 @@ function drawCanvas(args) {
     e.stopPropagation()
     e.preventDefault()
     if (isDraw) {
-      var tagName = e.target.tagName
-      if (tagName === 'CANVAS') {
-        var offsetTop = e.target.offsetTop
-        var offsetLeft = e.target.offsetLeft
-        cxt.lineTo(e.pageX - offsetLeft, e.pageY - offsetTop)
+      if (e.target.tagName === 'CANVAS') {
+        var rect = canvas.getBoundingClientRect()
+        var offsetTop = rect.top
+        var offsetLeft = rect.left
+        cxt.lineTo(e.clientX - offsetLeft, e.clientY - offsetTop)
         cxt.stroke()
-        if (e.pageX - offsetLeft <= this.borderWidth
-          || e.pageX - offsetLeft >= canvas.width - this.borderWidth * 2
-          || e.pageY - offsetTop <= this.borderWidth
-          || e.pageY - offsetTop >= canvas.height - this.borderWidth * 2) {
+        if (e.clientX - offsetLeft <= this.borderWidth
+          || e.clientX - offsetLeft >= canvas.width - this.borderWidth * 2
+          || e.clientY - offsetTop <= this.borderWidth
+          || e.clientY - offsetTop >= canvas.height - this.borderWidth * 2) {
           isDraw = false
         }
       }
