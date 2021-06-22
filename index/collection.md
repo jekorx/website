@@ -6,6 +6,7 @@
 [JavaScript] [MDN](https://developer.mozilla.org/zh-CN/)  
 [JavaScript] [现代 JavaScript 教程](https://zh.javascript.info/)  
 [JavaScript] [30 秒就能理解的 JavaScript 代码片段](https://www.css88.com/30-seconds-of-code/)  
+[Animation] [TweenMax动画工具 构建补间动画](https://www.tweenmax.com.cn/api/tweenmax/)  
 
 #### 前端
 
@@ -111,6 +112,7 @@
 [掘金] [让我告诉你一些强无敌的 NPM 软件包](https://juejin.cn/post/6950584088462163982)  
 [掘金] [【设计模式】这样学也太简单了吧！](https://juejin.cn/post/6953423646664687652)  
 [GitHub] [CSS像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)  
+[SegmentFault] [Vite 开发插件如何生成 .d.ts 类型声明文件](https://segmentfault.com/a/1190000040127796)  
 
 #### Server
 

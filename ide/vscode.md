@@ -88,3 +88,67 @@ px2rem
 # 原快捷键 Ctrl + space，与系统冲突，修改即可
 # 文件 -> 首选项 -> 键盘快捷方式，搜索“触发建议”，修改为 Alt + / ，按enter键保存即可
 ```
+
+#### 自定义模版
+
+![自定义模版](../assets/ide-vscode-1.jpg)
+![自定义模版](../assets/ide-vscode-2.jpg)
+![自定义模版](../assets/ide-vscode-3.jpg)
+
+> 在生成的```template.code-snippets```中加入以下  
+
+```json
+{
+  "vue2": {
+    "prefix": "vue2 init template",
+    "scope": "vue",
+    "body": [
+      "<template>",
+      "  <div>",
+      "  </div>",
+      "</template>",
+      "<script>",
+      "export default {",
+      "  name: '$1'",
+      "}",
+      "</script>",
+      "<style scoped>",
+      "",
+      "</style>",
+      ""
+    ],
+    "description": "vue2初始化模版"
+  },
+  "vue3": {
+    "prefix": "vue3 init template",
+    "scope": "vue",
+    "body": [
+      "<template>",
+      "  <div>",
+      "  </div>",
+      "</template>",
+      "<script lang=\"ts\">",
+      "import { defineComponent } from 'vue'",
+      "",
+      "export default defineComponent({",
+      "  name: '$1',",
+      "  setup () {",
+      "    return {",
+      "",
+      "    }",
+      "  }",
+      "})",
+      "</script>",
+      "<style scoped>",
+      "",
+      "</style>",
+      ""
+    ],
+    "description": "vue3初始化模版"
+  }
+}
+```
+
+> 使用  
+
+![自定义模版](../assets/ide-vscode-4.jpg)
