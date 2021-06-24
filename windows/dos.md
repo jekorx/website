@@ -31,3 +31,16 @@ winscp.exe /console /script=upload.txt /log=log.txt
 
 > 执行```upload.bat```会自动上传，初次会有登录提示，英文输入法状态下输入```Y```即可。  
 > 注意：1、用户名、密码不能出现特殊符号；2、权限问题[可参照](../linux/cmd.md#用户操作)。  
+
+###### net网络命令
+
+```bash
+# 建立IPC链接
+net use \\<IP> <PASSWORD> /user:<USRENAME>
+
+# 删除指定链接
+net use \\<IP> /delete
+
+# 删除全部链接，会有确认提示，可用于查看列表
+net use * /delete
+```
