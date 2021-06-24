@@ -67,6 +67,8 @@
 [掘金] [仅使用CSS提高页面渲染速度](https://juejin.cn/post/6942661408181977118)  
 [GitHub] [iCSS](https://github.com/chokcoco/iCSS)  
 [掘金] [分享几个css生成工具](https://juejin.cn/post/6944881756524789773)  
+[掘金] [CSS 实现多行文本“展开收起”](https://juejin.cn/post/6963904955262435336)  
+[掘金] [CSS 自动显示“全文”链接](https://juejin.cn/post/6976436998340870180)  
 
 > TypeScript
 

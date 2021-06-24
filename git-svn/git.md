@@ -152,8 +152,8 @@ ipconfig /flushdns
 #### 提交gh-pages分支以供展示
 
 ```bash
-# _book为打包后的文件目录
-git subtree push --prefix _book origin gh-pages
+# dist为打包后的文件目录
+git subtree push --prefix dist origin gh-pages
 ```
 
 #### 分支
