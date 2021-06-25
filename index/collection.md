@@ -6,6 +6,7 @@
 [JavaScript] [MDN](https://developer.mozilla.org/zh-CN/)  
 [JavaScript] [现代 JavaScript 教程](https://zh.javascript.info/)  
 [JavaScript] [30 秒就能理解的 JavaScript 代码片段](https://www.css88.com/30-seconds-of-code/)  
+[FrontEnd] [30 seconds of code](https://www.30secondsofcode.org/)  
 [Animation] [TweenMax动画工具 构建补间动画](https://www.tweenmax.com.cn/api/tweenmax/)  
 
 #### 前端

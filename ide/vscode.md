@@ -66,7 +66,7 @@ Markdown Preview Enhanced
 # svn
 SVN
 # vue
-Vetur
+Volar
 # react
 Simple React Snippets
 # css预编译stylus
