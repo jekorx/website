@@ -152,6 +152,7 @@
 [掘金] [flutter好用的轮子推荐二十一-flutter制作刮刮卡效果](https://juejin.im/post/5df5c48ae51d4558096d5887)  
 [掘金] [Flutter Candies 一桶天下](https://juejin.im/post/5d8d5a105188256ec311fa99)  
 [掘金] [flutter开发之Dart[必读篇]💯](https://juejin.im/post/5f1c54dff265da22f6164a81)  
+[掘金] [flutter实战总结(老手不必看)](https://juejin.cn/post/6891084212997537799)  
 
 #### Git
 

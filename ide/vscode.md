@@ -63,19 +63,20 @@ vscode-icons
 Bracket Pair Colorizer 2
 # markdown文件预览
 Markdown Preview Enhanced
-# svn
-SVN
 # vue
 Volar
 # react
 Simple React Snippets
 # css预编译stylus
 language-stylus
+# svn
+SVN
 # flutter开发插件，自动安装dart插件
 Flutter
 # flutter 模版
 Flutter Widget Snippets
-
+# 静态html本地开发，热加载
+Live Server
 # px2rem.rootFontSize 默认设计稿宽750px，默认使用iphone7 设备宽375px 开发，按照index.js[x]中的rem自适应计算方法为 50
 # 详细配置查看该插件说明
 px2rem

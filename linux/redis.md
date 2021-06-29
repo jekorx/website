@@ -29,7 +29,7 @@ vim /usr/local/redis/redis.conf
 bind 127.0.0.1                 # line.69 注释掉
 port <port>                    # line.92 修改默认端口
 daemonize yes                  # line.136 守护进程 yes
-stop-writes-on-bgsave-error no # line.235 持久化失败报错 no，继续使用
+dir /usr/local/redis/          # line.263 修改dump.rdb目录
 requirepass <your password>    # line.507 设置密码
 maxmemory <bytes>              # line.566 可使用最大内存，单位字节（bytes）
 notify-keyspace-events Ex      # line.1060 键空间通知，过期事件的监听
@@ -57,4 +57,17 @@ redis-cli -a '<your password>'
 
 > ping
 pong
+```
+
+#### 相关错误
+
+> MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails &#40;stop-writes-on-bgsave-error option&#41;. Please check the Redis logs for details about the RDB error.  
+
+```bash
+# 修改配置
+vim /usr/local/redis/redis.conf
+
+stop-writes-on-bgsave-error no # line.235 持久化失败报错 no，继续使用
+
+# 重启redis
 ```
