@@ -17,7 +17,7 @@
 > * [MongoDB](../linux/mongodb.md)
 > * [Solr](../linux/solr.md)
 > * [RabbitMQ](../linux/rabbitmq.md)
-> * [ftp服务器](../linux/ftp.md)
+> * [Ftp服务器](../linux/ftp.md)
 > * [Jenkins](../linux/jenkins.md)
 > * [禅道](../linux/zentao.md)
 
