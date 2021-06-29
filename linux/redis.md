@@ -26,12 +26,13 @@ cp -a /opt/redis-5.0.4/redis.conf /usr/local/redis
 # 修改配置
 vim /usr/local/redis/redis.conf
 
-bind 127.0.0.1              # line.69 注释掉
-port <port>                 # line.92 修改默认端口
-daemonize yes               # line.136 守护进程 yes
-requirepass <your password> # line.507 设置密码
-maxmemory <bytes>           # line.566 可使用最大内存，单位字节（bytes）
-notify-keyspace-events Ex   # line.1066 键空间通知，过期事件的监听
+bind 127.0.0.1                 # line.69 注释掉
+port <port>                    # line.92 修改默认端口
+daemonize yes                  # line.136 守护进程 yes
+stop-writes-on-bgsave-error no # line.235 持久化失败报错 no，继续使用
+requirepass <your password>    # line.507 设置密码
+maxmemory <bytes>              # line.566 可使用最大内存，单位字节（bytes）
+notify-keyspace-events Ex      # line.1060 键空间通知，过期事件的监听
 
 # 创建软连接
 ln -s /usr/local/redis/bin/* /usr/local/sbin/

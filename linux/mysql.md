@@ -160,7 +160,16 @@ drop user 'username'@'%';
 
 #### 常见错误
 
-> ERROR 1820 \(HY000\): You must reset your password using ALTER USER statement before executin
+> ERROR 1819 &#40;HY000&#41;: Your password does not satisfy the current policy requirements  
+> ERROR 1820 &#40;HY000&#41;: You must reset your password using ALTER USER statement before executin  
+
+> 与```validate_password_policy```取值有关  
+
+| Policy | Tests Performed | Remarks |
+| --- | --- | --- |
+| 0 or LOW | Length | |
+| 1 or MEDIUM | Length; numeric, lowercase/uppercase, and special characters | **Default** |
+| 2 or STRONG | Length; numeric, lowercase/uppercase, and special characters; dictionary file | |
 
 ```sql
 -- 解决方法
@@ -168,6 +177,9 @@ drop user 'username'@'%';
 set password=password("youpassword");
 -- 或者
 alter user 'root'@'localhost' identified by 'youpassword';
+
+-- 也可通过设置validate_password_policy，不推荐
+--set global validate_password_policy=0;
 
 -- 2、刷新权限
 flush privileges;

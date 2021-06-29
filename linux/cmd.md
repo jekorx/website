@@ -24,6 +24,9 @@ useradd -d /www/testuser testuser
 passwd testuser
 # 设置访问权限
 chown -R testuser /www/testuser
+
+# 删除用户
+userdel testuser
 ```
 
 ###### nohup后台执行命令
