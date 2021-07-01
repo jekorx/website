@@ -116,6 +116,8 @@ File -> Settings -> Editor -> File and Code Templates
 > 快捷键
 
 ```bash
+################# 代码补全 #################
+
 # 代码补全，Eclipse中Alt + /
 File -> Settings -> Keymap -> Main menu -> Code -> Code Completion
 
@@ -125,4 +127,12 @@ Cyclic Expand Word (Backward): <右键，Remove Alt + />
 
 # 添加
 Basic: <Add Keyboard Shutcut Alt + />
+
+################# 自动折行 #################
+
+# 自动折行
+File -> Settings -> Keymap -> Main menu -> View -> Active Editor
+
+# 添加
+Soft-Wrap: <Add Keyboard Shutcut Alt + Z>
 ```
