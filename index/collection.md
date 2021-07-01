@@ -39,6 +39,7 @@
 [掘金] [从原型链出发，看看 Class 被编译成了什么样子](https://juejin.cn/post/6952545529247039524)  
 [SegmentFault] [JavaScript: 数组reduce实例方法](https://segmentfault.com/a/1190000039774558)  
 [掘金] [最全的手写JS面试题](https://juejin.cn/post/6968713283884974088)  
+[掘金] [Event Loop ：你知道它们的打印顺序吗？](https://juejin.cn/post/6979244116199047204)  
 
 > CSS
 
@@ -75,6 +76,7 @@
 
 [掘金] [你可能不知道的 TypeScript 高级技巧](https://juejin.im/post/5e10a7f65188253a8d3ea3db)  
 [掘金] [一份不可多得的 TS 学习指南（1.8W字）](https://juejin.im/post/6872111128135073806)  
+[掘金] [总结TypeScript在项目开发中的应用实践体会](https://juejin.cn/post/6970841540776329224)  
 
 > Vue  
 

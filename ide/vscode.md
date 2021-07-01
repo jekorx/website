@@ -63,8 +63,8 @@ vscode-icons
 Bracket Pair Colorizer 2
 # markdown文件预览
 Markdown Preview Enhanced
-# vue
-Volar
+# vue，Volar 是最新的vue3插件，使用习惯不如Vetur，看后续更新
+Vetur
 # react
 Simple React Snippets
 # css预编译stylus
