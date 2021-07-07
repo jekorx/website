@@ -44,3 +44,9 @@ net use \\<IP> /delete
 # 删除全部链接，会有确认提示，可用于查看列表
 net use * /delete
 ```
+
+##### 刷新DNS缓存
+
+```bash
+ipconfig /flushdns
+```

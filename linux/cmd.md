@@ -71,3 +71,9 @@ find ./ -name "*.md" | xargs rm -rf
 # 如：删除所有含有md的文件夹
 find ./ -type d -name "*md*" | xargs rm -rf
 ```
+
+##### 刷新DNS缓存
+
+```bash
+sudo dscacheutil -flushcache
+```
