@@ -26,7 +26,7 @@ read_dir(){
                 then
                     sed -i '5i\<script id="f0196b">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||((window.location.host!="blog.wdg.pub")&&(window.location.host!="www.wdg.pub")))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("f0196b").remove()</script>' $1"/"$file
                     #sed -i "/<\/body>/i <script id=\"b49ed9\">document.writeln('<script type=\"text/javascript\" color=\"77,77,77\" opcity=\"0.77\" count=\"'+(document.body.clientWidth?Math.floor(document.body.clientWidth/20):30)+'\" src=\"https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js\">'+'<'+'/script>');document.getElementById(\"b49ed9\").remove()</script>" $1"/"$file
-                    if test $code && $code != ""
+                    if [ -n "$code" ]
                     then
                         sed -i "/<\/body>/i <script id=\"b82fd9\">!function(){var t=document.querySelector('.gitbook-link');t.innerText='${code}',t.href='https://beian.miit.gov.cn/',t.style.textAlign='center',t.style.marginBottom='7px'}();document.getElementById(\"b82fd9\").remove()</script>" $1"/"$file
                     fi
