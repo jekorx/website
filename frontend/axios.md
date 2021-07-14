@@ -295,8 +295,8 @@ function fileChange (e) {
     host: '127.0.0.1',
     port: 9000,
     auth: {
-      username: 'mikeymike',
-      password: 'rapunz3l'
+      username: 'username',
+      password: 'password'
     }
   },
 

@@ -1,11 +1,12 @@
 # JavaScript代码片段收藏
 
-> 1、[同时生成条码二维码](#1、同时生成条码二维码)  
-> 2、[批量下载图片](#2、批量下载图片)  
-> 3、[导出Excel](#3、导出excel)  
-> 4、[解析Excel，修改后导出](#4、解析excel，修改后导出)  
-> 5、[vue-router@3.x部署更新提示](#5、vue-router3x部署更新提示)  
-> 6、[vue指令，右键打开数字软键盘](#6、vue指令，右键打开数字软键盘)  
+> 1、[同时生成条码二维码](#1-同时生成条码二维码)  
+> 2、[批量下载图片](#2-批量下载图片)  
+> 3、[导出Excel](#3-导出excel)  
+> 4、[解析Excel，修改后导出](#4-解析excel修改后导出)  
+> 5、[vue-router@3.x部署更新提示](#5-vue-router3x部署更新提示)  
+> 6、[vue指令，右键打开数字软键盘](#6-vue指令右键打开数字软键盘)  
+> 7、[ElementUI-Table，列拖拽排序](#7-elementui-table列拖拽排序)  
 
 ##### 1、同时生成条码二维码
 
@@ -539,6 +540,329 @@ export default {
   }
   100% {
     opacity: 0;
+  }
+}
+</style>
+```
+
+##### 7、ElementUI-Table，列拖拽排序
+
+```html
+<template>
+  <div :class="{ 'drag-table': true, 'drag-table_moving': dragState.dragging }">
+    <Table
+      v-loading="loading"
+      ref="tableRef"
+      :data="data"
+      :border="border"
+      :height="height"
+      :show-summary="showSummary"
+      :cell-class-name="cellClassName"
+      :header-cell-class-name="headerCellClassName"
+      :summary-method="summaryMethod"
+      :row-class-name="rowClassName"
+      @cell-dblclick="tableDbClickHandle"
+      @row-contextmenu="rowContextmenuHandle">
+      <slot name="before"></slot>
+      <template v-for="(col, index) in tableHeader">
+        <TableColumn
+          show-overflow-tooltip
+          header-align="center"
+          align="center"
+          :resizable="false"
+          :key="index"
+          :column-key="`${index}`"
+          :class-name="col.className"
+          :type="col.type"
+          :index="col.indexHandle"
+          :prop="col.prop"
+          :label="col.label"
+          :min-width="col.width"
+          :render-header="renderHeader" />
+      </template>
+      <slot name="after"></slot>
+    </Table>
+  </div>
+</template>
+<script>
+/**
+ * slot="before" header渲染位置之前
+ * slot="after" header渲染位置之后
+ * @drag-complete="dragComplete" 返回新的header数据，可在页面初始化时赋值给header
+ */
+/*
+const columns = [
+  { prop: 'a', label: 'AA', width: '130' },
+  { prop: 'b', label: 'BB', className: 'user-select-all', width: '120' },
+  { prop: 'c', label: 'CC', width: '130' }
+]
+<DragTable
+  :loading="listLoading"
+  show-summary
+  ref="tableRef"
+  class="table-expand"
+  :height="tableHeight"
+  :header="columns"
+  :data="tableData.list"
+  :summary-method="getSummaries"
+  :row-class-name="rowClassHandle"
+  @cell-dblclick="tableDbClickHandle"
+  @row-contextmenu="rowContextmenuHandle"
+  @drag-complete="tableDragComplete">
+  <TableColumn slot="before" header-align="center" align="center" width="70" type="index" label="序号" :index="indexHandle" />
+  <template slot="after">
+    <TableColumn header-align="center" align="center" width="80" prop="d" label="DD" :formatter="ddFormatter" />
+    <TableColumn header-align="center" align="center" width="90" prop="_operation" label="操作" fixed="right">
+      <div class="table-operation" slot-scope="scope">
+        <Button type="text" style="color: #19BE6B" @click="() => detail(scope)">查看</Button>
+      </div>
+    </TableColumn>
+  </template>
+</DragTable>
+*/
+// 初始化拖拽状态对象
+const dragState = {
+  start: NaN, // 起始元素的 index
+  end: NaN, // 移动鼠标时所覆盖的元素 index
+  dragging: false, // 是否正在拖动
+  direction: undefined // 拖动方向
+}
+export default {
+  name: 'DragTable',
+  computed: {
+    // before插槽数量
+    beforeLength ({ $slots }) {
+      return ($slots.before && $slots.before.length) || 0
+    }
+  },
+  props: {
+    // 表格数据
+    data: {
+      type: Array,
+      default: () => []
+    },
+    // colums数据[{ width: 150, prop: '', label: '', className: '' }]
+    // width -> TableColumn min-width
+    // className -> TableColumn class-name
+    // indexHandle -> TableColumn type="index" 索引生成方法
+    header: {
+      type: Array,
+      default: () => []
+    },
+    // 数据loading状态
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    // 是否显示表格边框，默认显示
+    border: {
+      type: Boolean,
+      default: true
+    },
+    // 表格高度
+    height: {
+      type: Number,
+      default: 100
+    },
+    // 是否显示汇总行，默认false不显示
+    showSummary: {
+      type: Boolean,
+      default: false
+    },
+    // 汇总方法，showSummary 为true，需设置
+    summaryMethod: {
+      type: Function,
+      default: ({ columns }) => columns.map(() => '')
+    },
+    // 行样式
+    rowClassName: {
+      type: Function,
+      default: () => ''
+    }
+  },
+  data () {
+    return {
+      tableHeader: this.header,
+      dragState: { ...dragState }
+    }
+  },
+  watch: {
+    header (val) {
+      // 传入的header数据同步到当前tableHeader，解决不定列的问题
+      this.tableHeader = val
+    }
+  },
+  methods: {
+    // 触发表格doLayout，可以直接通过DragTable的ref属性获取组件后调用
+    doLayout () {
+      this.$refs.tableRef.doLayout && this.$refs.tableRef.doLayout()
+    },
+    // 表格双击事件
+    tableDbClickHandle (row, column) {
+      this.$emit('cell-dblclick', { row, column })
+    },
+    // 右键菜单事件
+    rowContextmenuHandle (row, column, e) {
+      this.$emit('row-contextmenu', { row, column, e })
+    },
+    // 渲染header，增加mousedown，mousemove事件，增加虚拟span
+    renderHeader (createElement, { column }) {
+      return createElement(
+        'div', {
+          'class': ['thead-cell'],
+          on: {
+            mousedown: $event => { this.handleMouseDown($event, column) },
+            mousemove: $event => { this.handleMouseMove($event, column) }
+          }
+        }, [
+          // 添加 <a> 用于显示表头 label
+          createElement('a', {
+            'class': ['table-header-label']
+          }, column.label),
+          // 添加一个空标签用于显示拖动动画
+          createElement('span', {
+            'class': ['table-virtual']
+          })
+        ])
+    },
+    // 按下鼠标开始拖动
+    handleMouseDown (e, { columnKey }) {
+      this.dragState.dragging = true
+      this.dragState.start = +columnKey
+      // 给拖动时的虚拟容器添加宽高
+      const table = this.$refs.tableRef.$el
+      const virtual = table.querySelectorAll('.table-virtual')
+      // 计算滚动条向右滑动，左侧滚动量
+      const { scrollLeft } = table.querySelector('.el-table__header-wrapper')
+      for (const item of virtual) {
+        item.style.height = `${table.clientHeight - 1}px`
+        item.style.width = `${item.parentElement.parentElement.clientWidth}px`
+        item.style.marginLeft = `${-scrollLeft - 1}px`
+      }
+      document.addEventListener('mouseup', this.handleMouseUp)
+    },
+    // 鼠标放开结束拖动
+    handleMouseUp () {
+      this.dragColumn(this.dragState)
+      // 初始化拖动状态
+      this.dragState = { ...dragState }
+      document.removeEventListener('mouseup', this.handleMouseUp)
+    },
+    // 拖动中
+    handleMouseMove (e, { columnKey }) {
+      if (this.dragState.dragging) {
+        // 记录起始列
+        const index = +columnKey
+        if (index - this.dragState.start !== 0) {
+          // 判断拖动方向
+          this.dragState.direction = index - this.dragState.start < 0 ? 'left' : 'right'
+          this.dragState.end = index
+        } else {
+          this.dragState.direction = undefined
+        }
+      } else {
+        return false
+      }
+    },
+    // 拖动易位
+    dragColumn ({ start, end, direction }) {
+      const tempData = []
+      const left = direction === 'left'
+      const min = left ? end : start - 1
+      const max = left ? start + 1 : end
+      for (let i = 0; i < this.tableHeader.length; i++) {
+        if (i === end) {
+          tempData.push(this.tableHeader[start])
+        } else if (i > min && i < max) {
+          tempData.push(this.tableHeader[left ? i - 1 : i + 1])
+        } else {
+          tempData.push(this.tableHeader[i])
+        }
+      }
+      this.tableHeader = tempData
+      // 拖拽完成，emit drag-complete事件，返回当前columns数据
+      this.$emit('drag-complete', tempData)
+    },
+    // 当前拖拽列（theader）样式计算
+    headerCellClassName ({ columnIndex }) {
+      const { start, end, direction } = this.dragState
+      const activeClass = columnIndex - this.beforeLength === end ? `drag-active-${direction}` : ''
+      const startClass = columnIndex - this.beforeLength === start ? 'drag-start' : ''
+      return `${activeClass} ${startClass}`
+    },
+    // 当前拖拽列（tbody）样式计算
+    cellClassName ({ columnIndex }) {
+      return (columnIndex - this.beforeLength === this.dragState.start) ? 'drag-start' : ''
+    }
+  }
+}
+</script>
+<style lang="scss">
+.drag-table {
+  .el-table .drag-start {
+    background-color: #f3f3f3;
+  }
+  .el-table .el-table__header-wrapper {
+    th {
+      padding: 0;
+      .table-header-label {
+        padding: 8px 0;
+      }
+      .table-virtual{
+        position: fixed;
+        display: block;
+        width: 0;
+        height: 0;
+        background: none;
+        border: none;
+      }
+      &.drag-active-left {
+        .table-virtual {
+          border-left: 2px dotted #666;
+          z-index: 99;
+        }
+      }
+      &.drag-active-right {
+        .table-virtual {
+          border-right: 2px dotted #666;
+          z-index: 99;
+        }
+      }
+    }
+    div.cell {
+      padding: 0 !important;
+      position: relative;
+    }
+    .thead-cell {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      cursor: pointer;
+      overflow: initial;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+  /* .el-table__fixed,
+  .el-table__fixed-right {
+    z-index: 101;
+    background-color: #FFF;
+  } */
+  &.drag-table_moving {
+    .el-table th .thead-cell{
+      cursor: move !important;
+    }
+    .el-table__fixed,
+    .el-table__fixed-right {
+      cursor: not-allowed;
+    }
   }
 }
 </style>
