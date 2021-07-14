@@ -7,6 +7,7 @@
 > 5、[vue-router@3.x部署更新提示](#5、vue-router3x部署更新提示)  
 > 6、[vue指令，右键打开数字软键盘](#6、vue指令，右键打开数字软键盘)  
 > 7、[ElementUI-Table，列拖拽排序](#7、elementui-table，列拖拽排序)  
+> 8、[ElementUI-Table，嵌套表格](#8、elementui-table，嵌套表格)  
 
 ##### 1、同时生成条码二维码
 
@@ -862,6 +863,87 @@ export default {
     .el-table__fixed,
     .el-table__fixed-right {
       cursor: not-allowed;
+    }
+  }
+}
+</style>
+```
+
+##### 8、ElementUI-Table，嵌套表格
+
+```html
+<!-- 全局样式 -->
+<style lang="scss">
+  .table-column-no-padding {
+    padding: 0 !important;
+    >.cell {
+      padding: 0 !important;
+    }
+  }
+</style>
+
+<!-- 某一单元格嵌套，不带表头 -->
+<template>
+  <Table :data="list">
+    <TableColumn header-align="center" align="center" min-width="140" prop="a" label="AA" />
+    <TableColumn header-align="center" align="center" min-width="300" prop="b" label="BB" class-name="table-column-no-padding">
+      <table slot-scope="{ row, $index }" class="inner-table">
+        <tr v-for="(item, i) in row.items" :key="`${$index}_${i}`">
+          <td style="width: 20%" v-text="item.b1"></td>
+          <td style="width: 30%" v-text="item.b2"></td>
+          <td style="width: 30%" v-text="item.b3"></td>
+          <td style="width: 20%" v-text="item.b4"></td>
+        </tr>
+      </table>
+    </TableColumn>
+    <TableColumn header-align="center" align="center" min-width="140" prop="c" label="CC" />
+  </Table>
+</template>
+
+<!-- 带表头 -->
+<template>
+  <Table :data="list">
+    <TableColumn header-align="center" align="center" min-width="150" prop="a" label="AA" show-overflow-tooltip />
+    <TableColumn header-align="center" align="center" min-width="180" prop="b" label="BB" show-overflow-tooltip />
+    <TableColumn header-align="center" align="center" min-width="700" class-name="table-column-no-padding">
+      <table slot="header" class="inner-table">
+        <tr>
+          <th style="width: 20%">B1</th>
+          <th style="width: 30%">B2</th>
+          <th style="width: 30%">B3</th>
+          <th style="width: 20%">B4</th>
+        </tr>
+      </table>
+      <table slot-scope="{ row, $index }" class="inner-table">
+        <tr v-for="(item, i) in row.items" :key="`${$index}_${i}`">
+          <td style="width: 20%" v-text="item.b1"></td>
+          <td style="width: 30%" v-text="item.b2"></td>
+          <td style="width: 30%" v-text="item.b3"></td>
+          <td style="width: 20%" v-text="item.b4"></td>
+        </tr>
+      </table>
+    </TableColumn>
+  </Table>
+</template>
+
+<!-- 局部样式 -->
+<style lang="scss" scoped>
+table.inner-table {
+  width: 100%;
+  border-spacing: 0;
+  tr {
+    td, th {
+      text-align: center;
+      box-sizing: border-box;
+      &:last-child {
+        border-right: 0;
+        margin-left: -1px
+      }
+    }
+    &:last-child {
+      td, th {
+        border-bottom: 0;
+      }
     }
   }
 }
