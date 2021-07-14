@@ -26,7 +26,7 @@
   * [高德vue地图选择器](frontend/amap-selector.md)
   * [VueQuillEditor](frontend/vue-quill-editor.md)
   * [Chrome文件下载](frontend/chrome-download.md)
-  * [Js代码片段收藏](frontend/js-snippet.md)
+  * [代码片段收藏](frontend/snippet.md)
 * [微信开发](index/wx.md)
   * [微信小程序车牌键盘](wx/weapp-vehicle-panel.md)
   * [微信小程序授权](wx/weapp-grant.md)
