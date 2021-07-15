@@ -578,8 +578,17 @@ export default {
           :index="col.indexHandle"
           :prop="col.prop"
           :label="col.label"
-          :min-width="col.width"
-          :render-header="renderHeader" />
+          :min-width="col.width">
+          <div
+            slot="header"
+            slot-scope="{ column }"
+            class="thead-cell"
+            @mousedown="e => handleMouseDown(e, column)"
+            @mousemove="e => handleMouseMove(e, column)">
+            <a class="table-header-label" v-text="column.label"></a>
+            <span class="table-virtual"></span>
+          </div>
+        </TableColumn>
       </template>
       <slot name="after"></slot>
     </Table>
@@ -705,26 +714,6 @@ export default {
     // 右键菜单事件
     rowContextmenuHandle (row, column, e) {
       this.$emit('row-contextmenu', { row, column, e })
-    },
-    // 渲染header，增加mousedown，mousemove事件，增加虚拟span
-    renderHeader (createElement, { column }) {
-      return createElement(
-        'div', {
-          'class': ['thead-cell'],
-          on: {
-            mousedown: $event => { this.handleMouseDown($event, column) },
-            mousemove: $event => { this.handleMouseMove($event, column) }
-          }
-        }, [
-          // 添加 <a> 用于显示表头 label
-          createElement('a', {
-            'class': ['table-header-label']
-          }, column.label),
-          // 添加一个空标签用于显示拖动动画
-          createElement('span', {
-            'class': ['table-virtual']
-          })
-        ])
     },
     // 按下鼠标开始拖动
     handleMouseDown (e, { columnKey }) {
