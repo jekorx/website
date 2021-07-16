@@ -2,31 +2,32 @@
 
 > 1、[类型判断](#类型判断)  
 > 2、[日期格式化](#日期格式化)  
-> 3、[时间转换为xx时间前](#时间转换为xx时间前)  
-> 4、[顺序执行Promise](#顺序执行promise)  
-> 5、[隐藏手机号中间四位](#隐藏手机号中间四位)  
-> 6、[限制数据框内容仅为数字](#限制数据框内容仅为数字)  
-> 7、[七牛上传](#七牛上传)  
-> 8、[滚动条滚动动画](#滚动条滚动动画)  
-> 9、[base64转file](#base64转file)  
-> 10、[base64转blob](#base64转blob)  
-> 11、[blob转file](#blob转file)  
-> 12、[blob转json](#blob转json)  
-> 13、[绑定事件](#绑定事件)  
-> 14、[解绑事件](#解绑事件)  
-> 15、[连字符转驼峰](#连字符转驼峰)  
-> 16、[驼峰转连字符](#驼峰转连字符)  
-> 17、[文件尺寸格式化](#文件尺寸格式化)  
-> 18、[获取指定范围内的随机数](#获取指定范围内的随机数)  
-> 19、[打乱数组](#打乱数组)  
-> 20、[获取Url参数](#获取Url参数)  
-> 21、[切分数组](#切分数组)  
-> 22、[两数组差集](#两数组差集)  
-> 23、[深拷贝](#深拷贝)  
-> 24、[Object合并](#object合并)  
-> 25、[四舍五入到指定小数位](#四舍五入到指定小数位)  
-> 26、[大文件切片上传](#大文件切片上传)  
-> 27、[防抖](#防抖)  
+> 3、[秒格式化](#秒格式化)  
+> 4、[时间转换为xx时间前](#时间转换为xx时间前)  
+> 5、[顺序执行Promise](#顺序执行promise)  
+> 6、[隐藏手机号中间四位](#隐藏手机号中间四位)  
+> 7、[限制数据框内容仅为数字](#限制数据框内容仅为数字)  
+> 8、[七牛上传](#七牛上传)  
+> 9、[滚动条滚动动画](#滚动条滚动动画)  
+> 10、[base64转file](#base64转file)  
+> 11、[base64转blob](#base64转blob)  
+> 12、[blob转file](#blob转file)  
+> 13、[blob转json](#blob转json)  
+> 14、[绑定事件](#绑定事件)  
+> 15、[解绑事件](#解绑事件)  
+> 16、[连字符转驼峰](#连字符转驼峰)  
+> 17、[驼峰转连字符](#驼峰转连字符)  
+> 18、[文件尺寸格式化](#文件尺寸格式化)  
+> 19、[获取指定范围内的随机数](#获取指定范围内的随机数)  
+> 20、[打乱数组](#打乱数组)  
+> 21、[获取Url参数](#获取Url参数)  
+> 22、[切分数组](#切分数组)  
+> 23、[两数组差集](#两数组差集)  
+> 24、[深拷贝](#深拷贝)  
+> 25、[Object合并](#object合并)  
+> 26、[四舍五入到指定小数位](#四舍五入到指定小数位)  
+> 27、[大文件切片上传](#大文件切片上传)  
+> 28、[防抖](#防抖)  
 
 #### 类型判断
 
@@ -110,6 +111,36 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
     }
   }
   return fmt
+}
+```
+
+#### 秒格式化
+
+```javascript
+/**
+ * @description 秒格式化
+ * @description secondFormat(10000) // 2小时46分钟40秒
+ *
+ * @param {Number} second 秒
+ * @param {Number} size 单位个数，如：2: 分钟 秒，3: 小时 分钟 秒
+ * @returns {String} 如：2小时46分钟40秒
+ */
+export const secondFormat = (second, size = 4) => {
+  const units = ['天', '小时', '分钟', '秒']
+  const parts = [86400, 3600, 60, 1]
+  if (size < 1) size = 1
+  if (size > parts.length) size = parts.length
+  let currentScond = second
+  const strs = []
+  for (let i = parts.length - size; i < parts.length; i++) {
+    const n = parts[i]
+    const cur = Math.floor(currentScond / n)
+    if (cur > 0) {
+      currentScond = currentScond % n
+      strs.push(`${cur}${units[i]}`)
+    }
+  }
+  return strs.join('')
 }
 ```
 
