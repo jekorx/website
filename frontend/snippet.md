@@ -11,7 +11,7 @@
 
 ##### 1、同时生成条码二维码
 
-![bar-qr-code](../assets/js-snippet-1.png)
+![bar-qr-code](../assets/frontend-snippet-1.png)
 
 > 使用```jsbarcode```生成条形码，```qrcode```生成二维码  
 > 使用canvas合并生成的条形码、二维码  
@@ -293,7 +293,7 @@ this.$router.push({
 
 ##### 6、vue指令，右键打开数字软键盘
 
-![v-num-input](../assets/js-snippet-2.jpg)
+![v-num-input](../assets/frontend-snippet-2.jpg)
 
 > 数字软键盘指令，配合ElementUI InputNumber、Input组件使用  
 > 注册指令：Vue.directive('num-input', NumInput)  
@@ -547,6 +547,8 @@ export default {
 ```
 
 ##### 7、ElementUI-Table，列拖拽排序
+
+![element-ui-table-columns-drag](../assets/frontend-snippet-3.gif)
 
 ```html
 <template>
@@ -859,6 +861,10 @@ export default {
 ```
 
 ##### 8、ElementUI-Table，嵌套表格
+
+![element-ui-table-inner-table-1](../assets/frontend-snippet-4.jpg)
+
+![element-ui-table-inner-table-2](../assets/frontend-snippet-5.jpg)
 
 ```html
 <!-- 全局样式 -->
