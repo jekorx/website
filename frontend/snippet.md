@@ -877,7 +877,7 @@ export default {
     @close="visible = false">
     <div slot="title" class="custom-table-columns-title">
       <span>自定义列</span>
-      <small>勾选需要显示的列，上下拖动 <i class="el-icon-sort"></i> 图标行排序。</small>
+      <small>勾选需要显示的列，上下拖动 <i class="el-icon-rank"></i> 图标行排序。</small>
     </div>
     <div class="custom-table-columns-wrap">
       <Draggable v-model="columns" tag="div" :animation="100" handle=".sort-drag-handle" ghost-class="ghost-column">
@@ -886,7 +886,7 @@ export default {
             <Checkbox v-model="c.show" true-label="1" false-label="0">
               <span v-text="c.label" class="columns-item-label"></span>
             </Checkbox>
-            <i class="el-icon-sort sort-drag-handle"></i>
+            <i class="el-icon-rank sort-drag-handle"></i>
           </div>
         </transition-group>
       </Draggable>
@@ -959,6 +959,9 @@ export default {
     font-size: 12px;
     color: #777;
   }
+  i {
+    font-weight: 600;
+  }
 }
 .custom-table-columns-wrap {
   max-height: 450px;
@@ -966,8 +969,8 @@ export default {
   margin: -13px -7px 0 -5px;
   .sort-drag-handle {
     cursor: move;
-    font-size: 16px;
-    padding: 8px 10px;
+    font-size: 18px;
+    padding: 7px 10px;
   }
   .columns-item {
     display: flex;

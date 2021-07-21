@@ -72,6 +72,8 @@
 [掘金] [CSS 实现多行文本“展开收起”](https://juejin.cn/post/6963904955262435336)  
 [掘金] [CSS 自动显示“全文”链接](https://juejin.cn/post/6976436998340870180)  
 [掘金] [疯狂操作 CSS3 实现 60 FPS 动画效果，CodeReview 时同事直呼：细节！](https://juejin.cn/post/6980220327951335432)  
+[掘金] [能用CSS实现的就不用麻烦JavaScript](https://juejin.cn/post/6986084648778465288)  
+[掘金] [能用CSS实现的就不用麻烦JavaScript — Part2](https://juejin.cn/post/6986967746453962782)  
 
 > TypeScript
 
