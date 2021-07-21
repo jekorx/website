@@ -7,7 +7,8 @@
 > 5、[vue-router@3.x部署更新提示](#5、vue-router3x部署更新提示)  
 > 6、[vue指令，右键打开数字软键盘](#6、vue指令，右键打开数字软键盘)  
 > 7、[ElementUI-Table，列拖拽排序](#7、elementui-table，列拖拽排序)  
-> 8、[ElementUI-Table，嵌套表格](#8、elementui-table，嵌套表格)  
+> 8、[ElementUI-Table，自定义列组件](#8、elementui-table，自定义列组件)  
+> 9、[ElementUI-Table，嵌套表格](#9、elementui-table，嵌套表格)  
 
 ##### 1、同时生成条码二维码
 
@@ -860,7 +861,471 @@ export default {
 </style>
 ```
 
-##### 8、ElementUI-Table，嵌套表格
+##### 8、ElementUI-Table，自定义列组件
+
+![element-ui-table-custom-table-columns](../assets/frontend-snippet-6.gif)
+
+```html
+<!-- custom-table-columns/main.vue -->
+<template>
+  <Dialog
+    top="7%"
+    class="dialog-without-footer"
+    width="620px"
+    :visible="visible"
+    :close-on-click-modal="false"
+    @close="visible = false">
+    <div slot="title" class="custom-table-columns-title">
+      <span>自定义列</span>
+      <small>勾选需要显示的列，上下拖动 <i class="el-icon-sort"></i> 图标行排序。</small>
+    </div>
+    <div class="custom-table-columns-wrap">
+      <Draggable v-model="columns" tag="div" :animation="100" handle=".sort-drag-handle" ghost-class="ghost-column">
+        <transition-group type="transition" name="flip-list">
+          <div v-for="(c, i) in columns" :key="i" class="columns-item" :class="{ 'unselected': c.show !== '1' }">
+            <Checkbox v-model="c.show" true-label="1" false-label="0">
+              <span v-text="c.label" class="columns-item-label"></span>
+            </Checkbox>
+            <i class="el-icon-sort sort-drag-handle"></i>
+          </div>
+        </transition-group>
+      </Draggable>
+    </div>
+    <div class="dialog-footer-btns" style="padding-top: 17px; margin: 0 -5px -5px 0">
+      <Button type="info" @click="reset">重置</Button>
+      <Button type="success" :disabled="commitDisabled" :loading="loading" @click="commit">保存</Button>
+      <Button @click="visible = false">关闭</Button>
+    </div>
+    <div slot="footer"></div>
+  </Dialog>
+</template>
+<script>
+import Draggable from 'vuedraggable'
+
+export default {
+  name: 'CustomTableColumns',
+  components: { Draggable },
+  computed: {
+    commitDisabled () {
+      return !this.columns.some(({ show }) => show === '1')
+    }
+  },
+  props: {
+    onSave: Function
+  },
+  data () {
+    return {
+      // 当前列数据
+      columns: [],
+      // 原始列数据
+      originColumns: [],
+      // 弹出层显示标识
+      visible: false,
+      // 保存loading
+      loading: false
+    }
+  },
+  methods: {
+    // 保存
+    commit () {
+      // 调用onSave方法，columns数据 复制并设置新的sort值，同时回调函数提供close和loading方法
+      this.onSave && this.onSave(this.columns.map((item, index) => ({ ...item, sort: index })), {
+        close: () => {
+          this.visible = false
+        },
+        loading: loading => {
+          this.loading = loading
+        }
+      })
+    },
+    // 重置列表，完全复制原始数据到当前列数据中
+    reset () {
+      this.columns = this.originColumns.map(item => ({ ...item }))
+    }
+  }
+}
+</script>
+<style lang="scss" scope>
+.custom-table-columns-title {
+  font-size: 16px;
+  span, small {
+    display: inline-block;
+    margin-top: -4px;
+  }
+  span {
+    margin-right: 15px;
+  }
+  small {
+    font-size: 12px;
+    color: #777;
+  }
+}
+.custom-table-columns-wrap {
+  max-height: 450px;
+  overflow-y: auto;
+  margin: -13px -7px 0 -5px;
+  .sort-drag-handle {
+    cursor: move;
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+  .columns-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10px 0 20px;
+    background-color: #F5F5F5;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    &:last-child {
+      border-bottom: 1px solid #DDD;
+    }
+    &.unselected {
+      color: #AAA;
+      background-color: #FCFCFC;
+    }
+    .columns-item-label {
+      display: inline-block;
+      padding: 0 10px;
+    }
+    &.ghost-column {
+      background-color: #E2E2E2;
+    }
+  }
+  .flip-list-move {
+    transition: transform 0.5s;
+  }
+}
+</style>
+```
+
+```javascript
+/* custom-table-columns/index.js */
+import Vue from 'vue'
+import CustomTableColumns from './main.vue'
+
+const CustomTableColumnsConstructor = Vue.extend(CustomTableColumns)
+
+let instance
+
+const initInstance = () => {
+  instance = new CustomTableColumnsConstructor({
+    el: document.createElement('div')
+  })
+
+  document.body.appendChild(instance.$el)
+}
+
+export default options => {
+  if (Vue.prototype.$isServer) return
+
+  if (!instance) {
+    initInstance()
+  }
+
+  // 复制当前列数据到columns
+  instance.columns = options.columns ? options.columns.map(item => ({ ...item })) : []
+  // 复制原始列数据到columns
+  instance.originColumns = options.originColumns ? options.originColumns.map(item => ({ ...item })) : []
+  // 为onSave方法赋值
+  instance.onSave = options.onSave || (() => {})
+  // 打开弹出层
+  instance.visible = true
+}
+```
+
+```javascript
+/* mixins/custom-table.js */
+import setTableColumns from '_c/custom-table-columns'
+
+/*
+自定义表格列
+1、Table需要有ref="tableRef"
+2、列数据COLUMNS_DATA
+3、混入import MixinsCustomTable from '_m/custom-table'
+4、初始化或者工序发生改变的位置调用getCustomTableColumns获取保存的列数据
+5、有统计行的Table，操作TableColumn要有prop="_operation"
+[{
+  prop: 'id',                   // TableColumn prop属性
+  label: 'id标识',              // TableColumn label属性
+  width: '120',                 // min-width
+  className: 'user-select-all', // 【可选】TableColumn class-name属性
+  formatter: 'stateFormatter',  // 【可选】TableColumn formatter方法key值
+  sortable: '1',                // 【可选】TableColumn中是否排序字段，1：排序，0：不排序，默认：0
+  sort: 1,                      // 排序
+  show: '1',                    // 是否显示字段，0：不显示，1：显示，默认：1
+  filter: true                  // 【可选】是否需要过滤，根据业务控制该字段是否存在于当前列表
+}]
+一、默认方式，推荐
+<Table ref="tableRef" data="list">
+  <TableColumn
+    v-for="(c, i) in showColumns"
+    show-overflow-tooltip
+    header-align="center"
+    align="center"
+    :key="i"
+    :min-width="c.width"
+    :prop="c.prop"
+    :label="c.label"
+    :sortable="c.sortable === '1'"
+    :class-name="c.className"
+    :formatter="{ stateFormatter }[c.formatter] || null" />
+</Table>
+二、需自定义内容
+<Table ref="tableRef" data="list">
+  <TableColumn
+    v-for="(c, i) in showColumns"
+    show-overflow-tooltip
+    header-align="center"
+    align="center"
+    :key="i"
+    :min-width="c.width"
+    :prop="c.prop"
+    :label="c.label"
+    :sortable="c.sortable === '1'"
+    :class-name="c.className"
+    :formatter="{ stateFormatter }[c.formatter] || null">
+    <template slot="header" slot-scope="{ column }">
+      <span v-if="column.property === 'id'" v-text="column.label" style="color: red"></span>
+      <span v-else v-text="column.label"></span>
+    </template>
+    <template slot-scope="{ row }">
+      <span v-if="c.prop === 'id'" v-text="row[c.prop]" style="color: red"></span>
+      <span v-else v-text="row[c.prop]"></span>
+    </template>
+  </TableColumn>
+</Table>
+
+后端代码
+// id，32位uuid
+@Id
+private String id;
+// 所在菜单，路由地址
+private String menu;
+// 车间
+private String workshop;
+// 工序
+private String gxName;
+// 工号，empCode
+private String empCode;
+// TableColumn中prop属性
+private String prop;
+// TableColumn中label属性
+private String label;
+// TableColumn中min-width属性
+private String width;
+// TableColumn中class-name属性
+private String className;
+// TableColumn中formatter方法key
+private String formatter;
+// TableColumn中是否排序字段，1：排序，0：不排序，默认：0
+private String sortable;
+// 字段排序
+private Integer sort;
+// 是否显示，1：显示，0：不显示，默认：1
+private String show;
+
+@Override
+@Transactional
+@ServiceExceptionHandler
+public boolean updateCustomTableBatch(String workshop, String gxName, String menu, List<CustomTable> ctList, HttpServletRequest request) {
+    // 获取当前用户empCode
+    String empCode = getUserIdByRequest(request);
+    // 查询当前已保存的数据
+    List<CustomTable> currentList = selectCustomTable(workshop, gxName, menu, request);
+    // 如果没有已保存的数据，直接保存新数据
+    if (CollectionUtil.isEmpty(currentList)) {
+        ctList.stream().forEach(item -> {
+            // 添加id
+            item.setId(IdUtil.simpleUUID());
+            // 设置当前用户empCode
+            item.setEmpCode(empCode);
+            // 设置车间
+            item.setWorkshop(workshop);
+            // 设置工序
+            item.setGxName(gxName);
+            // 设置菜单
+            item.setMenu(menu);
+            // 是否排序标识
+            if (StrUtil.isNullOrUndefined(item.getSortable())) {
+                item.setSortable(Constants.GLOBAL_DISABLE);
+            }
+            // 是否显示标识
+            if (StrUtil.isNullOrUndefined(item.getShow())) {
+                item.setShow(Constants.GLOBAL_ENABLE);
+            }
+            // 保存
+            insert(item);
+        });
+        return true;
+    }
+    // 如果有已保存数据，需要分别处理，1、已存在的进行修改，2、已保存的数据未存在的需要删除，3、新添加的未存在的数据添加
+    List<String> oldIds = currentList.stream().map(CustomTable::getId).collect(Collectors.toList());
+    List<String> newIds = ctList.stream().map(CustomTable::getId).collect(Collectors.toList());
+    // new中old不存在的，需要insert的
+    ctList.stream().filter(item -> !oldIds.contains(item.getId())).forEach(item -> {
+        // 添加id
+        item.setId(IdUtil.simpleUUID());
+        // 设置当前用户empCode
+        item.setEmpCode(empCode);
+        // 设置车间
+        item.setWorkshop(workshop);
+        // 设置工序
+        item.setGxName(gxName);
+        // 设置菜单
+        item.setMenu(menu);
+        // 是否排序标识
+        if (StrUtil.isNullOrUndefined(item.getSortable())) {
+            item.setSortable(Constants.GLOBAL_DISABLE);
+        }
+        // 是否显示标识
+        if (StrUtil.isNullOrUndefined(item.getShow())) {
+            item.setShow(Constants.GLOBAL_ENABLE);
+        }
+        // 保存
+        insert(item);
+    });
+    // new中old存在的，需要修改的
+    ctList.stream().filter(item -> oldIds.contains(item.getId())).forEach(item -> {
+        // 设置车间
+        item.setWorkshop(workshop);
+        // 设置工序
+        item.setGxName(gxName);
+        // 设置菜单
+        item.setMenu(menu);
+        // 是否排序标识
+        if (StrUtil.isNullOrUndefined(item.getSortable())) {
+            item.setSortable(Constants.GLOBAL_DISABLE);
+        }
+        // 是否显示标识
+        if (StrUtil.isNullOrUndefined(item.getShow())) {
+            item.setShow(Constants.GLOBAL_ENABLE);
+        }
+        // 保存
+        updateByPrimaryKey(item);
+    });
+    // old中new不存在的，需要删除的
+    currentList.stream().filter(item -> !newIds.contains(item.getId())).forEach(item -> {
+        // 删除
+        deleteByPrimaryKey(item.getId());
+    });
+    return true;
+}
+@Override
+@ServiceExceptionHandler
+public List<CustomTable> selectCustomTable(String workshop, String gxName, String menu, HttpServletRequest request) {
+    // 获取当前用户empCode
+    String empCode = getUserIdByRequest(request);
+    CustomTable condition = new CustomTable();
+    condition.setEmpCode(empCode);
+    condition.setWorkshop(workshop);
+    condition.setGxName(gxName);
+    condition.setMenu(menu);
+    PageHelper.orderBy("sort ASC");
+    // 查询当前已保存的数据
+    List<CustomTable> currentList = select(condition);
+    // 返回结果
+    return currentList;
+}
+*/
+export default {
+  computed: {
+    // 展示的列
+    showColumns () {
+      return this.currentColumns.filter(({ show }) => show === '1')
+    },
+    // 当前实际使用的列数据
+    currentColumns ({ customColumnsData }) {
+      if (customColumnsData.length) return customColumnsData
+      return this.originColumns
+    },
+    // 原始列数据
+    originColumns ({ condition: { gxName } }) {
+      // 根据业务，此处字段过滤是根据GX_WITH_XM工序字段
+      return this.COLUMNS_DATA.filter(({ filter }) => !(filter && (this.GX_WITH_XM || []).includes(gxName)))
+    }
+  },
+  data () {
+    return {
+      // 自定义列数据，查询得到
+      customColumnsData: [],
+      // 自定义列弹框
+      customTableVisible: false
+    }
+  },
+  methods: {
+    /**
+     * 获取自定义表格列数据，调用位置：初始化或者工序发生改变的位置
+     */
+    getCustomTableColumns (workshop, gxName) {
+      this.$http.request({
+        url: '/admin/sys/v1/table/columns',
+        method: 'get',
+        params: {
+          workshop,
+          gxName,
+          menu: this.$route.path
+        }
+      }).then(({ result, data }) => {
+        if (result === 'success' && data && data.length) {
+          this.customColumnsData = data
+        } else {
+          this.customColumnsData = []
+        }
+      }).catch(() => {
+        this.customColumnsData = []
+      })
+    },
+    /**
+     * 自定义按钮调用
+     * <div slot="header" class="table-with-custom-operation">
+     *   <span>操作</span>
+     *   <Tooltip content="自定义列" placement="left">
+     *     <i class="el-icon-s-operation" @click="() => customTableHandle(currentWorkshop.workshop, condition.gxName)"></i>
+     *   </Tooltip>
+     * </div>
+     */
+    customTableHandle (workshop, gxName) {
+      setTableColumns({
+        columns: this.currentColumns,
+        originColumns: this.originColumns,
+        onSave: (columns, { close, loading }) => {
+          // loading start
+          loading(true)
+          this.$http.request({
+            url: '/admin/sys/v1/table/columns',
+            data: {
+              workshop,
+              gxName,
+              menu: this.$route.path,
+              list: JSON.stringify(columns)
+            }
+          }).then(({ message, result }) => {
+            this.$msg({
+              message,
+              type: result === 'success' ? 'success' : 'error'
+            })
+            this.customColumnsData = columns
+            close()
+            if (this.$refs.tableRef) {
+              setTimeout(() => {
+                this.$refs.tableRef.doLayout && this.$refs.tableRef.doLayout()
+              }, 1)
+            }
+          }).finally(() => {
+            // loading end
+            loading(false)
+          })
+        }
+      })
+    }
+  }
+}
+```
+
+##### 9、ElementUI-Table，嵌套表格
 
 ![element-ui-table-inner-table-1](../assets/frontend-snippet-4.jpg)
 
