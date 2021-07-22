@@ -1229,7 +1229,24 @@ export default {
         }
       }).then(({ result, data }) => {
         if (result === 'success' && data && data.length) {
-          this.customColumnsData = data
+          // 数据校验，针对prop、label
+          const currentColumns = data.map(({ prop, label }) => ({ prop, label })).sort((a, b) => {
+            if (a.prop > b.prop) return 1
+            if (a.prop < b.prop) return -1
+            return 0
+          })
+          const originColumns = this.originColumns.map(({ prop, label }) => ({ prop, label })).sort((a, b) => {
+            if (a.prop > b.prop) return 1
+            if (a.prop < b.prop) return -1
+            return 0
+          })
+          if (JSON.stringify(originColumns) === JSON.stringify(currentColumns)) {
+            // 数据一致使用保存的列数据
+            this.customColumnsData = data
+          } else {
+            this.$msg('任务列表列数据发生更新，请重新设置自定义列')
+            this.customColumnsData = []
+          }
         } else {
           this.customColumnsData = []
         }
