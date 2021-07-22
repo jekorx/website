@@ -1138,39 +1138,16 @@ private String show;
 public boolean updateCustomTableBatch(String workshop, String gxName, String menu, List<CustomTable> ctList, HttpServletRequest request) {
     // 获取当前用户empCode
     String empCode = getUserIdByRequest(request);
-    // 查询当前已保存的数据
-    List<CustomTable> currentList = selectCustomTable(workshop, gxName, menu, request);
-    // 如果没有已保存的数据，直接保存新数据
-    if (CollectionUtil.isEmpty(currentList)) {
-        ctList.stream().forEach(item -> {
-            // 添加id
-            item.setId(IdUtil.simpleUUID());
-            // 设置当前用户empCode
-            item.setEmpCode(empCode);
-            // 设置车间
-            item.setWorkshop(workshop);
-            // 设置工序
-            item.setGxName(gxName);
-            // 设置菜单
-            item.setMenu(menu);
-            // 是否排序标识
-            if (StrUtil.isNullOrUndefined(item.getSortable())) {
-                item.setSortable(Constants.GLOBAL_DISABLE);
-            }
-            // 是否显示标识
-            if (StrUtil.isNullOrUndefined(item.getShow())) {
-                item.setShow(Constants.GLOBAL_ENABLE);
-            }
-            // 保存
-            insert(item);
-        });
-        return true;
-    }
-    // 如果有已保存数据，需要分别处理，1、已存在的进行修改，2、已保存的数据未存在的需要删除，3、新添加的未存在的数据添加
-    List<String> oldIds = currentList.stream().map(CustomTable::getId).collect(Collectors.toList());
-    List<String> newIds = ctList.stream().map(CustomTable::getId).collect(Collectors.toList());
-    // new中old不存在的，需要insert的
-    ctList.stream().filter(item -> !oldIds.contains(item.getId())).forEach(item -> {
+    // 创建条件
+    CustomTable condition = new CustomTable();
+    condition.setEmpCode(empCode);
+    condition.setWorkshop(workshop);
+    condition.setGxName(gxName);
+    condition.setMenu(menu);
+    // 删除原有数据
+    delete(condition);
+    // 重新插入新数据
+    ctList.stream().forEach(item -> {
         // 添加id
         item.setId(IdUtil.simpleUUID());
         // 设置当前用户empCode
@@ -1192,30 +1169,6 @@ public boolean updateCustomTableBatch(String workshop, String gxName, String men
         // 保存
         insert(item);
     });
-    // new中old存在的，需要修改的
-    ctList.stream().filter(item -> oldIds.contains(item.getId())).forEach(item -> {
-        // 设置车间
-        item.setWorkshop(workshop);
-        // 设置工序
-        item.setGxName(gxName);
-        // 设置菜单
-        item.setMenu(menu);
-        // 是否排序标识
-        if (StrUtil.isNullOrUndefined(item.getSortable())) {
-            item.setSortable(Constants.GLOBAL_DISABLE);
-        }
-        // 是否显示标识
-        if (StrUtil.isNullOrUndefined(item.getShow())) {
-            item.setShow(Constants.GLOBAL_ENABLE);
-        }
-        // 保存
-        updateByPrimaryKey(item);
-    });
-    // old中new不存在的，需要删除的
-    currentList.stream().filter(item -> !newIds.contains(item.getId())).forEach(item -> {
-        // 删除
-        deleteByPrimaryKey(item.getId());
-    });
     return true;
 }
 @Override
@@ -1223,14 +1176,15 @@ public boolean updateCustomTableBatch(String workshop, String gxName, String men
 public List<CustomTable> selectCustomTable(String workshop, String gxName, String menu, HttpServletRequest request) {
     // 获取当前用户empCode
     String empCode = getUserIdByRequest(request);
-    CustomTable condition = new CustomTable();
-    condition.setEmpCode(empCode);
-    condition.setWorkshop(workshop);
-    condition.setGxName(gxName);
-    condition.setMenu(menu);
-    PageHelper.orderBy("sort ASC");
+    Example example = new Example(CustomTable.class);
+    Example.Criteria criteria = example.createCriteria();
+    criteria.andEqualTo("empCode", empCode);
+    criteria.andEqualTo("workshop", workshop);
+    criteria.andEqualTo("gxName", gxName);
+    criteria.andEqualTo("menu", menu);
+    example.setOrderByClause("sort ASC");
     // 查询当前已保存的数据
-    List<CustomTable> currentList = select(condition);
+    List<CustomTable> currentList = selectExample(example);
     // 返回结果
     return currentList;
 }
