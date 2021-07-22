@@ -1035,7 +1035,9 @@ export default options => {
   // 为onSave方法赋值
   instance.onSave = options.onSave || (() => {})
   // 打开弹出层
-  instance.visible = true
+  setTimeout(() => {
+    instance.visible = true
+  }, 1)
 }
 ```
 
