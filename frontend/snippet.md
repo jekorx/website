@@ -882,7 +882,7 @@ export default {
     <div class="custom-table-columns-wrap">
       <Draggable v-model="columns" tag="div" :animation="100" handle=".sort-drag-handle" ghost-class="ghost-column">
         <transition-group type="transition" name="flip-list">
-          <div v-for="(c, i) in columns" :key="i" class="columns-item" :class="{ 'unselected': c.show !== '1' }">
+          <div v-for="(c, i) in columns" :key="`columns-item_${i}`" class="columns-item" :class="{ 'unselected': c.show !== '1' }">
             <Checkbox v-model="c.show" true-label="1" false-label="0">
               <span v-text="c.label" class="columns-item-label"></span>
             </Checkbox>
