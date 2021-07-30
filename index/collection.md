@@ -40,6 +40,9 @@
 [SegmentFault] [JavaScript: 数组reduce实例方法](https://segmentfault.com/a/1190000039774558)  
 [掘金] [最全的手写JS面试题](https://juejin.cn/post/6968713283884974088)  
 [掘金] [Event Loop ：你知道它们的打印顺序吗？](https://juejin.cn/post/6979244116199047204)  
+[掘金] [25个你不得不知道的数组reduce高级用法](https://juejin.cn/post/6844904063729926152)  
+[掘金] [灵活运用JS开发技巧](https://juejin.cn/post/6844903838449664013)  
+[掘金] [1.5万字概括ES6全部特性(已更新ES2020)](https://juejin.cn/post/6844903959283367950)  
 
 > CSS
 
@@ -74,6 +77,9 @@
 [掘金] [疯狂操作 CSS3 实现 60 FPS 动画效果，CodeReview 时同事直呼：细节！](https://juejin.cn/post/6980220327951335432)  
 [掘金] [能用CSS实现的就不用麻烦JavaScript](https://juejin.cn/post/6986084648778465288)  
 [掘金] [能用CSS实现的就不用麻烦JavaScript — Part2](https://juejin.cn/post/6986967746453962782)  
+[掘金] [8个硬核技巧带你迅速提升CSS技术 | 掘金直播总结](https://juejin.cn/post/6908879198933221383)  
+[掘金] [8则未必知道且超级实用的纯CSS布局排版技巧 | 网易4年实践](https://juejin.cn/post/6986873449721364510)  
+[掘金] [灵活运用CSS开发技巧](https://juejin.cn/post/6844903926110617613)  
 
 > TypeScript
 
@@ -122,6 +128,9 @@
 [掘金] [【设计模式】这样学也太简单了吧！](https://juejin.cn/post/6953423646664687652)  
 [GitHub] [CSS像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)  
 [SegmentFault] [Vite 开发插件如何生成 .d.ts 类型声明文件](https://segmentfault.com/a/1190000040127796)  
+[掘金] [中高级前端必须注意的40条移动端H5坑位指南 | 网易三年实践](https://juejin.cn/post/6921886428158754829)  
+[掘金] [写给中高级前端关于性能优化的9大策略和6大指标 | 网易四年实践](https://juejin.cn/post/6981673766178783262)  
+[掘金] [前端性能优化指南](https://juejin.cn/post/6844903844455907336)  
 
 #### Server
 
