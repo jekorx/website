@@ -343,17 +343,7 @@ export default {
         <span v-text="value"></span>
       </div>
       <div class="input-box">
-        <Button @click="() => inputHandle('1')">1</Button>
-        <Button @click="() => inputHandle('2')">2</Button>
-        <Button @click="() => inputHandle('3')">3</Button>
-        <Button @click="() => inputHandle('4')">4</Button>
-        <Button @click="() => inputHandle('5')">5</Button>
-        <Button @click="() => inputHandle('6')">6</Button>
-        <Button @click="() => inputHandle('7')">7</Button>
-        <Button @click="() => inputHandle('8')">8</Button>
-        <Button @click="() => inputHandle('9')">9</Button>
-        <Button @click="() => inputHandle('.')">.</Button>
-        <Button @click="() => inputHandle('0')">0</Button>
+        <Button v-for="(s, i) in '123456789.0'.split('')" :key="`btn_${i}`" v-text="s" @click="() => inputHandle(s)"></Button>
         <Button icon="el-icon-back" :disabled="value.length <= 0" @click="backspaceHandle"></Button>
       </div>
       <div class="operate-box">
