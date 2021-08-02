@@ -33,22 +33,22 @@
 
 ```javascript
 // 以下为更精确的判断方式，某些场景下比使用 typeof & instanceof 更高效、准确
-// 判断变量是注意非undefined，toString.call(person) // person is not defined
-toString.call(123)         // '[object Number]'
-toString.call('str')       // '[object String]'
-toString.call(true)        // '[object Boolean]'
-toString.call(null)        // '[object Null]'
-toString.call(undefined)   // '[object Undefined]'
-toString.call({})          // '[object Object]'
-toString.call([])          // '[object Array]'
-toString.call(() => {})    // '[object Function]'
-toString.call(/reg/g)      // '[object RegExp]'
-toString.call(new Date())  // '[object Date]'
-toString.call(Math)        // '[object Math]'
-toString.call(window)      // '[object Window]'
-toString.call(document)    // '[object HTMLDocument]'
-toString.call(10n)         // '[object BigInt]'
-toString.call(Symbol())    // '[object Symbol]'
+// 判断变量是注意非undefined，Object.prototype.toString.call(person) // person is not defined
+Object.prototype.toString.call(123)         // '[object Number]'
+Object.prototype.toString.call('str')       // '[object String]'
+Object.prototype.toString.call(true)        // '[object Boolean]'
+Object.prototype.toString.call(null)        // '[object Null]'
+Object.prototype.toString.call(undefined)   // '[object Undefined]'
+Object.prototype.toString.call({})          // '[object Object]'
+Object.prototype.toString.call([])          // '[object Array]'
+Object.prototype.toString.call(() => {})    // '[object Function]'
+Object.prototype.toString.call(/reg/g)      // '[object RegExp]'
+Object.prototype.toString.call(new Date())  // '[object Date]'
+Object.prototype.toString.call(Math)        // '[object Math]'
+Object.prototype.toString.call(window)      // '[object Window]'
+Object.prototype.toString.call(document)    // '[object HTMLDocument]'
+Object.prototype.toString.call(10n)         // '[object BigInt]'
+Object.prototype.toString.call(Symbol())    // '[object Symbol]'
 ```
 
 #### 日期格式化
@@ -66,7 +66,7 @@ toString.call(Symbol())    // '[object Symbol]'
 export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
   if (!date) return ''
   // 不为Date类型进行处理
-  if (toString.call(date) !== '[object Date]') {
+  if (Object.prototype.toString.call(date) !== '[object Date]') {
     // 判断数字时间戳
     if (!isNaN(date)) {
       // 10位时间戳转13位
@@ -80,7 +80,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
         // 时间戳格式错误返回''
         return ''
       }
-    } else if (toString.call(date) === '[object String]') {
+    } else if (Object.prototype.toString.call(date) === '[object String]') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
     }
@@ -157,7 +157,7 @@ export const secondFormat = (second, size = 4) => {
 export const getTimeInfo = date => {
   if (!date) return ''
   // 不为Date类型进行处理
-  if (toString.call(date) !== '[object Date]') {
+  if (Object.prototype.toString.call(date) !== '[object Date]') {
     // 判断数字时间戳
     if (!isNaN(date)) {
       // 10位时间戳转13位
@@ -171,7 +171,7 @@ export const getTimeInfo = date => {
         // 时间戳格式错误返回''
         return ''
       }
-    } else if (toString.call(date) === '[object String]') {
+    } else if (Object.prototype.toString.call(date) === '[object String]') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
     }
@@ -594,7 +594,7 @@ export const eventOff = (function () {
  * @returns {String} 如：helloWorld
  */
 export const toCamelCase = (str = '', separator = '-') => {
-  if (toString.call(str) !== '[object String]') {
+  if (Object.prototype.toString.call(str) !== '[object String]') {
     throw new Error('Argument must be a string')
   }
   if (str === '') {
@@ -617,7 +617,7 @@ export const toCamelCase = (str = '', separator = '-') => {
  * @returns {String} 如：hello_world
  */
 export const fromCamelCase = (str = '', separator = '-') => {
-  if (toString.call(str) !== '[object String]') {
+  if (Object.prototype.toString.call(str) !== '[object String]') {
     throw new Error('Argument must be a string')
   }
   if (str === '') {
@@ -638,7 +638,7 @@ export const fromCamelCase = (str = '', separator = '-') => {
  * @returns {String} 如：9.77MB
  */
 export const formatSize = size => {
-  if (toString.call(size) !== '[object Number]') {
+  if (Object.prototype.toString.call(size) !== '[object Number]') {
     throw new Error('Argument(s) is illegal !')
   }
   const unitsHash = 'B,KB,MB,GB,TB,PB,EB,ZB,YB'.split(',')
@@ -663,7 +663,7 @@ export const formatSize = size => {
  * @returns {Number} 如：9
  */
 export const getRandom = (min = 0, max = 100) => {
-  if (toString.call(min) !== '[object Number]' || toString.call(max) !== '[object Number]') {
+  if (Object.prototype.toString.call(min) !== '[object Number]' || Object.prototype.toString.call(max) !== '[object Number]') {
     throw new Error('Argument(s) is illegal !')
   }
   if (min > max) {
