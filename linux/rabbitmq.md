@@ -57,9 +57,10 @@ rabbitmq-plugins list
 # 未出现在列表中的插件需单独安装
 cd /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.19/plugins/
 
-# 延时队列插件
+# 下载插件，如：延时队列插件
 wget https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/3.8.17/rabbitmq_delayed_message_exchange-3.8.17.8f537ac.ez
 
+# 启用插件，rabbitmq-plugins enable <插件名>
 rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 ```
 
