@@ -19,7 +19,7 @@ yum -y install rabbitmq-server-3.8.19-1.el7.noarch.rpm
 
 #### 配置
 
-> 新版本rabbitmq需单独[下载配置文件](https://github.com/rabbitmq/rabbitmq-server/blob/v3.8.19/deps/rabbit/docs/rabbitmq.conf.example)  
+> 新版本rabbitmq需单独创建[配置文件rabbitmq.conf](https://github.com/rabbitmq/rabbitmq-server/blob/v3.8.19/deps/rabbit/docs/rabbitmq.conf.example)  
 > 下载地址：```https://github.com/rabbitmq/rabbitmq-server/blob/v版本号/deps/rabbit/docs/rabbitmq.conf.example```  
 
 ```bash
