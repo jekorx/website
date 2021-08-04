@@ -1068,7 +1068,7 @@ import setTableColumns from '_c/custom-table-columns'
     :class-name="c.className"
     :formatter="{ stateFormatter }[c.formatter] || null" />
 </Table>
-二、需自定义内容
+二、需自定义内容，:formatter无效，需手动调用转换
 <Table ref="tableRef" data="list">
   <TableColumn
     v-for="(c, i) in showColumns"
@@ -1080,15 +1080,13 @@ import setTableColumns from '_c/custom-table-columns'
     :prop="c.prop"
     :label="c.label"
     :sortable="c.sortable === '1'"
-    :class-name="c.className"
-    :formatter="{ stateFormatter }[c.formatter] || null">
+    :class-name="c.className">
     <template slot="header" slot-scope="{ column }">
       <span v-if="column.property === 'id'" v-text="column.label" style="color: red"></span>
       <span v-else v-text="column.label"></span>
     </template>
     <template slot-scope="{ row }">
-      <span v-if="c.prop === 'id'" v-text="row[c.prop]" style="color: red"></span>
-      <span v-else v-text="row[c.prop]"></span>
+      <span v-text="c.prop === 'state' ? stateFormatter(row) : row[c.prop]" :style="`color: ${c.prop === 'id' ? 'red' : ''}`"></span>
     </template>
   </TableColumn>
 </Table>
