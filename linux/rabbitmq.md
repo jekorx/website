@@ -69,7 +69,7 @@ rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 ```bash
 # 需在rabbitmq-server启动状态下操作
 
-# 添加用户，密码不能有特殊字符
+# 添加用户
 # rabbitmqctl add_user <用户名> <密码>
 rabbitmqctl add_user admin admin
 
