@@ -142,28 +142,3 @@ rabbitmqctl delete_user admin
 > 匹配规则```x-match```有下列两种类型：  
 >  ```x-match = all```：表示所有的键值对都匹配才能接受到消息  
 >  ```x-match = any```：表示只要有键值对匹配就能接受到消息  
-
-#### 延时队列
-
-###### 1、TTL + 死信队列
-
-![linux-rabbitmq-4](../assets/linux-rabbitmq-4.jpg)
-
-> 1、TTL队列，创建交换机（任意），创建队列并设置```x-dead-letter-exchange```，```x-dead-letter-routing-key```；  
-> 2、死信队列，创建交换机（一般为```DirectExchange```），创建队列；  
-> 3、注意TTL队列与死信队列之间的Routing key一致；  
-> 4、只对死信队列进行监听消费，TTL队列无消费者超时自动投递到死信交换机，达到延时目的。  
-> 注意：TTL时间可以在创建TTL队列时统一设置，也可以在发送消息时设置```expiration```，```message.getMessageProperties().setExpiration("5000")```  
-
-###### 2、延时队列
-
-> 1、安装并启用rabbitmq_delayed_message_exchange插件；  
-> 2、创建自定义交换机，类型为```x-delayed-message```，参数需指定```x-delayed-type```，指定交换机为```topic```、```direct```、```fanout```、```headers```；  
-> 3、创建队列与交换机绑定，监听队列进行消费；  
-> 注意：延时事件在发送消息时设置```x-delay```，```message.getMessageProperties().setDelay(10 * 1000)```  
-
-###### 注意
-
-> 两种实现方式在发送消息时，设置延时时间方式的差异：  
-> ```TTL + 死信队列```：通过```setExpiration```方法设置```expiration```  
-> ```延时队列```：通过```setDelay```方法设置```x-delay```  

@@ -615,4 +615,18 @@
  <changefreq>weekly</changefreq>
 </url>
 
+<url>
+ <loc>https://www.wdg.pub/springboot/redis.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-08</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://www.wdg.pub/springboot/rabbitmq.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-08</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
 </urlset>

@@ -6,5 +6,7 @@
 > * [FastJson配置](../springboot/fastjson-config.md)
 > * [跨域配置](../springboot/cors-config.md)
 > * [MyBatis](../springboot/mybatis.md)
+> * [Redis](../springboot/redis.md)
+> * [RabbitMQ](../springboot/rabbitmq.md)
 > * [Excel](../springboot/excel.md)
 > * [启动方式](../springboot/run.md)
