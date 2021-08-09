@@ -1,6 +1,18 @@
 # RabbitMQ
 
+> 依赖  
+
+```xml
+<!-- rabbitmq -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
+```
+
 #### 延时队列
+
+> CentOS版本```7.9```，RabbitMQ版本```3.8.19-1.el7```，Erlang版本```23.3.4.5-1.el7```  
 
 ```bash
 # rabbitmq yml 配置
@@ -34,11 +46,17 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class RabbitMQConfig {
+    // TTL交换机名称
     public static final String TTL_EXCHANGE_NAME = "mq.exchange.ttl";
+    // TTL队列名称
     public static final String TTL_QUEUE_NAME = "mq.queue.ttl";
+    // TTL Routingkey，topic类型
     private final String TTL_ROUTING_KEY = "ttl.#";
+    // 死信交换机名称
     private final String DEAD_LETTER_EXCHANGE_NAME = "mq.exchange.dead.letter";
+    // 死信队列名称
     public static final String DEAD_LETTER_QUEUE_NAME = "mq.queue.dead.letter";
+    // 死信队列Routingkey
     private final String DELAY_TO_DEAD_ROUTING_KEY = "dead.letter";
 
     // TTL交换机
@@ -139,8 +157,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class RabbitMQConfig {
+    // 延时交换机名称
     public static final String DELAY_EXCHANGE_NAME = "mq.exchange.delay";
+    // 延时队列名称
     public static final String DELAY_QUEUE_NAME = "mq.queue.delay";
+    // 延时队列Routingkey，topic类型
     private final String DELAY_ROUTING_KEY = "delay.#";
 
     // 延时交换机

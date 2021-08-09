@@ -1,6 +1,8 @@
 # Redis
 
-#### Redis中key值过期通知事件
+#### Redis中key值过期通知
+
+> CentOS版本```7.9```，redis版本```5.0.10```  
 
 > 依赖  
 
