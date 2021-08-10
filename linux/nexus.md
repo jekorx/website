@@ -9,7 +9,7 @@
 #### CentOS
 
 > Linux版依赖```Java 8```运行时环境，需先安装jdk1.8，[请查看](./jdk.md)  
-> 启动后访问：http://<ip地址>:8081  
+> 启动后访问：http://&#60;ip地址&#62;:8081  
 
 ```bash
 # 创建nexus目录
@@ -67,7 +67,7 @@ systemctl enable nexus.service
 #### Windows
 
 > 自带```JRE```，无效额外安装  
-> 启动后访问：http://<ip地址>:8081  
+> 启动后访问：http://&#60;ip地址&#62;:8081  
 
 ```bash
 # 在 nexus-3.xx.x-xx/bin/ 目录下，以管理员身份运行命令行工具
