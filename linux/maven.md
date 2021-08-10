@@ -24,7 +24,7 @@ source /etc/profile
 mvn -v
 ```
 
-#### 配置
+#### 基本配置
 
 > ```<Maven安装目录>/conf/settings.xml```  
 
@@ -46,7 +46,6 @@ mvn -v
 #### 使用Nexus私服配置
 
 > Nexus搭建[请查看](./nexus.md)  
-
 > ```<Maven安装目录>/conf/settings.xml```  
 
 ```xml
