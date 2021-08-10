@@ -6,8 +6,9 @@
 > ```sonatype-work```：私服的默认仓库，用于存储索引和组件资源  
 > 搭建Maven私服，相关使用配置[请查看](./maven.md#使用Nexus私服配置)  
 
-#### CentOS
+#### CentOS环境
 
+> CentOS版本```7.9```  
 > Linux版依赖```Java 8```运行时环境，需先安装jdk1.8，[请查看](./jdk.md)  
 > 启动后访问：```http://<ip地址>:8081```  
 
@@ -64,8 +65,9 @@ systemctl start nexus.service
 systemctl enable nexus.service
 ```
 
-#### Windows
+#### Windows环境
 
+> Windows版本```Windows 10```  
 > 自带```JRE```，无效额外安装  
 > 启动后访问：```http://<ip地址>:8081```  
 
@@ -83,4 +85,16 @@ nexus.exe /stop <optional-service-name>
 
 # 卸载nexus服务
 nexus.exe /uninstall <optional-service-name>
+```
+
+#### 配置
+
+> 服务需启动过，完成初始化  
+
+```bash
+# 编辑配置文件
+sonatype-work/nexus3/etc/nexus.properties
+
+# 修改端口
+application-port=8081 # line.2
 ```
