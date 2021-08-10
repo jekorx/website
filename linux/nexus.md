@@ -97,4 +97,8 @@ sonatype-work/nexus3/etc/nexus.properties
 
 # 修改端口
 application-port=8081 # line.2
+
+# 修改配置文件后需重启服务
+systemctl restart nexus.service # linux
+nexus.exe /restart <optional-service-name> # windows
 ```
