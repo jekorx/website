@@ -1,4 +1,4 @@
-# FTP服务器（Linux环境下）
+# FTP服务器
 
 > 以Centos 7.4 为例 
 

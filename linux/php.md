@@ -1,4 +1,4 @@
-# PHP（Linux环境下）
+# PHP
 
 > 以Centos 7.4，PHP 7.1.x 为例  
 

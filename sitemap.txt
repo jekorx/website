@@ -87,3 +87,4 @@ https://www.wdg.pub/frontend/snippet.html
 https://www.wdg.pub/frontend/typescript.html
 https://www.wdg.pub/springboot/redis.html
 https://www.wdg.pub/springboot/rabbitmq.html
+https://www.wdg.pub/linux/nexus.html

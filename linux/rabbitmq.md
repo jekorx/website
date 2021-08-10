@@ -1,6 +1,6 @@
 # RabbitMQ
 
-#### 下载安装
+#### 安装
 
 > 下载对应版本的[erlang和rabbitmq-server](https://packagecloud.io/rabbitmq)  
 > 注意：rabbitmq-server的el版本要跟erlang对应  

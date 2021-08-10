@@ -1,4 +1,4 @@
-# PostgreSQL（Linux环境下）
+# PostgreSQL
 
 > 以Centos 7.4，PostgreSQL11.x为例  
 

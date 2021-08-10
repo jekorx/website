@@ -1,6 +1,9 @@
-# 禅道安装（Linux环境下）
+# 禅道
 
 > 以Centos 7.4，ZenTaoPMS.11.4.1 为例  
+
+#### 安装
+
 > 需要提前安装以下依赖，可点击链接参考
 > [nginx](../linux/nginx.md)，[mysql](../linux/mysql.md)，[php](../linux/php.md)
 

@@ -1,4 +1,4 @@
-# Solr（Linux环境下）
+# Solr
 
 > 以Centos 7.4，solr 8.1 为例  
 

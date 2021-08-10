@@ -1,4 +1,4 @@
-# Nginx（Linux环境下）
+# Nginx
 
 > 以Centos 7.4，Nginx 1.15.8为例
 

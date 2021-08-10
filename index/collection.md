@@ -8,6 +8,7 @@
 [JavaScript] [30 秒就能理解的 JavaScript 代码片段](https://www.css88.com/30-seconds-of-code/)  
 [FrontEnd] [30 seconds of code](https://www.30secondsofcode.org/)  
 [Animation] [TweenMax动画工具 构建补间动画](https://www.tweenmax.com.cn/api/tweenmax/)  
+[Java] [Java 8 Api手册](https://www.matools.com/api/java8)  
 
 #### 前端
 
@@ -102,6 +103,10 @@
 > React  
 
 [掘金] [「React进阶」 React全部api解读+基础实践大全(夯实基础2万字总结)](https://juejin.cn/post/6950063294270930980)  
+
+> JQuery  
+
+[掘金] [[ 浅谈前端 ] jQuery基本使用](https://juejin.cn/post/6993881701738889229)  
 
 > 其它
 

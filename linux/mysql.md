@@ -1,4 +1,4 @@
-# MySQL（Linux环境下）
+# MySQL
 
 > 以Centos 7.4，MySQL5.7.x为例  
 

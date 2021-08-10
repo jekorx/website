@@ -1,4 +1,4 @@
-# Tomcat（Linux环境下）
+# Tomcat
 
 > 以Centos 7.4，Tomcat 8.5.43为例
 

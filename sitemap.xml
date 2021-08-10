@@ -629,4 +629,11 @@
  <changefreq>weekly</changefreq>
 </url>
 
+<url>
+ <loc>https://www.wdg.pub/linux/nexus.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-08</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
 </urlset>

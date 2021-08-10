@@ -26,7 +26,7 @@ mvn -v
 
 #### 配置
 
-> ```<Maven安装目录>/conf/settings.xml```
+> ```<Maven安装目录>/conf/settings.xml```  
 
 ```xml
 <!-- 修改本地maven存放路径，line.53 -->
@@ -35,9 +35,118 @@ mvn -v
 <!-- 使用华为存储仓库，line.155 -->
 <mirrors>
   <mirror>
-    <id>huaweicloud</id>
+    <id>huaweimaven</id>
+    <name>Huawei Maven</name>
     <mirrorOf>*</mirrorOf>
     <url>https://mirrors.huaweicloud.com/repository/maven/</url>
   </mirror>
 </mirrors>
 ```
+
+#### 使用Nexus私服配置
+
+> Nexus搭建[请查看](./nexus.md)  
+
+> ```<Maven安装目录>/conf/settings.xml```  
+
+```xml
+<mirrors>
+  <mirror>
+    <id>nexus</id>
+    <name>Nexus</name>
+    <mirrorOf>*</mirrorOf>
+    <url>http://127.0.0.1:8081/repository/maven-public/</url>
+  </mirror>
+  <mirror>
+    <id>huaweimaven</id>
+    <name>Huawei Maven</name>
+    <mirrorOf>central</mirrorOf>
+    <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+  </mirror>
+</mirrors>
+
+<!-- 配置仓库 -->
+<profiles>
+  <profile>
+    <id>nexus</id>
+    <repositories>
+      <repository>
+        <id>nexus</id>
+        <name>Nexus</name>
+        <url>http://127.0.0.1:8081/repository/maven-public/</url>
+        <layout>default</layout>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>nexus</id>
+        <name>Nexus</name>
+        <url>http://127.0.0.1:8081/repository/maven-public/</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>
+</profiles>
+<!-- 激活nexus配置 -->
+<activeProfiles>
+  <activeProfile>nexus</activeProfile>
+</activeProfiles>
+
+<!-- 配置服务器 -->
+<servers>
+  <server>
+    <id>releases</id> <!-- 与pom.xml中配置的id一致 -->
+    <username>username</username>
+    <password>passoword</password>
+  </server>
+  <server>
+    <id>snapshots</id> <!-- 与pom.xml中配置的id一致 -->
+    <username>username</username>
+    <password>passoword</password>
+  </server>
+</servers>
+```
+
+> 在项目```pom.xml```添加  
+
+```xml
+<!-- pom.xml -->
+<distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id> <!-- 需要与settings.xml文件中一致 -->
+        <name>Snapshot</name>
+        <url>http://127.0.0.1:8081/repository/maven-snapshots/</url> <!-- snapshots仓库地址 -->
+        <uniqueVersion>true</uniqueVersion> <!-- 是否分配一个包含时间戳的构建号，不分配 -->
+    </snapshotRepository>
+    <repository>
+        <id>releases</id> <!-- 需要与settings.xml文件中一致 -->
+        <name>Release</name>
+        <url>http://127.0.0.1:8081/repository/maven-releases/</url> <!-- releases仓库地址 -->
+    </repository>
+</distributionManagement>
+```
+
+> ```pom.xml```部分说明  
+
+```xml
+<!-- pom.xml -->
+<groupId>groupId</groupId>
+<artifactId>artifactId</artifactId>
+<packaging>jar</packaging>
+<version>1.0</version> <!--也可能为：<version>1.0-SNAPSHOT</version> -->
+```
+
+> 其中**groupId**和**artifactId**将会是发布到私服后的包路径；  
+> **packaging**是打包方式；  
+> **version**中是包的版本。如果version版本号包括```-SNAPSHOT```则该包会被发布到**spapshots**仓库，否则会被发布到**releases**仓库。  

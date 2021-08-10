@@ -1,4 +1,4 @@
-# Redis（Linux环境下）
+# Redis
 
 > 以Centos 7.4，redis 5.0.x 为例  
 
