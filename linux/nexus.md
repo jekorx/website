@@ -4,7 +4,7 @@
 > 解压后，会有两个目录：  
 > ```nexus-3.xx.x-xx```：nexus私服管理界面的容器，内部集成了jetty  
 > ```sonatype-work```：私服的默认仓库，用于存储索引和组件资源  
-> 搭建Maven私服，相关使用配置[请查看](./maven.md#使用Nexus私服配置)  
+> 搭建Maven私服，相关使用配置[请查看](./maven.md#使用nexus私服配置)  
 
 #### CentOS环境
 
