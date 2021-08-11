@@ -1,4 +1,4 @@
-# Maven（Linux环境下）
+# Maven
 
 > 以Centos 7.4，Maven 3.6.0 为例  
 

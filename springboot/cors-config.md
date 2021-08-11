@@ -1,6 +1,9 @@
 # 跨域配置
 
-> SpringBoot添加跨域配置有以下两种配置方法
+> SpringBoot添加跨域配置有以下两种配置方法  
+> 使用```addCorsMappings```方式配置跨域：要区分SpringBoot版本  
+> **SpringBoot2.4之前**：```.allowedOrigins("*")```  
+> **SpringBoot2.4及之后**：```.allowedOriginPatterns("*")```  
 
 ```java
 @Configuration
@@ -11,8 +14,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-            // 允许跨域的源
-            .allowedOrigins("*")
+            // 允许跨域的源，SpringBoot2.4之前
+            // .allowedOrigins("*")
+            // SpringBoot2.4及之后使用allowedOriginPatterns
+            .allowedOriginPatterns("*")
             // 是否允许浏览器发送Cookie
             .allowCredentials(true)
             // 客户端所要访问的资源允许使用的方法或方法列表
