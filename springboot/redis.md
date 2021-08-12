@@ -18,7 +18,6 @@
 > Redis配置文件中要配置键空间通知，过期事件的监听```notify-keyspace-events Ex```，更多配置[请查看](../linux/redis.md#安装)  
 
 ```java
-import cn.hutool.core.util.ObjectUtil;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;
@@ -46,7 +45,7 @@ public class RedisMessageListener implements MessageListener {
     @Override
     public void onMessage(Message message, byte[] pattern) {
         // 遍历订阅回调函数，有消息通知时，分别执行
-        if (ObjectUtil.isNotNull(message)) {
+        if (null != message) {
             subscribeMap.values().forEach(function -> function.accept(message.toString()));
         }
     }
@@ -54,7 +53,6 @@ public class RedisMessageListener implements MessageListener {
 ```
 
 ```java
-import cn.hutool.core.util.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -75,7 +73,7 @@ public class RedisConfig {
     @Value("${spring.redis.database}")
     private int database;
     // 键事件通知前缀，__keyevent@<db>__:expired
-    private final String topicNameTemplate = "__keyevent@{}__:expired";
+    private final String topicNameTemplate = "__keyevent@%d__:expired";
 
     /**
      * 建消息接收容器
@@ -83,7 +81,7 @@ public class RedisConfig {
     @Bean
     public RedisMessageListenerContainer redisMessageListenerContainer() {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-        ChannelTopic topic = new ChannelTopic(StrUtil.format(topicNameTemplate, database));
+        ChannelTopic topic = new ChannelTopic(String.format(topicNameTemplate, database));
         container.setConnectionFactory(redisConnectionFactory);
         container.addMessageListener(redisMessageListener, topic);
         return container;

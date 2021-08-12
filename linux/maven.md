@@ -126,7 +126,6 @@ mvn -v
         <id>snapshots</id> <!-- 需要与settings.xml文件中一致 -->
         <name>Snapshot</name>
         <url>http://127.0.0.1:8081/repository/maven-snapshots/</url> <!-- snapshots仓库地址 -->
-        <uniqueVersion>true</uniqueVersion> <!-- 是否分配一个包含时间戳的构建号，不分配 -->
     </snapshotRepository>
     <repository>
         <id>releases</id> <!-- 需要与settings.xml文件中一致 -->
@@ -135,6 +134,10 @@ mvn -v
     </repository>
 </distributionManagement>
 ```
+
+> ```<uniqueVersion>false</uniqueVersion>```：是否分配一个包含时间戳的构建号，false：不分配；（Nexus 3.x中无效）  
+> Nexus 3.x中snapshots版带构建号，使用时只需填写```x.x.x-SNAPSHOT```，即可，自动引用**最新**的构建号版本  
+> releases版不带构建号  
 
 > ```pom.xml```部分说明  
 
