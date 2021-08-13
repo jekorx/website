@@ -6,7 +6,7 @@
 > 注意：rabbitmq-server的el版本要跟erlang对应  
 
 ```bash
-# 在linux下直接执行命令命令
+# 下载rpm包
 wget --content-disposition https://packagecloud.io/rabbitmq/erlang/packages/el/7/erlang-23.3.4.5-1.el7.x86_64.rpm/download.rpm
 wget --content-disposition https://packagecloud.io/rabbitmq/rabbitmq-server/packages/el/7/rabbitmq-server-3.8.19-1.el7.noarch.rpm/download.rpm
 ```

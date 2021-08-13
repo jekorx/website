@@ -31,13 +31,34 @@ function downloadImg (src, filename, ext) {
 
 > 后端通过输出流导出Excel，前端下载文件，后端Java代码[可参照](../springboot/excel.md)。  
 
+###### xlsx类型
+
 ```javascript
 // 以 axios 为例，需要设置响应参数类型为 blob
-axios.get(`/v1/export`, {
+axios.get('/v1/export', {
   responseType: 'blob'
 }).then(res => {
   if (res.status === 200) {
-    const url = window.URL.createObjectURL(new Blob([res.data]))
+    const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' }))
+    const link = document.createElement('a')
+    link.href = url
+    link.setAttribute('download', '导出excel.xlsx')
+    link.click()
+    // 回收URL
+    window.URL.revokeObjectURL(url)
+  }
+})
+```
+
+###### xls类型
+
+```javascript
+// 以 axios 为例，需要设置响应参数类型为 blob
+axios.get('/v1/export', {
+  responseType: 'blob'
+}).then(res => {
+  if (res.status === 200) {
+    const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.ms-excel;charset=UTF-8' }))
     const link = document.createElement('a')
     link.href = url
     link.setAttribute('download', '导出excel.xls')

@@ -1361,7 +1361,7 @@ table.inner-table {
       box-sizing: border-box;
       &:last-child {
         border-right: 0;
-        margin-left: -1px
+        margin-left: -1px;
       }
     }
     &:last-child {
