@@ -39,14 +39,14 @@ unicorn['port'] = 9875
 # 发送邮件
 # line.53 - 54
 # 发件箱邮箱
-gitlab_rails['gitlab_email_from'] = 'youemail@163.com'
+gitlab_rails['gitlab_email_from'] = 'youremail@163.com'
 # 发件箱发件人姓名
 gitlab_rails['gitlab_email_display_name'] = 'GitLab'
 # line.508 - 516，以163邮箱为例
 gitlab_rails['smtp_enable'] = true
 gitlab_rails['smtp_address'] = "smtp.163.com"
 gitlab_rails['smtp_port'] = 465 # 云服务器记得开放465端口
-gitlab_rails['smtp_user_name'] = "youemail@163.com" # 发件箱
+gitlab_rails['smtp_user_name'] = "youremail@163.com" # 发件箱
 gitlab_rails['smtp_password'] = "stmp password" # stmp密码
 gitlab_rails['smtp_domain'] = "163.com"
 gitlab_rails['smtp_authentication'] = "login"
