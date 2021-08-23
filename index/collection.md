@@ -188,3 +188,4 @@
 #### 其它
 
 [GitHub] [家庭网络知识整理](https://github.com/blanboom/awesome-home-networking-cn)  
+[掘金] [【利器篇】35+精选chrome插件，含15+前端插件，总有一款值得你停留](https://juejin.cn/post/6998300409173377032)  
