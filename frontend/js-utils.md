@@ -119,28 +119,31 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 ```javascript
 /**
  * @description 秒格式化
- * @description secondFormat(10000) // 2小时46分钟40秒
+ * @description secondFormat(100000) // 1天3小时46分钟40秒
  *
  * @param {Number} second 秒
- * @param {Number} size 单位个数，如：2: 分钟 秒，3: 小时 分钟 秒
- * @returns {String} 如：2小时46分钟40秒
+ * @param {String} format 格式化类型，'dhms'中一个或多个，不分先后顺序，如：ms: 分钟 秒，dms: 天 分钟 秒
+ * @returns {String} 如：1天3小时46分钟40秒
  */
-export const secondFormat = (second, size = 4) => {
-  const units = ['天', '小时', '分钟', '秒']
-  const parts = [86400, 3600, 60, 1]
-  if (size < 1) size = 1
-  if (size > parts.length) size = parts.length
-  let currentScond = second
-  const strs = []
-  for (let i = parts.length - size; i < parts.length; i++) {
-    const n = parts[i]
-    const cur = Math.floor(currentScond / n)
-    if (cur > 0) {
-      currentScond = currentScond % n
-      strs.push(`${cur}${units[i]}`)
-    }
+export const secondFormat = (second, format = 'dhms') => {
+  if (!/d|h|m|s/.test(format)) {
+    throw new Error('\'format\' argument must a string contain one or more of \'dhms\'.')
   }
-  return strs.join('')
+  return [
+    { k: 'd', u: '天', p: 86400 },
+    { k: 'h', u: '小时', p: 3600 },
+    { k: 'm', u: '分钟', p: 60 },
+    { k: 's', u: '秒', p: 1 }
+  ].reduce((strs, { k, u, p }) => {
+    if (format.includes(k)) {
+      const cur = Math.floor(second / p)
+      if (cur > 0) {
+        second = second % p
+        strs.push(`${cur}${u}`)
+      }
+    }
+    return strs
+  }, []).join('')
 }
 ```
 
