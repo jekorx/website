@@ -130,12 +130,12 @@ export const secondFormat = (second, format = 'dhms') => {
     throw new Error('\'format\' argument must a string contain one or more of \'dhms\'.')
   }
   return [
-    { k: 'd', u: '天', p: 86400 },
-    { k: 'h', u: '小时', p: 3600 },
-    { k: 'm', u: '分钟', p: 60 },
-    { k: 's', u: '秒', p: 1 }
-  ].reduce((strs, { k, u, p }) => {
-    if (format.includes(k)) {
+    { f: 'd', u: '天', p: 86400 },
+    { f: 'h', u: '小时', p: 3600 },
+    { f: 'm', u: '分钟', p: 60 },
+    { f: 's', u: '秒', p: 1 }
+  ].reduce((strs, { f, u, p }) => {
+    if (format.includes(f)) {
       const cur = Math.floor(second / p)
       if (cur > 0) {
         second = second % p
