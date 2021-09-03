@@ -17,11 +17,20 @@ del /f/s/q "*.md"
 
 ```bash
 option confirm off
-open username:password@host 
-put C:\test\a.zip /home/test/a.zip
+open username:password@host
+cd /opt/test/
+rm file.txt
+rmdir folder
+put test\* ./
 close
 exit
 ```
+
+> 说明：  
+> cd /opt/test/：改变服务器当前目录  
+> rm：删除文件  
+> rmdir：删除文件夹内全部文件及文件夹  
+> put test\* ./：上传本地当前目录到服务器cd的目录，本地目录也可使用绝对路径，如：```C:\test\a.zip```  
 
 > 4、运行脚本```upload.bat```  
 
@@ -31,6 +40,12 @@ winscp.exe /console /script=upload.txt /log=log.txt
 
 > 执行```upload.bat```会自动上传，初次会有登录提示，英文输入法状态下输入```Y```即可。  
 > 注意：1、用户名、密码不能出现特殊符号；2、权限问题[可参照](../linux/cmd.md#用户操作)。  
+
+> 5、使用Git Bash运行bat脚本  
+
+```bash
+cmd.exe /C upload.bat
+```
 
 ###### net网络命令
 
