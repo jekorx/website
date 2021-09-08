@@ -14,6 +14,7 @@
 > 12、[输入框占位符交互](#输入框占位符交互)  
 > 13、[hover效果](#hover效果)  
 > 14、[background-image网格背景](#background-image网格背景)  
+> 15、[steps步骤条](#steps步骤条)  
 
 #### 文本域内容解析换行，解析换行符
 
@@ -1318,5 +1319,198 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
                     linear-gradient(90deg, #EEE 1px, transparent 0%);
   background-size: 20px 20px;
   background-position: 0 1px;
+}
+```
+
+#### steps步骤条
+
+<div style="padding-bottom: 10px;">
+  <style>
+    .steps-wrap {
+      display: flex;
+    }
+    .steps-item {
+      flex: 1;
+      height: 40px;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      box-sizing: border-box;
+      margin: 0 2px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #EEE;
+      color: #777;
+    }
+    .steps-item:first-child {
+      border-left: 1px solid transparent;
+    }
+    .steps-item:last-child {
+      border-right: 1px solid transparent;
+    }
+    .steps-item:last-child:before,
+    .steps-item:not(:first-child):not(:last-child):before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 40px;
+      height: 40px;
+      background-color: #FFF;
+      box-sizing: border-box;
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      transform: rotateZ(45deg) scale(0.707) translateX(-21px) translateY(19px);
+    }
+    .steps-item:first-child:after,
+    .steps-item:not(:first-child):not(:last-child):after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      background-color: #EEE;
+      box-sizing: border-box;
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      transform: rotateZ(45deg) scale(0.707) translateX(19px) translateY(-21px);
+    }
+    .steps-item.actived.actived,
+    .steps-item.actived.actived:before,
+    .steps-item.actived.actived:after {
+      border-color: #5898F7;
+      color: #5898F7
+    }
+    .steps-item.actived.actived,
+    .steps-item.actived.actived:after {
+      background-color: #E1EDFD;
+    }
+    .steps-item.finish.finish,
+    .steps-item.finish.finish:before,
+    .steps-item.finish.finish:after {
+      border-color: #DDD;
+      color: #999;
+      background-color: #FFF;
+    }
+  </style>
+  <div class="steps-wrap">
+    <div class="steps-item finish">1</div>
+    <div class="steps-item actived">2</div>
+    <div class="steps-item">3</div>
+    <div class="steps-item">4</div>
+  </div>
+  <div style="display: flex; justify-content: center; margin-top: 10px">
+    <button id="steps-next-btn">next step</button>
+  </div>
+  <script>
+    const stepsDoms = document.querySelectorAll('.steps-wrap .steps-item')
+    let activedStep = Array.from(stepsDoms).findIndex(({ classList }) => Array.from(classList).includes('actived'))
+    document.getElementById('steps-next-btn').onclick = () => {
+      if (++activedStep > 3) activedStep = 0
+      stepsDoms.forEach((dom, index) => {
+        const clazz = dom.classList
+        if (clazz.contains('finish')) {
+          clazz.remove('finish')
+        }
+        if (clazz.contains('actived')) {
+          clazz.remove('actived')
+        }
+        if (index < activedStep) {
+          clazz.add('finish')
+        } else if (index === activedStep) {
+          clazz.add('actived')
+        }
+      })
+    }
+  </script>
+</div>
+
+```html
+<div class="steps-wrap">
+  <div class="steps-item finish">1</div>
+  <div class="steps-item finish">2</div>
+  <div class="steps-item actived">3</div>
+  <div class="steps-item">4</div>
+</div>
+```
+
+```css
+.steps-wrap {
+  display: flex;
+}
+.steps-item {
+  flex: 1;
+  height: 40px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  box-sizing: border-box;
+  margin: 0 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EEE;
+  color: #777;
+}
+.steps-item:first-child {
+  border-left: 1px solid transparent;
+}
+.steps-item:last-child {
+  border-right: 1px solid transparent;
+}
+.steps-item:last-child:before,
+.steps-item:not(:first-child):not(:last-child):before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #FFF;
+  box-sizing: border-box;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  transform: rotateZ(45deg) scale(0.707) translateX(-21px) translateY(19px);
+}
+.steps-item:first-child:after,
+.steps-item:not(:first-child):not(:last-child):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  background-color: #EEE;
+  box-sizing: border-box;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  transform: rotateZ(45deg) scale(0.707) translateX(19px) translateY(-21px);
+}
+.steps-item.actived.actived,
+.steps-item.actived.actived:before,
+.steps-item.actived.actived:after {
+  border-color: #5898F7;
+  color: #5898F7
+}
+.steps-item.actived.actived,
+.steps-item.actived.actived:after {
+  background-color: #E1EDFD;
+}
+.steps-item.finish.finish,
+.steps-item.finish.finish:before,
+.steps-item.finish.finish:after {
+  border-color: #DDD;
+  color: #999;
+  background-color: #FFF;
 }
 ```

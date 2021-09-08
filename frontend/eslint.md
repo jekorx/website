@@ -46,11 +46,19 @@ npx eslint --init
 yarn add eslint-plugin-vue @typescript-eslint/eslint-plugin eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise @typescript-eslint/parser -D
 
 // 5、修改.eslintrc.js
+// <script setup>中编译器宏如defineProps和defineEmits被no-undef规则警告，需要配置globals
+// https://eslint.vuejs.org/user-guide/#compiler-macros-such-as-defineprops-and-defineemits-are-warned-by-no-undef-rule
 module.exports = {
   env: {
     browser: true,
     es2021: true,
     node: true
+  },
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly'
   },
   extends: [
     'plugin:vue/essential',
