@@ -127,7 +127,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
  */
 export const secondFormat = (second, format = 'dhms') => {
   if (!/d|h|m|s/.test(format)) {
-    throw new Error('\'format\' argument must a string contain one or more of \'dhms\'.')
+    throw new Error('\'format\' argument must a string contains one or more of \'dhms\'.')
   }
   return [
     { f: 'd', u: '天', p: 86400 },
