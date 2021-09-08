@@ -1391,16 +1391,16 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
     .steps-item.actived.actived:after {
       background-color: #E1EDFD;
     }
-    .steps-item.finish.finish,
-    .steps-item.finish.finish:before,
-    .steps-item.finish.finish:after {
+    .steps-item.finished.finished,
+    .steps-item.finished.finished:before,
+    .steps-item.finished.finished:after {
       border-color: #DDD;
       color: #999;
       background-color: #FFF;
     }
   </style>
   <div class="steps-wrap">
-    <div class="steps-item finish">1</div>
+    <div class="steps-item finished">1</div>
     <div class="steps-item actived">2</div>
     <div class="steps-item">3</div>
     <div class="steps-item">4</div>
@@ -1415,14 +1415,14 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
       if (++activedStep > 3) activedStep = 0
       stepsDoms.forEach((dom, index) => {
         const clazz = dom.classList
-        if (clazz.contains('finish')) {
-          clazz.remove('finish')
+        if (clazz.contains('finished')) {
+          clazz.remove('finished')
         }
         if (clazz.contains('actived')) {
           clazz.remove('actived')
         }
         if (index < activedStep) {
-          clazz.add('finish')
+          clazz.add('finished')
         } else if (index === activedStep) {
           clazz.add('actived')
         }
@@ -1433,9 +1433,9 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 
 ```html
 <div class="steps-wrap">
-  <div class="steps-item finish">1</div>
-  <div class="steps-item finish">2</div>
-  <div class="steps-item actived">3</div>
+  <div class="steps-item finished">1</div>
+  <div class="steps-item actived">2</div>
+  <div class="steps-item">3</div>
   <div class="steps-item">4</div>
 </div>
 ```
@@ -1506,9 +1506,9 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 .steps-item.actived.actived:after {
   background-color: #E1EDFD;
 }
-.steps-item.finish.finish,
-.steps-item.finish.finish:before,
-.steps-item.finish.finish:after {
+.steps-item.finished.finished,
+.steps-item.finished.finished:before,
+.steps-item.finished.finished:after {
   border-color: #DDD;
   color: #999;
   background-color: #FFF;
