@@ -1410,27 +1410,35 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
     <div class="steps-item">4</div>
   </div>
   <div style="display: flex; justify-content: center; margin-top: 10px">
+    <button id="steps-init-btn" style="margin-right: 20px">init steps</button>
     <button id="steps-next-btn">next step</button>
   </div>
   <script>
-    const stepsDoms = document.querySelectorAll('.steps-wrap .steps-item')
-    let activedStep = Array.from(stepsDoms).findIndex(({ classList }) => Array.from(classList).includes('actived'))
-    document.getElementById('steps-next-btn').onclick = () => {
-      if (++activedStep > 3) activedStep = 0
-      stepsDoms.forEach((dom, index) => {
-        const clazz = dom.classList
-        if (clazz.contains('finished')) {
-          clazz.remove('finished')
+    window.onload = function () {
+      document.getElementById('steps-init-btn').onclick = function () {
+        const stepsDoms = document.querySelectorAll('.steps-wrap .steps-item')
+        let activedStep = Array.from(stepsDoms).findIndex(({ classList }) => Array.from(classList).includes('actived'))
+        document.getElementById('steps-next-btn').onclick = function () {
+          if (++activedStep > 3) activedStep = 0
+          stepsDoms.forEach(function (dom, index) {
+            const clazz = dom.classList
+            if (clazz.contains('finished')) {
+              clazz.remove('finished')
+            }
+            if (clazz.contains('actived')) {
+              clazz.remove('actived')
+            }
+            if (index < activedStep) {
+              clazz.add('finished')
+            } else if (index === activedStep) {
+              clazz.add('actived')
+            }
+          })
         }
-        if (clazz.contains('actived')) {
-          clazz.remove('actived')
-        }
-        if (index < activedStep) {
-          clazz.add('finished')
-        } else if (index === activedStep) {
-          clazz.add('actived')
-        }
-      })
+      }
+      setTimeout(function () {
+        document.getElementById('steps-init-btn').click()
+      }, 300)
     }
   </script>
 </div>
