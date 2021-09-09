@@ -49,6 +49,39 @@ winscp.exe /console /script=upload.txt
 cmd.exe /C upload.bat
 ```
 
+> 参照：```winscp```命令  
+
+| 命令 | 描述 |
+|:--:|:--:|
+| call | 执行任意远程 shell 命令 |
+| cd | 更改远程工作目录 |
+| checksum | 计算远程文件的校验和 |
+| chmod | 更改远程文件的权限 |
+| close | 关闭会话 |
+| cp | 复制远程文件 |
+| echo | 将消息打印到脚本输出 |
+| exit | 关闭所有会话并终止程序 |
+| get | 从远程目录下载文件到本地目录 |
+| help | 显示帮助 |
+| keepuptodate | 不断反映远程目录上本地目录的变化 |
+| lcd | 更改本地工作目录 |
+| lls | 列出本地目录的内容 |
+| ln | 创建远程符号链接 |
+| lpwd | 打印本地工作目录 |
+| ls | 列出远程目录的内容 |
+| mkdir | 创建远程目录 |
+| mv | 移动或重命名远程文件 |
+| open | 连接到服务器 |
+| option | 设置或显示脚本选项的值 |
+| put | 将文件从本地目录上传到远程目录 |
+| pwd | 打印远程工作目录 |
+| rm | 删除远程文件 |
+| rmdir | 删除远程目录 |
+| session | 列出连接的会话或选择活动会话 |
+| stat | 检索远程文件的属性 |
+| synchronize | 将远程目录与本地目录同步 |
+
+
 ###### net网络命令
 
 ```bash
