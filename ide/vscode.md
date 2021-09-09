@@ -84,6 +84,41 @@ Live Server
 px2rem
 ```
 
+#### Volar配置
+
+> 建议关闭配置  
+
+```json
+{
+  "volar.codeLens.scriptSetupTools": false,
+  "volar.codeLens.references": false
+}
+```
+
+> 对于全局组件，需要定义```GlobalComponents```进行类型检查以及组件标签高亮  
+
+```javascript
+// src/components.d.ts
+
+// declare module '@vue/runtime-core' works for vue 3
+// declare module 'vue' works for vue2 + vue 3
+declare module 'vue' {
+  export interface GlobalComponents {
+    RouterLink: {}
+    RouterView: {}
+    MyComponent: {} // 如果不支持ts的组件，可直接使用{}
+    Button: typeof import('element-ui')['Button']
+  }
+}
+export { }
+```
+
+> 如果使用eslint可能会有报错，可直接通过```.eslintignore```屏蔽  
+
+```bash
+components.d.ts
+```
+
 #### 部分快捷键配置
 
 ```bash
