@@ -183,7 +183,25 @@ components.d.ts
       ""
     ],
     "description": "vue3初始化模版"
-  }
+  },
+	"vue3setup": {
+		"prefix": "vue3setup init template",
+		"scope": "vue",
+		"body": [
+			"<script>",
+			"import { } from 'vue'",
+			"export default { name: '$1' }",
+			"</script>",
+			"<script setup>",
+			"",
+			"</script>",
+			"<template>",
+			"  <div></div>",
+			"</template>",
+			""
+		],
+		"description": "vue3setup初始化模版"
+	}
 }
 ```
 

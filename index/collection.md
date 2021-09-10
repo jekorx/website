@@ -9,6 +9,7 @@
 [FrontEnd] [30 seconds of code](https://www.30secondsofcode.org/)  
 [Animation] [TweenMax动画工具 构建补间动画](https://www.tweenmax.com.cn/api/tweenmax/)  
 [Java] [Java 8 Api手册](https://www.matools.com/api/java8)  
+[手册] [网道 / WangDoc.com](https://wangdoc.com/)  
 
 #### 前端
 
@@ -134,7 +135,6 @@
 [掘金] [整理一批正在学、正在看、正在用，前端工具](https://juejin.cn/post/6911251933386768391)  
 [掘金] [拯救你的年底KPI：前端性能优化](https://juejin.cn/post/6911472693405548557)  
 [掘金] [前端优秀实践不完全指南](https://juejin.cn/post/6932647134944886797)  
-[开源中国] [硬核操作系统讲解](https://my.oschina.net/u/4511602/blog/4966551)  
 [掘金] [ES6、ES7、ES8、ES9、ES10新特性一览](https://juejin.cn/post/6844903811622912014)  
 [SegmentFault] [JS语法 ES6、ES7、ES8、ES9、ES10、ES11、ES12新特性](https://segmentfault.com/a/1190000039272641)  
 [掘金] [让我告诉你一些强无敌的 NPM 软件包](https://juejin.cn/post/6950584088462163982)  
@@ -148,6 +148,11 @@
 [掘金] [(算法入门)人人都能看懂的时间复杂度和空间复杂度](https://juejin.cn/post/6999307229752983582)  
 [掘金] [十大经典排序算法总结（JavaScript描述）](https://juejin.cn/post/6844903444365443080)  
 [掘金] [太震撼了！我把七大JS排序算法做成了可视化！！！太好玩了！](https://juejin.cn/post/7004454008634998821)  
+
+#### 后端
+
+[微信公众号] [spring：我是如何解决循环依赖的？](https://mp.weixin.qq.com/s?__biz=MzUxODkzNTQ3Nw==&mid=2247485600&idx=1&sn=0c49b94e7fbd35c88c4470e936023e3e&chksm=f9800e7acef7876ca05ab45ce9420ea140f188e84153f23d0af9d044f475458ad38d49a6546a&token=1641046204&lang=zh_CN&scene=21#wechat_redirect)  
+[开源中国] [聊聊spring事务失效的12种场景，太坑了](https://my.oschina.net/u/4163222/blog/5228184)  
 
 #### Server
 

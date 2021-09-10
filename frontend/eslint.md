@@ -43,11 +43,15 @@ npx eslint --init
 // 会自动生成.eslintrc.js文件
 
 // 4、安装其它依赖
+// 使用TypeScript
 yarn add eslint-plugin-vue @typescript-eslint/eslint-plugin eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise @typescript-eslint/parser -D
+// 不使用TypeScript
+// yarn add eslint-plugin-vue eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise -D
 
 // 5、修改.eslintrc.js
 // <script setup>中编译器宏如defineProps和defineEmits被no-undef规则警告，需要配置globals
 // https://eslint.vuejs.org/user-guide/#compiler-macros-such-as-defineprops-and-defineemits-are-warned-by-no-undef-rule
+// 使用TypeScript
 module.exports = {
   env: {
     browser: true,
@@ -75,10 +79,51 @@ module.exports = {
   ],
   rules: {
     'vue/no-multiple-template-root': 'off',
-    'vue/comment-directive': 'off'
+    'vue/comment-directive': 'off',
+    // 允许obj['key']的使用
+    'dot-notation': 'off',
+    // 允许object key使用引号
+    'quote-props': 'off'
   },
   settings: {}
 }
+
+// 不使用TypeScript
+/*
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true
+  },
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly'
+  },
+  extends: [
+    'plugin:vue/vue3-essential',
+    'standard'
+  ],
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: 'module'
+  },
+  plugins: [
+    'vue'
+  ],
+  rules: {
+    'vue/no-multiple-template-root': 'off',
+    'vue/comment-directive': 'off',
+    // 允许obj['key']的使用
+    'dot-notation': 'off',
+    // 允许object key使用引号
+    'quote-props': 'off'
+  },
+  settings: {}
+}
+*/
 ```
 
 #### create-react-app中使用ESLint
