@@ -65,7 +65,7 @@ module.exports = {
     withDefaults: 'readonly'
   },
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/vue3-essential',
     'standard'
   ],
   parserOptions: {
