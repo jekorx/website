@@ -89,3 +89,4 @@ https://www.wdg.pub/springboot/redis.html
 https://www.wdg.pub/springboot/rabbitmq.html
 https://www.wdg.pub/linux/nexus.html
 https://www.wdg.pub/java/string.html
+https://www.wdg.pub/wx/weapp-sign.html
