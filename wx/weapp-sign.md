@@ -113,6 +113,20 @@ class Index extends Component {
     const base64 = ctx.canvas.toDataURL()
     // TODO 对图片base64进行后续处理
     console.log(base64)
+
+    /* 处理并关闭该页面，方法1
+    // 使用mobx中formStore的setSignImage方法保存签名
+    this.props.formStore.setSignImage(base64)
+    Taro.navigateBack() */
+
+    /* 处理并关闭该页面，方法2
+    const pages = Taro.getCurrentPages()
+    if (pages.length >= 2) {
+      const prevPage = pages[pages.length - 2]
+      // 调用前一页自定义的setSignImage方法保存签名到前一页
+      prevPage.$component.setSignImage(base64)
+      Taro.navigateBack()
+    } */
   }
 
   // 清空画布
