@@ -22,7 +22,7 @@ class Index extends Component {
     this.state = {
       ctx: null,
       isSigned: false,
-      backgroundColor: '#FFF',
+      backgroundColor: 'rgba(0, 0, 0, 0)',
       lineColor: '#000',
       lineWidth: 4
     }
@@ -49,7 +49,7 @@ class Index extends Component {
       canvas.height = res.height * dpr
       ctx.scale(dpr, dpr)
       const { lineColor, lineWidth, backgroundColor } = this.state
-      // 设置画布背景色
+      // 设置画布背景色，画布默认透明，可不进行设置
       ctx.fillStyle = backgroundColor
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       // 设置线条颜色
