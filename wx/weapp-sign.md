@@ -157,8 +157,8 @@ class Index extends Component {
         <View className={styles.btns}>
           <Text>请在上方空白区域手写签名</Text>
           <View>
-            <Button className={[styles.btn, styles.primary]} hover-class={styles.hover} onClick={this.save}>确认</Button>
-            <Button className={[styles.btn, styles.secondary]} hover-class={styles.hover} onClick={this.clear}>重写</Button>
+            <Button className={[styles.btn, styles.primary]} hoverClass={styles.hover} hoverStayTime={100} onClick={this.save}>确认</Button>
+            <Button className={[styles.btn, styles.secondary]} hoverClass={styles.hover} hoverStayTime={100} onClick={this.clear}>重写</Button>
           </View>
         </View>
       </View>
