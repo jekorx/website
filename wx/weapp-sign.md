@@ -60,6 +60,9 @@ class Index extends Component {
       ctx.lineCap = 'round'
       // 设置交汇处圆角
       ctx.lineJoin = 'round'
+      // 利用阴影，消除锯齿
+      ctx.shadowBlur = 1
+      ctx.shadowColor = lineColor
       this.setState({ ctx })
     })
   }
