@@ -32,7 +32,7 @@
       this.height = 200
       this.lineWidth = 2
       this.color = '#000'
-      this.background = 'rgba(255, 255, 255, 0)'
+      this.backgroundColor = 'rgba(255, 255, 255, 0)'
       this.borderWidth = 1
       this.borderColor = '#333'
       this.imageType = 'image/png'
@@ -58,7 +58,7 @@
       // 获取canvas context
       var cxt = canvas.getContext('2d')
       // canvas context相关设置
-      cxt.fillStyle = this.background
+      cxt.fillStyle = this.backgroundColor
       cxt.fillRect(0, 0, this.width, this.height)
       cxt.strokeStyle = this.color
       cxt.lineWidth = this.lineWidth
@@ -137,6 +137,8 @@
       if (clearBtn) {
         clearBtn.onclick = function () {
           cxt.clearRect(0, 0, canvas.width, canvas.height)
+          cxt.fillStyle = this.backgroundColor
+          cxt.fillRect(0, 0, this.width, this.height)
           this.clearCallback()
         }.bind(this)
       }
@@ -202,7 +204,7 @@
  * <Number> width：容器宽度，默认：浏览器宽度
  * <Number> height：容器高度，默认：200
  * <String> color：画线颜色，默认：'#000'
- * <String> background：容器背景颜色颜色，默认：'rgba(255, 255, 255, 0)'
+ * <String> backgroundColor：容器背景颜色颜色，默认：'rgba(255, 255, 255, 0)'
  * <Number> borderWidth：容器边框宽度，默认：1
  * <String> borderColor：容器边框颜色颜色，默认：'#333'
  * <String> imageType：图片类型，默认：image/png（推荐），可选：image/jpeg（注意修改background；不推荐：清空画布再次绘制可能无法正常生成base64），image/webp（Chrome支持），其他类型均为image/png
@@ -218,7 +220,7 @@ function drawCanvas(args) {
   this.height = 200
   this.lineWidth = 2
   this.color = '#000'
-  this.background = 'rgba(255, 255, 255, 0)'
+  this.backgroundColor = 'rgba(255, 255, 255, 0)'
   this.borderWidth = 1
   this.borderColor = '#333'
   this.imageType = 'image/png'
@@ -244,7 +246,7 @@ function drawCanvas(args) {
   // 获取canvas context
   var cxt = canvas.getContext('2d')
   // canvas context相关设置
-  cxt.fillStyle = this.background
+  cxt.fillStyle = this.backgroundColor
   cxt.fillRect(0, 0, this.width, this.height)
   cxt.strokeStyle = this.color
   cxt.lineWidth = this.lineWidth
@@ -325,6 +327,8 @@ function drawCanvas(args) {
   if (clearBtn) {
     clearBtn.onclick = function () {
       cxt.clearRect(0, 0, canvas.width, canvas.height)
+      cxt.fillStyle = this.backgroundColor
+      cxt.fillRect(0, 0, this.width, this.height)
       this.clearCallback()
     }.bind(this)
   }
