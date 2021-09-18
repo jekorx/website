@@ -180,7 +180,7 @@ import styles from './codes.module.scss'
  * code输入
  */
 class Codes extends Component {
-  constructor() {
+  constructor () {
     this.state = {
       focus: false,
       value: '',
@@ -190,7 +190,7 @@ class Codes extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.init()
   }
 
