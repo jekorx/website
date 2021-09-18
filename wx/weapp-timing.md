@@ -23,7 +23,7 @@ startTiming = (start, loading) => {
 
 #### 效果
 
-![效果1](../assets/weapp-sign-5.gif)
+![效果1](../assets/weapp-sign-3.gif)
 
 > index.jsx  
 
