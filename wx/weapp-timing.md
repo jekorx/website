@@ -52,10 +52,6 @@ class Timing extends Component {
   componentWillUnmount () {
     const { timer } = this.state
     timer && clearInterval(timer)
-    this.setState({
-      clock: 0,
-      timer: null
-    })
   }
 
   init = () => {

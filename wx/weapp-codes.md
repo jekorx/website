@@ -195,6 +195,11 @@ class Codes extends Component {
     this.init()
   }
 
+  componentWillUnmount () {
+    const { timer } = this.state
+    timer && clearInterval(timer)
+  }
+
   init = () => {
     const { length } = this.props
     this.setState({
