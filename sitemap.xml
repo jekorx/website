@@ -650,4 +650,18 @@
  <changefreq>weekly</changefreq>
 </url>
 
+<url>
+ <loc>https://www.wdg.pub/wx/weapp-codes.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-16</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
+ <loc>https://www.wdg.pub/wx/weapp-timing.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-16</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
 </urlset>
