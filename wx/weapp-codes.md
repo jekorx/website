@@ -215,7 +215,6 @@ class Codes extends Component {
   inputHandle = ({ detail }) => {
     let { value } = detail
     let { length } = this.props
-    console.log(value)
     if (value.length > length) {
       value = value.substr(0, length)
     }
