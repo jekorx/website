@@ -9,13 +9,13 @@
 import Codes from '_c/codes'
 
 // 位数输入完后回调
-onComplete = values => {
-  // 数组
-  console.log(values)
+onInput = value => {
+  // code字符串
+  console.log(value)
 }
 
 // render
-<Codes length={4} onComplete={this.onComplete} />
+<Codes length={4} onInput={this.onInput} />
 ```
 
 #### 效果
@@ -47,10 +47,13 @@ class Codes extends Component {
   }
 
   init = () => {
-    const { length } = this.props
+    const { length, autoFocus } = this.props
     this.setState({
       values: Array(length).fill('')
     })
+    autoFocus && setTimeout(() => {
+      this.setFocus(true)
+    }, 100)
   }
 
   setFocus = focus => {
@@ -64,7 +67,11 @@ class Codes extends Component {
       value = value.substr(0, length)
     }
     this.setState({ value })
+    const { onInput } = this.props
     const { values } = this.state
+    if (value.length < values.length) {
+      onInput('')
+    }
     value = value.split('')
     values.forEach((_, i) => {
       values[i] = value[i] || ''
@@ -72,7 +79,7 @@ class Codes extends Component {
     this.setState({ values })
     if (value.length >= length) {
       this.setFocus(false)
-      this.props.onComplete(values)
+      onInput(values.join(''))
     }
   }
 
@@ -95,13 +102,15 @@ class Codes extends Component {
 Codes.propTypes = {
   type: PropTypes.string,
   length: PropTypes.number,
-  onComplete: PropTypes.func
+  autoFocus: PropTypes.bool,
+  onInput: PropTypes.func
 }
 
 Codes.defaultProps = {
   type: 'number',
   length: 4,
-  onComplete: () => { }
+  autoFocus: false,
+  onInput: () => { }
 }
 
 export default Codes

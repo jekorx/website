@@ -59,7 +59,7 @@ class Timing extends Component {
     // 获取上次发送的时间戳
     const time = Taro.getStorageSync(expiresKey)
     if (!time) return
-    const now = new Date().getTime()
+    const now = Date.now()
     // 计算剩余时间
     const surplus = expiresInterval - Math.round((now - +time) / 1000)
     if (surplus <= 0) {
@@ -89,7 +89,7 @@ class Timing extends Component {
   // 开始计时方法
   startTiming = () => {
     const { expiresKey, expiresInterval } = this.props
-    const now = new Date().getTime()
+    const now = Date.now()
     Taro.setStorage({
       key: expiresKey,
       data: now
