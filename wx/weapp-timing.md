@@ -169,7 +169,7 @@ Timing.defaultProps = {
 export default Timing
 ```
 
-> styles.module.scss  
+> timing.module.scss  
 
 ```css
 .component {

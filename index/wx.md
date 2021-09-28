@@ -6,3 +6,4 @@
 > * [微信小程序Canvas签名](../wx/weapp-sign.md)
 > * [微信小程序验证码输入](../wx/weapp-codes.md)
 > * [微信小程序倒计时](../wx/weapp-timing.md)
+> * [微信小程序日期时间选择器](../wx/weapp-datetime-picker.md)

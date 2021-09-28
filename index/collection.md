@@ -120,6 +120,7 @@
 
 > 其它
 
+[掘金] [超实用！7 个优秀的 UI 交互动画技巧](https://juejin.cn/post/6844903685235949581)  
 [掘金] [1.4万字 | 玩转前端 Video 播放器](https://juejin.im/post/5f0e52fe518825742109d9ee)  
 [掘金] [「查缺补漏」送你18道浏览器面试题](https://juejin.im/post/5f184aade51d4534aa4ad7c0)  
 [掘金] [14期-连肝7个晚上，总结了计算机网络的知识点！（共66条）](https://juejin.im/post/5ee27de06fb9a047f7131eb2)  
