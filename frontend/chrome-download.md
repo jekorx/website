@@ -37,12 +37,14 @@ function downloadImg (src, filename, ext) {
 // 以 axios 为例，需要设置响应参数类型为 blob
 axios.get('/v1/export', {
   responseType: 'blob'
-}).then(res => {
-  if (res.status === 200) {
-    const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' }))
+}).then(({ status, data, headers }) => {
+  if (status === 200) {
+    const url = window.URL.createObjectURL(new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' }))
+    let [, filename] = (headers['content-disposition'] || '').split('filename=')
+    filename = decodeURIComponent(filename || '') || 'export.xlsx'
     const link = document.createElement('a')
     link.href = url
-    link.setAttribute('download', '导出excel.xlsx')
+    link.setAttribute('download', filename)
     link.click()
     // 回收URL
     window.URL.revokeObjectURL(url)
@@ -56,12 +58,14 @@ axios.get('/v1/export', {
 // 以 axios 为例，需要设置响应参数类型为 blob
 axios.get('/v1/export', {
   responseType: 'blob'
-}).then(res => {
-  if (res.status === 200) {
-    const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.ms-excel;charset=UTF-8' }))
+}).then(({ status, data, headers }) => {
+  if (status === 200) {
+    const url = window.URL.createObjectURL(new Blob([data], { type: 'application/vnd.ms-excel;charset=UTF-8' }))
+    let [, filename] = (headers['content-disposition'] || '').split('filename=')
+    filename = decodeURIComponent(filename || '') || 'export.xls'
     const link = document.createElement('a')
     link.href = url
-    link.setAttribute('download', '导出excel.xls')
+    link.setAttribute('download', filename)
     link.click()
     // 回收URL
     window.URL.revokeObjectURL(url)
