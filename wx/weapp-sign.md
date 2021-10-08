@@ -151,6 +151,7 @@ class Index extends Component {
       <View className={styles.page}>
         <Canvas
           ref={this.canvasRef}
+          className={styles.canvas}
           type='2d'
           disable-scroll
           onTouchStart={this.start}
@@ -158,8 +159,8 @@ class Index extends Component {
           onTouchEnd={this.end}
         />
         <View className={styles.btns}>
-          <Text>请在上方空白区域手写签名</Text>
-          <View>
+          <Text className={styles.tip}>请在上方空白区域手写签名</Text>
+          <View className={styles['btns-wrap']}>
             <Button className={[styles.btn, styles.primary]} hoverClass={styles.hover} hoverStayTime={100} onClick={this.save}>确认</Button>
             <Button className={[styles.btn, styles.secondary]} hoverClass={styles.hover} hoverStayTime={100} onClick={this.clear}>重写</Button>
           </View>
@@ -184,7 +185,7 @@ export default Index
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  canvas {
+  .canvas {
     height: 82vh;
     width: 100vw;
   }
@@ -196,10 +197,10 @@ export default Index
   display: flex;
   align-items: center;
   justify-content: center;
-  >text {
+  .tip {
     font-size: 16px;
   }
-  >view {
+  &-wrap {
     display: flex;
     justify-content: space-around;
     width: 300px;

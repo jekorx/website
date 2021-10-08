@@ -93,7 +93,7 @@ class Codes extends Component {
           className={[styles.input, focus && cursorIndex !== -1 && (cursorIndex === i) && styles.cursor]}
           onClick={() => this.setFocus(true)}
         >{val}</View>)}
-        <Input value={value} focus={focus} onBlur={() => this.setFocus(false)} onInput={this.inputHandle} />
+        <Input value={value} focus={focus} className={styles['real-input']} onBlur={() => this.setFocus(false)} onInput={this.inputHandle} />
       </View>
     )
   }
@@ -126,7 +126,7 @@ export default Codes
   overflow: hidden;
   position: relative;
   width: 100%;
-  input {
+  .real-input {
     position: absolute;
     left: -999px;
   }

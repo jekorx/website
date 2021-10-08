@@ -280,7 +280,7 @@ class DateTimePicker extends Component {
               className={styles['picker-view-column']}
               style={{ width }}
             >
-              {arr.map((item, idx) => <View key={`${index}_${idx}`}>{item.value}{item.label}</View>)}
+              {arr.map((item, idx) => <View key={`${index}_${idx}`} className={styles.box}>{item.value}{item.label}</View>)}
             </PickerViewColumn>)}
           </PickerView>
         </View>
@@ -428,7 +428,7 @@ const generateIntArray = (from, to) => {
     justify-content: center;
     align-items: center;
     position: relative;
-    text {
+    .title {
       color: #333;
     }
     .confirm {
@@ -458,7 +458,7 @@ const generateIntArray = (from, to) => {
       height: 100%;
       width: 150px;
       font-size: 26px;
-      view {
+      .box {
         display: flex;
         align-items: center;
         justify-content: center;

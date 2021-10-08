@@ -130,7 +130,7 @@ class Timing extends Component {
     const { clock, loading } = this.state
     let content
     if (clock > 0) {
-      content = <Text>{clock}{timingText}</Text>
+      content = <Text className={styles.txt}>{clock}{timingText}</Text>
     } else {
       content = <View
         className={[styles.btn, loading && styles.disabled]}
@@ -185,7 +185,7 @@ export default Timing
       color: #CCC;
     }
   }
-  text {
+  .txt {
     color: #999;
   }
   .text {
