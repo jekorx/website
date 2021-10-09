@@ -23,5 +23,15 @@
 > * [Chrome文件下载](../frontend/chrome-download.md)
 > * [代码片段收藏](../frontend/snippet.md)
 
+###### JavaScript原型链
+
 ![JavaScript原型链1](../assets/frontend-js-prototype-chain-1.jpg)
 ![JavaScript原型链2](../assets/frontend-js-prototype-chain-2.jpg)
+
+###### JavaScript异步执行顺序
+
+![JavaScript异步执行顺序](../assets/frontend-js-event-queue-1.png)
+
+###### JavaScript宏任务&微任务执行流程
+
+![JavaScript宏任务&微任务执行流程](../assets/frontend-js-event-queue-2.png)
