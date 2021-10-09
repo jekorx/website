@@ -34,4 +34,18 @@
 
 ###### JavaScript宏任务&微任务执行流程
 
+| 宏任务 |	浏览器 | Node |
+|:-:|:-:|:-:|
+| I/O | &#x2705; | &#x2705; |
+| setTimeout | &#x2705; | &#x2705; |
+| setInterval | &#x2705; | &#x2705; |
+| setImmediate | &#x274C; | &#x2705; |
+| requestAnimationFrame | &#x2705; | &#x274C; |
+
+| 微任务 | 浏览器 | Node |
+|:-:|:-:|:-:|
+| Promise.prototype.then catch finally | &#x2705; | &#x2705; |
+| process.nextTick | &#x274C; | &#x2705; |
+| MutationObserver | &#x2705; | &#x274C; |
+
 ![JavaScript宏任务&微任务执行流程](../assets/frontend-js-event-queue-2.png)
