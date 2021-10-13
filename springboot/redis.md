@@ -76,7 +76,7 @@ public class RedisConfig {
     private final String topicNameTemplate = "__keyevent@%d__:expired";
 
     /**
-     * 建消息接收容器
+     * 创建消息接收容器
      */
     @Bean
     public RedisMessageListenerContainer redisMessageListenerContainer() {
