@@ -61,3 +61,5 @@ git push
 rm _book/**/*.md
 rm _book/.gitignore
 rm _book/*.sh
+
+cmd.exe /C winrarpkg.bat
