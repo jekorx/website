@@ -77,6 +77,8 @@ SVN
 Flutter
 # flutter 模版
 Flutter Widget Snippets
+# 查看文件16进制
+hexdump for VSCode
 # 静态html本地开发，热加载
 Live Server
 # px2rem.rootFontSize 默认设计稿宽750px，默认使用iphone7 设备宽375px 开发，按照index.js[x]中的rem自适应计算方法为 50
