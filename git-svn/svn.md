@@ -67,3 +67,10 @@ svn setting -> General -> Context Menu
 # 加入桌面路径，如
 D:\users\desktop
 ```
+
+#### Global ignore pattern
+
+```bash
+# 增加以下忽略规则
+node_modules dist .idea target *.iml
+```

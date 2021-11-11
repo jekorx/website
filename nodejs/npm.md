@@ -4,7 +4,7 @@
 
 ```bash
 # 解决npm或者某些依赖于npm的命令（gitbook等）安装依赖慢的问题
-npm config set registry=http://registry.npm.taobao.org
+npm config set registry=http://registry.npm.taobao.org -g
 # 解决node-sass安装失败的问题
 npm config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass
 ```
