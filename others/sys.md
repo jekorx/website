@@ -52,3 +52,20 @@ certutil -hashfile <文件路径> SHA256
 
 计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\Namespace
 ```
+
+#### 右键 - 在此处打开命令窗口
+
+> 注册表目录```计算机\HKEY_CLASSES_ROOT\Directory\Background\shell```  
+
+```bash
+# 1、shell项，右键 新建 项，命名为 cmd_shell
+
+# 2、cmd_shell中设置
+# (默认) -> 在此处打开命令窗口
+# 新建 字符串值 -> Extended
+# 新建 字符串值 -> Icon -> 值 -> cmd.exe
+# 新建 项 -> command -> (默认) -> cmd.exe /s /k pushd "%V"
+```
+
+> 说明：  
+> 字符串值 Extended：shift + 右键 才会显示   

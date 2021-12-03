@@ -24,7 +24,7 @@
 * ```uses-permission```: 权限配置。如果应用程序代码不需要Internet访问，请删除```android.permission.INTERNET```权限。标准模板包含此标记是为了启用Flutter工具和正在运行的应用程序之间的通信。
   ```xml
   <!-- 网络请求权限 -->
-  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.INTERNET" />
   ```
 
 #### 2、查看构建配置
