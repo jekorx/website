@@ -4,3 +4,7 @@
 
 > * [MySQL](../sql/mysql.md)
 > * [PostgreSQL](../sql/postgresql.md)
+
+###### SQL Joins
+
+![SQL Joins](../assets/sql-joins-1.jpeg)
