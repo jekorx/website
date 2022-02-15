@@ -173,6 +173,8 @@
 
 #### Flutter
 
+[掘金] [最新上架App Store 全流程](https://juejin.cn/post/7063065083408023565)  
+[掘金] [最新App上架安卓应用市场](https://juejin.cn/post/7048492948438122527)  
 [掘金] [flutter好用的轮子推荐一-列表动画](https://juejin.im/post/5db3cd29518825645a5ba1f3)  
 [掘金] [flutter好用的轮子推荐二-点赞按钮动画](https://juejin.im/post/5db4f54bf265da4d02625c17)  
 [掘金] [flutter好用的轮子推荐三-超强轮播图Swiper](https://juejin.im/post/5db51d6af265da4cf022ca36)  
