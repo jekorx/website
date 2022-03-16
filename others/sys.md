@@ -16,15 +16,17 @@ certutil -hashfile <文件路径> SHA1
 certutil -hashfile <文件路径> SHA256
 ```
 
-#### 使用Rufus创建USB安装盘
+#### 创建USB安装盘
 
 > Rufus下载地址[请点击](http://rufus.ie/)  
 
-> CentOS USB安装盘示例  
+> Ventoy下载地址[请点击](https://www.ventoy.net/)👍  
+
+> CentOS USB安装盘示例（以Rufus为例）  
 
 ![Rufus设置](../assets/others-sys-1.png)
 
-> Windows USB安装盘示例  
+> Windows USB安装盘示例（以Rufus为例）  
 
 ![Rufus设置](../assets/others-sys-2.png)
 
