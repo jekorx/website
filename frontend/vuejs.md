@@ -28,11 +28,7 @@ const watermark = ({
   ctx.fillStyle = color
   ctx.rotate(Math.PI / 180 * rotate)
   const strs = content.split('\n') // 解析 \n 换行
-  if (strs.length > 1) {
-    strs.forEach((str, index) => ctx.fillText(str, width / (strs.length - 1), index * fontSize))
-  } else {
-    ctx.fillText(content, width / 2, 0)
-  }
+  strs.forEach((str, index) => ctx.fillText(str, (strs.length + 3) * fontSize, index * fontSize))
   const base64Url = canvas.toDataURL()
   const prevWatermarkDiv = container.firstChild
   let watermarkDiv
