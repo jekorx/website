@@ -89,6 +89,7 @@
 [掘金] [8则未必知道且超级实用的纯CSS布局排版技巧 | 网易4年实践](https://juejin.cn/post/6986873449721364510)  
 [掘金] [灵活运用CSS开发技巧](https://juejin.cn/post/6844903926110617613)  
 [掘金] [巧用CSS filter，让你的网站更加酷炫！](https://juejin.cn/post/7002829486806794276)  
+[掘金] [好玩的 CSS - 40 个有趣的 CSS 网站](https://juejin.cn/post/6982363593241002014)  
 
 > TypeScript
 
