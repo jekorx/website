@@ -32,7 +32,7 @@ const watermark = ({
   const base64Url = canvas.toDataURL()
   const prevWatermarkDiv = container.firstChild
   let watermarkDiv
-  if (prevWatermarkDiv && prevWatermarkDiv.className.includes('watermark-container')) {
+  if (prevWatermarkDiv && prevWatermarkDiv.className && prevWatermarkDiv.className.includes('watermark-container')) {
     watermarkDiv = prevWatermarkDiv
   } else {
     watermarkDiv = document.createElement('div')
@@ -53,7 +53,7 @@ const watermark = ({
     `
   )
   container.style.position = 'relative'
-  if (!prevWatermarkDiv || !prevWatermarkDiv.className.includes('watermark-container')) {
+  if (!prevWatermarkDiv || !(prevWatermarkDiv.className && prevWatermarkDiv.className.includes('watermark-container'))) {
     container.insertBefore(watermarkDiv, container.firstChild)
   }
 }
