@@ -9,7 +9,7 @@
 > 7、[ElementUI-Table，列拖拽排序](#7、elementui-table，列拖拽排序)  
 > 8、[ElementUI-Table，自定义列组件](#8、elementui-table，自定义列组件)  
 > 9、[ElementUI-Table，嵌套表格](#9、elementui-table，嵌套表格)  
-> 10、[Echarts地图下钻](#10、Echarts地图下钻)  
+> 10、[Echarts地图下钻](#10、echarts地图下钻)  
 
 ##### 1、同时生成条码二维码
 
