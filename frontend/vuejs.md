@@ -79,6 +79,12 @@ export default {
 
 > 使用  
 
+```html
+<div v-watermark="'水印文字\n2022-4-3 12:34'">
+  <!-- ... -->
+</div>
+```
+
 ```javascript
 /* vue@2.x */
 import Watermark from '@/directives/watermark'
