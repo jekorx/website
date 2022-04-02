@@ -9,6 +9,7 @@
 > 7、[ElementUI-Table，列拖拽排序](#7、elementui-table，列拖拽排序)  
 > 8、[ElementUI-Table，自定义列组件](#8、elementui-table，自定义列组件)  
 > 9、[ElementUI-Table，嵌套表格](#9、elementui-table，嵌套表格)  
+> 10、[Echarts地图下钻](#10、Echarts地图下钻)  
 
 ##### 1、同时生成条码二维码
 
@@ -1368,6 +1369,201 @@ table.inner-table {
       td, th {
         border-bottom: 0;
       }
+    }
+  }
+}
+</style>
+```
+
+##### 10、Echarts地图下钻
+
+![echarts-map-1](../assets/frontend-snippet-7.gif)
+
+```html
+<template>
+  <div class="map-wrap">
+    <div ref="mapRef" class="map-container" v-loading="loading"></div>
+    <Button v-if="currentLevel" type="primary" @click="goBack">返回</Button>
+    <Alert class="help" type="primary" show-icon :closable="false" title="鼠标单击查看地区详情，双击查看区域地图" />
+  </div>
+</template>
+<script>
+import Mixins from '_m/mixins-chart-common'
+
+const levelTree = {
+  province: { prev: '', next: 'city', cityNext: 'district' },
+  city: { prev: 'province', next: 'district' },
+  district: { prev: 'city', next: '', cityPrev: 'province' }
+}
+const rootCode = '100000'
+const cityMark = name => (name.endsWith('市') || name.endsWith('特别行政区'))
+const ignore = ['台湾省']
+export default {
+  name: 'Map',
+  mixins: [Mixins],
+  data () {
+    return {
+      loading: false,
+      mapData: null,
+      provinceCode: '',
+      provinceName: '',
+      cityCode: '',
+      cityName: '',
+      districtCode: '',
+      districtName: '',
+      currentLevel: '',
+      clickTimer: null
+    }
+  },
+  methods: {
+    goBack () {
+      const { prev } = levelTree[this.currentLevel]
+      this.currentLevel = prev
+      const code = this[`${prev}Code`]
+      this.loadMap(code)
+    },
+    init () {
+      const chart = this.$echarts.init(this.$refs.mapRef)
+      chart.setOption({
+        grid: {
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: '{b}<br/>{c}'
+        }
+      })
+      this.chart = chart
+      this.loadMap(rootCode)
+      // 单击事件
+      chart.on('click', ({ name }) => {
+        this.clickTimer && clearTimeout(this.clickTimer)
+        this.clickTimer = setTimeout(() => {
+          console.log(name)
+        }, 250)
+      })
+      // 双击下钻
+      chart.on('dblclick', ({ name }) => {
+        this.clickTimer && clearTimeout(this.clickTimer)
+        if (ignore.includes(name) || !this.mapData) return
+        const { next, cityNext } = this.currentLevel ? levelTree[this.currentLevel] : { next: 'province', cityNext: 'city' }
+        const n = cityMark(this.provinceName) ? cityNext : next
+        if (!n || n === 'district') return
+        const { properties } = this.mapData.features.find(({ properties }) => properties.name === name) || {}
+        if (properties) {
+          const { level, adcode } = properties
+          this.loadMap(`${adcode}`).then(() => {
+            this[`${level}Code`] = `${adcode}`
+            this[`${level}Name`] = name
+            this.currentLevel = level
+          })
+        }
+      })
+    },
+    loadMap (code = rootCode) {
+      this.loading = true
+      this.prevCode = code
+      return new Promise((resolve, reject) => {
+        fetch(`https://geo.datav.aliyun.com/areas_v3/bound/geojson?code=${code}${code.endsWith('00') ? '_full' : ''}`, {
+          method: 'GET',
+          mode: 'cors',
+          referrerPolicy: 'no-referrer'
+        }).then(res => {
+          this.loading = false
+          if (res.ok) {
+            return res.json()
+          } else {
+            reject(new Error('无法获取该区域地图'))
+          }
+        }).then(res => {
+          if (!res) {
+            reject(new Error('无法获取该区域地图'))
+            return
+          }
+          this.mapData = res
+          this.$echarts.registerMap(code, res)
+          this.chart.setOption({
+            series: [{
+              type: 'map',
+              name: code,
+              map: code,
+              zoom: code === rootCode ? 1.23 : 1,
+              top: code === rootCode ? 100 : 66,
+              selectedMode: false,
+              data: [
+                { name: '山东省', value: 10057.34 },
+                { name: '济南市', value: 20057.34 }
+              ],
+              label: {
+                show: true,
+                fontSize: 9,
+                color: '#FFF',
+                borderColor: 'rgba(95, 117, 168, .4)',
+                backgroundColor: 'rgba(95, 117, 168, .4)',
+                shadowColor: 'rgba(95, 117, 168, .4)',
+                padding: 2,
+                borderRadius: 6,
+                shadowBlur: 4,
+                shadowOffsetX: 2,
+                shadowOffsetY: 2
+              },
+              itemStyle: {
+                areaColor: new this.$echarts.graphic.LinearGradient(1, 0, 0, 0, [{ offset: 0, color: '#84A0E4' }, { offset: 1, color: '#92AFF7' }]),
+                borderColor: '#FFF'
+              },
+              emphasis: {
+                label: {
+                  color: '#FFF'
+                },
+                itemStyle: {
+                  areaColor: '#718BCC'
+                }
+              },
+              select: {
+                label: {
+                  color: '#FFF'
+                },
+                itemStyle: {
+                  areaColor: '#718BCC'
+                }
+              }
+            }]
+          })
+          resolve()
+        }).catch(reject)
+      })
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+.map-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .map-container {
+    width: 100%;
+    height: 100%;
+  }
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .help {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  ::v-deep .el-alert {
+    display: inline-flex;
+    width: auto;
+    padding: 6px 8px;
+    .el-alert__title {
+      font-size: 12px;
     }
   }
 }
