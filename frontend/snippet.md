@@ -1397,7 +1397,7 @@ const levelTree = {
 }
 const rootCode = '100000'
 const cityMark = name => (name.endsWith('市') || name.endsWith('特别行政区'))
-const ignore = ['台湾省']
+const NO_DATA_IGNORE = ['台湾省']
 export default {
   name: 'Map',
   mixins: [Mixins],
@@ -1448,7 +1448,7 @@ export default {
       // 双击下钻
       chart.on('dblclick', ({ name }) => {
         this.clickTimer && clearTimeout(this.clickTimer)
-        if (ignore.includes(name) || !this.mapData) return
+        if (NO_DATA_IGNORE.includes(name) || !this.mapData) return
         const { next, cityNext } = this.currentLevel ? levelTree[this.currentLevel] : { next: 'province', cityNext: 'city' }
         const n = cityMark(this.provinceName) ? cityNext : next
         if (!n || n === 'district') return
