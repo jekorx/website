@@ -60,7 +60,7 @@ git push
 
 #echo "确认Enforce HTTPS选项被勾选"
 
-rm _book/**/*.md
+#rm _book/**/*.md
 rm _book/.gitignore
 rm _book/*.sh
 rm _book/*.bat
