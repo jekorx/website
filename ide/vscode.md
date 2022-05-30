@@ -28,6 +28,7 @@
     },
     "http.proxyAuthorization": "false",
     "minapp-vscode.disableAutoConfig": true,
+    "search.followSymlinks": false,
     "terminal.integrated.fontSize": 17,
     "update.enableWindowsBackgroundUpdates": false,
     "vsicons.dontShowNewVersionMessage": true,
