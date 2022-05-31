@@ -70,14 +70,6 @@ JRE: <选择本地SDK>
 File -> Settings -> Languages & Frameworks -> Flutter
 Flutter SDK path: <选择本地Flutter根目录>
 
-# 关闭Idea版本自动更新
-File -> Settings -> Appearance & Behavior -> System Settings -> Updates
-<取消选中 Automatically check updates for ...>
-
-# 关闭启动后自动打开项目
-File -> Settings -> Appearance & Behavior -> System Settings
-<取消选中 Reopen projects on startup>
-
 # 取消代码重复提示
 File -> Settings -> Editor -> Inspections -> General -> Duplicated Code
 <取消选中>
@@ -116,23 +108,54 @@ File -> Settings -> Editor -> File and Code Templates
 > 快捷键
 
 ```bash
-################# 代码补全 #################
-
 # 代码补全，Eclipse中Alt + /
 File -> Settings -> Keymap -> Main menu -> Code -> Code Completion
-
 # 删除占用
 Cyclic Expand Word: <右键，Remove Alt + />
 Cyclic Expand Word (Backward): <右键，Remove Alt + />
-
 # 添加
 Basic: <Add Keyboard Shutcut Alt + />
 
-################# 自动折行 #################
-
 # 自动折行
 File -> Settings -> Keymap -> Main menu -> View -> Active Editor
-
 # 添加
 Soft-Wrap: <Add Keyboard Shutcut Alt + Z>
+```
+
+> IDE优化设置  
+
+```bash
+# 自动续订试用，注意：版本2021.2.2及以前
+Plugins -> Custom Plugin Repositories
+# 增加
+https://plugins.zhile.io
+# 安装插件
+IDE Eval Reset
+# Help最后，Eval Reset，勾选 Auto reset before per restart，Reset
+
+# 修改内存
+Help -> Change Memory Settings
+
+# 取消索引（web项目，WebStorm中必备）
+Preferences -> Editor -> File Types
+Ignored Files and Folders 中
+# 添加
+node_modules
+
+# 关闭打开后自动进入项目
+Preferences -> Appearance & Behavior -> System Settings
+# 取消勾选
+Reopen projects on startup
+
+# 关闭更新
+Preferences -> Appearance & Behavior -> System Settings -> Updates
+# 取消全部勾选
+
+# 取消自动保存
+File -> Settings -> Appearance & Behavior -> System Settings -> 
+Autosave # 全部取消勾选
+
+# 自动折行
+File -> Settings -> Editor -> Editor Tabs
+Appearance -> Mark modified（*）# 勾选
 ```
