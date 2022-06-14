@@ -50,6 +50,18 @@
         "**/_book/**": true,
         "**/.cache/**": true
     },
+    "search.exclude": {
+        "**/.git/objects/**": false,
+        "**/.git/subtree-cache/**": false,
+        "**/.git/**": true,
+        "**/.svn/**": true,
+        "**/node_modules/**": true,
+        "**/tmp/**": true,
+        "**/bower_components/**": true,
+        "**/dist/**": true,
+        "**/_book/**": true,
+        "**/.cache/**": true
+    },
     "http.proxyAuthorization": "false",
     "minapp-vscode.disableAutoConfig": true,
     "search.followSymlinks": false,
