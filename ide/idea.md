@@ -158,4 +158,8 @@ Autosave # 全部取消勾选
 # 自动折行
 File -> Settings -> Editor -> Editor Tabs
 Appearance -> Mark modified（*）# 勾选
+
+# 控制台字体
+File -> Settings -> Editor -> Color Scheme -> Console Font
+Use console font instead of the default # 勾选，设置Size
 ```

@@ -26,10 +26,34 @@
         "*.wxss": "css",
         "*.wxs": "javascript"
     },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": false,
+        "**/.DS_Store": true,
+        "**/tmp": false,
+        "**/node_modules": false,
+        "**/bower_components": false,
+        "**/dist": false,
+        "**/.cache": false
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": false,
+        "**/.git/subtree-cache/**": false,
+        "**/.git/**": true,
+        "**/.svn/**": true,
+        "**/node_modules/**": true,
+        "**/tmp/**": true,
+        "**/bower_components/**": true,
+        "**/dist/**": true,
+        "**/_book/**": true,
+        "**/.cache/**": true
+    },
     "http.proxyAuthorization": "false",
     "minapp-vscode.disableAutoConfig": true,
     "search.followSymlinks": false,
-    "terminal.integrated.fontSize": 17,
+    "terminal.integrated.fontSize": 14,
     "update.enableWindowsBackgroundUpdates": false,
     "vsicons.dontShowNewVersionMessage": true,
     "vetur.validation.template": false,
@@ -61,8 +85,8 @@ Path Intellisense
 Sublime Text Keymap
 # 资源管理器图标
 vscode-icons
-# () [] {} 匹配高亮区分
-Bracket Pair Colorizer 2
+# () [] {} 匹配高亮区分，新版vscode已经内置，无需单独安装
+# Bracket Pair Colorizer 2
 # 查看文件16进制
 hexdump for VSCode
 # markdown文件预览
