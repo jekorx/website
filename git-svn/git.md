@@ -135,16 +135,14 @@ git reset HEAD <文件名>
 git checkout <文件名>
 ```
 
-#### git log 状态下如何退出
+#### git 忽略文件（本地）
 
 ```bash
-# 方法 1
-# 英文状态摁 q
-q
+# git项目根目录，编辑.git/info/exclude，添加需要忽略的文件
+vim .git/info/exclude
 
-# 方法 2
-# git bash 可能无效
-ctrl + c
+# 如果已经包含未暂存的更改，需要运行
+git update-index --skip-worktree [<file>...]
 ```
 
 #### 统计贡献者代码行数
