@@ -91,6 +91,8 @@ EditorConfig for VS Code
 ESLint
 # git忽略
 gitignore
+# git增强插件，可查看提交记录
+GitLens — Git supercharged
 # 路径自动补全
 Path Intellisense
 # sublime键位
@@ -165,6 +167,9 @@ components.d.ts
 # 1、代码提示
 # 原快捷键 Ctrl + space，与系统冲突，修改即可
 # 文件 -> 首选项 -> 键盘快捷方式，搜索“触发建议”，修改为 Alt + / ，按enter键保存即可
+
+# 2、在资源管理器视图中显示活动文件
+# 文件 -> 首选项 -> 键盘快捷方式，搜索“在资源管理器视图中显示活动文件”，修改为 Ctrl + ~ ，按enter键保存即可
 ```
 
 #### 自定义模版
