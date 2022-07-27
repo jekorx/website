@@ -120,6 +120,11 @@ Basic: <Add Keyboard Shutcut Alt + />
 File -> Settings -> Keymap -> Main menu -> View -> Active Editor
 # 添加
 Soft-Wrap: <Add Keyboard Shutcut Alt + Z>
+
+# 在项目视图中选择文件
+File -> Settings -> Keymap -> Other
+# 添加
+Select File in Project View: <Add Keyboard Shutcut Ctrl + ~>
 ```
 
 > IDE优化设置  

@@ -147,6 +147,9 @@ vim .git/info/exclude
 
 # 如果已经包含未暂存的更改，需要运行
 git update-index --skip-worktree [<file>...]
+
+# 恢复更改跟踪，取消.git/info/exclude中的配置后，需要运行
+git update-index --no-skip-worktree [<file>...]
 ```
 
 #### 统计贡献者代码行数
