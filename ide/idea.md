@@ -123,6 +123,8 @@ Soft-Wrap: <Add Keyboard Shutcut Alt + Z>
 
 # 在项目视图中选择文件
 File -> Settings -> Keymap -> Other
+# 删除占用
+Quick Switch Scheme: <右键，Remove Ctrl + ~>
 # 添加
 Select File in Project View: <Add Keyboard Shutcut Ctrl + ~>
 ```
