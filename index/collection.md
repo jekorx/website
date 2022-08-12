@@ -205,6 +205,7 @@
 
 [掘金] [三年 Git 使用心得 & 常见问题整理](https://juejin.im/post/5ee649ff51882542ea2b5108)  
 [掘金] [「一劳永逸」一张脑图带你掌握Git命令](https://juejin.im/post/6869519303864123399)  
+[掘金] [一份工作 6 年前端的 Git 备忘录 🛠](https://juejin.cn/post/7127956933809537032)  
 
 #### SQL
 
