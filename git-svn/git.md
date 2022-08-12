@@ -86,7 +86,7 @@ git checkout <分支名>
 # 创建并切换分支
 git checkout -b <分支名>
 
-# 拉取远程分支（非首次拉取），本地没有
+# 拉取远程分支（首次拉取），本地没有
 git fetch origin <分支名>
 git checkout <分支名>
 ```
