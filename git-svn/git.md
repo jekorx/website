@@ -162,11 +162,17 @@ git log --author="$(git config --get user.email)" --pretty=tformat: --numstat | 
 #### 使用配置
 
 ```bash
-# 1、全局配置用户名
+# 1、配置用户名
+# 全局
 git config --global user.name '<用户名>'
+# 非全局，在项目根目录（.git文件夹所在的目录）
+git config user.name '<用户名>'
 
-# 2、全局配置邮箱
+# 2、配置邮箱
+# 全局
 git config --global user.email '<登录邮箱>'
+# 非全局，在项目根目录（.git文件夹所在的目录）
+git config user.email '<登录邮箱>'
 
 # 3、生成密钥，与 步骤2 中邮箱相同
 ssh-keygen -t rsa -C '<登录邮箱>'
@@ -247,11 +253,14 @@ ssh-keygen -t rsa -C '<登录邮箱>'
 <获取的IP> github.global.ssl.fastly.net
 ```
 
-> Linux下修改```/etc/hosts```文件，修改完后执行  
+> Linux、Mac下修改```/etc/hosts```文件，修改完后执行  
 
 ```bash
-# 在命令行中输入以下命令是hosts生效
-sudo dscacheutil -flushcache
+# 在命令行中输入以下命令是hosts生效 -> Linux（可能需要安装 nscd）
+nscd -i hosts
+
+# 在命令行中输入以下命令是hosts生效 -> Mac（>=10.10.4）
+sudo killall -HUP mDNSResponder
 ```
 
 > Windows下修改 ```c:\Windows\System32\drivers\etc\hosts```文件，修改完后执行  

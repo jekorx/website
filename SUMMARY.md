@@ -82,6 +82,8 @@
   * [Ftp服务器](linux/ftp.md)
   * [Jenkins](linux/jenkins.md)
   * [禅道](linux/zentao.md)
+* [Mac](index/mac.md)
+  * [常用环境配置](mac/env-config.md)
 * [Windows](index/windows.md)
   * [DOS](windows/dos.md)
 * [开发工具](index/ide.md)
