@@ -1,33 +1,34 @@
 # JS 常用工具方法
 
-> 1、[类型判断](#类型判断)  
-> 2、[日期格式化](#日期格式化)  
-> 3、[秒格式化](#秒格式化)  
-> 4、[时间转换为xx时间前](#时间转换为xx时间前)  
-> 5、[顺序执行Promise](#顺序执行promise)  
-> 6、[隐藏手机号中间四位](#隐藏手机号中间四位)  
-> 7、[限制数据框内容仅为数字](#限制数据框内容仅为数字)  
-> 8、[七牛上传](#七牛上传)  
-> 9、[滚动条滚动动画](#滚动条滚动动画)  
-> 10、[base64转file](#base64转file)  
-> 11、[base64转blob](#base64转blob)  
-> 12、[blob转file](#blob转file)  
-> 13、[blob转json](#blob转json)  
-> 14、[绑定事件](#绑定事件)  
-> 15、[解绑事件](#解绑事件)  
-> 16、[连字符转驼峰](#连字符转驼峰)  
-> 17、[驼峰转连字符](#驼峰转连字符)  
-> 18、[文件尺寸格式化](#文件尺寸格式化)  
-> 19、[获取指定范围内的随机数](#获取指定范围内的随机数)  
-> 20、[打乱数组](#打乱数组)  
-> 21、[获取Url参数](#获取Url参数)  
-> 22、[切分数组](#切分数组)  
-> 23、[两数组差集](#两数组差集)  
-> 24、[深拷贝](#深拷贝)  
-> 25、[Object合并](#object合并)  
-> 26、[四舍五入到指定小数位](#四舍五入到指定小数位)  
-> 27、[大文件切片上传](#大文件切片上传)  
-> 28、[防抖](#防抖)  
+> * [类型判断](#类型判断)  
+> * [日期格式化](#日期格式化)  
+> * [秒格式化](#秒格式化)  
+> * [时间转换为xx时间前](#时间转换为xx时间前)  
+> * [顺序执行Promise](#顺序执行promise)  
+> * [隐藏手机号中间四位](#隐藏手机号中间四位)  
+> * [限制数据框内容仅为数字](#限制数据框内容仅为数字)  
+> * [七牛上传](#七牛上传)  
+> * [滚动条滚动动画](#滚动条滚动动画)  
+> * [base64转file](#base64转file)  
+> * [base64转blob](#base64转blob)  
+> * [blob转file](#blob转file)  
+> * [blob转json](#blob转json)  
+> * [绑定事件](#绑定事件)  
+> * [解绑事件](#解绑事件)  
+> * [连字符转驼峰](#连字符转驼峰)  
+> * [驼峰转连字符](#驼峰转连字符)  
+> * [文件尺寸格式化](#文件尺寸格式化)  
+> * [获取指定范围内的随机数](#获取指定范围内的随机数)  
+> * [打乱数组](#打乱数组)  
+> * [获取Url参数](#获取Url参数)  
+> * [切分数组](#切分数组)  
+> * [两数组差集](#两数组差集)  
+> * [四舍五入到指定小数位](#四舍五入到指定小数位)  
+> * [防抖](#防抖)  
+> * [生成uuid](#生成uuid)  
+> * [Object合并](#object合并)  
+> * [深拷贝](#深拷贝)  
+> * [大文件切片上传](#大文件切片上传)  
 
 #### 类型判断
 
@@ -767,6 +768,84 @@ export const splitArray = (arr, size = 10) => Array.from({
 export const arrayDiffSet = (a, b) => [...a, ...b].filter(x => !a.includes(x) || !b.includes(x))
 ```
 
+#### 四舍五入到指定小数位
+
+```javascript
+/**
+ * @description 四舍五入到指定小数位
+ *
+ * @param {Number} number 待转换数字
+ * @param {Number} decimals 小数位数
+ */
+export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e${decimals}`)}e-${decimals}`)
+```
+
+#### 防抖
+
+> 更多防抖、节流介绍[可参照](./debounce-throttle.md)  
+
+```javascript
+/**
+ * @description 防抖
+ * @param {Function} fn 具体执行方法
+ * @param {Number} delay 间隔时间，默认500毫秒
+ */
+export const debounce = (fn, delay = 500) => {
+  let timer
+  return () => {
+    timer && clearTimeout(timer)
+    timer = setTimeout(() => fn && fn(), delay)
+  }
+}
+```
+
+#### 生成uuid
+
+```javascript
+/**
+ * @description 生成uuid
+ * @returns {String} uuid
+ */
+export const uuid = () => {
+  const tmpUrl = URL.createObjectURL(new Blob())
+  const tmpUrlStr = tmpUrl.toString()
+  URL.revokeObjectURL(tmpUrl)
+  return tmpUrlStr.substring(tmpUrlStr.lastIndexOf('/') + 1)
+}
+```
+
+#### Object合并
+
+```javascript
+/**
+ * @description Object合并
+ * @description 后面的Object覆盖合并到前面的Object
+ *
+ * @param {Object} target 合并目标对象
+ * @param {...Object} args 任意个待合并对象
+ */
+export const merge = (target, ...args) => {
+  return args.reduce((acc, cur) => Object.keys(cur).reduce((subAcc, key) => {
+    const srcVal = cur[key]
+    if (Object.prototype.toString.call(srcVal) === '[object Object]') {
+      subAcc[key] = merge(subAcc[key] ? subAcc[key] : {}, srcVal)
+    } else if (Array.isArray(srcVal)) {
+      subAcc[key] = srcVal.map((item, idx) => {
+        if (Object.prototype.toString.call(item) === '[object Object]') {
+          const curAccVal = subAcc[key] ? subAcc[key] : []
+          return merge(curAccVal[idx] ? curAccVal[idx] : {}, item)
+        } else {
+          return item
+        }
+      })
+    } else {
+      subAcc[key] = srcVal
+    }
+    return subAcc
+  }, acc), target)
+}
+```
+
 #### 深拷贝
 
 ```javascript
@@ -852,50 +931,6 @@ export const deepClone = (target, cache = new WeakSet()) => {
   })
   return cloneTarget
 }
-```
-
-#### Object合并
-
-```javascript
-/**
- * @description Object合并
- * @description 后面的Object覆盖合并到前面的Object
- *
- * @param {Object} target 合并目标对象
- * @param {...Object} args 任意个待合并对象
- */
-export const merge = (target, ...args) => {
-  return args.reduce((acc, cur) => Object.keys(cur).reduce((subAcc, key) => {
-    const srcVal = cur[key]
-    if (Object.prototype.toString.call(srcVal) === '[object Object]') {
-      subAcc[key] = merge(subAcc[key] ? subAcc[key] : {}, srcVal)
-    } else if (Array.isArray(srcVal)) {
-      subAcc[key] = srcVal.map((item, idx) => {
-        if (Object.prototype.toString.call(item) === '[object Object]') {
-          const curAccVal = subAcc[key] ? subAcc[key] : []
-          return merge(curAccVal[idx] ? curAccVal[idx] : {}, item)
-        } else {
-          return item
-        }
-      })
-    } else {
-      subAcc[key] = srcVal
-    }
-    return subAcc
-  }, acc), target)
-}
-```
-
-#### 四舍五入到指定小数位
-
-```javascript
-/**
- * @description 四舍五入到指定小数位
- *
- * @param {Number} number 待转换数字
- * @param {Number} decimals 小数位数
- */
-export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e${decimals}`)}e-${decimals}`)
 ```
 
 #### 大文件切片上传
@@ -1524,25 +1559,6 @@ export default class ChunkUpload {
       // 继续合并
       this.merge()
     }
-  }
-}
-```
-
-#### 防抖
-
-> 更多防抖、节流介绍[可参照](./debounce-throttle.md)  
-
-```javascript
-/**
- * @description 防抖
- * @param {Function} fn 具体执行方法
- * @param {Number} delay 间隔时间，默认500毫秒
- */
-export const debounce = (fn, delay = 500) => {
-  let timer = null
-  return () => {
-    clearTimeout(timer)
-    timer = setTimeout(() => fn && fn(), delay)
   }
 }
 ```

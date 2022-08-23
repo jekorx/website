@@ -16,7 +16,7 @@
  */
 // ES6常用实现
 const debounce = (fn, delay = 1000) => {
-  let timer = null
+  let timer
   return () => {
     timer && clearTimeout(timer)
     timer = setTimeout(() => {
@@ -29,6 +29,46 @@ const debounce = (fn, delay = 1000) => {
 window.onscroll = debounce(() => {
   console.log(document.documentElement.scrollTop)
 }, 500)
+```
+
+#### 特殊使用
+
+> 原理：[JavaScript异步执行顺序](../index/frontend.md#javascript异步执行顺序)  
+> 场景：同步数据收集后统一处理  
+> 其它：除了使用```setTimeout```宏任务达到异步效果，也可以使用```Promise.resolve().then```微任务  
+
+```javascript
+/**
+ * @param {Function} completeFn 完成执行方法
+ * @returns {Function}
+ *   @param {Function} processFn 中间处理过程
+ */
+const debounceCurrying = completeFn => {
+  let processing = false
+  return processFn => {
+    if (!processing) {
+      processing = true
+      setTimeout(() => {
+        processing = false
+        completeFn && completeFn()
+      })
+    }
+    processFn && processFn()
+  }
+}
+
+// 使用
+const ids = []
+const processHandle = debounceCurrying(() => {
+  // 最终数据处理
+  console.log(ids)
+})
+for (let i = 0; i < 10; i++) {
+  processHandle(() => {
+    // 中间收集数据
+    ids.push(i)
+  })
+}
 ```
 
 #### 函数节流(throttle)
@@ -63,7 +103,7 @@ const throttle = (fn, delay = 100) => {
 // 触发结束后时间间隔
 const throttle = (fn, delay = 100) => {
   let last = 0
-  let timer = null
+  let timer
   return () => {
     const now = Date.now()
     timer && clearTimeout(timer)
@@ -82,14 +122,14 @@ const throttle = (fn, delay = 100) => {
  * 不会触发第一次
  */
 const throttle = (fn, delay = 100) => {
-  let timer = null
+  let timer
   return () => {
     if (!!timer) {
       return false
     } else {
       timer = setTimeout(() => {
         fn && fn()
-        clearTimeout(timer)
+        timer && clearTimeout(timer)
         timer = null
       }, delay)
     }

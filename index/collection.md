@@ -51,6 +51,7 @@
 [掘金] [1.5万字概括ES6全部特性(已更新ES2020)](https://juejin.cn/post/6844903959283367950)  
 [掘金] [【建议收藏】25+正则面试题详尽解析，让你轻松通过正则面试，让你少写2000行代码](https://juejin.cn/post/6999768570570178596)  
 [MDN] [JSON.stringify特性](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#%E6%8F%8F%E8%BF%B0)  
+[掘金] [宏任务和微任务的理解](https://juejin.cn/post/7103679289245040653)  
 
 > CSS
 

@@ -69,6 +69,8 @@ source ~/.zshrc
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 ```
 
+> 如果安装慢或超时可以参照 [Github速度慢优化方法](../git-svn/git.md#github速度慢优化方法) 将```raw.githubusercontent.com```配置到```/etc/hosts```  
+
 ###### 常用命令及安装软件包
 
 ```bash
@@ -108,8 +110,6 @@ brew upgrade <包名>
 # 卸载包
 brew uninstall <包名>
 ```
-
-> 如果安装慢或超时可以参照 [Github速度慢优化方法](../git-svn/git.md#github速度慢优化方法) 将```raw.githubusercontent.com```配置到```/etc/hosts```  
 
 ### nvm
 
