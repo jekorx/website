@@ -1,0 +1,4 @@
+User-agent: *
+Sitemap: https://www.wdg.pub/sitemap.xml
+Sitemap: https://www.wdg.pub/sitemap.html
+Sitemap: https://www.wdg.pub/sitemap.txt

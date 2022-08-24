@@ -1,0 +1,1981 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Canvas · jekorx's blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="jekorx">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="debounce-throttle.html" />
+    
+    
+    <link rel="prev" href="less.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../index/nodejs.html">
+            
+                <a href="../index/nodejs.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../nodejs/npm.html">
+            
+                <a href="../nodejs/npm.html">
+            
+                    
+                    Npm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../nodejs/yarn.html">
+            
+                <a href="../nodejs/yarn.html">
+            
+                    
+                    Yarn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../nodejs/process-manager.html">
+            
+                <a href="../nodejs/process-manager.html">
+            
+                    
+                    PM2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../nodejs/http-server.html">
+            
+                <a href="../nodejs/http-server.html">
+            
+                    
+                    Http-Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../index/frontend.html">
+            
+                <a href="../index/frontend.html">
+            
+                    
+                    前端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="axios.html">
+            
+                <a href="axios.html">
+            
+                    
+                    Axios
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="html.html">
+            
+                <a href="html.html">
+            
+                    
+                    Html
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="css.html">
+            
+                <a href="css.html">
+            
+                    
+                    Css
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="vw.html">
+            
+                <a href="vw.html">
+            
+                    
+                    移动端vw适配方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="vuejs.html">
+            
+                <a href="vuejs.html">
+            
+                    
+                    Vue.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="cra.html">
+            
+                <a href="cra.html">
+            
+                    
+                    Create React App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="vue-cli.html">
+            
+                <a href="vue-cli.html">
+            
+                    
+                    Vue Cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="js-utils.html">
+            
+                <a href="js-utils.html">
+            
+                    
+                    Js Utils
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="regular.html">
+            
+                <a href="regular.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="typescript.html">
+            
+                <a href="typescript.html">
+            
+                    
+                    TypeScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="eslint.html">
+            
+                <a href="eslint.html">
+            
+                    
+                    ESLint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="less.html">
+            
+                <a href="less.html">
+            
+                    
+                    Less
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.13" data-path="canvas.html">
+            
+                <a href="canvas.html">
+            
+                    
+                    Canvas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="debounce-throttle.html">
+            
+                <a href="debounce-throttle.html">
+            
+                    
+                    防抖节流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="webpack.html">
+            
+                <a href="webpack.html">
+            
+                    
+                    Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="nuxtjs.html">
+            
+                <a href="nuxtjs.html">
+            
+                    
+                    Nuxt.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="amap-selector.html">
+            
+                <a href="amap-selector.html">
+            
+                    
+                    高德vue地图选择器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="vue-quill-editor.html">
+            
+                <a href="vue-quill-editor.html">
+            
+                    
+                    VueQuillEditor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.19" data-path="chrome-download.html">
+            
+                <a href="chrome-download.html">
+            
+                    
+                    Chrome文件下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.20" data-path="snippet.html">
+            
+                <a href="snippet.html">
+            
+                    
+                    代码片段收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../index/wx.html">
+            
+                <a href="../index/wx.html">
+            
+                    
+                    微信开发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../wx/wx-mp.html">
+            
+                <a href="../wx/wx-mp.html">
+            
+                    
+                    微信公众号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../wx/weapp-grant.html">
+            
+                <a href="../wx/weapp-grant.html">
+            
+                    
+                    微信小程序授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../wx/weapp-vehicle-panel.html">
+            
+                <a href="../wx/weapp-vehicle-panel.html">
+            
+                    
+                    微信小程序车牌键盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../wx/weapp-sign.html">
+            
+                <a href="../wx/weapp-sign.html">
+            
+                    
+                    微信小程序Canvas签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../wx/weapp-codes.html">
+            
+                <a href="../wx/weapp-codes.html">
+            
+                    
+                    微信小程序验证码输入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../wx/weapp-timing.html">
+            
+                <a href="../wx/weapp-timing.html">
+            
+                    
+                    微信小程序倒计时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../wx/weapp-datetime-picker.html">
+            
+                <a href="../wx/weapp-datetime-picker.html">
+            
+                    
+                    微信小程序日期时间选择器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../index/flutter.html">
+            
+                <a href="../index/flutter.html">
+            
+                    
+                    Flutter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../flutter/env.html">
+            
+                <a href="../flutter/env.html">
+            
+                    
+                    环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../flutter/android-package.html">
+            
+                <a href="../flutter/android-package.html">
+            
+                    
+                    Android构建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../index/java.html">
+            
+                <a href="../index/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../java/string.html">
+            
+                <a href="../java/string.html">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../java/stream.html">
+            
+                <a href="../java/stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../java/fastjson.html">
+            
+                <a href="../java/fastjson.html">
+            
+                    
+                    FastJson
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../java/compare.html">
+            
+                <a href="../java/compare.html">
+            
+                    
+                    compareTo 比较大小
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../java/utils.html">
+            
+                <a href="../java/utils.html">
+            
+                    
+                    Java工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../index/spring.html">
+            
+                <a href="../index/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../spring/exception.html">
+            
+                <a href="../spring/exception.html">
+            
+                    
+                    自定义异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../index/springboot.html">
+            
+                <a href="../index/springboot.html">
+            
+                    
+                    SpringBoot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../springboot/put-config.html">
+            
+                <a href="../springboot/put-config.html">
+            
+                    
+                    Put请求配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../springboot/fastjson-config.html">
+            
+                <a href="../springboot/fastjson-config.html">
+            
+                    
+                    FastJson配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../springboot/cors-config.html">
+            
+                <a href="../springboot/cors-config.html">
+            
+                    
+                    跨域配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../springboot/mybatis.html">
+            
+                <a href="../springboot/mybatis.html">
+            
+                    
+                    MyBatis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../springboot/redis.html">
+            
+                <a href="../springboot/redis.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../springboot/rabbitmq.html">
+            
+                <a href="../springboot/rabbitmq.html">
+            
+                    
+                    RabbitMQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../springboot/excel.html">
+            
+                <a href="../springboot/excel.html">
+            
+                    
+                    Excel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../springboot/run.html">
+            
+                <a href="../springboot/run.html">
+            
+                    
+                    启动方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../index/sql.html">
+            
+                <a href="../index/sql.html">
+            
+                    
+                    SQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../sql/mysql.html">
+            
+                <a href="../sql/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../sql/postgresql.html">
+            
+                <a href="../sql/postgresql.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../index/git-svn.html">
+            
+                <a href="../index/git-svn.html">
+            
+                    
+                    Git/Svn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../git-svn/git.html">
+            
+                <a href="../git-svn/git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../git-svn/gitlab.html">
+            
+                <a href="../git-svn/gitlab.html">
+            
+                    
+                    GitLab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../git-svn/svn.html">
+            
+                <a href="../git-svn/svn.html">
+            
+                    
+                    Svn
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../index/linux.html">
+            
+                <a href="../index/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../linux/cmd.html">
+            
+                <a href="../linux/cmd.html">
+            
+                    
+                    命令行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../linux/yum.html">
+            
+                <a href="../linux/yum.html">
+            
+                    
+                    Yum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../linux/jdk.html">
+            
+                <a href="../linux/jdk.html">
+            
+                    
+                    JDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../linux/php.html">
+            
+                <a href="../linux/php.html">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../linux/nodejs.html">
+            
+                <a href="../linux/nodejs.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../linux/maven.html">
+            
+                <a href="../linux/maven.html">
+            
+                    
+                    Maven
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../linux/nexus.html">
+            
+                <a href="../linux/nexus.html">
+            
+                    
+                    Nexus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../linux/mysql.html">
+            
+                <a href="../linux/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../linux/pgsql.html">
+            
+                <a href="../linux/pgsql.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.10" data-path="../linux/mount.html">
+            
+                <a href="../linux/mount.html">
+            
+                    
+                    挂载硬盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.11" data-path="../linux/nginx.html">
+            
+                <a href="../linux/nginx.html">
+            
+                    
+                    Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.12" data-path="../linux/tomcat.html">
+            
+                <a href="../linux/tomcat.html">
+            
+                    
+                    Tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.13" data-path="../linux/redis.html">
+            
+                <a href="../linux/redis.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.14" data-path="../linux/mongodb.html">
+            
+                <a href="../linux/mongodb.html">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.15" data-path="../linux/solr.html">
+            
+                <a href="../linux/solr.html">
+            
+                    
+                    Solr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.16" data-path="../linux/rabbitmq.html">
+            
+                <a href="../linux/rabbitmq.html">
+            
+                    
+                    RabbitMQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.17" data-path="../linux/ftp.html">
+            
+                <a href="../linux/ftp.html">
+            
+                    
+                    Ftp服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.18" data-path="../linux/jenkins.html">
+            
+                <a href="../linux/jenkins.html">
+            
+                    
+                    Jenkins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.19" data-path="../linux/zentao.html">
+            
+                <a href="../linux/zentao.html">
+            
+                    
+                    禅道
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../index/mac.html">
+            
+                <a href="../index/mac.html">
+            
+                    
+                    Mac
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../mac/env-config.html">
+            
+                <a href="../mac/env-config.html">
+            
+                    
+                    常用环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../index/windows.html">
+            
+                <a href="../index/windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../windows/dos.html">
+            
+                <a href="../windows/dos.html">
+            
+                    
+                    DOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../index/ide.html">
+            
+                <a href="../index/ide.html">
+            
+                    
+                    开发工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../ide/vscode.html">
+            
+                <a href="../ide/vscode.html">
+            
+                    
+                    VSCode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../ide/idea.html">
+            
+                <a href="../ide/idea.html">
+            
+                    
+                    IDEA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../ide/editorconfig.html">
+            
+                <a href="../ide/editorconfig.html">
+            
+                    
+                    EditorConfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../index/markdown.html">
+            
+                <a href="../index/markdown.html">
+            
+                    
+                    MarkDown
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../markdown/ascii.html">
+            
+                <a href="../markdown/ascii.html">
+            
+                    
+                    转义字符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../index/others.html">
+            
+                <a href="../index/others.html">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../others/sys.html">
+            
+                <a href="../others/sys.html">
+            
+                    
+                    操作系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../others/excel.html">
+            
+                <a href="../others/excel.html">
+            
+                    
+                    Excel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../index/collection.html">
+            
+                <a href="../index/collection.html">
+            
+                    
+                    文章收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" >
+            
+                <span>
+            
+                    
+                     
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../index/delicious.html">
+            
+                <a href="../index/delicious.html">
+            
+                    
+                     
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Canvas</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="canvas">Canvas</h1>
+<h3 id="canvas&#x7B7E;&#x540D;">Canvas&#x7B7E;&#x540D;</h3>
+<blockquote>
+<p>&#x63D0;&#x4F9B;&#x539F;&#x751F;js&#x7248;&#x672C;&#x548C;vue&#x7248;&#x672C;  </p>
+</blockquote>
+<!-- ![Canvas签名效果](../assets/canvas-sign.jpg) -->
+<div>
+  <style>
+    #canvasBox, #signImage {
+      border: 1px solid #EEE;
+      width: 300px;
+      height: 200px;
+    }
+  </style>
+  <div style="display: inline-block;">
+    <canvas id="canvasBox"></canvas>
+    <img id="signImage" width="300" height="200" src="data:image/png;base64,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" alt="&#x751F;&#x6210;&#x7684;&#x56FE;&#x7247;">
+    <div style="display: flex; justify-content: space-around; padding: 0 20%; font-size: 12px">
+      <button id="initBtn">&#x521D;&#x59CB;&#x5316;</button>
+      <button id="saveBtn">&#x751F;&#x6210;&#x56FE;&#x7247;</button>
+      <button id="clearBtn">&#x6E05;&#x7A7A;&#x753B;&#x5E03;</button>
+    </div>
+  </div>
+  <script>
+    function drawCanvas(args) {
+      this.el = 'canvas'
+      this.saveEl = 'saveBtn'
+      this.clearEl = 'clearBtn'
+      this.width = document.documentElement.clientWidth || document.body.clientWidth
+      this.height = 200
+      this.lineWidth = 2
+      this.color = '#000'
+      this.backgroundColor = 'rgba(255, 255, 255, 0)'
+      this.borderWidth = 1
+      this.borderColor = '#333'
+      this.imageType = 'image/png'
+      this.imageQual = 0.92
+      this.saveCallback = function (imgBase64, clearCanvas) { }
+      this.clearCallback = function () { }
+      for (var k in args) {
+        this[k] = args[k]
+      }
+      // 获取canvas
+      var canvas = document.getElementById(this.el)
+      if (!canvas) {
+        return
+      }
+      // 设置边框
+      if (this.borderWidth > 0 && this.width > this.borderWidth * 2) {
+        this.width = this.width - this.borderWidth * 2
+        canvas.style.border = this.borderWidth + 'px solid' + this.borderColor
+      }
+      // 设置宽高
+      canvas.width = this.width
+      canvas.height = this.height
+      // 获取canvas context
+      var cxt = canvas.getContext('2d')
+      // canvas context相关设置
+      cxt.fillStyle = this.backgroundColor
+      cxt.fillRect(0, 0, this.width, this.height)
+      cxt.strokeStyle = this.color
+      cxt.lineWidth = this.lineWidth
+      cxt.lineCap = 'round' // 线条末端添加圆形线帽，减少线条的生硬感
+      cxt.lineJoin = 'round' // 线条交汇时为原型边角
+      // 利用阴影，消除锯齿
+      cxt.shadowBlur = 1
+      cxt.shadowColor = this.color
+      cxt.font = 'bold 20px Arial'
+      cxt.fillStyle = '#000'
+      cxt.fillText('Canvas签名，在此处绘制', 30, 100)
+      var isDraw = false // 是否绘制中，用于mousemove
+      // 开始绘制
+      canvas.ontouchstart = function (e) {
+        var touch = e.changedTouches[0]
+        if (touch.target.tagName === 'CANVAS') {
+          var rect = canvas.getBoundingClientRect()
+          var offsetTop = rect.top
+          var offsetLeft = rect.left
+          cxt.beginPath()
+          cxt.moveTo(touch.clientX - offsetLeft, touch.clientY - offsetTop)
+        }
+      }
+      canvas.onmousedown = function (e) {
+        if (e.target.tagName === 'CANVAS') {
+          var rect = canvas.getBoundingClientRect()
+          var offsetTop = rect.top
+          var offsetLeft = rect.left
+          isDraw = true
+          cxt.beginPath()
+          cxt.moveTo(e.clientX - offsetLeft, e.clientY - offsetTop)
+        }
+      }
+      // 绘制中
+      canvas.ontouchmove = function (e) {
+        e.stopPropagation()
+        e.preventDefault()
+        var touch = e.changedTouches[0]
+        if (touch.target.tagName === 'CANVAS') {
+          var rect = canvas.getBoundingClientRect()
+          var offsetTop = rect.top
+          var offsetLeft = rect.left
+          cxt.lineTo(touch.clientX - offsetLeft, touch.clientY - offsetTop)
+          cxt.stroke()
+        }
+      }
+      canvas.onmousemove = function (e) {
+        e.stopPropagation()
+        e.preventDefault()
+        if (isDraw) {
+          if (e.target.tagName === 'CANVAS') {
+            var rect = canvas.getBoundingClientRect()
+            var offsetTop = rect.top
+            var offsetLeft = rect.left
+            cxt.lineTo(e.clientX - offsetLeft, e.clientY - offsetTop)
+            cxt.stroke()
+            if (e.clientX - offsetLeft <= this.borderWidth
+              || e.clientX - offsetLeft >= canvas.width - this.borderWidth * 2
+              || e.clientY - offsetTop <= this.borderWidth
+              || e.clientY - offsetTop >= canvas.height - this.borderWidth * 2) {
+              isDraw = false
+            }
+          }
+        }
+      }.bind(this)
+      // 结束绘制
+      canvas.ontouchend = function () {
+        cxt.closePath()
+      }
+      canvas.onmouseup = function mouseupHandle () {
+        isDraw = false
+        cxt.closePath()
+      }
+      // 清除画布
+      var clearBtn = document.getElementById(this.clearEl)
+      if (clearBtn) {
+        clearBtn.onclick = function () {
+          cxt.clearRect(0, 0, canvas.width, canvas.height)
+          cxt.fillStyle = this.backgroundColor
+          cxt.fillRect(0, 0, this.width, this.height)
+          this.clearCallback()
+        }.bind(this)
+      }
+      // 保存图片
+      var saveBtn = document.getElementById(this.saveEl)
+      if (saveBtn) {
+        saveBtn.onclick = function () {
+          var imgBase64
+          if (this.imageType === 'image/jpeg') {
+            imgBase64 = canvas.toDataURL('image/jpeg', this.imageQual)
+          } else {
+            imgBase64 = canvas.toDataURL()
+          }
+          this.saveCallback(imgBase64, function () {
+            cxt.clearRect(0, 0, canvas.width, canvas.height)
+          })
+        }.bind(this)
+      }
+    }
+    document.getElementById('initBtn').onclick = function () {
+      new drawCanvas({
+        el: 'canvasBox',
+        width: 300,
+        height: 200,
+        borderColor: '#EEE',
+        saveCallback: function (imgBase64, clearCanvas) {
+          document.getElementById('signImage').src = imgBase64
+          // 清空canvas
+          // clearCanvas()
+        },
+        clearCallback: function () {
+          document.getElementById('signImage').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII='
+        }
+      })
+    }
+    window.onload = function () {
+      setTimeout(function () {
+        document.getElementById('initBtn').click()
+      }, 300)
+    }
+  </script>
+</div>
+
+<h5 id="1&#x3001;&#x539F;&#x751F;javascript&#x7248;&#x672C;">1&#x3001;&#x539F;&#x751F;JavaScript&#x7248;&#x672C;</h5>
+<blockquote>
+<p>&#x5229;&#x7528;canvas&#x753B;&#x5E03;&#x5B9E;&#x73B0;&#x7B7E;&#x540D;&#x6548;&#x679C;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-javascript"><span class="token comment">/**
+ * Canvas &#x7B7E;&#x540D;
+ * 
+ * &#x4F7F;&#x7528;&#xFF1A;
+ * new drawCanvas({
+ *   saveCallback: function (imgBase64, clearCallback) {
+ *     document.getElementById(&apos;signImage&apos;).src = imgBase64
+ *     // &#x6E05;&#x7A7A;canvas
+ *     // clearCallback()
+ *   }
+ * })
+ * &lt;String&gt; el&#xFF1A;canvas&#x5BB9;&#x5668;id&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;canvas&apos;
+ * &lt;String&gt; saveEl&#xFF1A;&#x4FDD;&#x5B58;&#x6309;&#x94AE;id&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;saveBtn&apos;
+ * &lt;String&gt; clearEl&#xFF1A;&#x6E05;&#x9664;&#x6309;&#x94AE;id&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;clearBtn&apos;
+ * &lt;Number&gt; width&#xFF1A;&#x5BB9;&#x5668;&#x5BBD;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&#x6D4F;&#x89C8;&#x5668;&#x5BBD;&#x5EA6;
+ * &lt;Number&gt; height&#xFF1A;&#x5BB9;&#x5668;&#x9AD8;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;200
+ * &lt;String&gt; color&#xFF1A;&#x753B;&#x7EBF;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;#000&apos;
+ * &lt;String&gt; backgroundColor&#xFF1A;&#x5BB9;&#x5668;&#x80CC;&#x666F;&#x989C;&#x8272;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;rgba(255, 255, 255, 0)&apos;
+ * &lt;Number&gt; borderWidth&#xFF1A;&#x5BB9;&#x5668;&#x8FB9;&#x6846;&#x5BBD;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;1
+ * &lt;String&gt; borderColor&#xFF1A;&#x5BB9;&#x5668;&#x8FB9;&#x6846;&#x989C;&#x8272;&#x989C;&#x8272;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;&apos;#333&apos;
+ * &lt;String&gt; imageType&#xFF1A;&#x56FE;&#x7247;&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#xFF1A;image/png&#xFF08;&#x63A8;&#x8350;&#xFF09;&#xFF0C;&#x53EF;&#x9009;&#xFF1A;image/jpeg&#xFF08;&#x6CE8;&#x610F;&#x4FEE;&#x6539;background&#xFF1B;&#x4E0D;&#x63A8;&#x8350;&#xFF1A;&#x6E05;&#x7A7A;&#x753B;&#x5E03;&#x518D;&#x6B21;&#x7ED8;&#x5236;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x751F;&#x6210;base64&#xFF09;&#xFF0C;image/webp&#xFF08;Chrome&#x652F;&#x6301;&#xFF09;&#xFF0C;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x5747;&#x4E3A;image/png
+ * &lt;Number&gt; imageQual&#xFF1A;&#x56FE;&#x7247;&#x8D28;&#x91CF;&#xFF0C;&#x5F53;imageType&#x4E3A;image/jpeg&#x65F6;&#x751F;&#x6548;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;0.92&#xFF0C;&#x53EF;&#x9009;0~1&#x4E4B;&#x95F4;&#xFF0C;&#x8D85;&#x51FA;&#x8303;&#x56F4;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;0.92
+ * &lt;Function&gt; saveCallback(imgBase64, clearCanvas)&#xFF1A;&#x4FDD;&#x5B58;&#x56DE;&#x8C03;(base64&#x56FE;&#x7247;&#xFF0C;&#x6E05;&#x7A7A;&#x753B;&#x5E03;)
+ * &lt;Function&gt; clearCallback()&#xFF1A;&#x6E05;&#x7A7A;&#x753B;&#x5E03;&#x56DE;&#x8C03;
+ */</span>
+<span class="token keyword">function</span> <span class="token function">drawCanvas</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>el <span class="token operator">=</span> <span class="token string">&apos;canvas&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>saveEl <span class="token operator">=</span> <span class="token string">&apos;saveBtn&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>clearEl <span class="token operator">=</span> <span class="token string">&apos;clearBtn&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth
+  <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token number">200</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token number">2</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">&apos;#000&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">&apos;rgba(255, 255, 255, 0)&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>borderColor <span class="token operator">=</span> <span class="token string">&apos;#333&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>imageType <span class="token operator">=</span> <span class="token string">&apos;image/png&apos;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>imageQual <span class="token operator">=</span> <span class="token number">0.92</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">saveCallback</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">imgBase64<span class="token punctuation">,</span> clearCanvas</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">clearCallback</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> k <span class="token keyword">in</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> args<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// &#x83B7;&#x53D6;canvas</span>
+  <span class="token keyword">var</span> canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>el<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>canvas<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// &#x8BBE;&#x7F6E;&#x8FB9;&#x6846;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span>
+    canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>border <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">+</span> <span class="token string">&apos;px solid&apos;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderColor
+  <span class="token punctuation">}</span>
+  <span class="token comment">// &#x8BBE;&#x7F6E;&#x5BBD;&#x9AD8;</span>
+  canvas<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width
+  canvas<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height
+  <span class="token comment">// &#x83B7;&#x53D6;canvas context</span>
+  <span class="token keyword">var</span> cxt <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">&apos;2d&apos;</span><span class="token punctuation">)</span>
+  <span class="token comment">// canvas context&#x76F8;&#x5173;&#x8BBE;&#x7F6E;</span>
+  cxt<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>backgroundColor
+  cxt<span class="token punctuation">.</span><span class="token function">fillRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+  cxt<span class="token punctuation">.</span>strokeStyle <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color
+  cxt<span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lineWidth
+  cxt<span class="token punctuation">.</span>lineCap <span class="token operator">=</span> <span class="token string">&apos;round&apos;</span> <span class="token comment">// &#x7EBF;&#x6761;&#x672B;&#x7AEF;&#x6DFB;&#x52A0;&#x5706;&#x5F62;&#x7EBF;&#x5E3D;&#xFF0C;&#x51CF;&#x5C11;&#x7EBF;&#x6761;&#x7684;&#x751F;&#x786C;&#x611F;</span>
+  cxt<span class="token punctuation">.</span>lineJoin <span class="token operator">=</span> <span class="token string">&apos;round&apos;</span> <span class="token comment">// &#x7EBF;&#x6761;&#x4EA4;&#x6C47;&#x65F6;&#x4E3A;&#x539F;&#x578B;&#x8FB9;&#x89D2;</span>
+  <span class="token comment">// &#x5229;&#x7528;&#x9634;&#x5F71;&#xFF0C;&#x6D88;&#x9664;&#x952F;&#x9F7F;</span>
+  cxt<span class="token punctuation">.</span>shadowBlur <span class="token operator">=</span> <span class="token number">1</span>
+  cxt<span class="token punctuation">.</span>shadowColor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color
+
+  <span class="token keyword">var</span> isDraw <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token comment">// &#x662F;&#x5426;&#x7ED8;&#x5236;&#x4E2D;&#xFF0C;&#x7528;&#x4E8E;mousemove</span>
+
+  <span class="token comment">// &#x5F00;&#x59CB;&#x7ED8;&#x5236;</span>
+  canvas<span class="token punctuation">.</span><span class="token function-variable function">ontouchstart</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> touch <span class="token operator">=</span> e<span class="token punctuation">.</span>changedTouches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>touch<span class="token punctuation">.</span>target<span class="token punctuation">.</span>tagName <span class="token operator">===</span> <span class="token string">&apos;CANVAS&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> rect <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">var</span> offsetTop <span class="token operator">=</span> rect<span class="token punctuation">.</span>top
+      <span class="token keyword">var</span> offsetLeft <span class="token operator">=</span> rect<span class="token punctuation">.</span>left
+      cxt<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      cxt<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>touch<span class="token punctuation">.</span>clientX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> touch<span class="token punctuation">.</span>clientY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  canvas<span class="token punctuation">.</span><span class="token function-variable function">onmousedown</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>tagName <span class="token operator">===</span> <span class="token string">&apos;CANVAS&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> rect <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">var</span> offsetTop <span class="token operator">=</span> rect<span class="token punctuation">.</span>top
+      <span class="token keyword">var</span> offsetLeft <span class="token operator">=</span> rect<span class="token punctuation">.</span>left
+      isDraw <span class="token operator">=</span> <span class="token boolean">true</span>
+      cxt<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      cxt<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// &#x7ED8;&#x5236;&#x4E2D;</span>
+  canvas<span class="token punctuation">.</span><span class="token function-variable function">ontouchmove</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">var</span> touch <span class="token operator">=</span> e<span class="token punctuation">.</span>changedTouches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>touch<span class="token punctuation">.</span>target<span class="token punctuation">.</span>tagName <span class="token operator">===</span> <span class="token string">&apos;CANVAS&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> rect <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">var</span> offsetTop <span class="token operator">=</span> rect<span class="token punctuation">.</span>top
+      <span class="token keyword">var</span> offsetLeft <span class="token operator">=</span> rect<span class="token punctuation">.</span>left
+      cxt<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>touch<span class="token punctuation">.</span>clientX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> touch<span class="token punctuation">.</span>clientY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+      cxt<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  canvas<span class="token punctuation">.</span><span class="token function-variable function">onmousemove</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isDraw<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>tagName <span class="token operator">===</span> <span class="token string">&apos;CANVAS&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> rect <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">var</span> offsetTop <span class="token operator">=</span> rect<span class="token punctuation">.</span>top
+        <span class="token keyword">var</span> offsetLeft <span class="token operator">=</span> rect<span class="token punctuation">.</span>left
+        cxt<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> offsetLeft<span class="token punctuation">,</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> offsetTop<span class="token punctuation">)</span>
+        cxt<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> offsetLeft <span class="token operator">&lt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth
+          <span class="token operator">||</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> offsetLeft <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span>
+          <span class="token operator">||</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> offsetTop <span class="token operator">&lt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth
+          <span class="token operator">||</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> offsetTop <span class="token operator">&gt;=</span> canvas<span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>borderWidth <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          isDraw <span class="token operator">=</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// &#x7ED3;&#x675F;&#x7ED8;&#x5236;</span>
+  canvas<span class="token punctuation">.</span><span class="token function-variable function">ontouchend</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cxt<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  canvas<span class="token punctuation">.</span><span class="token function-variable function">onmouseup</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">mouseupHandle</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    isDraw <span class="token operator">=</span> <span class="token boolean">false</span>
+    cxt<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// &#x6E05;&#x9664;&#x753B;&#x5E03;</span>
+  <span class="token keyword">var</span> clearBtn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>clearEl<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>clearBtn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    clearBtn<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      cxt<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+      cxt<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>backgroundColor
+      cxt<span class="token punctuation">.</span><span class="token function">fillRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">clearCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// &#x4FDD;&#x5B58;&#x56FE;&#x7247;</span>
+  <span class="token keyword">var</span> saveBtn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>saveEl<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>saveBtn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    saveBtn<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> imgBase64
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>imageType <span class="token operator">===</span> <span class="token string">&apos;image/jpeg&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        imgBase64 <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">&apos;image/jpeg&apos;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>imageQual<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        imgBase64 <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveCallback</span><span class="token punctuation">(</span>imgBase64<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cxt<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>&#x4F7F;&#x7528;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>canvasBox<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>signImage<span class="token punctuation">&quot;</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data:image/png;base64,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<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>&#x751F;&#x6210;&#x7684;&#x56FE;&#x7247;<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token value css language-css"><span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span> <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span> <span class="token property">padding</span><span class="token punctuation">:</span> 0 20%<span class="token punctuation">;</span> <span class="token property">font-size</span><span class="token punctuation">:</span> 12px</span><span class="token punctuation">&quot;</span></span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>saveBtn<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x751F;&#x6210;&#x56FE;&#x7247;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>clearBtn<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x6E05;&#x7A7A;&#x753B;&#x5E03;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+  window.onload = function () {
+    new drawCanvas({
+      el: &apos;canvasBox&apos;,
+      saveEl: &apos;saveBtn&apos;,
+      clearEl: &apos;clearBtn&apos;,
+      width: 300,
+      height: 200,
+      saveCallback: function (imgBase64, clearCanvas) {
+        document.getElementById(&apos;signImage&apos;).src = imgBase64
+        // &#x6E05;&#x7A7A;canvas
+        // clearCanvas()
+      },
+      clearCallback: function () {
+        document.getElementById(&apos;signImage&apos;).src = &apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=&apos;
+      }
+    })
+  }
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h5 id="2&#x3001;vuejs&#x7248;&#x672C;">2&#x3001;Vue.js&#x7248;&#x672C;</h5>
+<blockquote>
+<p>vue&#x7EC4;&#x4EF6;<br>&#x76F4;&#x63A5;&#x4F7F;&#x7528;<a href="https://www.npmjs.com/package/vue-canvas-sign" target="_blank">npm&#x7EC4;&#x4EF6;</a><br><code>yarn add vue-canvas-sign</code> or <code>npm i vue-canvas-sign</code><br>&#x8F93;&#x51FA;base64&#x56FE;&#x7247;&#xFF0C;&#x5982;&#x9700;&#x8F6C;&#x4E3A;file&#x6587;&#x4EF6;&#xFF0C;<a href="js-utils.html#base64&#x8F6C;file">&#x53EF;&#x53C2;&#x7167;</a>  </p>
+</blockquote>
+<footer class="page-footer"><span class="copyright">&#xA9; 2022 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
+2022-05-22
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="less.html" class="navigation navigation-prev " aria-label="Previous page: Less">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="debounce-throttle.html" class="navigation navigation-next " aria-label="Next page: 防抖节流">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Canvas","level":"1.3.13","depth":2,"next":{"title":"防抖节流","level":"1.3.14","depth":2,"path":"frontend/debounce-throttle.md","ref":"frontend/debounce-throttle.md","articles":[]},"previous":{"title":"Less","level":"1.3.12","depth":2,"path":"frontend/less.md","ref":"frontend/less.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2022 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"frontend/canvas.md","mtime":"2022-05-22T13:03:46.852Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-24T08:13:05.434Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
