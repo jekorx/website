@@ -256,16 +256,16 @@ ssh-keygen -t rsa -C '<登录邮箱>'
 > Linux、Mac下修改```/etc/hosts```文件，修改完后执行  
 
 ```bash
-# 在命令行中输入以下命令是hosts生效 -> Linux（可能需要安装 nscd）
+# 在命令行中输入以下命令使hosts生效 -> Linux（可能需要安装 nscd）
 nscd -i hosts
 
-# 在命令行中输入以下命令是hosts生效 -> Mac（>=10.10.4）
+# 在命令行中输入以下命令使hosts生效 -> Mac（>=10.10.4）
 sudo killall -HUP mDNSResponder
 ```
 
 > Windows下修改 ```c:\Windows\System32\drivers\etc\hosts```文件，修改完后执行  
 
 ```bash
-# 在命令行中输入以下命令是hosts生效
+# 在命令行中输入以下命令使hosts生效
 ipconfig /flushdns
 ```

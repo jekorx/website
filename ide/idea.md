@@ -120,13 +120,6 @@ Basic: <Add Keyboard Shutcut Alt + />
 File -> Settings -> Keymap -> Main menu -> View -> Active Editor
 # 添加
 Soft-Wrap: <Add Keyboard Shutcut Alt + Z>
-
-# 在项目视图中选择文件
-File -> Settings -> Keymap -> Other
-# 删除占用
-Quick Switch Scheme: <右键，Remove Ctrl + ~>
-# 添加
-Select File in Project View: <Add Keyboard Shutcut Ctrl + ~>
 ```
 
 > IDE优化设置  
@@ -169,4 +162,8 @@ Appearance -> Mark modified（*）# 勾选
 # 控制台字体
 File -> Settings -> Editor -> Color Scheme -> Console Font
 Use console font instead of the default # 勾选，设置Size 14
+
+# 密码保存位置
+Preferences -> Appearance & Behavior -> System Settings -> Passwords
+In KeePass # 选择，保存到本地（Mac不保存到钥匙串访问）
 ```
