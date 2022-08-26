@@ -15,3 +15,10 @@
 > 3、[particle-wave](https://github.com/jekorx/particle-wave)，WebGL粒子波浪效果，[点此查看演示](https://jekorx.github.io/particle-wave/)  
 > 4、[bio](https://github.com/jekorx/bio)，vue个人简历模版，[点此查看演示](https://jekorx.github.io/bio/)  
 > 5、gallery-by-react，react画廊，[点此查看演示](https://jekorx.github.io/gallery-by-react/)   -->
+
+<div style="margin-top: 100px; text-align: center">
+  <p style="color: #777">Thanks for</p>
+  <a href="https://jb.gg/OpenSourceSupport" target="_blank">
+    <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" alt="JetBrains支持" style="width: 120px; height: 120px" />
+  </a>
+</div>
