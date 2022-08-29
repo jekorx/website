@@ -34,24 +34,45 @@ git commit –a –m '<本次提交描述>'
 # 将本地版本库的分支推送到远程服务器
 # git push <远程服务器> <分支>
 git push origin master
-# 当只关联一个远程，只有一个分支时，可以使用
+# 无特殊配置为提交当前分支
 git push
 
 ################### 更新 ####################
-# 从远程主机的master分支拉取最新内容 
-git fetch origin master
-# 将拉取下来的最新内容合并到当前所在的分支中
-git merge FETCH_HEAD
+# 从远程拉取最新内容 
+git fetch
+# 将拉取下来的最新内容合并到当前分支
+git merge
 
-# git pull <远程主机名> <远程分支名>:<本地分支名>，等价于上面两步操作
+# git pull 等价于上面两步操作
+# 但会对代码进行破坏性更新，建议使用 git fetch，git merge 进行代码更新
 git pull
 ```
 
-#### 提交gh-pages分支以供展示
+#### 暂存
+
+> 切换分支时存在未提交的文件，可以使用暂存  
 
 ```bash
-# dist为打包后的文件目录
-git subtree push --prefix dist origin gh-pages
+# 添加暂存
+git stash
+
+# 查看暂存记录列表
+git stash list
+
+# 应用某个存储，但不会把该存储从列表中删除
+# git stash apply
+git stash apply stash@{0}
+
+# 应用并删除某个存储
+# git stash pop
+git stash pop stash@{0}
+
+# 删除某个存储
+# git stash drop
+git stash drop stash@{0}
+
+# 清空所有暂存的 stash
+git stash clear
 ```
 
 #### 分支
@@ -114,15 +135,10 @@ git log --pretty=oneline
 # <commit id 2> <commit message 2>
 
 # 回退到指定commit id，这一步最好在当前代码 commit 之后操作，commit之后源代码可找回
-git reset --hard <commit id>
+# --soft 回退到某个版本
+# --hard 撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交
+git reset <commit id>
 # HEAD is now at xxxxxx commit
-
-# 已推送到远程仓库的代码回退后，需要强制推送到远程服务器，push时需要加--force
-git push origin HEAD --force
-
-# 回退被覆盖掉代码找回，查看操作记录，然后在使用 git reset --hard <commit id> 找回
-# 已推送到远程仓库的代码，回退被覆盖掉代码找回后，无需强制推送到远程服务器，push时不用加--force
-git reflog
 ```
 
 #### git 恢复工作区文件
@@ -150,6 +166,13 @@ git update-index --skip-worktree [<file>...]
 
 # 恢复更改跟踪，取消.git/info/exclude中的配置后，需要运行
 git update-index --no-skip-worktree [<file>...]
+```
+
+#### 提交gh-pages分支以供展示
+
+```bash
+# dist为打包后的文件目录
+git subtree push --prefix dist origin gh-pages
 ```
 
 #### 统计贡献者代码行数
