@@ -9,6 +9,12 @@ rm -rf _dist
 # 构建
 gitbook build
 
+#rm _book/**/*.md
+rm _book/.gitignore
+rm _book/*.sh
+rm _book/*.bat
+rm _book/LICENSE
+
 mkdir _dist
 cp -r _book/ _dist/
 
@@ -63,11 +69,5 @@ git push
 #git subtree push --prefix _book origin gh-pages
 
 #echo "确认Enforce HTTPS选项被勾选"
-
-#rm _book/**/*.md
-rm _book/.gitignore
-rm _book/*.sh
-rm _book/*.bat
-rm _book/LICENSE
 
 # cmd.exe /C winrarpkg.bat
