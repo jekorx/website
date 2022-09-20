@@ -165,7 +165,8 @@ source ~/.zshrc
 
 ### maven
 
-> jdk8 支持 maven 最高版本为 3.6.3，[maven 3.6.3 下载地址](https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz)  
+> [maven 下载页面](https://maven.apache.org/download.cgi)  
+> 如果遇到 idea 版本限制，可使用 maven 3.6.3，[maven 3.6.3 下载地址](https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz)  
 > 下载后解压到```~/java```下  
 
 ```bash
@@ -175,7 +176,7 @@ vim ~/.zshrc
 
 # 添加以下配置
 # maven
-export M2_HOME="$HOME/java/apache-maven-3.6.3"
+export M2_HOME="$HOME/java/apache-maven-3.8.6"
 export PATH=$PATH:$M2_HOME/bin
 
 # 重新加载配置文件

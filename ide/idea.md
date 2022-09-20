@@ -166,4 +166,8 @@ Use console font instead of the default # 勾选，设置Size 14
 # 密码保存位置
 Preferences -> Appearance & Behavior -> System Settings -> Passwords
 In KeePass # 选择，保存到本地（Mac不保存到钥匙串访问）
+
+# 取消保存自动格式化
+Preferences -> Tools -> Actions on Save
+Reformat code # 取消勾选
 ```
