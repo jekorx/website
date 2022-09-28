@@ -175,6 +175,12 @@ git update-index --no-skip-worktree [<file>...]
 git subtree push --prefix dist origin gh-pages
 ```
 
+#### git log 图形化
+
+```bash
+git log --graph --pretty="(%p) %h %s"
+```
+
 #### 统计贡献者代码行数
 
 ```bash
