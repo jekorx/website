@@ -137,8 +137,11 @@ git log --pretty=oneline
 # 回退到指定commit id，这一步最好在当前代码 commit 之后操作，commit之后源代码可找回
 # --soft 回退到某个版本
 # --hard 撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交
-git reset <commit id>
+git reset --soft <commit id>
 # HEAD is now at xxxxxx commit
+
+# 强制提交
+git push origin <分支名> --force
 ```
 
 #### git 恢复工作区文件

@@ -2,6 +2,14 @@
 
 > 以Centos 7.4，Subversion 1.7.14 为例  
 
+#### 客户端命令
+
+| 命令 | 简写 | 说明 | 其它 |
+|---|---|---|--|
+| svn checkout &#60;PATH&#62; | svn co &#60;PATH&#62; | 将文件Checkout到本地目录 | PATH是服务器上的目录 |
+| svn status &#60;PATH&#62; | svn st &#60;PATH&#62; | <div>查看文件或者目录状态</div><div>PATH空为当前目录</div> | <div>?：不在svn的控制中</div><div>M：内容被修改</div><div>C：发生冲突</div><div>A：预定加入到版本库</div><div>K：被锁定</div> |
+| svn add &#60;FILE&#62; | - | 添加新文件到版本库 | 支持通配符 |
+
 #### 安装
 
 ```bash
