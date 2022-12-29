@@ -278,8 +278,11 @@ ssh-keygen -t rsa -C '<登录邮箱>'
 #### Github速度慢优化方法
 
 > 获取github域名最快访问ip，[https://github.com.ipaddress.com/](https://github.com.ipaddress.com/) 添加到hosts文件  
+> [github.com](https://www.ipaddress.com/site/github.com)  
+> [global-ssl.fastly.net](https://www.ipaddress.com/site/global-ssl.fastly.net)  
+> [github.global.ssl.fastly.net](https://www.ipaddress.com/site/github.global.ssl.fastly.net)  
 
-```
+```bash
 <获取的IP> github.com
 <获取的IP> global-ssl.fastly.Net
 <获取的IP> github.global.ssl.fastly.net
