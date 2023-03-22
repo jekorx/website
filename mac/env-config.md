@@ -16,6 +16,24 @@ omz update
 uninstall_oh_my_zsh
 ```
 
+> 安装插件  
+
+```bash
+# 进入自定义插件目录
+cd ~/.oh-my-zsh/custom/plugins/
+
+# 安装插件
+# 命令自动提示
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
+# 命令高亮
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+# 配置 plugins
+```
+
+> 配置  
+
+
 ```bash
 # 相关环境变量配置
 vim ~/.zshrc
@@ -26,7 +44,11 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,9 +136,13 @@ brew uninstall <包名>
 
 ### nvm
 
-> [Node Version Manager](https://github.com/nvm-sh/nvm) 获取最新```curl```远程安装命令  
-
 ```bash
+# 安装
+brew install nvm
+
+# 创建nvm工作目录
+mkdir ~/.nvm
+
 # 配置环境变量
 vim ~/.zshrc
 #vim ~/.bash_profile
@@ -124,8 +150,9 @@ vim ~/.zshrc
 # 添加以下配置
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+NVM_HOME="$(brew --prefix nvm)"
+[ -s "$NVM_HOME/nvm.sh" ] && \. "$NVM_HOME/nvm.sh"  # This loads nvm
+[ -s "$NVM_HOME/bash_completion" ] && \. "$NVM_HOME/bash_completion"  # This loads nvm bash_completion
 
 # 重新加载配置文件
 source ~/.zshrc

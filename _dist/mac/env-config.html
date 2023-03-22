@@ -1524,6 +1524,23 @@ omz update
 <span class="token comment"># &#x5378;&#x8F7D;</span>
 uninstall_oh_my_zsh
 </code></pre>
+<blockquote>
+<p>&#x5B89;&#x88C5;&#x63D2;&#x4EF6;  </p>
+</blockquote>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x8FDB;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x63D2;&#x4EF6;&#x76EE;&#x5F55;</span>
+<span class="token builtin class-name">cd</span> ~/.oh-my-zsh/custom/plugins/
+
+<span class="token comment"># &#x5B89;&#x88C5;&#x63D2;&#x4EF6;</span>
+<span class="token comment"># &#x547D;&#x4EE4;&#x81EA;&#x52A8;&#x63D0;&#x793A;</span>
+<span class="token function">git</span> clone https://github.com/zsh-users/zsh-autosuggestions.git
+<span class="token comment"># &#x547D;&#x4EE4;&#x9AD8;&#x4EAE;</span>
+<span class="token function">git</span> clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+<span class="token comment"># &#x914D;&#x7F6E; plugins</span>
+</code></pre>
+<blockquote>
+<p>&#x914D;&#x7F6E;  </p>
+</blockquote>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x76F8;&#x5173;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x914D;&#x7F6E;</span>
 <span class="token function">vim</span> ~/.zshrc
 <span class="token comment">#vim ~/.bash_profile</span>
@@ -1533,7 +1550,11 @@ uninstall_oh_my_zsh
 
 <span class="token assign-left variable">ZSH_THEME</span><span class="token operator">=</span><span class="token string">&quot;robbyrussell&quot;</span>
 
-<span class="token assign-left variable">plugins</span><span class="token operator">=</span><span class="token punctuation">(</span>git<span class="token punctuation">)</span>
+<span class="token assign-left variable">plugins</span><span class="token operator">=</span><span class="token punctuation">(</span>
+  <span class="token function">git</span>
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+<span class="token punctuation">)</span>
 
 <span class="token builtin class-name">source</span> <span class="token variable">$ZSH</span>/oh-my-zsh.sh
 
@@ -1612,18 +1633,22 @@ brew upgrade <span class="token operator">&lt;</span>&#x5305;&#x540D;<span class
 brew uninstall <span class="token operator">&lt;</span>&#x5305;&#x540D;<span class="token operator">&gt;</span>
 </code></pre>
 <h3 id="nvm">nvm</h3>
-<blockquote>
-<p><a href="https://github.com/nvm-sh/nvm" target="_blank">Node Version Manager</a> &#x83B7;&#x53D6;&#x6700;&#x65B0;<code>curl</code>&#x8FDC;&#x7A0B;&#x5B89;&#x88C5;&#x547D;&#x4EE4;  </p>
-</blockquote>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x5B89;&#x88C5;</span>
+brew <span class="token function">install</span> nvm
+
+<span class="token comment"># &#x521B;&#x5EFA;nvm&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;</span>
+<span class="token function">mkdir</span> ~/.nvm
+
+<span class="token comment"># &#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
 <span class="token function">vim</span> ~/.zshrc
 <span class="token comment">#vim ~/.bash_profile</span>
 
 <span class="token comment"># &#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;</span>
 <span class="token comment"># nvm</span>
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$HOME</span>/.nvm&quot;</span>
-<span class="token punctuation">[</span> -s <span class="token string">&quot;<span class="token variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">&quot;<span class="token variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="token comment"># This loads nvm</span>
-<span class="token punctuation">[</span> -s <span class="token string">&quot;<span class="token variable">$NVM_DIR</span>/bash_completion&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">&quot;<span class="token variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="token comment"># This loads nvm bash_completion</span>
+<span class="token assign-left variable">NVM_HOME</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>&quot;</span>
+<span class="token punctuation">[</span> -s <span class="token string">&quot;<span class="token variable">$NVM_HOME</span>/nvm.sh&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">&quot;<span class="token variable">$NVM_HOME</span>/nvm.sh&quot;</span>  <span class="token comment"># This loads nvm</span>
+<span class="token punctuation">[</span> -s <span class="token string">&quot;<span class="token variable">$NVM_HOME</span>/bash_completion&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">&quot;<span class="token variable">$NVM_HOME</span>/bash_completion&quot;</span>  <span class="token comment"># This loads nvm bash_completion</span>
 
 <span class="token comment"># &#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
 <span class="token builtin class-name">source</span> ~/.zshrc
@@ -1675,7 +1700,7 @@ nvm <span class="token builtin class-name">alias</span> default <span class="tok
 <span class="token comment">#source ~/.bash_profile</span>
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2023 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
-2023-02-22
+2023-03-22
 </span></footer>
                                 
                                 </section>
@@ -1719,7 +1744,7 @@ nvm <span class="token builtin class-name">alias</span> default <span class="tok
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用环境配置","level":"1.12.1","depth":2,"next":{"title":"Windows","level":"1.13","depth":1,"path":"index/windows.md","ref":"index/windows.md","articles":[{"title":"DOS","level":"1.13.1","depth":2,"path":"windows/dos.md","ref":"windows/dos.md","articles":[]}]},"previous":{"title":"Mac","level":"1.12","depth":1,"path":"index/mac.md","ref":"index/mac.md","articles":[{"title":"常用环境配置","level":"1.12.1","depth":2,"path":"mac/env-config.md","ref":"mac/env-config.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"mac/env-config.md","mtime":"2023-02-22T03:20:07.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-22T03:20:45.774Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用环境配置","level":"1.12.1","depth":2,"next":{"title":"Windows","level":"1.13","depth":1,"path":"index/windows.md","ref":"index/windows.md","articles":[{"title":"DOS","level":"1.13.1","depth":2,"path":"windows/dos.md","ref":"windows/dos.md","articles":[]}]},"previous":{"title":"Mac","level":"1.12","depth":1,"path":"index/mac.md","ref":"index/mac.md","articles":[{"title":"常用环境配置","level":"1.12.1","depth":2,"path":"mac/env-config.md","ref":"mac/env-config.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"mac/env-config.md","mtime":"2023-03-22T08:43:18.373Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-22T08:45:00.347Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
