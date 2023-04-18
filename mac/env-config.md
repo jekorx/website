@@ -44,6 +44,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
+# To disable automatic updates entirel.
+zstyle ':omz:update' mode disabled
+
 plugins=(
   git
   zsh-autosuggestions
