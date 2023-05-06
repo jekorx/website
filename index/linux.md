@@ -3,7 +3,8 @@
 > Linux系统下常用环境的安装以及相关配置，安装、配置、使用后总结。  
 
 > * [命令行](../linux/cmd.md)
-> * [yum](../linux/yum.md)
+> * [Curl](../linux/curl.md)
+> * [Yum](../linux/yum.md)
 > * [JDK](../linux/jdk.md)
 > * [PHP](../linux/php.md)
 > * [Node.js](../linux/nodejs.md)

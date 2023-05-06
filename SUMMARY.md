@@ -64,6 +64,7 @@
   * [Svn](git-svn/svn.md)
 * [Linux](index/linux.md)
   * [命令行](linux/cmd.md)
+  * [Curl](linux/curl.md)
   * [Yum](linux/yum.md)
   * [JDK](linux/jdk.md)
   * [PHP](linux/php.md)

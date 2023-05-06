@@ -72,6 +72,7 @@ https://www.wdg.pub/wx/weapp-grant.html
 https://www.wdg.pub/linux/pgsql.html
 https://www.wdg.pub/linux/jenkins.html
 https://www.wdg.pub/linux/yum.html
+https://www.wdg.pub/linux/curl.html
 https://www.wdg.pub/frontend/axios.html
 https://www.wdg.pub/frontend/html.html
 https://www.wdg.pub/linux/mysql.html
