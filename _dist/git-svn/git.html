@@ -1789,8 +1789,813 @@ nscd -i hosts
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x4F7F;hosts&#x751F;&#x6548;</span>
 ipconfig /flushdns
 </code></pre>
+<h4 id="ohmyzsh-git&#x547D;&#x4EE4;&#x522B;&#x540D;">oh_my_zsh git&#x547D;&#x4EE4;&#x522B;&#x540D;</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Alias</th>
+<th style="text-align:left">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">g</td>
+<td style="text-align:left">git</td>
+</tr>
+<tr>
+<td style="text-align:left">ga</td>
+<td style="text-align:left">git add</td>
+</tr>
+<tr>
+<td style="text-align:left">gaa</td>
+<td style="text-align:left">git add --all</td>
+</tr>
+<tr>
+<td style="text-align:left">gapa</td>
+<td style="text-align:left">git add --patch</td>
+</tr>
+<tr>
+<td style="text-align:left">gau</td>
+<td style="text-align:left">git add --update</td>
+</tr>
+<tr>
+<td style="text-align:left">gav</td>
+<td style="text-align:left">git add --verbose</td>
+</tr>
+<tr>
+<td style="text-align:left">gap</td>
+<td style="text-align:left">git apply</td>
+</tr>
+<tr>
+<td style="text-align:left">gapt</td>
+<td style="text-align:left">git apply --3way</td>
+</tr>
+<tr>
+<td style="text-align:left">gb</td>
+<td style="text-align:left">git branch</td>
+</tr>
+<tr>
+<td style="text-align:left">gba</td>
+<td style="text-align:left">git branch --all</td>
+</tr>
+<tr>
+<td style="text-align:left">gbd</td>
+<td style="text-align:left">git branch --delete</td>
+</tr>
+<tr>
+<td style="text-align:left">gbda</td>
+<td style="text-align:left">git branch --no-color --merged \</td>
+<td>grep -vE &quot;^([+*]\</td>
+<td>\s*(<span>$</span>(git_main_branch)\</td>
+<td><span>$</span>(git_develop_branch))\s*<span>$</span>)&quot; \</td>
+<td>xargs git branch --delete 2&gt;/dev/null</td>
+</tr>
+<tr>
+<td style="text-align:left">gbD</td>
+<td style="text-align:left">git branch --delete --force</td>
+</tr>
+<tr>
+<td style="text-align:left">gbg</td>
+<td style="text-align:left">git branch -vv</td>
+<td>grep &quot;: gone]&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">gbgd</td>
+<td style="text-align:left">local res=$(git branch -vv</td>
+<td>grep &quot;: gone]&quot;</td>
+<td>awk &apos;{print $1}&apos;) &amp;&amp; [[ $res ]] &amp;&amp; echo $res</td>
+<td>xargs git branch -d</td>
+</tr>
+<tr>
+<td style="text-align:left">gbgD</td>
+<td style="text-align:left">local res=$(git branch -vv</td>
+<td>grep &quot;: gone]&quot;</td>
+<td>awk &apos;{print $1}&apos;) &amp;&amp; [[ $res ]] &amp;&amp; echo $res</td>
+<td>xargs git branch -D</td>
+</tr>
+<tr>
+<td style="text-align:left">gbl</td>
+<td style="text-align:left">git blame -b -w</td>
+</tr>
+<tr>
+<td style="text-align:left">gbnm</td>
+<td style="text-align:left">git branch --no-merged</td>
+</tr>
+<tr>
+<td style="text-align:left">gbr</td>
+<td style="text-align:left">git branch --remote</td>
+</tr>
+<tr>
+<td style="text-align:left">gbs</td>
+<td style="text-align:left">git bisect</td>
+</tr>
+<tr>
+<td style="text-align:left">gbsb</td>
+<td style="text-align:left">git bisect bad</td>
+</tr>
+<tr>
+<td style="text-align:left">gbsg</td>
+<td style="text-align:left">git bisect good</td>
+</tr>
+<tr>
+<td style="text-align:left">gbsr</td>
+<td style="text-align:left">git bisect reset</td>
+</tr>
+<tr>
+<td style="text-align:left">gbss</td>
+<td style="text-align:left">git bisect start</td>
+</tr>
+<tr>
+<td style="text-align:left">gc</td>
+<td style="text-align:left">git commit --verbose</td>
+</tr>
+<tr>
+<td style="text-align:left">gc!</td>
+<td style="text-align:left">git commit --verbose --amend</td>
+</tr>
+<tr>
+<td style="text-align:left">gcn!</td>
+<td style="text-align:left">git commit --verbose --no-edit --amend</td>
+</tr>
+<tr>
+<td style="text-align:left">gca</td>
+<td style="text-align:left">git commit --verbose --all</td>
+</tr>
+<tr>
+<td style="text-align:left">gca!</td>
+<td style="text-align:left">git commit --verbose --all --amend</td>
+</tr>
+<tr>
+<td style="text-align:left">gcan!</td>
+<td style="text-align:left">git commit --verbose --all --no-edit --amend</td>
+</tr>
+<tr>
+<td style="text-align:left">gcans!</td>
+<td style="text-align:left">git commit --verbose --all --signoff --no-edit --amend</td>
+</tr>
+<tr>
+<td style="text-align:left">gcam</td>
+<td style="text-align:left">git commit --all --message</td>
+</tr>
+<tr>
+<td style="text-align:left">gcas</td>
+<td style="text-align:left">git commit --all --signoff</td>
+</tr>
+<tr>
+<td style="text-align:left">gcasm</td>
+<td style="text-align:left">git commit --all --signoff --message</td>
+</tr>
+<tr>
+<td style="text-align:left">gcsm</td>
+<td style="text-align:left">git commit --signoff --message</td>
+</tr>
+<tr>
+<td style="text-align:left">gcb</td>
+<td style="text-align:left">git checkout -b</td>
+</tr>
+<tr>
+<td style="text-align:left">gcf</td>
+<td style="text-align:left">git config --list</td>
+</tr>
+<tr>
+<td style="text-align:left">gcl</td>
+<td style="text-align:left">git clone --recurse-submodules</td>
+</tr>
+<tr>
+<td style="text-align:left">gccd</td>
+<td style="text-align:left">git clone --recurse-submodules &quot;<span>$</span>@&quot; &amp;&amp; cd &quot;<span>$</span>(basename <span>$</span>_ .git)&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">gclean</td>
+<td style="text-align:left">git clean --interactive -d</td>
+</tr>
+<tr>
+<td style="text-align:left">gpristine</td>
+<td style="text-align:left">git reset --hard &amp;&amp; git clean -dffx</td>
+</tr>
+<tr>
+<td style="text-align:left">gcm</td>
+<td style="text-align:left">git checkout $(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gcd</td>
+<td style="text-align:left">git checkout $(git_develop_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gcmsg</td>
+<td style="text-align:left">git commit --message</td>
+</tr>
+<tr>
+<td style="text-align:left">gco</td>
+<td style="text-align:left">git checkout</td>
+</tr>
+<tr>
+<td style="text-align:left">gcor</td>
+<td style="text-align:left">git checkout --recurse-submodules</td>
+</tr>
+<tr>
+<td style="text-align:left">gcount</td>
+<td style="text-align:left">git shortlog --summary -n</td>
+</tr>
+<tr>
+<td style="text-align:left">gcp</td>
+<td style="text-align:left">git cherry-pick</td>
+</tr>
+<tr>
+<td style="text-align:left">gcpa</td>
+<td style="text-align:left">git cherry-pick --abort</td>
+</tr>
+<tr>
+<td style="text-align:left">gcpc</td>
+<td style="text-align:left">git cherry-pick --continue</td>
+</tr>
+<tr>
+<td style="text-align:left">gcs</td>
+<td style="text-align:left">git commit -S</td>
+</tr>
+<tr>
+<td style="text-align:left">gcss</td>
+<td style="text-align:left">git commit -S -s</td>
+</tr>
+<tr>
+<td style="text-align:left">gcssm</td>
+<td style="text-align:left">git commit -S -s -m</td>
+</tr>
+<tr>
+<td style="text-align:left">gd</td>
+<td style="text-align:left">git diff</td>
+</tr>
+<tr>
+<td style="text-align:left">gdca</td>
+<td style="text-align:left">git diff --cached</td>
+</tr>
+<tr>
+<td style="text-align:left">gdcw</td>
+<td style="text-align:left">git diff --cached --word-diff</td>
+</tr>
+<tr>
+<td style="text-align:left">gdct</td>
+<td style="text-align:left">git describe --tags $(git rev-list --tags --max-count=1)</td>
+</tr>
+<tr>
+<td style="text-align:left">gds</td>
+<td style="text-align:left">git diff --staged</td>
+</tr>
+<tr>
+<td style="text-align:left">gdt</td>
+<td style="text-align:left">git diff-tree --no-commit-id --name-only -r</td>
+</tr>
+<tr>
+<td style="text-align:left">gdnolock</td>
+<td style="text-align:left">git diff $@ &quot;:(exclude)package-lock.json&quot; &quot;:(exclude)*.lock&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">gdup</td>
+<td style="text-align:left">git diff @{upstream}</td>
+</tr>
+<tr>
+<td style="text-align:left">gdv</td>
+<td style="text-align:left">git diff -w $@ \</td>
+<td>view -</td>
+</tr>
+<tr>
+<td style="text-align:left">gdw</td>
+<td style="text-align:left">git diff --word-diff</td>
+</tr>
+<tr>
+<td style="text-align:left">gf</td>
+<td style="text-align:left">git fetch</td>
+</tr>
+<tr>
+<td style="text-align:left">gfa</td>
+<td style="text-align:left">git fetch --all --prune</td>
+</tr>
+<tr>
+<td style="text-align:left">gfg</td>
+<td style="text-align:left">git ls-files \</td>
+<td>grep</td>
+</tr>
+<tr>
+<td style="text-align:left">gfo</td>
+<td style="text-align:left">git fetch origin</td>
+</tr>
+<tr>
+<td style="text-align:left">gg</td>
+<td style="text-align:left">git gui citool</td>
+</tr>
+<tr>
+<td style="text-align:left">gga</td>
+<td style="text-align:left">git gui citool --amend</td>
+</tr>
+<tr>
+<td style="text-align:left">ggf</td>
+<td style="text-align:left">git push --force origin $(current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">ggfl</td>
+<td style="text-align:left">git push --force-with-lease origin $(current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">ggl</td>
+<td style="text-align:left">git pull origin $(current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">ggp</td>
+<td style="text-align:left">git push origin $(current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">ggpnp</td>
+<td style="text-align:left">ggl &amp;&amp; ggp</td>
+</tr>
+<tr>
+<td style="text-align:left">ggpull</td>
+<td style="text-align:left">git pull origin &quot;$(git_current_branch)&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">ggpur</td>
+<td style="text-align:left">ggu</td>
+</tr>
+<tr>
+<td style="text-align:left">ggpush</td>
+<td style="text-align:left">git push origin &quot;$(git_current_branch)&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">ggsup</td>
+<td style="text-align:left">git branch --set-upstream-to=origin/$(git_current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">ggu</td>
+<td style="text-align:left">git pull --rebase origin $(current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gpsup</td>
+<td style="text-align:left">git push --set-upstream origin $(git_current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gpsupf</td>
+<td style="text-align:left">git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes (git version &gt;= 2.30)</td>
+</tr>
+<tr>
+<td style="text-align:left">gpsupf</td>
+<td style="text-align:left">git push --set-upstream origin $(git_current_branch) --force-with-lease (git version &lt; 2.30)</td>
+</tr>
+<tr>
+<td style="text-align:left">ghh</td>
+<td style="text-align:left">git help</td>
+</tr>
+<tr>
+<td style="text-align:left">gignore</td>
+<td style="text-align:left">git update-index --assume-unchanged</td>
+</tr>
+<tr>
+<td style="text-align:left">gignored</td>
+<td style="text-align:left">git ls-files -v \</td>
+<td>grep &quot;^[[:lower:]]&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">git-svn-dcommit-push</td>
+<td style="text-align:left">git svn dcommit &amp;&amp; git push github $(git_main_branch):svntrunk</td>
+</tr>
+<tr>
+<td style="text-align:left">gk</td>
+<td style="text-align:left">gitk --all --branches &amp;!</td>
+</tr>
+<tr>
+<td style="text-align:left">gke</td>
+<td style="text-align:left">gitk --all $(git log --walk-reflogs --pretty=%h) &amp;!</td>
+</tr>
+<tr>
+<td style="text-align:left">gl</td>
+<td style="text-align:left">git pull</td>
+</tr>
+<tr>
+<td style="text-align:left">glg</td>
+<td style="text-align:left">git log --stat</td>
+</tr>
+<tr>
+<td style="text-align:left">glgp</td>
+<td style="text-align:left">git log --stat --patch</td>
+</tr>
+<tr>
+<td style="text-align:left">glgg</td>
+<td style="text-align:left">git log --graph</td>
+</tr>
+<tr>
+<td style="text-align:left">glgga</td>
+<td style="text-align:left">git log --graph --decorate --all</td>
+</tr>
+<tr>
+<td style="text-align:left">glgm</td>
+<td style="text-align:left">git log --graph --max-count=10</td>
+</tr>
+<tr>
+<td style="text-align:left">glo</td>
+<td style="text-align:left">git log --oneline --decorate</td>
+</tr>
+<tr>
+<td style="text-align:left">glol</td>
+<td style="text-align:left">git log --graph --pretty=&apos;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset&apos;</td>
+</tr>
+<tr>
+<td style="text-align:left">glols</td>
+<td style="text-align:left">git log --graph --pretty=&apos;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset&apos; --stat</td>
+</tr>
+<tr>
+<td style="text-align:left">glod</td>
+<td style="text-align:left">git log --graph --pretty=&apos;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset&apos;</td>
+</tr>
+<tr>
+<td style="text-align:left">glods</td>
+<td style="text-align:left">git log --graph --pretty=&apos;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)&lt;%an&gt;%Creset&apos; --date=short</td>
+</tr>
+<tr>
+<td style="text-align:left">glola</td>
+<td style="text-align:left">git log --graph --pretty=&apos;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)&lt;%an&gt;%Creset&apos; --all</td>
+</tr>
+<tr>
+<td style="text-align:left">glog</td>
+<td style="text-align:left">git log --oneline --decorate --graph</td>
+</tr>
+<tr>
+<td style="text-align:left">gloga</td>
+<td style="text-align:left">git log --oneline --decorate --graph --all</td>
+</tr>
+<tr>
+<td style="text-align:left">glp</td>
+<td style="text-align:left">git log --pretty=\<format\></format\></td>
+</tr>
+<tr>
+<td style="text-align:left">gm</td>
+<td style="text-align:left">git merge</td>
+</tr>
+<tr>
+<td style="text-align:left">gms</td>
+<td style="text-align:left">git merge --squash</td>
+</tr>
+<tr>
+<td style="text-align:left">gmom</td>
+<td style="text-align:left">git merge origin/$(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gmtl</td>
+<td style="text-align:left">git mergetool --no-prompt</td>
+</tr>
+<tr>
+<td style="text-align:left">gmtlvim</td>
+<td style="text-align:left">git mergetool --no-prompt --tool=vimdiff</td>
+</tr>
+<tr>
+<td style="text-align:left">gmum</td>
+<td style="text-align:left">git merge upstream/$(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gma</td>
+<td style="text-align:left">git merge --abort</td>
+</tr>
+<tr>
+<td style="text-align:left">gp</td>
+<td style="text-align:left">git push</td>
+</tr>
+<tr>
+<td style="text-align:left">gpd</td>
+<td style="text-align:left">git push --dry-run</td>
+</tr>
+<tr>
+<td style="text-align:left">gpf</td>
+<td style="text-align:left">git push --force-with-lease --force-if-includes (git version &gt;= 2.30)</td>
+</tr>
+<tr>
+<td style="text-align:left">gpf</td>
+<td style="text-align:left">git push --force-with-lease (git version &lt; 2.30)</td>
+</tr>
+<tr>
+<td style="text-align:left">gpf!</td>
+<td style="text-align:left">git push --force</td>
+</tr>
+<tr>
+<td style="text-align:left">gpoat</td>
+<td style="text-align:left">git push origin --all &amp;&amp; git push origin --tags</td>
+</tr>
+<tr>
+<td style="text-align:left">gpod</td>
+<td style="text-align:left">git push origin --delete</td>
+</tr>
+<tr>
+<td style="text-align:left">gpr</td>
+<td style="text-align:left">git pull --rebase</td>
+</tr>
+<tr>
+<td style="text-align:left">gpu</td>
+<td style="text-align:left">git push upstream</td>
+</tr>
+<tr>
+<td style="text-align:left">gpv</td>
+<td style="text-align:left">git push --verbose</td>
+</tr>
+<tr>
+<td style="text-align:left">gr</td>
+<td style="text-align:left">git remote</td>
+</tr>
+<tr>
+<td style="text-align:left">gra</td>
+<td style="text-align:left">git remote add</td>
+</tr>
+<tr>
+<td style="text-align:left">grb</td>
+<td style="text-align:left">git rebase</td>
+</tr>
+<tr>
+<td style="text-align:left">grba</td>
+<td style="text-align:left">git rebase --abort</td>
+</tr>
+<tr>
+<td style="text-align:left">grbc</td>
+<td style="text-align:left">git rebase --continue</td>
+</tr>
+<tr>
+<td style="text-align:left">grbd</td>
+<td style="text-align:left">git rebase $(git_develop_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">grbi</td>
+<td style="text-align:left">git rebase --interactive</td>
+</tr>
+<tr>
+<td style="text-align:left">grbm</td>
+<td style="text-align:left">git rebase $(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">grbom</td>
+<td style="text-align:left">git rebase origin/$(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">grbo</td>
+<td style="text-align:left">git rebase --onto</td>
+</tr>
+<tr>
+<td style="text-align:left">grbs</td>
+<td style="text-align:left">git rebase --skip</td>
+</tr>
+<tr>
+<td style="text-align:left">grev</td>
+<td style="text-align:left">git revert</td>
+</tr>
+<tr>
+<td style="text-align:left">grh</td>
+<td style="text-align:left">git reset</td>
+</tr>
+<tr>
+<td style="text-align:left">grhh</td>
+<td style="text-align:left">git reset --hard</td>
+</tr>
+<tr>
+<td style="text-align:left">groh</td>
+<td style="text-align:left">git reset origin/$(git_current_branch) --hard</td>
+</tr>
+<tr>
+<td style="text-align:left">grm</td>
+<td style="text-align:left">git rm</td>
+</tr>
+<tr>
+<td style="text-align:left">grmc</td>
+<td style="text-align:left">git rm --cached</td>
+</tr>
+<tr>
+<td style="text-align:left">grmv</td>
+<td style="text-align:left">git remote rename</td>
+</tr>
+<tr>
+<td style="text-align:left">grrm</td>
+<td style="text-align:left">git remote remove</td>
+</tr>
+<tr>
+<td style="text-align:left">grs</td>
+<td style="text-align:left">git restore</td>
+</tr>
+<tr>
+<td style="text-align:left">grset</td>
+<td style="text-align:left">git remote set-url</td>
+</tr>
+<tr>
+<td style="text-align:left">grss</td>
+<td style="text-align:left">git restore --source</td>
+</tr>
+<tr>
+<td style="text-align:left">grst</td>
+<td style="text-align:left">git restore --staged</td>
+</tr>
+<tr>
+<td style="text-align:left">grt</td>
+<td style="text-align:left">cd &quot;$(git rev-parse --show-toplevel \</td>
+<td>\</td>
+<td>echo .)&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">gru</td>
+<td style="text-align:left">git reset --</td>
+</tr>
+<tr>
+<td style="text-align:left">grup</td>
+<td style="text-align:left">git remote update</td>
+</tr>
+<tr>
+<td style="text-align:left">grv</td>
+<td style="text-align:left">git remote --verbose</td>
+</tr>
+<tr>
+<td style="text-align:left">gsb</td>
+<td style="text-align:left">git status --short -b</td>
+</tr>
+<tr>
+<td style="text-align:left">gsd</td>
+<td style="text-align:left">git svn dcommit</td>
+</tr>
+<tr>
+<td style="text-align:left">gsh</td>
+<td style="text-align:left">git show</td>
+</tr>
+<tr>
+<td style="text-align:left">gsi</td>
+<td style="text-align:left">git submodule init</td>
+</tr>
+<tr>
+<td style="text-align:left">gsps</td>
+<td style="text-align:left">git show --pretty=short --show-signature</td>
+</tr>
+<tr>
+<td style="text-align:left">gsr</td>
+<td style="text-align:left">git svn rebase</td>
+</tr>
+<tr>
+<td style="text-align:left">gss</td>
+<td style="text-align:left">git status --short</td>
+</tr>
+<tr>
+<td style="text-align:left">gst</td>
+<td style="text-align:left">git status</td>
+</tr>
+<tr>
+<td style="text-align:left">gsta</td>
+<td style="text-align:left">git stash push (git version &gt;= 2.13)</td>
+</tr>
+<tr>
+<td style="text-align:left">gsta</td>
+<td style="text-align:left">git stash save (git version &lt; 2.13)</td>
+</tr>
+<tr>
+<td style="text-align:left">gstaa</td>
+<td style="text-align:left">git stash apply</td>
+</tr>
+<tr>
+<td style="text-align:left">gstc</td>
+<td style="text-align:left">git stash clear</td>
+</tr>
+<tr>
+<td style="text-align:left">gstd</td>
+<td style="text-align:left">git stash drop</td>
+</tr>
+<tr>
+<td style="text-align:left">gstl</td>
+<td style="text-align:left">git stash list</td>
+</tr>
+<tr>
+<td style="text-align:left">gstp</td>
+<td style="text-align:left">git stash pop</td>
+</tr>
+<tr>
+<td style="text-align:left">gsts</td>
+<td style="text-align:left">git stash show --text</td>
+</tr>
+<tr>
+<td style="text-align:left">gstu</td>
+<td style="text-align:left">git stash --include-untracked</td>
+</tr>
+<tr>
+<td style="text-align:left">gstall</td>
+<td style="text-align:left">git stash --all</td>
+</tr>
+<tr>
+<td style="text-align:left">gsu</td>
+<td style="text-align:left">git submodule update</td>
+</tr>
+<tr>
+<td style="text-align:left">gsw</td>
+<td style="text-align:left">git switch</td>
+</tr>
+<tr>
+<td style="text-align:left">gswc</td>
+<td style="text-align:left">git switch -c</td>
+</tr>
+<tr>
+<td style="text-align:left">gswm</td>
+<td style="text-align:left">git switch $(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gswd</td>
+<td style="text-align:left">git switch $(git_develop_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gts</td>
+<td style="text-align:left">git tag -s</td>
+</tr>
+<tr>
+<td style="text-align:left">gtv</td>
+<td style="text-align:left">git tag \</td>
+<td>sort -V</td>
+</tr>
+<tr>
+<td style="text-align:left">gtl</td>
+<td style="text-align:left">gtl(){ git tag --sort=-v:refname -n --list ${1}* }; noglob gtl</td>
+</tr>
+<tr>
+<td style="text-align:left">gunignore</td>
+<td style="text-align:left">git update-index --no-assume-unchanged</td>
+</tr>
+<tr>
+<td style="text-align:left">gunwip</td>
+<td style="text-align:left">git rev-list --max-count=1 --format=&quot;%s&quot; HEAD \</td>
+<td>grep -q &quot;--wip--&quot; &amp;&amp; git reset HEAD~1</td>
+</tr>
+<tr>
+<td style="text-align:left">gup</td>
+<td style="text-align:left">git pull --rebase</td>
+</tr>
+<tr>
+<td style="text-align:left">gupv</td>
+<td style="text-align:left">git pull --rebase --verbose</td>
+</tr>
+<tr>
+<td style="text-align:left">gupa</td>
+<td style="text-align:left">git pull --rebase --autostash</td>
+</tr>
+<tr>
+<td style="text-align:left">gupav</td>
+<td style="text-align:left">git pull --rebase --autostash --verbose</td>
+</tr>
+<tr>
+<td style="text-align:left">gupom</td>
+<td style="text-align:left">git pull --rebase origin $(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gupomi</td>
+<td style="text-align:left">git pull --rebase=interactive origin $(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">glum</td>
+<td style="text-align:left">git pull upstream $(git_main_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gluc</td>
+<td style="text-align:left">git pull upstream $(git_current_branch)</td>
+</tr>
+<tr>
+<td style="text-align:left">gwch</td>
+<td style="text-align:left">git whatchanged -p --abbrev-commit --pretty=medium</td>
+</tr>
+<tr>
+<td style="text-align:left">gwip</td>
+<td style="text-align:left">git add -A; git rm $(git ls-files --deleted) 2&gt; /dev/null; git commit --no-verify --no-gpg-sign --message &quot;--wip-- [skip ci]&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">gam</td>
+<td style="text-align:left">git am</td>
+</tr>
+<tr>
+<td style="text-align:left">gamc</td>
+<td style="text-align:left">git am --continue</td>
+</tr>
+<tr>
+<td style="text-align:left">gams</td>
+<td style="text-align:left">git am --skip</td>
+</tr>
+<tr>
+<td style="text-align:left">gama</td>
+<td style="text-align:left">git am --abort</td>
+</tr>
+<tr>
+<td style="text-align:left">gamscp</td>
+<td style="text-align:left">git am --show-current-patch</td>
+</tr>
+<tr>
+<td style="text-align:left">gwt</td>
+<td style="text-align:left">git worktree</td>
+</tr>
+<tr>
+<td style="text-align:left">gwtls</td>
+<td style="text-align:left">git worktree list</td>
+</tr>
+<tr>
+<td style="text-align:left">gwtmv</td>
+<td style="text-align:left">git worktree move</td>
+</tr>
+<tr>
+<td style="text-align:left">gwtrm</td>
+<td style="text-align:left">git worktree remove</td>
+</tr>
+</tbody>
+</table>
 <footer class="page-footer"><span class="copyright">&#xA9; 2023 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
-2022-12-29
+2023-07-11
 </span></footer>
                                 
                                 </section>
@@ -1834,7 +2639,7 @@ ipconfig /flushdns
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2022-12-29T01:38:31.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-30T07:09:43.396Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2023-07-11T06:43:43.106Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-11T06:44:41.123Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
