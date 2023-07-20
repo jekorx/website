@@ -1844,11 +1844,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gbda</td>
-<td style="text-align:left">git branch --no-color --merged \</td>
-<td>grep -vE &quot;^([+*]\</td>
-<td>\s*(<span>$</span>(git_main_branch)\</td>
-<td><span>$</span>(git_develop_branch))\s*<span>$</span>)&quot; \</td>
-<td>xargs git branch --delete 2&gt;/dev/null</td>
+<td style="text-align:left">git branch --no-color --merged | command grep -vE &quot;^([+*]|\s*($(git_main_branch)|$(git_develop_branch))\s*$)&quot; | command xargs git branch --delete 2&gt;/dev/null</td>
 </tr>
 <tr>
 <td style="text-align:left">gbD</td>
@@ -1856,22 +1852,15 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gbg</td>
-<td style="text-align:left">git branch -vv</td>
-<td>grep &quot;: gone]&quot;</td>
+<td style="text-align:left">git branch -vv | grep &quot;: gone\]&quot;</td>
 </tr>
 <tr>
 <td style="text-align:left">gbgd</td>
-<td style="text-align:left">local res=$(git branch -vv</td>
-<td>grep &quot;: gone]&quot;</td>
-<td>awk &apos;{print $1}&apos;) &amp;&amp; [[ $res ]] &amp;&amp; echo $res</td>
-<td>xargs git branch -d</td>
+<td style="text-align:left">git branch --no-color -vv | grep &quot;: gone\]&quot; | awk &apos;&quot;&apos;&quot;&apos;{print $1}&apos;&quot;&apos;&quot;&apos; | xargs git branch -d</td>
 </tr>
 <tr>
 <td style="text-align:left">gbgD</td>
-<td style="text-align:left">local res=$(git branch -vv</td>
-<td>grep &quot;: gone]&quot;</td>
-<td>awk &apos;{print $1}&apos;) &amp;&amp; [[ $res ]] &amp;&amp; echo $res</td>
-<td>xargs git branch -D</td>
+<td style="text-align:left">git branch --no-color -vv | grep &quot;: gone\]&quot; | awk &apos;&quot;&apos;&quot;&apos;{print $1}&apos;&quot;&apos;&quot;&apos; | xargs git branch -D</td>
 </tr>
 <tr>
 <td style="text-align:left">gbl</td>
@@ -1963,7 +1952,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gccd</td>
-<td style="text-align:left">git clone --recurse-submodules &quot;<span>$</span>@&quot; &amp;&amp; cd &quot;<span>$</span>(basename <span>$</span>_ .git)&quot;</td>
+<td style="text-align:left">git clone --recurse-submodules &quot;<span>$</span>@&quot; &amp;&amp; cd &quot;<span>$</span>(basename <span>$</span>\_ .git)&quot;</td>
 </tr>
 <tr>
 <td style="text-align:left">gclean</td>
@@ -2047,7 +2036,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gdnolock</td>
-<td style="text-align:left">git diff $@ &quot;:(exclude)package-lock.json&quot; &quot;:(exclude)*.lock&quot;</td>
+<td style="text-align:left">git diff $@ &quot;:(exclude)package-lock.json&quot; &quot;:(exclude)\*.lock&quot;</td>
 </tr>
 <tr>
 <td style="text-align:left">gdup</td>
@@ -2055,8 +2044,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gdv</td>
-<td style="text-align:left">git diff -w $@ \</td>
-<td>view -</td>
+<td style="text-align:left">git diff -w $@ \| view -</td>
 </tr>
 <tr>
 <td style="text-align:left">gdw</td>
@@ -2072,8 +2060,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gfg</td>
-<td style="text-align:left">git ls-files \</td>
-<td>grep</td>
+<td style="text-align:left">git ls-files \| grep</td>
 </tr>
 <tr>
 <td style="text-align:left">gfo</td>
@@ -2149,8 +2136,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gignored</td>
-<td style="text-align:left">git ls-files -v \</td>
-<td>grep &quot;^[[:lower:]]&quot;</td>
+<td style="text-align:left">git ls-files -v \| grep &quot;^[[:lower:]]&quot;</td>
 </tr>
 <tr>
 <td style="text-align:left">git-svn-dcommit-push</td>
@@ -2222,7 +2208,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">glp</td>
-<td style="text-align:left">git log --pretty=\<format\></format\></td>
+<td style="text-align:left">git log --pretty=\<format&#92;></format&#92;></td>
 </tr>
 <tr>
 <td style="text-align:left">gm</td>
@@ -2230,7 +2216,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gms</td>
-<td style="text-align:left">git merge --squash</td>
+<td style="text-align:left">git merge --squash |</td>
 </tr>
 <tr>
 <td style="text-align:left">gmom</td>
@@ -2386,9 +2372,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">grt</td>
-<td style="text-align:left">cd &quot;$(git rev-parse --show-toplevel \</td>
-<td>\</td>
-<td>echo .)&quot;</td>
+<td style="text-align:left">cd &quot;$(git rev-parse --show-toplevel \|\| echo .)&quot;</td>
 </tr>
 <tr>
 <td style="text-align:left">gru</td>
@@ -2500,12 +2484,11 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gtv</td>
-<td style="text-align:left">git tag \</td>
-<td>sort -V</td>
+<td style="text-align:left">git tag \| sort -V</td>
 </tr>
 <tr>
 <td style="text-align:left">gtl</td>
-<td style="text-align:left">gtl(){ git tag --sort=-v:refname -n --list ${1}* }; noglob gtl</td>
+<td style="text-align:left">gtl(){ git tag --sort=-v:refname -n --list ${1}\* }; noglob gtl</td>
 </tr>
 <tr>
 <td style="text-align:left">gunignore</td>
@@ -2513,8 +2496,7 @@ ipconfig /flushdns
 </tr>
 <tr>
 <td style="text-align:left">gunwip</td>
-<td style="text-align:left">git rev-list --max-count=1 --format=&quot;%s&quot; HEAD \</td>
-<td>grep -q &quot;--wip--&quot; &amp;&amp; git reset HEAD~1</td>
+<td style="text-align:left">git rev-list --max-count=1 --format=&quot;%s&quot; HEAD \| grep -q &quot;\-\-wip\-\-&quot; &amp;&amp; git reset HEAD~1</td>
 </tr>
 <tr>
 <td style="text-align:left">gup</td>
@@ -2595,7 +2577,7 @@ ipconfig /flushdns
 </tbody>
 </table>
 <footer class="page-footer"><span class="copyright">&#xA9; 2023 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
-2023-07-11
+2023-07-20
 </span></footer>
                                 
                                 </section>
@@ -2639,7 +2621,7 @@ ipconfig /flushdns
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2023-07-11T06:43:43.106Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-20T07:12:07.689Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.10.1","depth":2,"next":{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},"previous":{"title":"Git/Svn","level":"1.10","depth":1,"path":"index/git-svn.md","ref":"index/git-svn.md","articles":[{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},{"title":"GitLab","level":"1.10.2","depth":2,"path":"git-svn/gitlab.md","ref":"git-svn/gitlab.md","articles":[]},{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/git.md","mtime":"2023-07-20T08:02:38.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-20T08:03:25.033Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
