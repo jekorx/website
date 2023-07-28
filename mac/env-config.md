@@ -155,7 +155,7 @@ vim ~/.zshrc
 export NVM_DIR="$HOME/.nvm"
 NVM_HOME="$(brew --prefix nvm)"
 [ -s "$NVM_HOME/nvm.sh" ] && \. "$NVM_HOME/nvm.sh"  # This loads nvm
-[ -s "$NVM_HOME/bash_completion" ] && \. "$NVM_HOME/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_HOME/etc/bash_completion.d/nvm" ] && \. "$NVM_HOME/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # 重新加载配置文件
 source ~/.zshrc
