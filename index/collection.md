@@ -156,6 +156,7 @@
 [掘金] [(算法入门)人人都能看懂的时间复杂度和空间复杂度](https://juejin.cn/post/6999307229752983582)  
 [掘金] [十大经典排序算法总结（JavaScript描述）](https://juejin.cn/post/6844903444365443080)  
 [掘金] [太震撼了！我把七大JS排序算法做成了可视化！！！太好玩了！](https://juejin.cn/post/7004454008634998821)  
+[GitHub] [前端精读](https://github.com/ascoders/weekly) 
 
 #### 后端
 
