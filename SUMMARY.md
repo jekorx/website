@@ -85,6 +85,7 @@
   * [禅道](linux/zentao.md)
 * [Mac](index/mac.md)
   * [常用环境配置](mac/env-config.md)
+  * [命令行](mac/cmd.md)
 * [Windows](index/windows.md)
   * [DOS](windows/dos.md)
 * [开发工具](index/ide.md)
