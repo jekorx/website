@@ -8,7 +8,7 @@
 > unionid 需要满足[特定条件](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html)才能直接获取  
 > 否则需要通过 session_key 解析 encryptedData, iv 获取  
 
-#### 问题描述
+### 问题描述
 
 > 特殊性情况下，如：新账号首次注册、已注册账号首次登录等，使用 session_key 解析 encryptedData, iv 失败，无法获取 unionid  
 > 

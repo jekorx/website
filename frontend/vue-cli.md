@@ -4,7 +4,7 @@
 > 默认配置可以满足绝大多数项目，非常方便  
 > 如需进一步了解可参考[vue-cli官方文档](https://cli.vuejs.org/zh/guide/)  
 
-#### 配置
+### 配置
 
 > 在项目根目录下添加```vue.config.js ```文件，内容如下  
 > [webpack-chain配置](https://github.com/Yatoo2018/webpack-chain/tree/zh-cmn-Hans)文档说明
@@ -68,7 +68,7 @@ module.exports = {
 }
 ```
 
-#### Eslint
+### Eslint
 
 > 在项目根目录下修改```.eslintrc.js```文件，内容如下  
 

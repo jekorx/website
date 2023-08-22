@@ -1,6 +1,6 @@
 # Create React App
 
-#### 创建项目
+### 创建项目
 
 > [TypeScript模版增加配置](#typescript模版增加配置)请查看  
 
@@ -12,7 +12,7 @@ yarn create react-app <项目名>
 yarn create react-app <项目名> --template typescript
 ```
 
-#### 优化package.json
+### 优化package.json
 
 > 将原来的```dependencies```、```scripts```改为以下  
 
@@ -37,7 +37,7 @@ yarn create react-app <项目名> --template typescript
 }
 ```
 
-#### 跨域代理
+### 跨域代理
 
 > 在```package.json```中添加  
 
@@ -47,7 +47,7 @@ yarn create react-app <项目名> --template typescript
 }
 ```
 
-#### 环境变量配置
+### 环境变量配置
 
 * 开发环境，项目根目录创建```.env.development```文件  
 
@@ -67,7 +67,7 @@ PUBLIC_URL=/app
 GENERATE_SOURCEMAP=false
 ```
 
-#### 常用依赖
+### 常用依赖
 
 * [axios](https://www.npmjs.com/package/axios) 基于Promise的HTTP客户端，用于浏览器和node.js
 * [qs](https://www.npmjs.com/package/qs) 查询字符串解析和字符串化库
@@ -77,7 +77,7 @@ GENERATE_SOURCEMAP=false
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom) 路由，会自动添加```react-router```依赖
 * [@types/react-router-dom](https://www.npmjs.com/package/@types/react-router-dom) 路由类型定义（TypeScript模版），会自动添加```@types/react-router```依赖
 
-#### react-app-rewired
+### react-app-rewired
 
 > 在不```eject```也不创建额外```react-scripts```的情况下修改```create-react-app```内置的```webpack```配置  
 
@@ -304,7 +304,7 @@ ReactDOM.render(
 )
 ```
 
-#### TypeScript模版增加配置
+### TypeScript模版增加配置
 
 * [eslint](https://www.npmjs.com/package/eslint) 此处eslint有版本要求
 * [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) eslint react组件
@@ -487,7 +487,7 @@ export default class App extends Component<{}, StateType> {
 }
 ```
 
-#### 相关问题
+### 相关问题
 
 ```json
 // eslint warning

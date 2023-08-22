@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，ZenTaoPMS.11.4.1 为例  
 
-#### 安装
+### 安装
 
 > 需要提前安装以下依赖，可点击链接参考
 > [nginx](../linux/nginx.md)，[mysql](../linux/mysql.md)，[php](../linux/php.md)
@@ -39,7 +39,7 @@ unzip ZenTaoPMS.11.4.1.zip
 # 根据提示进行安装
 ```
 
-#### 常见问题
+### 常见问题
 
 > PDO扩展、PDO_MySQL扩展、MBSTRING扩展 未加载  
 

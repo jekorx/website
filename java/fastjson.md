@@ -12,7 +12,7 @@
 </dependency>
 ```
 
-#### SerializerFeature 含义
+### SerializerFeature 含义
 
 |SerializerFeature             |        含义       |     备注     |
 |------------------------------|------------------|--------------|
@@ -48,7 +48,7 @@
 |MapSortField                  | | |
 
 
-#### json -> 指定泛型类型 反序列化
+### json -> 指定泛型类型 反序列化
 
 ```java
 // new TypeReference<此处为指定的泛型类型>() { }

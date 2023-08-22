@@ -3,7 +3,7 @@
 > 快速、可靠、安全的依赖管理工具。  
 > 比npm好用 0_0  
 
-#### 安装
+### 安装
 
 ```bash
 # 使用npm安装
@@ -38,7 +38,7 @@ C:\Users\<%用户名%>\AppData\Roaming\npm
 C:\Users\<%用户名%>\AppData\Local\Yarn\bin
 ```
 
-#### 设置淘宝镜像源
+### 设置淘宝镜像源
 
 ```bash
 # 解决安装依赖慢的问题
@@ -48,7 +48,7 @@ yarn config set registry https://registry.npm.taobao.org
 yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass
 ```
 
-#### 常用命令
+### 常用命令
 
 > 以安装react和http-server为例  
 

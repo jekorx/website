@@ -2,12 +2,12 @@
 
 > 微信小程序车牌键盘。
 
-#### 效果
+### 效果
 
 ![效果1](../assets/weapp-vehicle-panel-1.jpg)
 ![效果2](../assets/weapp-vehicle-panel-2.jpg)
 
-#### 目录结构
+### 目录结构
 
 ```bash
 ├─ del.png    # 删除按钮
@@ -17,11 +17,11 @@
 └─ index.wxss # 样式
 ```
 
-#### del.png
+### del.png
 
 ![删除按钮](../assets/weapp-vehicle-panel-3.png)
 
-#### index.js
+### index.js
 
 ```javascript
 Component({
@@ -78,7 +78,7 @@ Component({
 })
 ```
 
-#### index.json
+### index.json
 
 ```json
 {
@@ -86,7 +86,7 @@ Component({
 }
 ```
 
-#### index.wxml
+### index.wxml
 
 ```html
 <view wx:if="{{isShow}}" class="vehicle-panel" style="height:430rpx;background-color:{{backgroundColor}}">
@@ -147,7 +147,7 @@ Component({
 </view>
 ```
 
-#### index.wxss
+### index.wxss
 
 ```css
 .vehicle-panel {

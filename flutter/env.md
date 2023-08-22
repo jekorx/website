@@ -1,6 +1,6 @@
 # Flutter 环境安装配置
 
-#### 国内镜像
+### 国内镜像
 
 [相关链接](https://flutter.dev/community/china)（需科学上网）  
 
@@ -18,7 +18,7 @@ export FLUTTER_STORAGE_BASE_URL=https://mirrors.sjtug.sjtu.edu.cn/
 export PUB_HOSTED_URL=https://dart-pub.mirrors.sjtug.sjtu.edu.cn/
 ```
 
-#### MacOS系统
+### MacOS系统
 
 > 1、安装 Flutter sdk （包含 dart sdk）  
 

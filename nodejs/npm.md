@@ -1,6 +1,6 @@
 # Npm
 
-#### 设置淘宝镜像源
+### 设置淘宝镜像源
 
 ```bash
 # 解决npm或者某些依赖于npm的命令（gitbook等）安装依赖慢的问题
@@ -10,7 +10,7 @@ npm config set registry=http://registry.npm.taobao.org
 npm config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass
 ```
 
-#### 版本
+### 版本
 
 ```bash
 # 版本号
@@ -69,7 +69,7 @@ range1 || range2
 latest
 ```
 
-#### 发布npm包
+### 发布npm包
 
 > 1、注册npm帐号，[点击前往npm官网](https://www.npmjs.com/)  
 > 2、登录npm帐号  
@@ -101,7 +101,7 @@ npm unpublish <npm包名> --force
 npm deprecate <npm包名>[@<版本号>] <message>
 ```
 
-#### linux npm 全局安装权限不足的问题
+### linux npm 全局安装权限不足的问题
 
 > 一般非root用户操作会出现该问题  
 
@@ -157,7 +157,7 @@ NPM_CONFIG_PREFIX=~/.npm-global
 npx
 ```
 
-#### node-sass安装失败的问题
+### node-sass安装失败的问题
 
 > win10环境  
 

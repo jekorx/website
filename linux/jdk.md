@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，JDK 1.8 为例
 
-#### 安装
+### 安装
 
 ```bash
 # 下载二进制压缩包https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html

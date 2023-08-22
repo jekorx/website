@@ -30,7 +30,7 @@
 > * [深拷贝](#深拷贝)  
 > * [大文件切片上传](#大文件切片上传)  
 
-#### 类型判断
+### 类型判断
 
 ```javascript
 // 以下为更精确的判断方式，某些场景下比使用 typeof & instanceof 更高效、准确
@@ -52,7 +52,7 @@ Object.prototype.toString.call(10n)         // '[object BigInt]'
 Object.prototype.toString.call(Symbol())    // '[object Symbol]'
 ```
 
-#### 日期格式化
+### 日期格式化
 
 ```javascript
 /**
@@ -115,7 +115,7 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 }
 ```
 
-#### 秒格式化
+### 秒格式化
 
 ```javascript
 /**
@@ -148,7 +148,7 @@ export const secondFormat = (second, format = 'dhms') => {
 }
 ```
 
-#### 时间转换为xx时间前
+### 时间转换为xx时间前
 
 ```javascript
 /**
@@ -195,7 +195,7 @@ export const getTimeInfo = date => {
 }
 ```
 
-#### 顺序执行Promise
+### 顺序执行Promise
 
 ```javascript
 /**
@@ -233,7 +233,7 @@ export const promiseQueue = async promises => {
 }
 ```
 
-#### 隐藏手机号中间四位
+### 隐藏手机号中间四位
 
 ```javascript
 /**
@@ -250,7 +250,7 @@ export const hidePhone = phone => {
 }
 ```
 
-#### 限制数据框内容仅为数字
+### 限制数据框内容仅为数字
 
 ```javascript
 /**
@@ -310,7 +310,7 @@ const inputFilter = val => {
 }
 ```
 
-#### 七牛上传
+### 七牛上传
 
 ```javascript
 import * as qiniu from 'qiniu-js'
@@ -378,7 +378,7 @@ export default (file, next) => {
 }
 ```
 
-#### 滚动条滚动动画
+### 滚动条滚动动画
 
 ```javascript
 /**
@@ -427,7 +427,7 @@ export const scrollTo = (el, from, to = 0, duration = 500, endCallback) => {
 }
 ```
 
-#### base64转file
+### base64转file
 
 ```javascript
 /**
@@ -454,7 +454,7 @@ export const dataURLtoFile = (dataURL, filename = Date.now()) => {
 }
 ```
 
-#### base64转blob
+### base64转blob
 
 ```javascript
 /**
@@ -476,7 +476,7 @@ export const dataURLToBlob = dataURL => {
 }
 ```
 
-#### blob转file
+### blob转file
 
 ```javascript
 /**
@@ -495,7 +495,7 @@ export const blobToFile = (blob, filename = Date.now()) => {
 }
 ```
 
-#### blob转json
+### blob转json
 
 ```javascript
 /**
@@ -526,7 +526,7 @@ export const blobToJson = blob => {
 }
 ```
 
-#### 绑定事件
+### 绑定事件
 
 ```javascript
 /**
@@ -556,7 +556,7 @@ export const eventOn = (function () {
 })()
 ```
 
-#### 解绑事件
+### 解绑事件
 
 ```javascript
 /**
@@ -586,7 +586,7 @@ export const eventOff = (function () {
 })()
 ```
 
-#### 连字符转驼峰
+### 连字符转驼峰
 
 ```javascript
 /**
@@ -609,7 +609,7 @@ export const toCamelCase = (str = '', separator = '-') => {
 }
 ```
 
-#### 驼峰转连字符
+### 驼峰转连字符
 
 ```javascript
 /**
@@ -631,7 +631,7 @@ export const fromCamelCase = (str = '', separator = '-') => {
 }
 ```
 
-#### 文件尺寸格式化
+### 文件尺寸格式化
 
 ```javascript
 /**
@@ -655,7 +655,7 @@ export const formatSize = size => {
 }
 ```
 
-#### 获取指定范围内的随机数
+### 获取指定范围内的随机数
 
 ```javascript
 /**
@@ -677,7 +677,7 @@ export const getRandom = (min = 0, max = 100) => {
 }
 ```
 
-#### 打乱数组
+### 打乱数组
 
 ```javascript
 /**
@@ -703,7 +703,7 @@ export const arrayShuffle = array => {
 }
 ```
 
-#### 获取Url参数
+### 获取Url参数
 
 ```javascript
 /**
@@ -733,7 +733,7 @@ export const getUrlParam = (variable = '', url = window.location.href) => {
 }
 ```
 
-#### 切分数组
+### 切分数组
 
 ```javascript
 /**
@@ -753,7 +753,7 @@ export const splitArray = (arr, size = 10) => Array.from({
 )
 ```
 
-#### 两数组差集
+### 两数组差集
 
 ```javascript
 /**
@@ -768,7 +768,7 @@ export const splitArray = (arr, size = 10) => Array.from({
 export const arrayDiffSet = (a, b) => [...a, ...b].filter(x => !a.includes(x) || !b.includes(x))
 ```
 
-#### 四舍五入到指定小数位
+### 四舍五入到指定小数位
 
 ```javascript
 /**
@@ -780,7 +780,7 @@ export const arrayDiffSet = (a, b) => [...a, ...b].filter(x => !a.includes(x) ||
 export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e${decimals}`)}e-${decimals}`)
 ```
 
-#### 防抖
+### 防抖
 
 > 更多防抖、节流介绍[可参照](./debounce-throttle.md)  
 
@@ -799,7 +799,7 @@ export const debounce = (fn, delay = 500) => {
 }
 ```
 
-#### 生成uuid
+### 生成uuid
 
 ```javascript
 /**
@@ -814,7 +814,7 @@ export const uuid = () => {
 }
 ```
 
-#### Object合并
+### Object合并
 
 ```javascript
 /**
@@ -846,7 +846,7 @@ export const merge = (target, ...args) => {
 }
 ```
 
-#### 深拷贝
+### 深拷贝
 
 ```javascript
 /**
@@ -933,7 +933,7 @@ export const deepClone = (target, cache = new WeakSet()) => {
 }
 ```
 
-#### 大文件切片上传
+### 大文件切片上传
 
 > 过程：  
 > 1、实例化```ChunkUpload```对象  

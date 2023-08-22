@@ -2,7 +2,7 @@
 
 > 微信小程序日期时间选择器，基于Taro@2.x React实现。  
 
-###### 使用
+### 使用
 
 ```javascript
 // 引入
@@ -17,7 +17,7 @@ pickerConfirm = time => {
 <DateTimePicker isOpened={isOpened} precision='hour' min={new Date()} onConfirm={this.pickerConfirm} onClose={() => this.setState({ isOpened1: false })} />
 ```
 
-#### 效果
+### 效果
 
 ![效果1](../assets/weapp-date-time-picker-1.gif)
 

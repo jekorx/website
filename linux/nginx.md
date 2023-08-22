@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，Nginx 1.15.8为例
 
-#### 安装
+### 安装
 
 ```bash
 # 1、编译依赖
@@ -34,7 +34,7 @@ vim /etc/rc.local
 nginx
 ```
 
-#### location相关
+### location相关
 
 ```bash
 # location表达式类型
@@ -52,7 +52,7 @@ nginx
 # 4、常规字符串匹配类型。按前缀匹配。
 ```
 
-#### 配置SSL（https）
+### 配置SSL（https）
 
 ```bash
 # 安装 --with-http_ssl_module，添加ssl模块
@@ -81,7 +81,7 @@ http {
 }
 ```
 
-#### 启用http2
+### 启用http2
 
 > ```Nginx 1.9.5```及以上版本，```OpenSSL 1.0.2```及以上版本  
 > 监听```443```端口时配置```http2```，启用http2，```80```端口无法启用http2  
@@ -95,7 +95,7 @@ http {
 }
 ```
 
-#### 接口代理跨域
+### 接口代理跨域
 
 ```bash
 http {
@@ -115,7 +115,7 @@ http {
 }
 ```
 
-#### HTML5 History模式
+### HTML5 History模式
 
 > 解决URL无法匹配到静态资源的问题，如：非根目录刷新  
 > 原理：rewrite到index.html中，然后交给路由在处理请求资源  
@@ -150,7 +150,7 @@ http {
 }
 ```
 
-#### 请求相关配置
+### 请求相关配置
 
 > 可在```http```、```server```或```location```中设置，优先级```location > server > http```  
 
@@ -171,7 +171,7 @@ http {
 }
 ```
 
-#### 跨域配置
+### 跨域配置
 
 > 可在```http```、```server```或```location```中设置，优先级```location > server > http```  
 > ```add_header Access-Control-Allow-Methods 'PUT,POST,GET,DELETE,OPTIONS';```：指定允许跨域的方法，*代表所有  
@@ -198,7 +198,7 @@ http {
 }
 ```
 
-#### 负载均衡
+### 负载均衡
 
 > tomcat 为例  
 > 反向代理
@@ -261,7 +261,7 @@ public String getClientIp(HttpServletRequest request) {
 }
 ```
 
-#### gzip
+### gzip
 
 ```bash
 http  {
@@ -277,7 +277,7 @@ http  {
 }
 ```
 
-#### 修改nginx.conf、html位置
+### 修改nginx.conf、html位置
 
 ```bash
 # 修改nginx.conf位置

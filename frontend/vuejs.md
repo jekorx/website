@@ -1,6 +1,6 @@
 # Vue.js
 
-#### Vue水印指令
+### Vue水印指令
 
 > 支持vue 2 / 3  
 
@@ -99,7 +99,7 @@ const app = createApp(/* ... */)
 app.use(Watermark)
 ```
 
-#### Vue@2.x 父子组件生命周期顺序
+### Vue@2.x 父子组件生命周期顺序
 
 ```js
 /* 加载渲染过程 */

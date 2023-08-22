@@ -2,7 +2,7 @@
 
 > 微信小程序Canvas手写签名，基于Taro@2.x React实现。  
 
-#### 效果
+### 效果
 
 ![效果1](../assets/weapp-sign-1.jpg)
 

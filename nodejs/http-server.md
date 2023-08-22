@@ -2,7 +2,7 @@
 
 > http-server是一个简单的，零配置的命令行http服务器。
 
-#### 安装
+### 安装
 
 ```bash
 npm install http-server -g
@@ -11,13 +11,13 @@ npm install http-server -g
 yarn global add http-server
 ```
 
-#### 使用
+### 使用
 
 ```
 http-server [path] [options]
 ```
 
-#### 可用选项
+### 可用选项
 
 ```
 -p 要使用的端口（默认为8080）

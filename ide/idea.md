@@ -1,6 +1,6 @@
 # IDEA
 
-#### 远程调试
+### 远程调试
 
 > jar包方式启动java项目，可以使用idea进行远程调试  
 > 1、远程服务器启动项目  
@@ -20,7 +20,7 @@ Host: <IP>
 Port: <PORT>
 ```
 
-#### 常用插件
+### 常用插件
 
 > File -> Settings -> Plugins  
 
@@ -46,7 +46,7 @@ https://jrebel.qekang.com/<生成的GUID>
 Free Mybatis plugin
 ```
 
-#### 常用设置
+### 常用设置
 
 > 路径等配置
 

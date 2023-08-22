@@ -162,7 +162,7 @@ source ~/.zshrc
 #source ~/.bash_profile
 ```
 
-#### node.js
+### node.js
 
 > 通过```nvm```命令安装  
 

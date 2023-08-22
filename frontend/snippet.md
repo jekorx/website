@@ -11,7 +11,7 @@
 > 9、[ElementUI-Table，嵌套表格](#9、elementui-table，嵌套表格)  
 > 10、[Echarts地图下钻](#10、echarts地图下钻)  
 
-##### 1、同时生成条码二维码
+### 1、同时生成条码二维码
 
 ![bar-qr-code](../assets/frontend-snippet-1.png)
 
@@ -122,7 +122,7 @@ export default code => {
 }
 ```
 
-##### 2、批量下载图片
+### 2、批量下载图片
 
 > 使用```jszip```批量下载图片zip文件  
 
@@ -158,7 +158,7 @@ export default = codeArr => {
 }
 ```
 
-##### 3、导出Excel
+### 3、导出Excel
 
 > 使用```xlsx```导出excel  
 > 并将数据每60000条切分，单独生成一个sheet页  
@@ -214,7 +214,7 @@ export const exportExcel = (data, name) => {
 }
 ```
 
-##### 4、解析Excel，修改后导出
+### 4、解析Excel，修改后导出
 
 > 使用excel公式 ```{ t:'n', f: 'excel公式' }```  
 > 使用excel公式导出后需要启用编辑公式才能生效  
@@ -267,7 +267,7 @@ document.getElementById('fileInput').onchange = e => {
 }
 ```
 
-##### 5、vue-router@3.x部署更新提示
+### 5、vue-router@3.x部署更新提示
 
 > ```vue-router@3.x```中检测网络异常提示  
 > 加载资源失败时，提示重新加载（结合```Element-UI```）  
@@ -293,7 +293,7 @@ this.$router.push({
 })
 ```
 
-##### 6、vue指令，右键打开数字软键盘
+### 6、vue指令，右键打开数字软键盘
 
 ![v-num-input](../assets/frontend-snippet-2.jpg)
 
@@ -538,7 +538,7 @@ export default {
 </style>
 ```
 
-##### 7、ElementUI-Table，列拖拽排序
+### 7、ElementUI-Table，列拖拽排序
 
 ![element-ui-table-columns-drag](../assets/frontend-snippet-3.gif)
 
@@ -852,7 +852,7 @@ export default {
 </style>
 ```
 
-##### 8、ElementUI-Table，自定义列组件
+### 8、ElementUI-Table，自定义列组件
 
 ![element-ui-table-custom-table-columns](../assets/frontend-snippet-6.gif)
 
@@ -1290,7 +1290,7 @@ export default {
 }
 ```
 
-##### 9、ElementUI-Table，嵌套表格
+### 9、ElementUI-Table，嵌套表格
 
 ![element-ui-table-inner-table-1](../assets/frontend-snippet-4.jpg)
 
@@ -1375,7 +1375,7 @@ table.inner-table {
 </style>
 ```
 
-##### 10、Echarts地图下钻
+### 10、Echarts地图下钻
 
 ![echarts-map-1](../assets/frontend-snippet-7.gif)
 

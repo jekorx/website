@@ -2,7 +2,7 @@
 
 > 微信小程序验证码输入，基于Taro@2.x React实现。  
 
-###### 使用
+### 使用
 
 ```javascript
 // 引入
@@ -18,7 +18,7 @@ onInput = value => {
 <Codes length={4} onInput={this.onInput} />
 ```
 
-#### 效果
+### 效果
 
 ![有光标闪烁](../assets/weapp-sign-2.gif)
 

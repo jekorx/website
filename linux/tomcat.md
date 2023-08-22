@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，Tomcat 8.5.43为例
 
-#### 常用配置修改
+### 常用配置修改
 
 ```bash
 # {tomcat-path}/config/server.xml
@@ -37,7 +37,7 @@
 </Server>
 ```
 
-#### 控制台乱码
+### 控制台乱码
 
 > window系统下```Tomcat 9```可能会出现看控制台乱码的情况  
 > 将```tomcat/conf/logging.properties```中，```UTF-8```全局替换为```GBK```  

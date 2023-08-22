@@ -3,7 +3,7 @@
 > yum，是Yellow dog Updater, Modified 的简称，是杜克大学为了提高RPM 软件包安装性而开发的一种软件包管理器。  
 > 以Centos 7.4 为例  
 
-#### 配置阿里源
+### 配置阿里源
 
 ```bash
 # 备份原centos源

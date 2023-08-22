@@ -1,6 +1,6 @@
 # 文章收藏
 
-#### 文档
+### 文档
 
 [JavaScript] [ES6 入门教程](https://es6.ruanyifeng.com/)  
 [JavaScript] [MDN](https://developer.mozilla.org/zh-CN/)  
@@ -11,11 +11,11 @@
 [Java] [Java 8 Api手册](https://www.matools.com/api/java8)  
 [手册] [网道 / WangDoc.com](https://wangdoc.com/)  
 
-#### 工具
+### 工具
 
 [微信公众号] [10个可视化 CSS 工具， 快速生成 CSS 片段](https://mp.weixin.qq.com/s/qV9uaVnzwZ-IdggzL1RDHQ)  
 
-#### 前端
+### 前端
 
 > Html
 
@@ -158,24 +158,24 @@
 [掘金] [太震撼了！我把七大JS排序算法做成了可视化！！！太好玩了！](https://juejin.cn/post/7004454008634998821)  
 [GitHub] [前端精读](https://github.com/ascoders/weekly) 
 
-#### 后端
+### 后端
 
 [微信公众号] [spring：我是如何解决循环依赖的？](https://mp.weixin.qq.com/s?__biz=MzUxODkzNTQ3Nw==&mid=2247485600&idx=1&sn=0c49b94e7fbd35c88c4470e936023e3e&chksm=f9800e7acef7876ca05ab45ce9420ea140f188e84153f23d0af9d044f475458ad38d49a6546a&token=1641046204&lang=zh_CN&scene=21#wechat_redirect)  
 [开源中国] [聊聊spring事务失效的12种场景，太坑了](https://my.oschina.net/u/4163222/blog/5228184)  
 
-#### Server
+### Server
 
 [掘金] [2万字系统总结，带你实现 Linux 命令自由？](https://juejin.cn/post/6938385978004340744)  
 [掘金] [万字总结，体系化带你全面认识 Nginx ！](https://juejin.cn/post/6942607113118023710)  
 [掘金] [【Nginx】前端该了解的 Nginx 知识](https://juejin.cn/post/7072616582110773262)  
 
-#### 微信开发
+### 微信开发
 
 > 公众号  
 
 [SegmentFault] [vue使用微信JS-SDK实现分享功能](https://segmentfault.com/a/1190000020163797)  
 
-#### Flutter
+### Flutter
 
 [掘金] [最新上架App Store 全流程](https://juejin.cn/post/7063065083408023565)  
 [掘金] [最新App上架安卓应用市场](https://juejin.cn/post/7048492948438122527)  
@@ -203,19 +203,19 @@
 [掘金] [flutter开发之Dart[必读篇]💯](https://juejin.im/post/5f1c54dff265da22f6164a81)  
 [掘金] [flutter实战总结(老手不必看)](https://juejin.cn/post/6891084212997537799)  
 
-#### Git
+### Git
 
 [掘金] [三年 Git 使用心得 & 常见问题整理](https://juejin.im/post/5ee649ff51882542ea2b5108)  
 [掘金] [「一劳永逸」一张脑图带你掌握Git命令](https://juejin.im/post/6869519303864123399)  
 [掘金] [一份工作 6 年前端的 Git 备忘录 🛠](https://juejin.cn/post/7127956933809537032)  
 
-#### SQL
+### SQL
 
 > MySQL  
 
 [掘金] [MySQL的四种事务隔离级别](https://juejin.im/post/6844904192491028493)  
 
-#### 其它
+### 其它
 
 [GitHub] [家庭网络知识整理](https://github.com/blanboom/awesome-home-networking-cn)  
 [掘金] [【利器篇】35+精选chrome插件，含15+前端插件，总有一款值得你停留](https://juejin.cn/post/6998300409173377032)  

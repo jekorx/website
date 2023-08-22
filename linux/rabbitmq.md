@@ -1,6 +1,6 @@
 # RabbitMQ
 
-#### 安装
+### 安装
 
 > 下载对应版本的[erlang和rabbitmq-server](https://packagecloud.io/rabbitmq)  
 > 注意：rabbitmq-server的el版本要跟erlang对应  
@@ -17,7 +17,7 @@ yum -y install erlang-23.3.4.5-1.el7.x86_64.rpm
 yum -y install rabbitmq-server-3.8.19-1.el7.noarch.rpm
 ```
 
-#### 配置
+### 配置
 
 > 新版本rabbitmq需单独创建[配置文件rabbitmq.conf](https://github.com/rabbitmq/rabbitmq-server/blob/v3.8.19/deps/rabbit/docs/rabbitmq.conf.example)  
 > 下载地址：```https://github.com/rabbitmq/rabbitmq-server/blob/v版本号/deps/rabbit/docs/rabbitmq.conf.example```  
@@ -46,7 +46,7 @@ systemctl stop rabbitmq-server
 systemctl enable rabbitmq-server
 ```
 
-#### 安装插件
+### 安装插件
 
 > [社区插件列表](https://www.rabbitmq.com/community-plugins.html)  
 
@@ -64,7 +64,7 @@ wget https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/down
 rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 ```
 
-#### 用户管理
+### 用户管理
 
 ```bash
 # 需在rabbitmq-server启动状态下操作
@@ -92,7 +92,7 @@ rabbitmqctl list_permissions -p /
 rabbitmqctl delete_user admin
 ```
 
-#### RabbitMQ 基本概念
+### RabbitMQ 基本概念
 
 ![linux-rabbitmq-0](../assets/linux-rabbitmq-0.jpg)
 
@@ -107,7 +107,7 @@ rabbitmqctl delete_user admin
 > 9、Virtual Host：虚拟主机，表示一批交换器、消息队列和相关对象。虚拟主机是共享相同的身份认证和加密环境的独立服务器域。每个 vhost 本质上就是一个 mini 版的 RabbitMQ 服务器，拥有自己的队列、交换器、绑定和权限机制。vhost 是 AMQP 概念的基础，必须在连接时指定，RabbitMQ 默认的 vhost 是 / 。  
 > 10、Broker：表示消息队列服务器实体。  
 
-#### RabbitMQ 交换机
+### RabbitMQ 交换机
 
 ###### 1、Direct exchange---直接类型交换机
 

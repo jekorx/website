@@ -182,7 +182,7 @@
   </script>
 </div>
 
-##### 1、原生JavaScript版本
+### 1、原生JavaScript版本
 
 > 利用canvas画布实现签名效果  
 
@@ -382,7 +382,7 @@ function drawCanvas(args) {
 </script>
 ```
 
-##### 2、Vue.js版本
+### 2、Vue.js版本
 
 > vue组件  
 > 直接使用[npm组件](https://www.npmjs.com/package/vue-canvas-sign)  

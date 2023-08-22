@@ -6,7 +6,7 @@
 > 注意PostCSS插件等依赖与postcss的版本匹配，否则会报错  
 > 使用时也可根据报错信息调整各依赖版本  
 
-#### 1、安装PostCSS插件
+### 1、安装PostCSS插件
 
 > 相关依赖  
 
@@ -42,7 +42,7 @@ module.exports = {
 }
 ```
 
-#### 2、其他插件
+### 2、其他插件
 
 > 相关依赖  
 
@@ -144,7 +144,7 @@ module.exports = ({ file }) => {
 
 > 注意：由于```cssnext```和```cssnano```都具有```autoprefixer```，事实上只需要一个，所以把默认的```autoprefixer```删除掉，然后把```cssnano```中的```autoprefixer```设置为```false```  
 
-#### 3、index.html配置
+### 3、index.html配置
 
 > 修改```meta viewport```  
 
@@ -177,7 +177,7 @@ module.exports = ({ file }) => {
 </script>
 ```
 
-#### 4、部分功能使用介绍
+### 4、部分功能使用介绍
 
 ###### （1）postcss-aspect-ratio-mini 宽高比容器  
 
@@ -303,11 +303,11 @@ module.exports = ({ file }) => {
 
 > ```create-react-app```使用 [可参照](./cra.md)  
 
-#### 1、依赖
+### 1、依赖
 
 > 参数文章开头 1、2 安装相关依赖  
 
-#### 2、配置
+### 2、配置
 
 > 在```config-overrides.js```文件中添加以下配置  
 
@@ -366,7 +366,7 @@ module.exports = function (config, env) {
 }
 ```
 
-#### 3、注意
+### 3、注意
 
 > react中不能使用空的自定义属性（如：```<div aspectratio></div>```），如需自定义属性样式，正确的使用方法如下  
 

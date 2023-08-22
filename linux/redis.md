@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，redis 5.0.x 为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 下载压缩包https://redis.io/download
@@ -59,7 +59,7 @@ vim /etc/rc.local
 redis-server /usr/local/redis/redis.conf
 ```
 
-#### 测试连接
+### 测试连接
 
 ```bash
 # 无密码
@@ -73,7 +73,7 @@ redis-cli
 pong
 ```
 
-#### 相关错误
+### 相关错误
 
 > MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails &#40;stop-writes-on-bgsave-error option&#41;. Please check the Redis logs for details about the RDB error.  
 

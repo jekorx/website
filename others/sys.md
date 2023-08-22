@@ -1,6 +1,6 @@
 # 操作系统
 
-#### iso系统镜像
+### iso系统镜像
 
 > CentOS系统镜像下载[请点击](https://www.centos.org/)  
 > Windows系统镜像下载[请点击](https://msdn.itellyou.cn/)  
@@ -16,7 +16,7 @@ certutil -hashfile <文件路径> SHA1
 certutil -hashfile <文件路径> SHA256
 ```
 
-#### 创建USB安装盘
+### 创建USB安装盘
 
 > Rufus下载地址[请点击](http://rufus.ie/)  
 
@@ -30,7 +30,7 @@ certutil -hashfile <文件路径> SHA256
 
 ![Rufus设置](../assets/others-sys-2.png)
 
-#### CentOS安装
+### CentOS安装
 
 > 1、进入CentOS安装界面，按```TAB```键进入配置编辑（根据提示，uefi是按```E```键）  
 > 2、将配置改为```vmlinuz initrd=initrd.img inst.stage2=hd......quiet```改为```vmlinuz initrd=initrd.img linux dd quiet```  
@@ -41,11 +41,11 @@ certutil -hashfile <文件路径> SHA256
 
 ![CentOS设置](../assets/others-sys-3.png)
 
-#### Windows安装
+### Windows安装
 
 > 注意：DELL ChengMing3980 8代CPU，系统应为：UEFI+GPT+WIN10
 
-#### Windows10删除3D对象
+### Windows10删除3D对象
 
 > 注册表中删除```{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}```
 
@@ -55,7 +55,7 @@ certutil -hashfile <文件路径> SHA256
 计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\Namespace
 ```
 
-#### 右键 - 在此处打开命令窗口
+### 右键 - 在此处打开命令窗口
 
 > 注册表目录```计算机\HKEY_CLASSES_ROOT\Directory\Background\shell```  
 

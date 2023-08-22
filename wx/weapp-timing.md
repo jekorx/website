@@ -2,7 +2,7 @@
 
 > 微信小程序短信发送倒计时，基于Taro@2.x React实现。  
 
-###### 使用
+### 使用
 
 ```javascript
 // 引入
@@ -21,7 +21,7 @@ startTiming = (start, loading) => {
 <Timing text='188****8888' onClick={this.startTiming} />
 ```
 
-#### 效果
+### 效果
 
 ![效果1](../assets/weapp-sign-3.gif)
 

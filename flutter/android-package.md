@@ -2,7 +2,7 @@
 
 > [最新官方文档](https://flutter.dev/docs/deployment/android)请点击查看（需科学上网）  
 
-#### 1、检查 App Manifest
+### 1、检查 App Manifest
 
 > 查看默认应用程序清单文件(位于```<app dir>/android/app/src/main/```中的```AndroidManifest.xml```文件)，并验证这些值是否正确，特别是：
 
@@ -27,7 +27,7 @@
   <uses-permission android:name="android.permission.INTERNET" />
   ```
 
-#### 2、查看构建配置
+### 2、查看构建配置
 
 > 查看默认[Gradle 构建文件][gradlebuild]”build.gradle”，它位于```<app dir>/android/app/```，验证这些值是否正确，尤其是：
 
@@ -36,7 +36,7 @@
   * ```versionCode``` & ```versionName```: 指定应用程序版本号和版本号字符串。
   * ```minSdkVersion``` & ```targetSdkVersion```: 指定最低的API级别以及应用程序设计运行的API级别。
 
-#### 4、添加启动图标、启动页
+### 4、添加启动图标、启动页
 
 ###### 图标
 
@@ -82,7 +82,7 @@ drawable-port-xxxhdpi-screen: 1920 x 1280
 </layer-list>
 ```
 
-#### 5、app签名
+### 5、app签名
 
 ###### （1）创建 keystore
 
@@ -165,7 +165,7 @@ buildTypes {
 ```
 应用的release版本将自动进行签名。
 
-#### 5、开启混淆
+### 5、开启混淆
 
 ##### Flutter 1.16.2及之后版本
 
@@ -227,7 +227,7 @@ android {
 
 注意：~~开启压缩 ```minifyEnabled true``` 可能会导致无法打包，暂时不启用压缩。~~ 貌似自v1.12.13版本已解决
 
-#### 7、构建一个发布版（release）APK
+### 7、构建一个发布版（release）APK
 
 使用命令行:
 
@@ -242,7 +242,7 @@ flutter build apk --obfuscate --split-debug-info=./.debug_info
 
 打包好的发布APK位于```<app dir>/build/app/outputs/apk/app-release.apk```。
 
-#### 8、相关问题
+### 8、相关问题
 
 > Could not resolve io.flutter:flutter_ ···  
 > 无法现在相关依赖导致  

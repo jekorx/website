@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，PHP 7.1.x 为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 配置源
@@ -16,7 +16,7 @@ yum -y install php71w php71w-cli php71w-common php71w-devel php71w-embedded php7
 php -v
 ```
 
-#### 支持nginx HTTP服务
+### 支持nginx HTTP服务
 
 > nginx linux环境安装[可参照](./nginx.md)
 

@@ -1,6 +1,6 @@
 # Linux命令行
 
-###### 用户操作
+### 用户操作
 
 ```bash
 # 创建用户
@@ -29,7 +29,7 @@ chown -R testuser /www/testuser
 userdel testuser
 ```
 
-###### nohup后台执行命令
+### nohup后台执行命令
 
 ```bash
 # nohup java -jar xxx.jar >/dev/null 2>&1 &
@@ -38,7 +38,7 @@ userdel testuser
 nohup <命令> >/dev/null 2>&1 &
 ```
 
-###### 查看端口占用
+### 查看端口占用
 
 ```bash
 # 方式 1
@@ -53,7 +53,7 @@ lsof -i:<PORT>
 netstat -tunlp | grep <PORT>
 ```
 
-##### 删除当前目录及其子目录下所有指定文件
+### 删除当前目录及其子目录下所有指定文件
 
 ```bash
 # ./ 为当前目录及其子目录
@@ -72,7 +72,7 @@ find ./ -name "*.md" | xargs rm -rf
 find ./ -type d -name "*md*" | xargs rm -rf
 ```
 
-##### 刷新DNS缓存
+### 刷新DNS缓存
 
 ```bash
 sudo dscacheutil -flushcache

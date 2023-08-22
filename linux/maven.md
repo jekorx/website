@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，Maven 3.6.0 为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 下载二进制文件压缩包http://mirrors.shu.edu.cn/apache/maven/maven-3/
@@ -24,7 +24,7 @@ source /etc/profile
 mvn -v
 ```
 
-#### 基本配置
+### 基本配置
 
 > ```<Maven安装目录>/conf/settings.xml```  
 
@@ -43,7 +43,7 @@ mvn -v
 </mirrors>
 ```
 
-#### 使用Nexus私服配置
+### 使用Nexus私服配置
 
 > Nexus搭建[请查看](./nexus.md)  
 > ```<Maven安装目录>/conf/settings.xml```  

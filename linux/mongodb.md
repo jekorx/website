@@ -1,6 +1,6 @@
 # MongoDB
 
-#### 下载安装
+### 下载安装
 
 > [MongoDB官网](https://www.mongodb.com/try/download/community) -> On-Premises -> MongoDB Community Server  
 > 选择 版本（4.4.0）、平台（CentOS 7.0）、包（tgz），具体可根据需要选择  
@@ -59,7 +59,7 @@ mkdir -p /var/lib/mongodb/logs
 /usr/local/mongodb4/bin/mongod -shutdown -dbpath=/var/lib/mongodb/data
 ```
 
-#### 创建数据库、用户
+### 创建数据库、用户
 
 ```bash
 # 启用mongo

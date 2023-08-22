@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，Node.js 10.15.3 二进制文件安装为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 下载地址https://nodejs.org/en/download/

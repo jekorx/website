@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，solr 8.1 为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 下载压缩包http://lucene.apache.org/solr/mirrors-solr-latest-redir.html
@@ -29,7 +29,7 @@ vim /etc/rc.local
 solr start -p 8398 -force -m 1g
 ```
 
-#### 使用
+### 使用
 
 > 基本使用  
 
@@ -80,7 +80,7 @@ vim managed-schema
 solr restart -p 8398 -force -m 1g
 ```
 
-#### 相关问题
+### 相关问题
 
 ```bash
 # *** [WARN] ***  Your Max Processes Limit is currently 7270. 

@@ -16,13 +16,13 @@
 > * [background-image网格背景](#background-image网格背景)  
 > * [steps步骤条](#steps步骤条)  
 
-#### 文本域内容解析换行，解析换行符
+### 文本域内容解析换行，解析换行符
 
 ```css
 white-space: pre-wrap;
 ```
 
-#### 网站全局黑白色
+### 网站全局黑白色
 
 ```css
 /**
@@ -47,7 +47,7 @@ html {
 }
 ```
 
-#### 自定义光标
+### 自定义光标
 
 <div style="width: 100px; height: 100px; margin-bottom: 10px; background-color: #EEE; cursor: url(https://www.wdg.pub/gitbook/images/favicon.ico), auto; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 12px;">
 光标移动到此处
@@ -61,7 +61,7 @@ div {
 }
 ```
 
-#### 水平垂直居中
+### 水平垂直居中
 
 ```html
 <div class="center">
@@ -185,7 +185,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-#### 文本超出省略号
+### 文本超出省略号
 
 ```css
 /**
@@ -385,7 +385,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-#### 渐变色
+### 渐变色
 
 <div>
   <div style="display: flex; width: 400px; justify-content: space-around;">
@@ -460,7 +460,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-#### div+css绘制六边形
+### div+css绘制六边形
 
 <div>
   <style>
@@ -553,7 +553,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-#### div+css实现四角边框
+### div+css实现四角边框
 
 <div style="padding-bottom: 10px;">
   <style>
@@ -675,7 +675,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-#### 固定宽高比的自适应矩形
+### 固定宽高比的自适应矩形
 
 <div>
   <style>
@@ -792,7 +792,7 @@ top、left偏移父容器的50%，通过transform: translate偏移自身-50%实�
 }
 ```
 
-#### 根据兄弟元素的数量来设置样式
+### 根据兄弟元素的数量来设置样式
 
 <div style="padding-bottom: 10px;">
   <style>
@@ -989,7 +989,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 }
 ```
 
-#### 九宫格图片展示
+### 九宫格图片展示
 
 <div style="padding-bottom: 10px;">
   <style>
@@ -1105,7 +1105,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 }
 ```
 
-#### 输入框占位符交互
+### 输入框占位符交互
 
 <div style="padding-bottom: 10px;">
   <style>
@@ -1233,7 +1233,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 }
 ```
 
-#### hover效果
+### hover效果
 
 <div style="padding-bottom: 10px;">
   <style>
@@ -1293,7 +1293,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 }
 ```
 
-#### background-image网格背景
+### background-image网格背景
 
 <div style="padding-bottom: 10px;">
   <style>
@@ -1322,7 +1322,7 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 }
 ```
 
-#### steps步骤条
+### steps步骤条
 
 <div style="padding-bottom: 10px;">
   <style>

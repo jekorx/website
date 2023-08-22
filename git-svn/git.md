@@ -2,7 +2,7 @@
 
 > 需要提前下载安装[Git客户端](https://git-scm.com/)  
 
-#### 常用操作
+### 常用操作
 
 > **注意：git对文件名称大小写不敏感**  
 
@@ -48,7 +48,7 @@ git merge
 git pull
 ```
 
-#### 暂存
+### 暂存
 
 > 切换分支时存在未提交的文件，可以使用暂存  
 
@@ -75,7 +75,7 @@ git stash drop stash@{0}
 git stash clear
 ```
 
-#### 分支
+### 分支
 
 ```bash
 # 显示所有参数使用方法
@@ -112,7 +112,7 @@ git fetch origin <分支名>
 git checkout <分支名>
 ```
 
-#### git 回退版本
+### git 回退版本
 
 ```bash
 # 查看提交记录
@@ -144,7 +144,7 @@ git reset --soft <commit id>
 git push origin <分支名> --force
 ```
 
-#### git 恢复工作区文件
+### git 恢复工作区文件
 
 ```bash
 # 查看更改的文件
@@ -158,7 +158,7 @@ git reset HEAD <文件名>
 git checkout <文件名>
 ```
 
-#### git 忽略文件（本地）
+### git 忽略文件（本地）
 
 ```bash
 # git项目根目录，编辑.git/info/exclude，添加需要忽略的文件
@@ -171,27 +171,27 @@ git update-index --skip-worktree [<file>...]
 git update-index --no-skip-worktree [<file>...]
 ```
 
-#### 提交gh-pages分支以供展示
+### 提交gh-pages分支以供展示
 
 ```bash
 # dist为打包后的文件目录
 git subtree push --prefix dist origin gh-pages
 ```
 
-#### git log 图形化
+### git log 图形化
 
 ```bash
 git log --graph --pretty="(%p) %h %s"
 ```
 
-#### 统计贡献者代码行数
+### 统计贡献者代码行数
 
 ```bash
 # --author="" 为贡献者，$(git config --get user.email)表示当前用户账号
 git log --author="$(git config --get user.email)" --pretty=tformat: --numstat | gawk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "增加的行数:%s 删除的行数:%s 总行数: %s\n", add, subs, loc }'
 ```
 
-#### 使用配置
+### 使用配置
 
 ```bash
 # 1、配置用户名
@@ -275,7 +275,7 @@ ssh-keygen -t rsa -C '<登录邮箱>'
 
 ![使用](../assets/git-svn-4.png)
 
-#### Github速度慢优化方法
+### Github速度慢优化方法
 
 > 获取github域名最快访问ip，[https://github.com.ipaddress.com/](https://github.com.ipaddress.com/) 添加到hosts文件  
 > [github.com](https://www.ipaddress.com/site/github.com)  
@@ -305,7 +305,7 @@ sudo killall -HUP mDNSResponder
 ipconfig /flushdns
 ```
 
-#### oh_my_zsh git命令别名
+### oh_my_zsh git命令别名
 
 | Alias                | Command                                                                                                                                                                                                                   |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

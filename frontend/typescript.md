@@ -1,6 +1,6 @@
 # TypeScript
 
-#### 部分错误解决方式
+### 部分错误解决方式
 
 > TS2683: 'this' implicitly has type 'any' because it does not have a type annotation using `apply`  
 > 原文件中存在this的值是any的时候报错  

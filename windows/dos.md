@@ -1,6 +1,6 @@
 # DOS命令行
 
-###### 删除所有指定文件
+### 删除所有指定文件
 
 ```bash
 :: 删除当前目录下所有具有<文件名称通配符>的文件，包括下级目录
@@ -9,7 +9,7 @@
 del /f/s/q "*.md"
 ```
 
-###### 使用WinSCP上传文件到Linux系统
+### 使用WinSCP上传文件到Linux系统
 
 > 1、[WinSCP下载地址](https://winscp.net/eng/download.php)  
 > 2、安装后需将```winscp.exe```的所在目录配置到环境变量  
@@ -82,7 +82,7 @@ cmd.exe /C upload.bat
 | synchronize | 将远程目录与本地目录同步 |
 
 
-###### net网络命令
+### net网络命令
 
 ```bash
 # 建立IPC链接
@@ -95,13 +95,13 @@ net use \\<IP> /delete
 net use * /delete
 ```
 
-##### 刷新DNS缓存
+### 刷新DNS缓存
 
 ```bash
 ipconfig /flushdns
 ```
 
-##### 复制文件/文件夹并添加到压缩文件
+### 复制文件/文件夹并添加到压缩文件
 
 > 安装```winrar```，安装后需将```winrar.exe```的所在目录配置到环境变量  
 

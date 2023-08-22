@@ -5,7 +5,7 @@
 > 开发工具中需添加ESLint扩展，如：VSCode中ESLint插件。  
 > 个人更倾向于使用standard规范，以standard规范为例。  
 
-#### vite中使用ESLint
+### vite中使用ESLint
 
 > vite版本为2.x，编辑器需要安装ESLint插件  
 > 更多配置可参照 [[掘金] 从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境](https://juejin.cn/post/6951649464637636622)   
@@ -126,11 +126,11 @@ module.exports = {
 */
 ```
 
-#### create-react-app中使用ESLint
+### create-react-app中使用ESLint
 
 > create-react-app中使用ESLint，[可参照](./cra.md)  
 
-#### 在Vuejs脚手架vue-cli@2.x.x 3.x.x 4.x.x中使用ESLint
+### 在Vuejs脚手架vue-cli@2.x.x 3.x.x 4.x.x中使用ESLint
 
 ```javascript
 /**
@@ -142,7 +142,7 @@ module.exports = {
 // 2、Pick an ESLint preset，选择上下箭头选择Standard (https://github.com/standard/standard)
 ```
 
-#### 在Nuxtjs脚手架create-nuxt-app@2.x.x中使用ESLint
+### 在Nuxtjs脚手架create-nuxt-app@2.x.x中使用ESLint
 
 ```javascript
 // 1、构建项目时，Choose features to install，上下箭头+空格勾选Linter / Formatter这一项
@@ -172,7 +172,7 @@ module.exports = {
 }
 ```
 
-#### Taro@1.3.0中使用报错
+### Taro@1.3.0中使用报错
 
 > taro+typescript+mobx  
 > **新版本会有解决**  

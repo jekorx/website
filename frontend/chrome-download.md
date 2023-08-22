@@ -1,6 +1,6 @@
 # Chrome浏览器文件下载
 
-#### 图片下载
+### 图片下载
 
 ```js
 /**
@@ -27,7 +27,7 @@ function downloadImg (src, filename, ext) {
 }
 ```
 
-#### Excel下载
+### Excel下载
 
 > 后端通过输出流导出Excel，前端下载文件，后端Java代码[可参照](../springboot/excel.md)。  
 

@@ -2,7 +2,7 @@
 
 > 部分 Stream 常用操作整理
 
-#### 测试对象
+### 测试对象
 
 ```java
 public class Obj {
@@ -32,7 +32,7 @@ public class Obj {
 }
 ```
 
-#### 测试list
+### 测试list
 
 ```java
 List<String> strList = new ArrayList<String>();
@@ -48,7 +48,7 @@ objList.add(new Obj("E", 4));
 objList.add(new Obj("A", 1));
 ```
 
-#### 类型转换
+### 类型转换
 
 ```java
 // List<Obj> -> Map<String, String>
@@ -82,7 +82,7 @@ String joining = strList.stream().collect(Collectors.joining(","));
 // B,C,E,A
 ```
 
-#### 排序
+### 排序
 
 > 自然序排序，常用于基本数据类型
 
@@ -116,7 +116,7 @@ objList.sort(Comparator.comparing(Obj::getCode));
 objList.sort(Comparator.comparing(Obj::getCode).reversed());
 ```
 
-#### 存在（anyMatch）、全部匹配（allMatch）、无匹配（noneMatch）、过滤（filter）、获取过滤后第一个（findFirst）、获取过滤后任意一个（findAny）
+### 存在（anyMatch）、全部匹配（allMatch）、无匹配（noneMatch）、过滤（filter）、获取过滤后第一个（findFirst）、获取过滤后任意一个（findAny）
 
 ```java
 // 存在（anyMatch）
@@ -144,7 +144,7 @@ Obj obj = objList.stream().filter(obj -> obj.getValue() > 2).findAny().get();
 // Obj{code='C', value=3}
 ```
 
-#### 聚合求值（reduce、Collectors.reducing）
+### 聚合求值（reduce、Collectors.reducing）
 
 ```java
 int totalVal = objList.stream().map(obj -> obj.getValue()).reduce(0, (sum, val) -> sum + val);
@@ -154,7 +154,7 @@ int totalVal = objList.stream().collect(Collectors.reducing(0, Obj::getValue, (s
 // 10
 ```
 
-#### 统计（IntSummaryStatistics、LongSummaryStatistics、DoubleSummaryStatistics）
+### 统计（IntSummaryStatistics、LongSummaryStatistics、DoubleSummaryStatistics）
 
 ```java
 IntSummaryStatistics summaryStatistics = objList.stream().collect(Collectors.summarizingInt(Obj::getValue));

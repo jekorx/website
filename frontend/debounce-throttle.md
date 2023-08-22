@@ -1,6 +1,6 @@
 # 函数防抖(debounce)、函数节流(throttle)
 
-#### 函数防抖(debounce)
+### 函数防抖(debounce)
 
 > 介绍：当调用动作n毫秒后，才会执行该动作，若在这n毫秒内又调用此动作则将重新计算执行时间  
 > 场景：实时搜索（keyup）、拖拽（mousemove）  
@@ -31,7 +31,7 @@ window.onscroll = debounce(() => {
 }, 500)
 ```
 
-#### 特殊使用
+### 特殊使用
 
 > 原理：[JavaScript异步执行顺序](../index/frontend.md#javascript异步执行顺序)  
 > 场景：同步数据收集后统一处理  
@@ -71,7 +71,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-#### 函数节流(throttle)
+### 函数节流(throttle)
 
 > 介绍：预先设定一个执行周期，当调用动作的时刻大于等于执行周期则执行该动作，然后进入下一个新周期  
 > 窗口调整（resize）、页面滚动（scroll）、抢购疯狂点击（mousedown）  

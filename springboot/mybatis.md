@@ -2,7 +2,7 @@
 
 > SpringBoot中使用[MyBatis](https://mybatis.org/mybatis-3/zh/index.html)（[maven地址](https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter)）的一些问题及知识点  
 
-##### 1、自增id，并返回新id
+### 1、自增id，并返回新id
 
 > 需要数据库表支持，相关请点击查看  
 > [MySQL-自增字段](../sql/mysql.md#2-自增字段)  
@@ -84,7 +84,7 @@ public class GoodsDaoTest {
 }
 ```
 
-##### 相关问题
+### 相关问题
 
 > 1、使用PageHelper分页时报错  
 >  

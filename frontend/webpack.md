@@ -2,7 +2,7 @@
 
 > webpack@^4.29.6为例，详细文档可以参考[webpack中文文档](https://www.webpackjs.com/concepts/)  
 
-#### 依赖
+### 依赖
 
 ```bash
 # babel，可以使用新版语法
@@ -19,7 +19,7 @@ webpack-dev-server@^3.2.1
 webpack-merge@^4.2.1
 ```
 
-#### webpack配置文件
+### webpack配置文件
 
 ```javascript
 const path = require('path')
@@ -88,7 +88,7 @@ module.exports = {
 }
 ```
 
-#### package.json中配置相关命令
+### package.json中配置相关命令
 
 ```json
 // --progress显示打包进度 --colors颜色高亮 --config制定配置文件
@@ -100,7 +100,7 @@ module.exports = {
 },
 ```
 
-#### 运行
+### 运行
 
 ```bash
 # 安装依赖
@@ -121,7 +121,7 @@ npm run build
 yarn build
 ```
 
-#### 相关问题
+### 相关问题
 
 > 1、使用域名访问开发阶段项目提示，如：微信公众号开发使用[cpolar](https://www.cpolar.com/)、natapp工具内网穿透访问  
 > ```Invalid Host header```  

@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，GitLab 11.8.1 (ce社区版) 为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 依赖，系统自带，可以忽略该步
@@ -22,7 +22,7 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rp
 yum install -y gitlab-ce
 ```
 
-#### 修改配置文件
+### 修改配置文件
 
 ```bash
 # 修改配置文件
@@ -75,7 +75,7 @@ gitlab-rails console
 Notify.test_email('收件箱', '标题', '内容').deliver_now
 ```
 
-#### 运行
+### 运行
 
 ```bash
 # 重新装配

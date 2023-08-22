@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，Subversion 1.7.14 为例  
 
-#### 客户端命令
+### 客户端命令
 
 | 命令 | 简写 | 说明 | 其它 |
 |---|---|---|--|
@@ -10,7 +10,7 @@
 | svn status &#60;PATH&#62; | svn st &#60;PATH&#62; | <div>查看文件或者目录状态</div><div>PATH空为当前目录</div> | <div>?：不在svn的控制中</div><div>M：内容被修改</div><div>C：发生冲突</div><div>A：预定加入到版本库</div><div>K：被锁定</div> |
 | svn add &#60;FILE&#62; | - | 添加新文件到版本库 | 支持通配符 |
 
-#### 安装
+### 安装
 
 ```bash
 # 安装
@@ -19,7 +19,7 @@ yum install -y subversion
 svnserve --version
 ```
 
-#### 配置
+### 配置
 
 ```bash
 # subversion默认以/var/svn作为数据根目录
@@ -52,7 +52,7 @@ authz-db = authz   # 访问控制文件
 realm = /opt/svn # 认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字。
 ```
 
-#### 启动svn
+### 启动svn
 
 ```bash
 # 运行
@@ -66,7 +66,7 @@ vim /etc/rc.local
 svnserve -d -r /opt/svn
 ```
 
-#### Tips
+### Tips
 
 ```bash
 # windows系统，桌面右击菜单隐藏svn，强迫症专用
@@ -76,7 +76,7 @@ svn setting -> General -> Context Menu
 D:\users\desktop
 ```
 
-#### Global ignore pattern
+### Global ignore pattern
 
 ```bash
 # 增加以下忽略规则

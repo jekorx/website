@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，PostgreSQL11.x为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 1、官网获取下载地址
@@ -30,7 +30,7 @@ sudo passwd -d postgres
 sudo -u postgres passwd
 ```
 
-#### 配置
+### 配置
 
 ```bash
 # 1、修改配置
@@ -42,7 +42,7 @@ listen_addresses = '*' # line.59
 port = 5432 # line.63
 ```
 
-#### 卸载
+### 卸载
 
 ```bash
 # 1、查询安装的包
@@ -52,7 +52,7 @@ rpm -qa | grep postgresql
 yum remove <包1 包2 包3>
 ```
 
-#### 创建数据库、用户
+### 创建数据库、用户
 
 ```bash
 # 1、切换到postgres用户
@@ -95,7 +95,7 @@ systemctl restart postgresql-11
 ```
 
 
-#### 基本语法
+### 基本语法
 
 ```bash
 # 查看所有数据库

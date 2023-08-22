@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，MySQL5.7.x为例  
 
-#### 安装
+### 安装
 
 ```bash
 # 1、查看已安装的mysql
@@ -23,7 +23,7 @@ yum -y install mysql-server
 systemctl start mysqld
 ```
 
-#### 移动相关目录
+### 移动相关目录
 
 > 移动data目录，log目录，相关操作（安装完需先启动mysql，生成数据库文件和log文件之后再进行移动操作）
 
@@ -72,7 +72,7 @@ systemctl start mysqld
 systemctl enable mysqld
 ```
 
-#### 修改root密码
+### 修改root密码
 
 ```bash
 # 1、修改配置文件
@@ -108,7 +108,7 @@ mysql -uroot -p
 # 输入密码进入
 ```
 
-#### 修改mysql默认端口
+### 修改mysql默认端口
 
 ```bash
 # 1、修改配置文件
@@ -121,7 +121,7 @@ port=<port>
 systemctl restart mysqld
 ```
 
-#### 修改mysql默认编码
+### 修改mysql默认编码
 
 ```bash
 # 1、修改配置文件
@@ -142,7 +142,7 @@ default-character-set = utf8mb4
 systemctl restart mysqld
 ```
 
-#### 创建用户、数据库，授权数据库权限，远程连接
+### 创建用户、数据库，授权数据库权限，远程连接
 
 ```sql
 -- 1、创建用户名，%代表可以远程连接
@@ -158,7 +158,7 @@ FLUSH PRIVILEGES;
 drop user 'username'@'%';
 ```
 
-#### 常见错误
+### 常见错误
 
 > ERROR 1819 &#40;HY000&#41;: Your password does not satisfy the current policy requirements  
 > ERROR 1820 &#40;HY000&#41;: You must reset your password using ALTER USER statement before executin  

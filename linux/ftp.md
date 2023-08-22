@@ -2,7 +2,7 @@
 
 > 以Centos 7.4 为例 
 
-#### 安装
+### 安装
 
 ```bash
 # 查询是否安装vsftpd
@@ -60,7 +60,7 @@ systemctl start vsftpd
 systemctl enable vsftpd
 ```
 
-#### 相关问题
+### 相关问题
 
 > 云服务器设置安全组后需要开放相关接口 
 
@@ -122,7 +122,7 @@ systemctl restart vsftpd
 # 更改Filezilla设置，编辑-设置-连接-FTP-被动模式，将“使用服务器的外部ip地址来代替”改为“回到主动模式”即可。
 ```
 
-## SFTP服务器
+### SFTP服务器
 
 ```bash
 # 创建用户组

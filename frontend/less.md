@@ -4,7 +4,7 @@
 
 ### 相关问题
 
-#### 1、less@3.x.x之后的版本，less中使用javascript报错
+### 1、less@3.x.x之后的版本，less中使用javascript报错
 
 > 升级less到3.x.x的版本之后报错  
 

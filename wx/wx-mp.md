@@ -26,7 +26,7 @@ module.exports = {
 
 > 测试帐号申请，[请点击](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login)  
 
-#### 服务器配置校验TOKEN
+### 服务器配置校验TOKEN
 
 ![服务器配置](../assets/wx-mp-3.png)
 

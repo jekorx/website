@@ -2,7 +2,7 @@
 
 > Axios 是一个基于promise的HTTP库，可以用在浏览器和node.js中。
 
-#### 安装
+### 安装
 
 ```bash
 yarn add axios
@@ -11,7 +11,7 @@ yarn add axios
 npm i axios -S
 ```
 
-#### 基本使用
+### 基本使用
 
 ```javascript
 /**
@@ -86,7 +86,7 @@ async function gets () {
 }
 ```
 
-#### 常用配置
+### 常用配置
 
 ```javascript
 import axios from 'axios'
@@ -132,7 +132,7 @@ axios.interceptors.response.use(response => {
 })
 ```
 
-#### 使用全局默认配置，特殊使用时配置
+### 使用全局默认配置，特殊使用时配置
 
 > 使用了上述全局配置之后，请求头Content-Type会被设置为: application/x-www-form-urlencoded
 > 如果上传文件需要将Content-Type设置为multipart/form-data，具体使用如下所示
@@ -177,7 +177,7 @@ function fileChange (e) {
 }
 ```
 
-#### 详细配置
+### 详细配置
 
 ```javascript
 {

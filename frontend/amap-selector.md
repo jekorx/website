@@ -3,7 +3,7 @@
 > UI 框架结合 iview@^3.3.0  
 > 支持地址检索提示  
 
-#### 地图配置
+### 地图配置
 
 ```javascript
 // 版本
@@ -28,7 +28,7 @@ VueAMap.initAMapApiLoader({
 })
 ```
 
-#### map-selector 地图选择组件
+### map-selector 地图选择组件
 
 ![效果展示](../assets/amap-selector-1.jpg)
 
@@ -184,7 +184,7 @@ export default {
 </style>
 ```
 
-#### map-selector-modal 地图选择组件弹出框
+### map-selector-modal 地图选择组件弹出框
 
 ![效果展示](../assets/amap-selector-2.jpg)
 
