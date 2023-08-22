@@ -1,5 +1,6 @@
 https://www.wdg.pub/index/others.html
 https://www.wdg.pub/linux/mount.html
+https://www.wdg.pub/linux/shell.html
 https://www.wdg.pub/others/sys.html
 https://www.wdg.pub/
 https://www.wdg.pub/frontend/js-utils.html

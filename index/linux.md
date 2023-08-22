@@ -2,6 +2,7 @@
 
 > Linux系统下常用环境的安装以及相关配置，安装、配置、使用后总结。  
 
+> * [Shell](../linux/shell.md)
 > * [命令行](../linux/cmd.md)
 > * [Curl](../linux/curl.md)
 > * [Yum](../linux/yum.md)

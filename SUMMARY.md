@@ -63,6 +63,7 @@
   * [GitLab](git-svn/gitlab.md)
   * [Svn](git-svn/svn.md)
 * [Linux](index/linux.md)
+  * [Shell](linux/shell.md)
   * [命令行](linux/cmd.md)
   * [Curl](linux/curl.md)
   * [Yum](linux/yum.md)

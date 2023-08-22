@@ -21,6 +21,13 @@
 </url>
 
 <url>
+ <loc>https://www.wdg.pub/linux/shell.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2023-08-14</lastmod>
+ <changefreq>weekly</changefreq>
+</url>
+
+<url>
  <loc>https://www.wdg.pub/others/sys.html</loc>
  <priority>0.3</priority>
  <lastmod>2023-08-14</lastmod>
