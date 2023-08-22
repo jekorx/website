@@ -14,7 +14,8 @@
     "sharing-plus",
     "tbfed-pagefooter",
     "back-to-top-button",
-    "expandable-chapters-small"
+    "expandable-chapters-small",
+    "page-treeview"
   ],
   "pluginsConfig": {
     "github": {
@@ -24,6 +25,10 @@
       "css": [
         "prismjs/themes/prism-tomorrow.css"
       ]
+    },
+    "page-treeview": {
+      "minHeaderCount": "2",
+      "minHeaderDeep": "2"
     },
     "tbfed-pagefooter": {
       "copyright": "© 2023 www.wdg.pub",
