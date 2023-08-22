@@ -37,7 +37,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
                 
             
                 
@@ -1553,26 +1553,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; aleen42 all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#curl-&#x547D;&#x4EE4;&#x76F8;&#x5173;">curl &#x547D;&#x4EE4;&#x76F8;&#x5173;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li> 
-<ul>
-<li> 
-<ul>
-<li><div><a href="#&#x53C2;&#x6570;">&#x53C2;&#x6570;</a><i></i></div></li>
-<li><div><a href="#&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</a><i></i></div></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="curl-&#x547D;&#x4EE4;&#x76F8;&#x5173;">curl &#x547D;&#x4EE4;&#x76F8;&#x5173;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#curl-&#x547D;&#x4EE4;&#x76F8;&#x5173;"><b></b>curl &#x547D;&#x4EE4;&#x76F8;&#x5173;</a></li></ul></div><a href="#curl-&#x547D;&#x4EE4;&#x76F8;&#x5173;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="curl-&#x547D;&#x4EE4;&#x76F8;&#x5173;"><a name="curl-&#x547D;&#x4EE4;&#x76F8;&#x5173;" class="anchor-navigation-ex-anchor" href="#curl-&#x547D;&#x4EE4;&#x76F8;&#x5173;"><i class="fa fa-link" aria-hidden="true"></i></a>curl &#x547D;&#x4EE4;&#x76F8;&#x5173;</h1>
 <blockquote>
 <p>Curl&#x662F;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x4F20;&#x8F93;&#x4F7F;&#x7528;URL&#x8BED;&#x6CD5;&#x6307;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x3002;<br>&#x4EE5;Centos 7.4 &#x4E3A;&#x4F8B;  </p>
 </blockquote>
-<h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<h4 id="&#x53C2;&#x6570;"><a name="&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x6570;</h4>
 <table>
 <thead>
 <tr>
@@ -1619,48 +1604,48 @@
 </tr>
 </tbody>
 </table>
-<h4 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h4>
+<h4 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h4>
 <blockquote>
 <p>GET/POST/PUT/DELETE  </p>
 </blockquote>
-<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -X GET <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
-<span class="token function">curl</span> -X POST <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
-<span class="token function">curl</span> -X PUT <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
-<span class="token function">curl</span> -X DELETE <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> <span class="token parameter variable">-X</span> GET <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> PUT <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> DELETE <span class="token string">&quot;http://www.rest.com/api/users&quot;</span>
 </code></pre>
 <blockquote>
 <p>HEADER  </p>
 </blockquote>
-<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -v -i -H <span class="token string">&quot;Content-Type: application/json&quot;</span> <span class="token string">&quot;http://www.example.com/users&quot;</span>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> <span class="token parameter variable">-v</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-H</span> <span class="token string">&quot;Content-Type: application/json&quot;</span> <span class="token string">&quot;http://www.example.com/users&quot;</span>
 </code></pre>
 <blockquote>
 <p>&#x53C2;&#x6570;  </p>
 </blockquote>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x4F7F;&#x7528; `&amp;` &#x4E32;&#x63A5;&#x591A;&#x500B;&#x53C3;&#x6578;</span>
-<span class="token function">curl</span> -X POST -d <span class="token string">&quot;param1=value1&amp;param2=value2&quot;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST <span class="token parameter variable">-d</span> <span class="token string">&quot;param1=value1&amp;param2=value2&quot;</span>
 <span class="token comment"># &#x4E5F;&#x53EF;&#x4F7F;&#x7528;&#x591A;&#x500B; `-d`&#xFF0C;&#x6548;&#x679C;&#x540C;&#x4E0A;</span>
-<span class="token function">curl</span> -X POST -d <span class="token string">&quot;param1=value1&quot;</span> -d <span class="token string">&quot;param2=value2&quot;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST <span class="token parameter variable">-d</span> <span class="token string">&quot;param1=value1&quot;</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;param2=value2&quot;</span>
 </code></pre>
 <blockquote>
 <p>JSON &#x683C;&#x5F0F;&#x53C2;&#x6570;  </p>
 </blockquote>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x5982;&#x679C;&#x9700;&#x8981;&#x540C;&#x65F6;&#x4F20;&#x9001; request parameter &#x548C; json&#xFF0C;request parameter &#x53EF;&#x4EE5;&#x52A0;&#x5728; url &#x540E;&#x9762;&#xFF0C;json &#x53C2;&#x6570;&#x653E;&#x5165; -d &#x7684;&#x53C2;&#x6570;&#xFF0C;header &#x8981;&#x52A0;&#x5165; &quot;Content-Type:application/json&quot;</span>
 
-<span class="token function">curl</span> http://www.example.com?modifier<span class="token operator">=</span>kent -X PUT -i -H <span class="token string">&quot;Content-Type:application/json&quot;</span> -H <span class="token string">&quot;Accept:application/json&quot;</span> -d <span class="token string">&apos;{&quot;boolean&quot; : false, &quot;foo&quot; : &quot;bar&quot;}&apos;</span>
+<span class="token function">curl</span> http://www.example.com?modifier<span class="token operator">=</span>kent <span class="token parameter variable">-X</span> PUT <span class="token parameter variable">-i</span> <span class="token parameter variable">-H</span> <span class="token string">&quot;Content-Type:application/json&quot;</span> <span class="token parameter variable">-H</span> <span class="token string">&quot;Accept:application/json&quot;</span> <span class="token parameter variable">-d</span> <span class="token string">&apos;{&quot;boolean&quot; : false, &quot;foo&quot; : &quot;bar&quot;}&apos;</span>
 <span class="token comment"># &#x4E0D;&#x52A0;&quot;Accept:application/json&quot;&#x4E5F;&#x53EF;&#x4EE5;</span>
-<span class="token function">curl</span> http://www.example.com?modifier<span class="token operator">=</span>kent -X PUT -i -H <span class="token string">&quot;Content-Type:application/json&quot;</span> -d <span class="token string">&apos;{&quot;boolean&quot; : false, &quot;foo&quot; : &quot;bar&quot;}&apos;</span>
+<span class="token function">curl</span> http://www.example.com?modifier<span class="token operator">=</span>kent <span class="token parameter variable">-X</span> PUT <span class="token parameter variable">-i</span> <span class="token parameter variable">-H</span> <span class="token string">&quot;Content-Type:application/json&quot;</span> <span class="token parameter variable">-d</span> <span class="token string">&apos;{&quot;boolean&quot; : false, &quot;foo&quot; : &quot;bar&quot;}&apos;</span>
 </code></pre>
 <blockquote>
 <p>&#x767B;&#x5F55;&#x8BA4;&#x8BC1;&#xFF08;session / cookie&#xFF09;  </p>
 </blockquote>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># session</span>
-<span class="token function">curl</span> -X GET <span class="token string">&apos;http://www.rest.com/api/users&apos;</span> -H <span class="token string">&apos;sessionid:1234567890987654321&apos;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> GET <span class="token string">&apos;http://www.rest.com/api/users&apos;</span> <span class="token parameter variable">-H</span> <span class="token string">&apos;sessionid:1234567890987654321&apos;</span>
 
 <span class="token comment"># cookie</span>
 <span class="token comment"># &#x5C06; cookie &#x5B58;&#x6863;</span>
-<span class="token function">curl</span> -i -X POST -d <span class="token assign-left variable">username</span><span class="token operator">=</span>kent -d <span class="token assign-left variable">password</span><span class="token operator">=</span>kent123 -c ~/cookie.txt <span class="token string">&quot;http://www.rest.com/auth&quot;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-X</span> POST <span class="token parameter variable">-d</span> <span class="token assign-left variable">username</span><span class="token operator">=</span>kent <span class="token parameter variable">-d</span> <span class="token assign-left variable">password</span><span class="token operator">=</span>kent123 <span class="token parameter variable">-c</span> ~/cookie.txt <span class="token string">&quot;http://www.rest.com/auth&quot;</span>
 <span class="token comment"># &#x5C06; cookie &#x8BBE;&#x7F6E;&#x5230; request &#x4E2D; </span>
-<span class="token function">curl</span> -i -X <span class="token string">&quot;Accept:application/json&quot;</span> -X GET -b ~/cookie.txt <span class="token string">&quot;http://www.rest.com/users/1&quot;</span>
+<span class="token function">curl</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-X</span> <span class="token string">&quot;Accept:application/json&quot;</span> <span class="token parameter variable">-X</span> GET <span class="token parameter variable">-b</span> ~/cookie.txt <span class="token string">&quot;http://www.rest.com/users/1&quot;</span>
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2023 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
 2023-05-06
@@ -1707,7 +1692,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Curl","level":"1.11.3","depth":2,"next":{"title":"Yum","level":"1.11.4","depth":2,"path":"linux/yum.md","ref":"linux/yum.md","articles":[]},"previous":{"title":"命令行","level":"1.11.2","depth":2,"path":"linux/cmd.md","ref":"linux/cmd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"page-treeview":{"collapsed":false,"copyright":"Copyright © aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/curl.md","mtime":"2023-05-06T06:29:08.609Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:37:36.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Curl","level":"1.11.3","depth":2,"next":{"title":"Yum","level":"1.11.4","depth":2,"path":"linux/yum.md","ref":"linux/yum.md","articles":[]},"previous":{"title":"命令行","level":"1.11.2","depth":2,"path":"linux/cmd.md","ref":"linux/cmd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","ancre-navigation"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/curl.md","mtime":"2023-05-06T06:29:08.609Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:42:31.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

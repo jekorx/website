@@ -37,7 +37,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
                 
             
                 
@@ -1553,28 +1553,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; aleen42 all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#pm2&#xFF08;process-manager-2&#xFF09;">PM2&#xFF08;Process Manager 2&#xFF09;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li> 
-<ul>
-<li> 
-<ul>
-<li><div><a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;">&#x5E38;&#x7528;&#x547D;&#x4EE4;</a><i></i></div></li>
-<li><div><a href="#&#x5E38;&#x89C1;&#x9519;&#x8BEF;">&#x5E38;&#x89C1;&#x9519;&#x8BEF;</a><i></i></div></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="pm2&#xFF08;process-manager-2&#xFF09;">PM2&#xFF08;Process Manager 2&#xFF09;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#pm2&#xFF08;process-manager-2&#xFF09;"><b></b>PM2&#xFF08;Process Manager 2&#xFF09;</a></li></ul></div><a href="#pm2&#xFF08;process-manager-2&#xFF09;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="pm2&#xFF08;process-manager-2&#xFF09;"><a name="pm2&#xFF08;process-manager-2&#xFF09;" class="anchor-navigation-ex-anchor" href="#pm2&#xFF08;process-manager-2&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>PM2&#xFF08;Process Manager 2&#xFF09;</h1>
 <blockquote>
 <p>Node&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x7B80;&#x5316;Node App&#x7BA1;&#x7406;&#x7684;&#x7E41;&#x7410;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x3001;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#x3001;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B49;&#x3002;</p>
 </blockquote>
-<h4 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;">&#x5E38;&#x7528;&#x547D;&#x4EE4;</h4>
+<h4 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a name="&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x7528;&#x547D;&#x4EE4;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x542F;&#x52A8;app</span>
-pm2 start <span class="token function">yarn</span> --name AppName -- start
+pm2 start <span class="token function">yarn</span> <span class="token parameter variable">--name</span> AppName -- start
 
 <span class="token comment"># &#x67E5;&#x770B;&#x6240;&#x6709;app</span>
 pm2 list
@@ -1582,7 +1567,7 @@ pm2 list
 pm2 <span class="token function">ls</span>
 
 <span class="token comment"># &#x542F;&#x52A8;&#xFF0C;all&#x8868;&#x793A;&#x5168;&#x90E8;app&#xFF0C;CMD&#x8868;&#x793A;&#x547D;&#x4EE4;&#xFF08;&#x5982;&#xFF1A;yarn&#xFF09;&#xFF0C;-i max &#x8868;&#x793A;cluster&#x6A21;&#x5F0F;&#xFF0C;&#x6570;&#x91CF;&#x4E3A;&#x6700;&#x5927;cpu&#x6838;&#x6570;&#xFF0C;--watch&#x8868;&#x793A;&#x5F53;&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x65F6;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#x5E94;&#x7528;&#xFF0C;args&#x8868;&#x793A;&#x53C2;&#x6570;</span>
-pm2 start <span class="token punctuation">[</span>id <span class="token operator">|</span> AppName <span class="token operator">|</span> all <span class="token operator">|</span> CMD<span class="token punctuation">]</span> --name <span class="token punctuation">[</span>AppName<span class="token punctuation">]</span> -i max --watch -- <span class="token punctuation">[</span>args<span class="token punctuation">]</span>
+pm2 start <span class="token punctuation">[</span>id <span class="token operator">|</span> AppName <span class="token operator">|</span> all <span class="token operator">|</span> CMD<span class="token punctuation">]</span> <span class="token parameter variable">--name</span> <span class="token punctuation">[</span>AppName<span class="token punctuation">]</span> <span class="token parameter variable">-i</span> max <span class="token parameter variable">--watch</span> -- <span class="token punctuation">[</span>args<span class="token punctuation">]</span>
 
 <span class="token comment"># &#x505C;&#x6B62;&#xFF0C;all&#x8868;&#x793A;&#x5168;&#x90E8;app</span>
 pm2 stop <span class="token punctuation">[</span>id <span class="token operator">|</span> AppName <span class="token operator">|</span> all<span class="token punctuation">]</span>
@@ -1602,7 +1587,7 @@ pm2 monit <span class="token punctuation">[</span>id <span class="token operator
 <span class="token comment"># &#x65E5;&#x5FD7;</span>
 pm2 logs
 </code></pre>
-<h4 id="&#x5E38;&#x89C1;&#x9519;&#x8BEF;">&#x5E38;&#x89C1;&#x9519;&#x8BEF;</h4>
+<h4 id="&#x5E38;&#x89C1;&#x9519;&#x8BEF;"><a name="&#x5E38;&#x89C1;&#x9519;&#x8BEF;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x89C1;&#x9519;&#x8BEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x89C1;&#x9519;&#x8BEF;</h4>
 <blockquote>
 <p>windows&#x7CFB;&#x7EDF;&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#xFF08;1&#xFF09;</p>
 </blockquote>
@@ -1628,7 +1613,7 @@ C:<span class="token punctuation">\</span>USERS<span class="token punctuation">\
 &#x5728;Windows&#x4E0A;&#xFF0C;yarn.cmd&#x5B83;&#x4E0D;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x60A8;&#x5FC5;&#x987B;&#x76F4;&#x63A5;&#x8FD0;&#x884C;Node.js&#x547D;&#x4EE4;
 
 <span class="token comment"># &#x89E3;&#x51B3;&#x65B9;&#x6CD5;</span>
-pm2 start C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span><span class="token operator">&lt;</span>username<span class="token operator">&gt;</span><span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Roaming<span class="token punctuation">\</span>npm<span class="token punctuation">\</span>node_modules<span class="token punctuation">\</span>yarn<span class="token punctuation">\</span>bin<span class="token punctuation">\</span>yarn.js --name nuxt -- start
+pm2 start C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span><span class="token operator">&lt;</span>username<span class="token operator">&gt;</span><span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Roaming<span class="token punctuation">\</span>npm<span class="token punctuation">\</span>node_modules<span class="token punctuation">\</span>yarn<span class="token punctuation">\</span>bin<span class="token punctuation">\</span>yarn.js <span class="token parameter variable">--name</span> nuxt -- start
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2023 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
 2022-05-22
@@ -1675,7 +1660,7 @@ pm2 start C:<span class="token punctuation">\</span>Users<span class="token punc
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"PM2","level":"1.2.3","depth":2,"next":{"title":"Http-Server","level":"1.2.4","depth":2,"path":"nodejs/http-server.md","ref":"nodejs/http-server.md","articles":[]},"previous":{"title":"Yarn","level":"1.2.2","depth":2,"path":"nodejs/yarn.md","ref":"nodejs/yarn.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"page-treeview":{"collapsed":false,"copyright":"Copyright © aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"nodejs/process-manager.md","mtime":"2022-05-22T13:03:46.858Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:37:36.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"PM2","level":"1.2.3","depth":2,"next":{"title":"Http-Server","level":"1.2.4","depth":2,"path":"nodejs/http-server.md","ref":"nodejs/http-server.md","articles":[]},"previous":{"title":"Yarn","level":"1.2.2","depth":2,"path":"nodejs/yarn.md","ref":"nodejs/yarn.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","ancre-navigation"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"nodejs/process-manager.md","mtime":"2022-05-22T13:03:46.858Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:42:31.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

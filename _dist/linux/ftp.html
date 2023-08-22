@@ -37,7 +37,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
                 
             
                 
@@ -1553,49 +1553,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; aleen42 all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#ftp&#x670D;&#x52A1;&#x5668;">FTP&#x670D;&#x52A1;&#x5668;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li> 
-<ul>
-<li> 
-<ul>
-<li><div><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a><i></i></div></li>
-<li><div><a href="#&#x76F8;&#x5173;&#x95EE;&#x9898;">&#x76F8;&#x5173;&#x95EE;&#x9898;</a><i></i></div></li>
-</ul></li>
-</ul></li>
-<li><div><a href="#sftp&#x670D;&#x52A1;&#x5668;">SFTP&#x670D;&#x52A1;&#x5668;</a><i></i></div></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="ftp&#x670D;&#x52A1;&#x5668;">FTP&#x670D;&#x52A1;&#x5668;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#ftp&#x670D;&#x52A1;&#x5668;"><b></b>FTP&#x670D;&#x52A1;&#x5668;</a></li><ul><li><span class="title-icon "></span><a href="#sftp&#x670D;&#x52A1;&#x5668;"><b></b>SFTP&#x670D;&#x52A1;&#x5668;</a></li></ul></ul></div><a href="#ftp&#x670D;&#x52A1;&#x5668;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="ftp&#x670D;&#x52A1;&#x5668;"><a name="ftp&#x670D;&#x52A1;&#x5668;" class="anchor-navigation-ex-anchor" href="#ftp&#x670D;&#x52A1;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>FTP&#x670D;&#x52A1;&#x5668;</h1>
 <blockquote>
 <p>&#x4EE5;Centos 7.4 &#x4E3A;&#x4F8B; </p>
 </blockquote>
-<h4 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h4>
+<h4 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x67E5;&#x8BE2;&#x662F;&#x5426;&#x5B89;&#x88C5;vsftpd</span>
-<span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> vsftpd
+<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> vsftpd
 
 <span class="token comment"># &#x5B89;&#x88C5;</span>
-yum <span class="token function">install</span> -y vsftpd
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> vsftpd
 
 <span class="token comment"># &#x521B;&#x5EFA;ftp&#x4E3B;&#x76EE;&#x5F55;</span>
 <span class="token comment">#mkdir /opt/www/ftp</span>
 
 <span class="token comment"># &#x521B;&#x5EFA;ftp&#x7528;&#x6237;</span>
-<span class="token function">useradd</span> -d /opt/www/ftp -m ftpuser
+<span class="token function">useradd</span> <span class="token parameter variable">-d</span> /opt/www/ftp <span class="token parameter variable">-m</span> ftpuser
 
 <span class="token comment"># &#x8BBE;&#x7F6E;&#x65B0;&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
 <span class="token function">passwd</span> ftpuser
 
 <span class="token comment"># &#x66F4;&#x6539;&#x7528;&#x6237;&#x6743;&#x9650;</span>
-<span class="token function">usermod</span> -s /sbin/nologin ftpuser <span class="token comment"># &#x9650;&#x5B9A;&#x7528;&#x6237;ftpuser&#x4E0D;&#x80FD;telnet&#xFF0C;&#x53EA;&#x80FD;ftp</span>
+<span class="token function">usermod</span> <span class="token parameter variable">-s</span> /sbin/nologin ftpuser <span class="token comment"># &#x9650;&#x5B9A;&#x7528;&#x6237;ftpuser&#x4E0D;&#x80FD;telnet&#xFF0C;&#x53EA;&#x80FD;ftp</span>
 <span class="token comment"># usermod -s /sbin/bash ftpuser # &#x7528;&#x6237;ftpuser&#x6062;&#x590D;&#x6B63;&#x5E38;</span>
 <span class="token comment"># usermod -d /opt/www/ftp ftpuser # &#x66F4;&#x6539;&#x7528;&#x6237;ftpuser&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x4E3A;/opt/www/ftp</span>
 
 <span class="token comment"># &#x6587;&#x4EF6;&#x6388;&#x6743;&#x7ED9;ftp&#x7528;&#x6237;</span>
-<span class="token function">chown</span> -R ftpuser /opt/www/ftp
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> ftpuser /opt/www/ftp
 
 <span class="token comment"># &#x8FDB;&#x5165;vsftpd&#x76EE;&#x5F55;</span>
 <span class="token builtin class-name">cd</span> /etc/vsftpd
@@ -1628,7 +1612,7 @@ systemctl start vsftpd
 <span class="token comment"># &#x5F00;&#x673A;&#x81EA;&#x52A8;&#x542F;&#x7684;</span>
 systemctl <span class="token builtin class-name">enable</span> vsftpd
 </code></pre>
-<h4 id="&#x76F8;&#x5173;&#x95EE;&#x9898;">&#x76F8;&#x5173;&#x95EE;&#x9898;</h4>
+<h4 id="&#x76F8;&#x5173;&#x95EE;&#x9898;"><a name="&#x76F8;&#x5173;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x76F8;&#x5173;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x76F8;&#x5173;&#x95EE;&#x9898;</h4>
 <blockquote>
 <p>&#x4E91;&#x670D;&#x52A1;&#x5668;&#x8BBE;&#x7F6E;&#x5B89;&#x5168;&#x7EC4;&#x540E;&#x9700;&#x8981;&#x5F00;&#x653E;&#x76F8;&#x5173;&#x63A5;&#x53E3; </p>
 </blockquote>
@@ -1649,11 +1633,11 @@ systemctl <span class="token builtin class-name">enable</span> vsftpd
 
 <span class="token builtin class-name">cd</span> /opt
 
-<span class="token function">chown</span> -R ftpuser www/ftp/
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> ftpuser www/ftp/
 
 <span class="token builtin class-name">cd</span> /opt/www/ftp
 
-<span class="token function">chown</span> -R ftpuser images/
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> ftpuser images/
 
 <span class="token comment"># &#x7279;&#x6B8A;&#x60C5;&#x51B5;&#xFF01;&#x5982;&#x679C;&#x4E0E;ftpuser&#x540C;&#x4E00;&#x7528;&#x6237;&#x7EC4;&#x7528;&#x6237;test&#x4E5F;&#x9700;&#x8981;&#x8BBF;&#x95EE;/opt/www/ftp&#xFF0C;&#x9700;&#x8981;&#x7ED9;www/ftp&#x6587;&#x4EF6;&#x5939;&#x8BBE;&#x7F6E;&#x6743;&#x9650;  </span>
 
@@ -1684,12 +1668,12 @@ systemctl restart vsftpd
 </blockquote>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x66F4;&#x6539;Filezilla&#x8BBE;&#x7F6E;&#xFF0C;&#x7F16;&#x8F91;-&#x8BBE;&#x7F6E;-&#x8FDE;&#x63A5;-FTP-&#x88AB;&#x52A8;&#x6A21;&#x5F0F;&#xFF0C;&#x5C06;&#x201C;&#x4F7F;&#x7528;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5916;&#x90E8;ip&#x5730;&#x5740;&#x6765;&#x4EE3;&#x66FF;&#x201D;&#x6539;&#x4E3A;&#x201C;&#x56DE;&#x5230;&#x4E3B;&#x52A8;&#x6A21;&#x5F0F;&#x201D;&#x5373;&#x53EF;&#x3002;</span>
 </code></pre>
-<h2 id="sftp&#x670D;&#x52A1;&#x5668;">SFTP&#x670D;&#x52A1;&#x5668;</h2>
+<h2 id="sftp&#x670D;&#x52A1;&#x5668;"><a name="sftp&#x670D;&#x52A1;&#x5668;" class="anchor-navigation-ex-anchor" href="#sftp&#x670D;&#x52A1;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>SFTP&#x670D;&#x52A1;&#x5668;</h2>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;</span>
 <span class="token function">groupadd</span> <span class="token function">sftp</span>
 
 <span class="token comment"># &#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF0C;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x9650;&#x5B9A;&#x53EA;&#x80FD;ftp&#x767B;&#x5F55;</span>
-<span class="token function">useradd</span> -d /opt/www/sftp -g <span class="token function">sftp</span> -s /sbin/nologin sftpuser
+<span class="token function">useradd</span> <span class="token parameter variable">-d</span> /opt/www/sftp <span class="token parameter variable">-g</span> <span class="token function">sftp</span> <span class="token parameter variable">-s</span> /sbin/nologin sftpuser
 
 <span class="token comment"># &#x8BBE;&#x7F6E;&#x5BC6;&#x7801;</span>
 <span class="token function">passwd</span> sftpuser
@@ -1710,12 +1694,12 @@ Match Group <span class="token function">sftp</span>
 <span class="token comment"># &#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6743;&#x9650;</span>
 <span class="token comment"># ChrootDirectory /opt/www/sftp &#x76EE;&#x5F55;&#x6240;&#x6709;&#x8005;&#x5FC5;&#x987B;&#x4E3A;root&#xFF0C;&#x8BBE;&#x7F6E;sftp&#x7528;&#x6237;&#x7EC4;</span>
 <span class="token comment"># /opt/www/sftp &#x53CA; /opt/www/sftp/assets &#x76EE;&#x5F55;&#x6743;&#x9650;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;755</span>
-<span class="token function">chown</span> -R root:sftp /opt/www/sftp
-<span class="token function">chmod</span> -R <span class="token number">755</span> /opt/www/sftp
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> root:sftp /opt/www/sftp
+<span class="token function">chmod</span> <span class="token parameter variable">-R</span> <span class="token number">755</span> /opt/www/sftp
 <span class="token builtin class-name">cd</span> /opt/www/sftp
 <span class="token function">mkdir</span> assets
-<span class="token function">chown</span> -R sftpuser:sftp /opt/www/sftp/assets
-<span class="token function">chmod</span> -R <span class="token number">755</span> /opt/www/sftp/assets
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> sftpuser:sftp /opt/www/sftp/assets
+<span class="token function">chmod</span> <span class="token parameter variable">-R</span> <span class="token number">755</span> /opt/www/sftp/assets
 
 <span class="token comment"># &#x91CD;&#x542F;ssh&#x670D;&#x52A1;</span>
 systemctl restart sshd
@@ -1773,7 +1757,7 @@ spring.servlet.multipart.max-file-size <span class="token operator">=</span> 10M
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ftp服务器","level":"1.11.19","depth":2,"next":{"title":"Jenkins","level":"1.11.20","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},"previous":{"title":"RabbitMQ","level":"1.11.18","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"page-treeview":{"collapsed":false,"copyright":"Copyright © aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/ftp.md","mtime":"2022-05-22T13:03:46.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:37:36.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ftp服务器","level":"1.11.19","depth":2,"next":{"title":"Jenkins","level":"1.11.20","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},"previous":{"title":"RabbitMQ","level":"1.11.18","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","ancre-navigation"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/ftp.md","mtime":"2022-05-22T13:03:46.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:42:31.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

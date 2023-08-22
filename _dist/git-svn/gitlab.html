@@ -37,7 +37,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
                 
             
                 
@@ -1553,27 +1553,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; aleen42 all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#gitlab">GitLab</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li> 
-<ul>
-<li> 
-<ul>
-<li><div><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a><i></i></div></li>
-<li><div><a href="#&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a><i></i></div></li>
-<li><div><a href="#&#x8FD0;&#x884C;">&#x8FD0;&#x884C;</a><i></i></div></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="gitlab">GitLab</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#gitlab"><b></b>GitLab</a></li></ul></div><a href="#gitlab" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="gitlab"><a name="gitlab" class="anchor-navigation-ex-anchor" href="#gitlab"><i class="fa fa-link" aria-hidden="true"></i></a>GitLab</h1>
 <blockquote>
 <p>&#x4EE5;Centos 7.4&#xFF0C;GitLab 11.8.1 (ce&#x793E;&#x533A;&#x7248;) &#x4E3A;&#x4F8B;  </p>
 </blockquote>
-<h4 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h4>
+<h4 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x4F9D;&#x8D56;&#xFF0C;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#xFF0C;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x8BE5;&#x6B65;</span>
 <span class="token comment">#sudo yum install -y curl policycoreutils-python openssh-server</span>
 <span class="token comment"># &#x5728;&#x9632;&#x706B;&#x5899;&#x6253;&#x5F00;http&#x548C;ssh&#x8BBF;&#x95EE;</span>
@@ -1588,9 +1572,9 @@
 <span class="token function">curl</span> https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">bash</span>
 
 <span class="token comment"># &#x5B89;&#x88C5;GitLab&#x5305;</span>
-yum <span class="token function">install</span> -y gitlab-ce
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> gitlab-ce
 </code></pre>
-<h4 id="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h4>
+<h4 id="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a name="&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
 <span class="token function">vim</span> /etc/gitlab/gitlab.rb
 
@@ -1638,7 +1622,7 @@ gitlab-rails console
 <span class="token comment"># &#x53D1;&#x9001;&#x6D4B;&#x8BD5;&#x90AE;&#x4EF6;</span>
 Notify.test_email<span class="token punctuation">(</span><span class="token string">&apos;&#x6536;&#x4EF6;&#x7BB1;&apos;</span>, <span class="token string">&apos;&#x6807;&#x9898;&apos;</span>, <span class="token string">&apos;&#x5185;&#x5BB9;&apos;</span><span class="token punctuation">)</span>.deliver_now
 </code></pre>
-<h4 id="&#x8FD0;&#x884C;">&#x8FD0;&#x884C;</h4>
+<h4 id="&#x8FD0;&#x884C;"><a name="&#x8FD0;&#x884C;" class="anchor-navigation-ex-anchor" href="#&#x8FD0;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x91CD;&#x65B0;&#x88C5;&#x914D;</span>
 gitlab-ctl reconfigure
 
@@ -1696,7 +1680,7 @@ gitlab-ctl stop
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GitLab","level":"1.10.2","depth":2,"next":{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]},"previous":{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"page-treeview":{"collapsed":false,"copyright":"Copyright © aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/gitlab.md","mtime":"2022-05-22T13:03:46.855Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:37:36.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GitLab","level":"1.10.2","depth":2,"next":{"title":"Svn","level":"1.10.3","depth":2,"path":"git-svn/svn.md","ref":"git-svn/svn.md","articles":[]},"previous":{"title":"Git","level":"1.10.1","depth":2,"path":"git-svn/git.md","ref":"git-svn/git.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","ancre-navigation"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"git-svn/gitlab.md","mtime":"2022-05-22T13:03:46.855Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:42:31.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

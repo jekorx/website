@@ -37,7 +37,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
                 
             
                 
@@ -1553,26 +1553,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; aleen42 all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#mysql">MySQL</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li> 
-<ul>
-<li> 
-<ul>
-<li> 
-<ul>
-<li><div><a href="#1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;">1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;</a><i></i></div></li>
-<li><div><a href="#2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;">2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;</a><i></i></div></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="mysql">MySQL</h1>
-<h5 id="1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;">1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;</h5>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#mysql"><b></b>MySQL</a></li></ul></div><a href="#mysql" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="mysql"><a name="mysql" class="anchor-navigation-ex-anchor" href="#mysql"><i class="fa fa-link" aria-hidden="true"></i></a>MySQL</h1>
+<h5 id="1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;"><a name="1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;" class="anchor-navigation-ex-anchor" href="#1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>1&#x3001;&#x6839;&#x636E;&#x65E5;&#x671F;&#x83B7;&#x53D6;&#x5468;&#x6570;</h5>
 <pre class="language-"><code class="lang-sql"><span class="token comment">-- &#x6309;&#x7167;&#x5468;&#x6570;&#x7EDF;&#x8BA1;&#xFF0C;&#x53EF;&#x80FD;&#x67D0;&#x5E74;&#x7684;&#x6700;&#x540E;&#x4E00;&#x5929;&#x4E3A;&#x7B2C;&#x4E00;&#x5468;&#xFF0C;&#x5982;&#xFF1A;2019-12-30&#x5468;&#x6570;&#x4E3A;&#x7B2C;&#x4E00;&#x5468;</span>
 <span class="token keyword">SELECT</span> WEEK <span class="token punctuation">(</span>date_add<span class="token punctuation">(</span><span class="token string">&apos;&lt;yyyy-MM-dd&gt;&apos;</span><span class="token punctuation">,</span> <span class="token keyword">INTERVAL</span> <span class="token number">6</span> <span class="token keyword">DAY</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1580,7 +1562,7 @@
 SELECT WEEK (date_add(&apos;2019-12-30&apos;, INTERVAL 6 DAY), 2);
 */</span>
 </code></pre>
-<h5 id="2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;">2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;</h5>
+<h5 id="2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;"><a name="2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;" class="anchor-navigation-ex-anchor" href="#2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;"><i class="fa fa-link" aria-hidden="true"></i></a>2&#x3001;&#x81EA;&#x589E;&#x5B57;&#x6BB5;</h5>
 <blockquote>
 <p>&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x8868;&#x7684;&#x81EA;&#x589E;id&#x4E3B;&#x952E;  </p>
 </blockquote>
@@ -1652,7 +1634,7 @@ AUTO_INCREMENT = 1;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.9.1","depth":2,"next":{"title":"PostgreSQL","level":"1.9.2","depth":2,"path":"sql/postgresql.md","ref":"sql/postgresql.md","articles":[]},"previous":{"title":"SQL","level":"1.9","depth":1,"path":"index/sql.md","ref":"index/sql.md","articles":[{"title":"MySQL","level":"1.9.1","depth":2,"path":"sql/mysql.md","ref":"sql/mysql.md","articles":[]},{"title":"PostgreSQL","level":"1.9.2","depth":2,"path":"sql/postgresql.md","ref":"sql/postgresql.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"page-treeview":{"collapsed":false,"copyright":"Copyright © aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"sql/mysql.md","mtime":"2022-05-22T13:03:46.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:37:36.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.9.1","depth":2,"next":{"title":"PostgreSQL","level":"1.9.2","depth":2,"path":"sql/postgresql.md","ref":"sql/postgresql.md","articles":[]},"previous":{"title":"SQL","level":"1.9","depth":1,"path":"index/sql.md","ref":"index/sql.md","articles":[{"title":"MySQL","level":"1.9.1","depth":2,"path":"sql/mysql.md","ref":"sql/mysql.md","articles":[]},{"title":"PostgreSQL","level":"1.9.2","depth":2,"path":"sql/postgresql.md","ref":"sql/postgresql.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","ancre-navigation"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"sql/mysql.md","mtime":"2022-05-22T13:03:46.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:42:31.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

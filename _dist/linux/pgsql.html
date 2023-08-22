@@ -37,7 +37,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
                 
             
                 
@@ -1553,37 +1553,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; aleen42 all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
-<li><div><a href="#postgresql">PostgreSQL</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
-<ul>
-<li> 
-<ul>
-<li> 
-<ul>
-<li><div><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a><i></i></div></li>
-<li><div><a href="#&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</a><i></i></div></li>
-<li><div><a href="#&#x5378;&#x8F7D;">&#x5378;&#x8F7D;</a><i></i></div></li>
-<li><div><a href="#&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;</a><i></i></div></li>
-<li><div><a href="#&#x57FA;&#x672C;&#x8BED;&#x6CD5;">&#x57FA;&#x672C;&#x8BED;&#x6CD5;</a><i></i></div></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-
-<h1 id="postgresql">PostgreSQL</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#postgresql"><b></b>PostgreSQL</a></li></ul></div><a href="#postgresql" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="postgresql"><a name="postgresql" class="anchor-navigation-ex-anchor" href="#postgresql"><i class="fa fa-link" aria-hidden="true"></i></a>PostgreSQL</h1>
 <blockquote>
 <p>&#x4EE5;Centos 7.4&#xFF0C;PostgreSQL11.x&#x4E3A;&#x4F8B;  </p>
 </blockquote>
-<h4 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h4>
+<h4 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x5B98;&#x7F51;&#x83B7;&#x53D6;&#x4E0B;&#x8F7D;&#x5730;&#x5740;</span>
 <span class="token comment"># https://www.postgresql.org/download/linux/redhat/</span>
 
 <span class="token comment"># 2&#x3001;&#x5B89;&#x88C5;&#x5B58;&#x50A8;&#x5E93;RPM</span>
-yum <span class="token function">install</span> -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
 <span class="token comment"># 3&#x3001;&#x5B89;&#x88C5;pgsql&#x670D;&#x52A1;</span>
-yum <span class="token function">install</span> -y postgresql11 postgresql11-server
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> postgresql11 postgresql11-server
 
 <span class="token comment"># 4&#x3001;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x5E93;</span>
 /usr/pgsql-11/bin/postgresql-11-setup initdb
@@ -1596,11 +1578,11 @@ systemctl <span class="token builtin class-name">enable</span> postgresql-11
 
 <span class="token comment"># 7&#x3001;&#x8BBE;&#x7F6E;postgres&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
 <span class="token comment"># &#x5220;&#x9664;&#x539F;&#x5BC6;&#x7801;</span>
-<span class="token function">sudo</span> <span class="token function">passwd</span> -d postgres
+<span class="token function">sudo</span> <span class="token function">passwd</span> <span class="token parameter variable">-d</span> postgres
 <span class="token comment"># &#x8BBE;&#x7F6E;&#x65B0;&#x5BC6;&#x7801;</span>
-<span class="token function">sudo</span> -u postgres <span class="token function">passwd</span>
+<span class="token function">sudo</span> <span class="token parameter variable">-u</span> postgres <span class="token function">passwd</span>
 </code></pre>
-<h4 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h4>
+<h4 id="&#x914D;&#x7F6E;"><a name="&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;</span>
 <span class="token function">vim</span> /var/lib/pgsql/11/data/postgresql.conf
 
@@ -1609,14 +1591,14 @@ listen_addresses <span class="token operator">=</span> <span class="token string
 <span class="token comment"># &#x4FEE;&#x6539;&#x7AEF;&#x53E3;&#xFF0C;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;&#x5F00;&#x653E;&#x7AEF;&#x53E3;&#xFF0C;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#xFF1A;5432</span>
 port <span class="token operator">=</span> <span class="token number">5432</span> <span class="token comment"># line.63</span>
 </code></pre>
-<h4 id="&#x5378;&#x8F7D;">&#x5378;&#x8F7D;</h4>
+<h4 id="&#x5378;&#x8F7D;"><a name="&#x5378;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#&#x5378;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5378;&#x8F7D;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x67E5;&#x8BE2;&#x5B89;&#x88C5;&#x7684;&#x5305;</span>
-<span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> postgresql
+<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> postgresql
 
 <span class="token comment"># 2&#x3001;&#x5378;&#x8F7D;&#xFF0C;&#x591A;&#x4E2A;&#x5305;&#xFF0C;&#x7A7A;&#x683C;&#x9694;&#x5F00;</span>
 yum remove <span class="token operator">&lt;</span>&#x5305;1 &#x5305;2 &#x5305;<span class="token operator"><span class="token file-descriptor important">3</span>&gt;</span>
 </code></pre>
-<h4 id="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;</h4>
+<h4 id="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;"><a name="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7528;&#x6237;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># 1&#x3001;&#x5207;&#x6362;&#x5230;postgres&#x7528;&#x6237;</span>
 <span class="token function">su</span> postgres
 
@@ -1651,7 +1633,7 @@ psql
 <span class="token comment"># 9&#x3001;&#x91CD;&#x542F;&#x670D;&#x52A1;</span>
 systemctl restart postgresql-11
 </code></pre>
-<h4 id="&#x57FA;&#x672C;&#x8BED;&#x6CD5;">&#x57FA;&#x672C;&#x8BED;&#x6CD5;</h4>
+<h4 id="&#x57FA;&#x672C;&#x8BED;&#x6CD5;"><a name="&#x57FA;&#x672C;&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x672C;&#x8BED;&#x6CD5;</h4>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># &#x67E5;&#x770B;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;</span>
 <span class="token punctuation">\</span>l
 
@@ -1709,7 +1691,7 @@ systemctl restart postgresql-11
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"PostgreSQL","level":"1.11.11","depth":2,"next":{"title":"挂载硬盘","level":"1.11.12","depth":2,"path":"linux/mount.md","ref":"linux/mount.md","articles":[]},"previous":{"title":"MySQL","level":"1.11.10","depth":2,"path":"linux/mysql.md","ref":"linux/mysql.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","page-treeview"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"page-treeview":{"collapsed":false,"copyright":"Copyright © aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/pgsql.md","mtime":"2022-05-22T13:03:46.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:37:36.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"PostgreSQL","level":"1.11.11","depth":2,"next":{"title":"挂载硬盘","level":"1.11.12","depth":2,"path":"linux/mount.md","ref":"linux/mount.md","articles":[]},"previous":{"title":"MySQL","level":"1.11.10","depth":2,"path":"linux/mysql.md","ref":"linux/mysql.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","back-to-top-button","expandable-chapters-small","ancre-navigation"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/pgsql.md","mtime":"2022-05-22T13:03:46.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T08:42:31.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
