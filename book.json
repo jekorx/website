@@ -30,6 +30,9 @@
       "modify_label": "Last modified: ",
       "modify_format": "YYYY-MM-DD"
     },
+    "anchor-navigation-ex": {
+      "showLevel": false
+    },
     "sharing": {
       "douban": false,
       "facebook": false,
