@@ -1590,9 +1590,9 @@ drwxr-xr-x  4 username  staff   128B  8 18 14:58 symbol
 
 r w x
 &#x252C; &#x252C; &#x252C;
-&#x2502; &#x2502; &#x2514;&#x2192; executable -&gt; 1
-&#x2502; &#x2514;&#x2192; writeable    -&gt; 2
-&#x2514;&#x2192; readable       -&gt; 4
+&#x2502; &#x2502; &#x2514;&#x2192; executable -&gt; 1 (001)
+&#x2502; &#x2514;&#x2192; writeable    -&gt; 2 (010)
+&#x2514;&#x2192; readable       -&gt; 4 (100)
 
 r-- = 4
 r-x = 5
@@ -1816,7 +1816,7 @@ Z-shell&#xFF08;/bin/zsh&#xFF09;
 <tr>
 <td style="text-align:center">= &#xFF0C;==</td>
 <td>&#x76F8;&#x7B49;&#x3002;&#x7528;&#x4E8E;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x76F8;&#x540C;&#x5219;&#x8FD4;&#x56DE; true&#x3002;</td>
-<td>[ $a == $b ] &#x8FD4;&#x56DE; false&#x3002;</td>
+<td>[ $a = $b ] &#x6216;&#x8005; (( a == b )) &#x8FD4;&#x56DE; false&#x3002;</td>
 </tr>
 <tr>
 <td style="text-align:center">!=</td>
@@ -1845,7 +1845,7 @@ Z-shell&#xFF08;/bin/zsh&#xFF09;
 <span class="token assign-left variable">val</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> $b % $a<span class="token variable">`</span></span>
 <span class="token builtin class-name">echo</span> <span class="token string">&quot;b % a : <span class="token variable">$val</span>&quot;</span>
 
-<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$b</span> <span class="token punctuation">]</span> <span class="token comment"># zsh &#x4E0B;&#x4E0D;&#x662F; == &#x800C;&#x662F; =</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$b</span> <span class="token punctuation">]</span> <span class="token comment"># zsh &#x4E0B;&#x4E0D;&#x662F; == &#x800C;&#x662F; = &#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; == &#xFF0C;&#x5219; (( a == b ))</span>
 <span class="token keyword">then</span>
   <span class="token builtin class-name">echo</span> <span class="token string">&quot;a &#x7B49;&#x4E8E; b&quot;</span>
 <span class="token keyword">fi</span>
@@ -1973,7 +1973,7 @@ Z-shell&#xFF08;/bin/zsh&#xFF09;
 <span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">10</span>
 <span class="token assign-left variable">b</span><span class="token operator">=</span><span class="token number">20</span>
 
-<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$a</span> <span class="token operator">!=</span> <span class="token variable">$b</span> <span class="token punctuation">]</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$b</span> <span class="token punctuation">]</span>
 <span class="token keyword">then</span>
   <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$a</span> != <span class="token variable">$b</span> : a &#x4E0D;&#x7B49;&#x4E8E; b&quot;</span>
 <span class="token keyword">else</span>
@@ -2572,8 +2572,8 @@ funWithParam <span class="token number">1</span> <span class="token number">2</s
   <span class="token keyword">done</span>
 <span class="token punctuation">}</span>
 <span class="token function-name function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token comment">#echo $1&quot;/&quot;$file</span>
-  <span class="token comment">#rm $1&quot;/&quot;$file</span>
+  <span class="token comment">#echo $1</span>
+  <span class="token comment">#rm $1</span>
   <span class="token builtin class-name">echo</span> <span class="token string">&quot; -&gt; <span class="token variable">$1</span>&quot;</span>
 <span class="token punctuation">}</span>
 <span class="token comment"># &#x652F;&#x6301;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#x8C03;&#x7528; callback</span>
@@ -2594,8 +2594,8 @@ read_dir <span class="token builtin class-name">.</span> txt callback
   <span class="token keyword">done</span>
 <span class="token punctuation">}</span>
 <span class="token function-name function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token comment">#echo $1&quot;/&quot;$file</span>
-  <span class="token comment">#rm $1&quot;/&quot;$file</span>
+  <span class="token comment">#echo $1</span>
+  <span class="token comment">#rm $1</span>
   <span class="token builtin class-name">echo</span> <span class="token string">&quot; -&gt; <span class="token variable">$1</span>&quot;</span>
 <span class="token punctuation">}</span>
 <span class="token comment"># &#x652F;&#x6301;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#x8C03;&#x7528; callback</span>
@@ -2603,10 +2603,7 @@ read_dir <span class="token builtin class-name">.</span> txt callback
 </code></pre>
 <h6 id="&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;"><a name="&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;</h6>
 <blockquote>
-<p>&#x5982;&#x4E0D;&#x652F;&#x6301;<code>ssh</code>&#x547D;&#x4EE4;&#xFF0C;&#x9700;&#x5B89;&#x88C5;<code>Zlib</code> <code>openSSL</code> <code>openSSH</code><br>&#x670D;&#x52A1;&#x7AEF;&#x9700;&#x542F;&#x52A8;<code>sshd</code>&#x670D;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x76F8;&#x5173;&#x7AEF;&#x53E3;<code>22&#x7AEF;&#x53E3;</code><br>21 &#x2192; ftp
-22 &#x2192; ssh
-23 &#x2192; telnet
-25 &#x2192; smtp &#x90AE;&#x4EF6;&#x53D1;&#x9001;&#x670D;&#x52A1;</p>
+<p>&#x5982;&#x4E0D;&#x652F;&#x6301;<code>ssh</code>&#x547D;&#x4EE4;&#xFF0C;&#x9700;&#x5B89;&#x88C5;<code>Zlib</code> <code>openSSL</code> <code>openSSH</code><br>&#x670D;&#x52A1;&#x7AEF;&#x9700;&#x542F;&#x52A8;<code>sshd</code>&#x670D;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x76F8;&#x5173;&#x7AEF;&#x53E3;<code>22&#x7AEF;&#x53E3;</code><br>21 &#x2192; ftp<br>22 &#x2192; ssh<br>23 &#x2192; telnet<br>25 &#x2192; smtp &#x90AE;&#x4EF6;&#x53D1;&#x9001;&#x670D;&#x52A1;  </p>
 </blockquote>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># -p &#x77ED;&#x88E4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#xFF1A;22</span>
 <span class="token function">ssh</span> <span class="token operator">&lt;</span>USERNAME<span class="token operator">&gt;</span>@<span class="token operator">&lt;</span>IP<span class="token operator">&gt;</span> <span class="token punctuation">[</span>-p <span class="token operator">&lt;</span>PORT<span class="token operator">&gt;</span><span class="token punctuation">]</span>
@@ -2651,7 +2648,7 @@ read_dir <span class="token builtin class-name">.</span> txt callback
 read_dir <span class="token builtin class-name">.</span> txt callback
 </code></pre>
 <footer class="page-footer"><span class="copyright">&#xA9; 2023 www.wdg.pub all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last modified: 
-2023-08-22
+2023-08-23
 </span></footer>
                                 
                                 </section>
@@ -2695,7 +2692,7 @@ read_dir <span class="token builtin class-name">.</span> txt callback
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.11.1","depth":2,"next":{"title":"命令行","level":"1.11.2","depth":2,"path":"linux/cmd.md","ref":"linux/cmd.md","articles":[]},"previous":{"title":"Linux","level":"1.11","depth":1,"path":"index/linux.md","ref":"index/linux.md","articles":[{"title":"Shell","level":"1.11.1","depth":2,"path":"linux/shell.md","ref":"linux/shell.md","articles":[]},{"title":"命令行","level":"1.11.2","depth":2,"path":"linux/cmd.md","ref":"linux/cmd.md","articles":[]},{"title":"Curl","level":"1.11.3","depth":2,"path":"linux/curl.md","ref":"linux/curl.md","articles":[]},{"title":"Yum","level":"1.11.4","depth":2,"path":"linux/yum.md","ref":"linux/yum.md","articles":[]},{"title":"JDK","level":"1.11.5","depth":2,"path":"linux/jdk.md","ref":"linux/jdk.md","articles":[]},{"title":"PHP","level":"1.11.6","depth":2,"path":"linux/php.md","ref":"linux/php.md","articles":[]},{"title":"Node.js","level":"1.11.7","depth":2,"path":"linux/nodejs.md","ref":"linux/nodejs.md","articles":[]},{"title":"Maven","level":"1.11.8","depth":2,"path":"linux/maven.md","ref":"linux/maven.md","articles":[]},{"title":"Nexus","level":"1.11.9","depth":2,"path":"linux/nexus.md","ref":"linux/nexus.md","articles":[]},{"title":"MySQL","level":"1.11.10","depth":2,"path":"linux/mysql.md","ref":"linux/mysql.md","articles":[]},{"title":"PostgreSQL","level":"1.11.11","depth":2,"path":"linux/pgsql.md","ref":"linux/pgsql.md","articles":[]},{"title":"挂载硬盘","level":"1.11.12","depth":2,"path":"linux/mount.md","ref":"linux/mount.md","articles":[]},{"title":"Nginx","level":"1.11.13","depth":2,"path":"linux/nginx.md","ref":"linux/nginx.md","articles":[]},{"title":"Tomcat","level":"1.11.14","depth":2,"path":"linux/tomcat.md","ref":"linux/tomcat.md","articles":[]},{"title":"Redis","level":"1.11.15","depth":2,"path":"linux/redis.md","ref":"linux/redis.md","articles":[]},{"title":"MongoDB","level":"1.11.16","depth":2,"path":"linux/mongodb.md","ref":"linux/mongodb.md","articles":[]},{"title":"Solr","level":"1.11.17","depth":2,"path":"linux/solr.md","ref":"linux/solr.md","articles":[]},{"title":"RabbitMQ","level":"1.11.18","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},{"title":"Ftp服务器","level":"1.11.19","depth":2,"path":"linux/ftp.md","ref":"linux/ftp.md","articles":[]},{"title":"Jenkins","level":"1.11.20","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},{"title":"禅道","level":"1.11.21","depth":2,"path":"linux/zentao.md","ref":"linux/zentao.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","expandable-chapters-small","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/shell.md","mtime":"2023-08-22T08:14:49.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-22T09:19:06.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.11.1","depth":2,"next":{"title":"命令行","level":"1.11.2","depth":2,"path":"linux/cmd.md","ref":"linux/cmd.md","articles":[]},"previous":{"title":"Linux","level":"1.11","depth":1,"path":"index/linux.md","ref":"index/linux.md","articles":[{"title":"Shell","level":"1.11.1","depth":2,"path":"linux/shell.md","ref":"linux/shell.md","articles":[]},{"title":"命令行","level":"1.11.2","depth":2,"path":"linux/cmd.md","ref":"linux/cmd.md","articles":[]},{"title":"Curl","level":"1.11.3","depth":2,"path":"linux/curl.md","ref":"linux/curl.md","articles":[]},{"title":"Yum","level":"1.11.4","depth":2,"path":"linux/yum.md","ref":"linux/yum.md","articles":[]},{"title":"JDK","level":"1.11.5","depth":2,"path":"linux/jdk.md","ref":"linux/jdk.md","articles":[]},{"title":"PHP","level":"1.11.6","depth":2,"path":"linux/php.md","ref":"linux/php.md","articles":[]},{"title":"Node.js","level":"1.11.7","depth":2,"path":"linux/nodejs.md","ref":"linux/nodejs.md","articles":[]},{"title":"Maven","level":"1.11.8","depth":2,"path":"linux/maven.md","ref":"linux/maven.md","articles":[]},{"title":"Nexus","level":"1.11.9","depth":2,"path":"linux/nexus.md","ref":"linux/nexus.md","articles":[]},{"title":"MySQL","level":"1.11.10","depth":2,"path":"linux/mysql.md","ref":"linux/mysql.md","articles":[]},{"title":"PostgreSQL","level":"1.11.11","depth":2,"path":"linux/pgsql.md","ref":"linux/pgsql.md","articles":[]},{"title":"挂载硬盘","level":"1.11.12","depth":2,"path":"linux/mount.md","ref":"linux/mount.md","articles":[]},{"title":"Nginx","level":"1.11.13","depth":2,"path":"linux/nginx.md","ref":"linux/nginx.md","articles":[]},{"title":"Tomcat","level":"1.11.14","depth":2,"path":"linux/tomcat.md","ref":"linux/tomcat.md","articles":[]},{"title":"Redis","level":"1.11.15","depth":2,"path":"linux/redis.md","ref":"linux/redis.md","articles":[]},{"title":"MongoDB","level":"1.11.16","depth":2,"path":"linux/mongodb.md","ref":"linux/mongodb.md","articles":[]},{"title":"Solr","level":"1.11.17","depth":2,"path":"linux/solr.md","ref":"linux/solr.md","articles":[]},{"title":"RabbitMQ","level":"1.11.18","depth":2,"path":"linux/rabbitmq.md","ref":"linux/rabbitmq.md","articles":[]},{"title":"Ftp服务器","level":"1.11.19","depth":2,"path":"linux/ftp.md","ref":"linux/ftp.md","articles":[]},{"title":"Jenkins","level":"1.11.20","depth":2,"path":"linux/jenkins.md","ref":"linux/jenkins.md","articles":[]},{"title":"禅道","level":"1.11.21","depth":2,"path":"linux/zentao.md","ref":"linux/zentao.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","prism","github","search-pro","sharing-plus","tbfed-pagefooter","expandable-chapters-small","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"© 2023 www.wdg.pub","modify_label":"Last modified: ","modify_format":"YYYY-MM-DD"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/jekorx"},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["douban","facebook","google","linkedin","qq","qzone","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":false,"whatsapp":false,"twitter":false,"google":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"jekorx","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"jekorx's blog","language":"zh-hans","gitbook":"*","description":"个人学习、工作经验的总结"},"file":{"path":"linux/shell.md","mtime":"2023-08-23T02:06:21.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-23T02:06:27.209Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

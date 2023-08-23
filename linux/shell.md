@@ -46,9 +46,9 @@ drwxr-xr-x  4 username  staff   128B  8 18 14:58 symbol
 
 r w x
 ┬ ┬ ┬
-│ │ └→ executable -> 1
-│ └→ writeable    -> 2
-└→ readable       -> 4
+│ │ └→ executable -> 1 (001)
+│ └→ writeable    -> 2 (010)
+└→ readable       -> 4 (100)
 
 r-- = 4
 r-x = 5
@@ -256,7 +256,7 @@ echo "进程ID号：$$";
 | / | 除法 | &#96;expr &#36;b / &#36;a&#96; 结果为 2。 |
 | % | 取余 | &#96;expr &#36;b % &#36;a&#96; 结果为 0。 |
 | = | 赋值 | a=&#36;b 把变量 b 的值赋给 a。 |
-| = ，== | 相等。用于比较两个数字，相同则返回 true。 | &#91; &#36;a == &#36;b &#93; 返回 false。 |
+| = ，== | 相等。用于比较两个数字，相同则返回 true。 | &#91; &#36;a = &#36;b &#93; 或者 (( a == b )) 返回 false。 |
 | != | 不相等。用于比较两个数字，不相同则返回 true。 | &#91; &#36;a != &#36;b &#93; 返回 true。 |
 
 ```bash
@@ -280,7 +280,7 @@ echo "b / a : $val"
 val=`expr $b % $a`
 echo "b % a : $val"
 
-if [ $a = $b ] # zsh 下不是 == 而是 =
+if [ $a = $b ] # zsh 下不是 == 而是 = ，如果使用 == ，则 (( a == b ))
 then
   echo "a 等于 b"
 fi
@@ -362,7 +362,7 @@ fi
 a=10
 b=20
 
-if [ $a != $b ]
+if [ ! $a = $b ]
 then
   echo "$a != $b : a 不等于 b"
 else
@@ -845,8 +845,8 @@ read_dir(){
   done
 }
 callback(){
-  #echo $1"/"$file
-  #rm $1"/"$file
+  #echo $1
+  #rm $1
   echo " -> $1"
 }
 # 支持通过回调函数的方式调用 callback
@@ -870,8 +870,8 @@ read_dir(){
   done
 }
 callback(){
-  #echo $1"/"$file
-  #rm $1"/"$file
+  #echo $1
+  #rm $1
   echo " -> $1"
 }
 # 支持通过回调函数的方式调用 callback
@@ -882,10 +882,10 @@ read_dir . txt callback
 
 > 如不支持`ssh`命令，需安装`Zlib` `openSSL` `openSSH`  
 > 服务端需启动`sshd`服务，需要开发相关端口`22端口`  
-> 21 → ftp
-> 22 → ssh
-> 23 → telnet
-> 25 → smtp 邮件发送服务
+> 21 → ftp  
+> 22 → ssh  
+> 23 → telnet  
+> 25 → smtp 邮件发送服务  
 
 ```bash
 # -p 短裤，默认为：22
