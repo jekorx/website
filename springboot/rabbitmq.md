@@ -177,7 +177,7 @@ public class RabbitMQConfig {
     public Queue delayQueue() {
         return new Queue(DELAY_QUEUE_NAME, true, false, false, null);
     }
-    // 演示队列绑定的交换机
+    // 延时队列绑定的交换机
     @Bean
     public Binding delayExchangeBinding() {
         return BindingBuilder.bind(delayQueue()).to(delayExchange()).with(DELAY_ROUTING_KEY).noargs();
