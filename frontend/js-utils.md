@@ -7,7 +7,7 @@
 > * [顺序执行Promise](#顺序执行promise)  
 > * [隐藏手机号中间四位](#隐藏手机号中间四位)  
 > * [限制数据框内容仅为数字](#限制数据框内容仅为数字)  
-> * [七牛上传](#七牛上传)  
+> * [七牛云上传](#七牛云上传)  
 > * [滚动条滚动动画](#滚动条滚动动画)  
 > * [base64转file](#base64转file)  
 > * [base64转blob](#base64转blob)  
@@ -19,6 +19,8 @@
 > * [驼峰转连字符](#驼峰转连字符)  
 > * [文件尺寸格式化](#文件尺寸格式化)  
 > * [获取指定范围内的随机数](#获取指定范围内的随机数)  
+> * [随机字符串](#随机字符串)  
+> * [根据概率随机](#根据概率随机)  
 > * [打乱数组](#打乱数组)  
 > * [获取Url参数](#获取url参数)  
 > * [切分数组](#切分数组)  
@@ -310,7 +312,7 @@ const inputFilter = val => {
 }
 ```
 
-### 七牛上传
+### 七牛云上传
 
 ```javascript
 import * as qiniu from 'qiniu-js'
@@ -319,7 +321,7 @@ import uuid from 'uuid'
 import $http from '@/libs/request'
 
 /**
- * 七牛上传
+ * 七牛云上传
  * dependencies: {
  *   qiniu-js,
  *   uuid,
@@ -674,6 +676,108 @@ export const getRandom = (min = 0, max = 100) => {
     [min, max] = [max, min]
   }
   return Math.floor(Math.random() * (max - min + 1) + min)
+}
+```
+
+### 随机字符串
+
+```javascript
+/**
+ * 原理：Number.prototype.toString(radix)
+ *      radix: 范围在 2 到 36 之间，用于指定表示数字值的基数
+ */
+Math.random().toString(36).substring(2)
+
+/**
+ * 生成指定长度随机字符串
+ * @param {number} length 随机字符串长度
+ * @param {string} template 随机字符串取值模板，默认：0-9a-zA-Z
+ * @returns {string}
+ */
+const randomString = (length, template = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') => length > 0
+  ? Array.from({ length }, () => template[Math.floor(Math.random() * template.length)]).join('')
+  : ''
+```
+
+### 根据概率随机
+
+<div style="padding-bottom: 10px;">
+  <table>
+    <tbody style="text-align: center;">
+      <tr>
+        <td>奖项</td>
+        <td>一等奖</td>
+        <td>二等奖</td>
+        <td>三等奖</td>
+        <td>四等奖</td>
+        <td>五等奖</td>
+        <td>谢谢参与</td>
+      </tr>
+      <tr>
+        <td>概率</td>
+        <td>0.01%</td>
+        <td>0.09%</td>
+        <td>0.9%</td>
+        <td>9%</td>
+        <td>30%</td>
+        <td>60%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button id="prize-btn" style="margin-right: 10px;">测试抽奖</button>
+    <span id="prizeResult">-</span>
+  </div>
+  <script>
+    const prizes = [
+      { name: '一等奖', odds: 0.01 },
+      { name: '二等奖', odds: 0.09 },
+      { name: '三等奖', odds: 0.9 },
+      { name: '四等奖', odds: 9 },
+      { name: '五等奖', odds: 30 },
+      { name: '谢谢参与', odds: 60 }
+    ]
+    const getWinPrize = (prizes, rate = 100, precision = 2) => {
+      const r = Math.ceil(Math.random() * (rate ** precision))
+      const getOddsSum = i => prizes.slice(0, i).reduce((sum, { odds }) => sum + odds * rate, 0)
+      return prizes.find((_, i) => r > getOddsSum(i) && r <= getOddsSum(i + 1))
+    }
+    document.getElementById('prize-btn').onclick = function () {
+      const { name } = getWinPrize(prizes) || {}
+      document.getElementById('prizeResult').innerText = name
+    }
+  </script>
+</div>
+
+```javascript
+/**
+ * 根据概率随机
+ * 
+ * @description
+ * 获取随机数 r
+ * 一等奖 0.01%     0 < r && r <= 1 其实只有=1时
+ * 二等奖 0.09%     1 < r && r <= 10
+ * 三等奖  0.9%    10 < r && r <= 100
+ * 四等奖    9%   100 < r && r <= 1000
+ * 五等奖   30%  1000 < r && r <= 4000
+ * 谢谢参与 60%  4000 < r && r <= 10000
+ * 
+ * 0.01%  0  1  ->                                  0  <  x  <=  (0.01) * 100
+ * 0.09%  1  2  ->                       (0.01) * 100  <  x  <=  (0.01 + 0.09) * 100
+ *  0.9%  2  3  ->                (0.01 + 0.09) * 100  <  x  <=  (0.01 + 0.09 + 0.9) * 100
+ *    9%  3  4  ->          (0.01 + 0.09 + 0.9) * 100  <  x  <=  (0.01 + 0.09 + 0.9 + 9) * 100
+ *   30%  4  5  ->      (0.01 + 0.09 + 0.9 + 9) * 100  <  x  <=  (0.01 + 0.09 + 0.9 + 9 + 30) * 100
+ *   60%  5 max -> (0.01 + 0.09 + 0.9 + 9 + 30) * 100  <  x  <=  10000
+ * 
+ * @param {Array} prizes: [{ odds: number, ...others }] // odds 概率，百分之多少，所有概率总和为1（100%）
+ * @param {number} rate 分率，百分之多少 -> 100，千分之多少 -> 1000，默认：100
+ * @param {number} precision 概率精度，0.01 -> 2，0.001 -> 3，默认：2
+ * @returns {Object} prize: { odds: number, ...others }
+ */
+const getWinPrize = (prizes, rate = 100, precision = 2) => {
+  const r = Math.ceil(Math.random() * (rate ** precision))
+  const getOddsSum = i => prizes.slice(0, i).reduce((sum, { odds }) => sum + odds * rate, 0)
+  return prizes.find((_, i) => r > getOddsSum(i) && r <= getOddsSum(i + 1))
 }
 ```
 
