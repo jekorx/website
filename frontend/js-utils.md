@@ -688,7 +688,7 @@ export const getRandom = (min = 0, max = 100) => {
   </div>
   <div>
     <button id="random-2-btn">随机字符2</button>
-    <input id="random-2-len" value="10" min="1" max="9999" type="number" placeholder="字符长度" style="width: 50px; margin: 0 10px" />
+    <input id="random-2-len" value="20" min="1" max="9999" type="number" placeholder="字符长度" style="width: 50px; margin: 0 10px" />
     <span id="random-2-result">-</span>
   </div>
   <script>
