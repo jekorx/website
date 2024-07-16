@@ -681,6 +681,33 @@ export const getRandom = (min = 0, max = 100) => {
 
 ### 随机字符串
 
+<div style="padding-bottom: 10px;">
+  <div>
+    <button id="random-1-btn" style="margin-right: 10px;">随机字符1</button>
+    <span id="random-1-result">-</span>
+  </div>
+  <div>
+    <button id="random-2-btn">随机字符2</button>
+    <input id="random-2-len" value="10" min="1" max="9999" type="number" placeholder="字符长度" style="width: 50px; margin: 0 10px" />
+    <span id="random-2-result">-</span>
+  </div>
+  <script>
+    document.getElementById('random-1-btn').onclick = function () {
+      document.getElementById('random-1-result').innerText = Math.random().toString(36).substring(2)
+    }
+    document.getElementById('random-2-btn').onclick = function () {
+      const randomString = (length, template = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') => length > 0
+      ? Array.from({ length }, () => template[Math.floor(Math.random() * template.length)]).join('')
+      : ''
+      let length = +(document.getElementById('random-2-len').value || 0)
+      if (length < 1) length = 1
+      if (length > 9999) length = 9999
+      document.getElementById('random-2-len').value = length
+      document.getElementById('random-2-result').innerText = randomString(length)
+    }
+  </script>
+</div>
+
 ```javascript
 /**
  * 原理：Number.prototype.toString(radix)
@@ -726,7 +753,7 @@ const randomString = (length, template = '0123456789abcdefghijklmnopqrstuvwxyzAB
   </table>
   <div>
     <button id="prize-btn" style="margin-right: 10px;">测试抽奖</button>
-    <span id="prizeResult">-</span>
+    <span id="prize-result">-</span>
   </div>
   <script>
     const prizes = [
@@ -744,7 +771,7 @@ const randomString = (length, template = '0123456789abcdefghijklmnopqrstuvwxyzAB
     }
     document.getElementById('prize-btn').onclick = function () {
       const { name } = getWinPrize(prizes) || {}
-      document.getElementById('prizeResult').innerText = name
+      document.getElementById('prize-result').innerText = name
     }
   </script>
 </div>
