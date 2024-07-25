@@ -34,15 +34,15 @@ read_dir(){
             then
                 if test $file != "sitemap.html"
                 then
-                    sed -i '' "s/&#xFF0C;powered by Gitbook/ /g" $1"/"$file
-                    sed -i '' '5i\
+                    sed -i  "s/&#xFF0C;powered by Gitbook/ /g" $1"/"$file
+                    sed -i  '5i\
                     <script id="f0196b">((self.frameElement&&self.frameElement.tagName=="IFRAME")||(window.frames.length!=parent.frames.length)||(self!=top)||((window.location.host!="blog.wdg.pub")&&(window.location.host!="www.wdg.pub")))&&(!!(window.attachEvent&&!window.opera)?document.execCommand("stop"):window.stop());document.getElementById("f0196b").remove()</script>
                     ' $1"/"$file
                     #sed -i "/<\/body>/i <script id=\"b49ed9\">document.writeln('<script type=\"text/javascript\" color=\"77,77,77\" opcity=\"0.77\" count=\"'+(document.body.clientWidth?Math.floor(document.body.clientWidth/20):30)+'\" src=\"https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js\">'+'<'+'/script>');document.getElementById(\"b49ed9\").remove()</script>" $1"/"$file
                     if [ -n "$code" ]
                     then
-                        sed -i '' "s/本书使用 GitBook 发布/${code}/g" $1"/"$file
-                        sed -i '' 's/<a href="https:\/\/www.gitbook.com" target="blank" class="gitbook-link">/<a href="https:\/\/beian.miit.gov.cn\/" style="text-align: center; margin-bottom: 7px" target="blank" class="gitbook-link">/g' $1"/"$file
+                        sed -i  "s/本书使用 GitBook 发布/${code}/g" $1"/"$file
+                        sed -i  's/<a href="https:\/\/www.gitbook.com" target="blank" class="gitbook-link">/<a href="https:\/\/beian.miit.gov.cn\/" style="text-align: center; margin-bottom: 7px" target="blank" class="gitbook-link">/g' $1"/"$file
                         #sed -i "/<\/body>/i <script id=\"b82fd9\">!function(){var t=document.querySelector('.gitbook-link');t.innerText='${code}',t.href='https://beian.miit.gov.cn/',t.style.textAlign='center',t.style.marginBottom='7px'}();document.getElementById(\"b82fd9\").remove()</script>" $1"/"$file
                     fi
                 fi
