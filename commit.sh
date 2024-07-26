@@ -9,7 +9,7 @@ rm -rf _dist
 # 构建
 gitbook build
 
-#rm _book/**/*.md
+rm _book/**/*.md
 rm _book/.gitignore
 rm _book/*.sh
 rm _book/*.bat

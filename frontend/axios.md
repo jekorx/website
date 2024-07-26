@@ -306,3 +306,136 @@ function fileChange (e) {
   })
 }
 ```
+
+### axios实现前端无感刷新token
+
+![axios-refresh-token](../assets/frontend-axios-1.png)  
+![axios-refresh-token](../assets/frontend-axios-2.jpg)  
+
+> 主要依赖axios响应拦截处理  
+> 其实这个场景后端处理更为妥当，此处仅供学习参考  
+
+```javascript
+// axios默认全局配置
+axios.defaults.transformRequest = [params => Qs.stringify(params)]
+// 创建请求实例，以及默认配置
+const request = axios.create({
+  timeout: 1000 * 30,
+  baseURL: 'http://127.0.0.1:3000',
+  responseType: 'json'
+})
+// 实例化模拟的store，这里可以结合localStorage, cookies等
+const store = new Store('expire', 'refresh') // 两个参数未模拟的token
+// 刷新token请求
+const refreshTokenRequest = () => new Promise(async (resolve, reject) => {
+  try {
+    const { code, data, message } = await request.post('/refreshToken', null, {
+      headers: { Refresh: store.getRefreshToken() }
+    }) || {}
+    code === 1 && data ? resolve(data) : reject(new Error(message))
+  } catch (error) {
+    reject(error)
+  }
+})
+// 全局请求拦截
+request.interceptors.request.use(config => {
+  // header中设置token
+  config.headers['Token'] = store.getToken()
+  return config
+}, error => {
+  // 请求发出错误处理
+  return Promise.reject(error)
+})
+let isRefreshing = false // 当前是否正在请求刷新token
+let wating = [] // 报401的接口，加入等待列表，刷新接口成功后统一请求
+// 响应拦截
+request.interceptors.response.use(response => {
+  // 默认返回response的data
+  return response?.data
+}, async error => {
+  const { config, response } = error || {}
+  if (isRefreshing) {
+    // 刷新token正在请求，把其他的接口加入等待数组
+    return new Promise((resolve) => wating.push({ config, resolve }))
+  }
+  // 如果是401-Unauthorized，刷新token操作
+  if (response?.status === 401) {
+    isRefreshing = true
+    try {
+      // 根据refreshToken获取新的token和refreshToken
+      const { token, refreshToken } = await refreshTokenRequest() || {}
+      isRefreshing = false
+      store.setToken(token)
+      store.setRefreshToken(refreshToken)
+      // 刷新token请求成功，等待数据的失败接口重新发起请求
+      wating.forEach(({ config, resolve }) => resolve(request(config)))
+      // 请求完之后清空等待请求的数组
+      wating = []
+      // 当前接口重新发起请求
+      return request(config)
+    } catch (error) {
+      // 刷新token失败，重新登录
+    }
+  }
+  return Promise.reject(error)
+})
+
+// DO TEST
+async function doRequest() {
+  request.post('/post/100').then(console.log)
+  request.post('/post/200').then(console.log)
+  request.post('/post/300').then(console.log)
+}
+doRequest()
+```
+
+> 其他代码，模拟store及后端代码  
+
+```javascript
+/* 模拟store */
+function Store(token, refreshToken) {
+  this.token = token
+  this.refreshToken = refreshToken
+}
+Store.prototype.setToken = function(token) { this.token = token }
+Store.prototype.getToken = function() { return this.token }
+Store.prototype.setRefreshToken = function(refreshToken) { this.refreshToken = refreshToken }
+Store.prototype.getRefreshToken = function() { return this.refreshToken }
+
+/* 后端代码 */
+const Koa = require('koa')
+const Router = require('koa-router')
+const cors = require('koa2-cors')
+const bodyParser = require('koa-bodyparser')
+const app = new Koa()
+const router = new Router()
+const TOKENS = { normal: 'normal', expire: 'expire', refresh: 'refresh' }
+const checkToken = token => token === TOKENS.normal
+const getNewToken = refresh => refresh === TOKENS.refresh ? { token: TOKENS.normal, refreshToken: TOKENS.refresh } : null
+const sleep = timeout => new Promise((resolve, reject) => setTimeout(resolve, timeout))
+router.post('/refreshToken', async (ctx, next) => {
+  const newToken = getNewToken(ctx.request.headers.refresh)
+  await sleep(1000)
+  ctx.response.body = newToken ? { code: 1, data: newToken, message: 'success' } : { code: 0, message: 'token error' }
+})
+router.post('/post/:timeout', async (ctx, next) => {
+  await sleep(+(ctx.params.timeout || 0))
+  if (!checkToken(ctx.request.headers.token)) {
+    ctx.response.status = 401
+    ctx.response.message = 'token expired'
+  } else {
+    ctx.response.body = { code: 1, data: '123', message: 'post request success' }
+  }
+})
+app.use(cors({
+  origin: '*',
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Accept', 'X-Requested-With', 'Token', 'Refresh']
+}))
+app.use(bodyParser())
+app.use(router.routes())
+app.use(router.allowedMethods())
+app.listen(3000)
+console.log('启动成功，端口：3000')
+```

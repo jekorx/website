@@ -570,7 +570,7 @@ export const eventOff = (function () {
 
 <div style="padding-bottom: 10px;">
   <div style="display: flex; flex-direction: column; width: 500px;">
-    <input value="_" id="toCamelCaseSeparator" />
+    <input value="_" id="toCamelCaseSeparator" placeholder="分隔符" />
     <textarea id="toCamelCaseTextArea" rows="5" autofocus placeholder="Ctrl + Enter 转换"></textarea>
   </div>
   <script>
@@ -620,7 +620,7 @@ export const toCamelCase = (str = '', separator = '-') => {
 
 <div style="padding-bottom: 10px;">
   <div style="display: flex; flex-direction: column; width: 500px;">
-    <input value="_" id="fromCamelCaseSeparator" />
+    <input value="_" id="fromCamelCaseSeparator" placeholder="分隔符" />
     <textarea id="fromCamelCaseTextArea" rows="5" autofocus placeholder="Ctrl + Enter 转换"></textarea>
   </div>
   <script>
