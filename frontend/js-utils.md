@@ -568,6 +568,33 @@ export const eventOff = (function () {
 
 ### 连字符转驼峰
 
+<div style="padding-bottom: 10px;">
+  <div style="display: flex; flex-direction: column; width: 500px;">
+    <input value="_" id="toCamelCaseSeparator" />
+    <textarea id="toCamelCaseTextArea" rows="5" autofocus placeholder="Ctrl + Enter 转换"></textarea>
+  </div>
+  <script>
+    const toCamelCase = (str = '', separator = '-') => {
+      if (str === '') return str
+      return str.replace(new RegExp(`\\${separator}(\\w)`, 'g'), (matched, $1) => $1.toUpperCase())
+    }
+    document.getElementById('toCamelCaseTextArea').onkeyup = async function (e) {
+      if (e.ctrlKey && e.code === 'Enter') {
+        const strArr = e.srcElement?.value?.split('\n') || []
+        const separator = document.getElementById('toCamelCaseSeparator').value || '_'
+        const result = strArr.map(str => toCamelCase(str, separator)).join('\n')
+        document.getElementById('toCamelCaseTextArea').value = result
+        document.getElementById('toCamelCaseTextArea').select()
+        try {
+          await navigator.clipboard.writeText(result)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    }
+  </script>
+</div>
+
 ```javascript
 /**
  * @description 连字符转驼峰
@@ -590,6 +617,33 @@ export const toCamelCase = (str = '', separator = '-') => {
 ```
 
 ### 驼峰转连字符
+
+<div style="padding-bottom: 10px;">
+  <div style="display: flex; flex-direction: column; width: 500px;">
+    <input value="_" id="fromCamelCaseSeparator" />
+    <textarea id="fromCamelCaseTextArea" rows="5" autofocus placeholder="Ctrl + Enter 转换"></textarea>
+  </div>
+  <script>
+    const fromCamelCase = (str = '', separator = '-') => {
+      if (str === '') return str
+      return str.replace(/([A-Z])/g, `${separator}$1`).toLowerCase()
+    }
+    document.getElementById('fromCamelCaseTextArea').onkeyup = async function (e) {
+      if (e.ctrlKey && e.code === 'Enter') {
+        const strArr = e.srcElement?.value?.split('\n') || []
+        const separator = document.getElementById('fromCamelCaseSeparator').value || '_'
+        const result = strArr.map(str => fromCamelCase(str, separator)).join('\n')
+        document.getElementById('fromCamelCaseTextArea').value = result
+        document.getElementById('fromCamelCaseTextArea').select()
+        try {
+          await navigator.clipboard.writeText(result)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    }
+  </script>
+</div>
 
 ```javascript
 /**
@@ -707,6 +761,60 @@ const randomString = (length, template = '0123456789abcdefghijklmnopqrstuvwxyzAB
 ### 根据概率随机
 
 <div style="padding-bottom: 10px;">
+  <style>
+    #luckDrawWheel {
+      height: 100px;
+      width: 100px;
+      position: relative;
+      background-color: aquamarine;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 2px solid red;
+    }
+    #luckDrawPointer {
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -13px;
+      margin-left: -13px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 4s ease;
+      background-color: aquamarine;
+      border-radius: 50%;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+    #luckDrawWheel .prize {
+      width: 100px;
+      height: 100px;
+      background-color: bisque;
+      position: absolute;
+      box-sizing: border-box;
+      border: 1px solid red;
+      left: 50%;
+      top: -50%;
+      transform-origin: 0% 100%;
+      display: flex;
+      align-items: self-end;
+      padding: 10px;
+    }
+    #luckDrawWheel .prize span {
+      transform: skewY(30deg);
+      font-size: 12px;
+    }
+    #luckDrawPointer span {
+      font-size: 20px;
+      color: rgb(15, 140, 250);
+      font-weight: bolder;
+      position: relative;
+      top: -2px;
+    }
+  </style>
   <table>
     <tbody style="text-align: center;">
       <tr>
@@ -729,27 +837,68 @@ const randomString = (length, template = '0123456789abcdefghijklmnopqrstuvwxyzAB
       </tr>
     </tbody>
   </table>
-  <div>
-    <button id="prize-btn" style="margin-right: 10px;">测试抽奖</button>
-    <span id="prize-result">-</span>
+  <div style="display: flex; align-items: center;">
+    <div id="luckDrawWheel">
+      <div class="prize" style="transform: rotate(0deg) skewY(-30deg);"><span>一</span></div>
+      <div class="prize" style="transform: rotate(60deg) skewY(-30deg);"><span>二</span></div>
+      <div class="prize" style="transform: rotate(120deg) skewY(-30deg);"><span>三</span></div>
+      <div class="prize" style="transform: rotate(180deg) skewY(-30deg);"><span>四</span></div>
+      <div class="prize" style="transform: rotate(240deg) skewY(-30deg);"><span>五</span></div>
+      <div class="prize" style="transform: rotate(300deg) skewY(-30deg);"><span>谢</span></div>
+      <span id="luckDrawPointer">
+        <span>↑</span>
+      </span>
+    </div>
+    <button id="luckDrawButton" style="margin: 0 20px;">抽奖</button>
+    <span id="luckDrawButtonResult">-</span>
   </div>
   <script>
-    const prizes = [
-      { name: '一等奖', odds: 0.01 },
-      { name: '二等奖', odds: 0.09 },
-      { name: '三等奖', odds: 0.9 },
-      { name: '四等奖', odds: 9 },
-      { name: '五等奖', odds: 30 },
-      { name: '谢谢参与', odds: 60 }
-    ]
-    const getWinPrize = (prizes, rate = 100, precision = 2) => {
-      const r = Math.ceil(Math.random() * (rate ** precision))
-      const getOddsSum = i => prizes.slice(0, i).reduce((sum, { odds }) => sum + odds * rate, 0)
-      return prizes.find((_, i) => r > getOddsSum(i) && r <= getOddsSum(i + 1))
-    }
-    document.getElementById('prize-btn').onclick = function () {
-      const { name } = getWinPrize(prizes) || {}
-      document.getElementById('prize-result').innerText = name
+    window.onload = () => {
+      let isRunning = false
+      const round = 20
+      let actived
+      const luckDrawPointer = document.getElementById('luckDrawPointer')
+      const luckDrawButton = document.getElementById('luckDrawButton')
+      const prizes = [
+        { name: '一等奖', odds: 0.01 },
+        { name: '二等奖', odds: 0.09 },
+        { name: '三等奖', odds: 0.9 },
+        { name: '四等奖', odds: 9 },
+        { name: '五等奖', odds: 30 },
+        { name: '谢谢参与', odds: 60 }
+      ]
+      const stopHandle = () => {
+        if (!isRunning) return
+        luckDrawButton.disabled = false
+        isRunning = false
+        document.getElementById('luckDrawButtonResult').innerText = actived ? prizes[actived].name : '-'
+      }
+      const getWinPrize = (prizes, rate = 100, precision = 2) => {
+        const r = Math.ceil(Math.random() * (rate ** precision))
+        const getOddsSum = i => prizes.slice(0, i).reduce((sum, { odds }) => sum + odds * rate, 0)
+        return prizes.findIndex((_, i) => r > getOddsSum(i) && r <= getOddsSum(i + 1))
+      }
+      const drawHandle = () => {
+        if (isRunning) return
+        isRunning = true
+        luckDrawButton.disabled = true
+        actived = getWinPrize(prizes)
+        const totalRunAngle = round * 360 + actived * 60 + 30;
+        luckDrawPointer.setAttribute('style', `
+          transform: rotate(0deg);
+          transition: none;
+        `)
+        setTimeout(() => {
+          luckDrawPointer.setAttribute('style', `
+            transform: rotate(${totalRunAngle}deg);
+            transition: all 6s ease;
+          `)
+        }, 1)
+      }
+      luckDrawPointer.ontransitionend = stopHandle
+      luckDrawButton.onclick = () => {
+        drawHandle()
+      }
     }
   </script>
 </div>
