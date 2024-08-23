@@ -97,6 +97,61 @@ export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
 
 ### 秒格式化
 
+<div style="padding-bottom: 10px;">
+  <div>
+    <input id="secondFormatD" type="checkbox" checked />天
+    <input id="secondFormatH" type="checkbox" checked />小时
+    <input id="secondFormatM" type="checkbox" checked />分钟
+    <input id="secondFormatS" type="checkbox" checked />秒
+    <input id="secondFormatInput" placeholder="秒，Enter 转换" style="width: 120px" />
+    <span id="secondFormatText">-</span>
+  </div>
+  <script>
+    const formatHandle = () => {
+      const second = document.getElementById('secondFormatInput').value
+      if (!second) return
+      const secondFormat = (second, format = 'dhms') => {
+        if (!/d|h|m|s/.test(format)) {
+          throw new Error('\'format\' argument must a string contains one or more of \'dhms\'.')
+        }
+        return [
+          { f: 'd', u: '天', p: 86400 },
+          { f: 'h', u: '小时', p: 3600 },
+          { f: 'm', u: '分钟', p: 60 },
+          { f: 's', u: '秒', p: 1 }
+        ].reduce((strs, { f, u, p }) => {
+          if (format.includes(f)) {
+            const cur = Math.floor(second / p)
+            if (cur > 0) {
+              second = second % p
+              strs.push(`${cur}${u}`)
+            }
+          }
+          return strs
+        }, []).join('')
+      }
+      const fmtArr = []
+      if (document.getElementById('secondFormatD').checked) fmtArr.push('d')
+      if (document.getElementById('secondFormatH').checked) fmtArr.push('h')
+      if (document.getElementById('secondFormatM').checked) fmtArr.push('m')
+      if (document.getElementById('secondFormatS').checked) fmtArr.push('s')
+      if (fmtArr.length <= 0) {
+        fmtArr = ['d', 'h', 'm', 's']
+      }
+      document.getElementById('secondFormatText').innerText = +second > 0 ? secondFormat(+second, fmtArr.join('')) : '-'
+    }
+    document.getElementById('secondFormatD').onchange = formatHandle
+    document.getElementById('secondFormatH').onchange = formatHandle
+    document.getElementById('secondFormatM').onchange = formatHandle
+    document.getElementById('secondFormatS').onchange = formatHandle
+    document.getElementById('secondFormatInput').onkeyup = async function (e) {
+      if (e.code === 'Enter') {
+        formatHandle()
+      }
+    }
+  </script>
+</div>
+
 ```javascript
 /**
  * @description 秒格式化
@@ -1058,6 +1113,29 @@ export const debounce = (fn, delay = 500) => {
 ```
 
 ### 生成uuid
+
+<div style="padding-bottom: 10px;">
+  <div>
+    <input type="checkbox" id="uuid-checkbox" checked />包含"-"
+    <button id="uuid-btn" style="margin: 0 10px;">生成uuid</button>
+    <span id="uuid-result">-</span>
+  </div>
+  <script>
+    document.getElementById('uuid-btn').onclick = function () {
+      const uuid = () => {
+        const tmpUrl = URL.createObjectURL(new Blob())
+        const tmpUrlStr = tmpUrl.toString()
+        URL.revokeObjectURL(tmpUrl)
+        return tmpUrlStr.substring(tmpUrlStr.lastIndexOf('/') + 1)
+      }
+      let str = uuid()
+      if (!document.getElementById('uuid-checkbox').checked) {
+        str = str.replaceAll('-', '')
+      }
+      document.getElementById('uuid-result').innerText = str
+    }
+  </script>
+</div>
 
 ```javascript
 /**

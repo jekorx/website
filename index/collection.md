@@ -28,6 +28,7 @@
 [掘金] [移动端300ms延迟以及点击穿透](https://juejin.im/post/5f14665bf265da22a9247820)  
 [掘金] [由浅入深，66条JavaScript面试知识点](https://juejin.im/post/5ef8377f6fb9a07e693a6061)  
 [掘金] [吊打 JavaScript 之从原型到原型链](https://juejin.im/entry/5e5bb025f265da576d60aacd)  
+[知乎] [彻底搞懂原型和原型链](https://zhuanlan.zhihu.com/p/636413986)  
 [掘金] [(查缺补漏)送你 54 道 JavaScript 面试题](https://juejin.im/post/5f1412ad6fb9a07e944eff6b)  
 [掘金] [从Vue源码中学到的28个编程好习惯](https://juejin.im/post/5f1650ae5188252e884e8ed0)  
 [掘金] [这些前端基础题你能答对几道？(测试你的基础掌握,附答案解析)](https://juejin.im/post/5ee03947e51d457889262921)  
