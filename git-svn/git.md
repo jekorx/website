@@ -1,5 +1,7 @@
 # Git常用命令
 
+![git架构](../assets/git-svn-5.jpg)
+
 > 需要提前下载安装[Git客户端](https://git-scm.com/)  
 
 ### 常用操作
@@ -156,6 +158,19 @@ git reset HEAD <文件名>
 
 # 恢复工作区文件
 git checkout <文件名>
+```
+
+### git 找回删除的提交
+
+```bash
+# 用git log查询不到已经删除的commit id，可以使用git reflog
+git reflog
+
+# 00000000 (HEAD -> master, origin/master, origin/HEAD) HEAD@{0}: reset: moving to HEAD^
+# xxxxxxxx HEAD@{1}: commit: test git reflog
+
+# 拣选删除的commit到当前分支，git cherry-pick xxxxxxxx
+git cherry-pick <commit id>
 ```
 
 ### git 忽略文件（本地）

@@ -45,11 +45,11 @@ Object.prototype.toString.call(Symbol())   // '[object Symbol]'
  * @returns {String} 如：2024-09-02 12:12:12
  */
 export const dateFormat = (date, format = 'yyyy-MM-dd HH:mm:ss') => {
-	if (!date) return ''
-	// 不为Date类型进行处理
-	if (!(date instanceof Date)) {
-	  // 判断数字时间戳
-	  if (!isNaN(date)) {
+  if (!date) return ''
+  // 不为Date类型进行处理
+  if (!(date instanceof Date)) {
+    // 判断数字时间戳
+    if (!isNaN(date)) {
       // 10位时间戳转13位
       date = `${date}`
       if (date.length === 10) date = +date * 1000
@@ -57,13 +57,13 @@ export const dateFormat = (date, format = 'yyyy-MM-dd HH:mm:ss') => {
       else if (date.length === 13) date = +date
       // 时间戳格式错误返回''
       else return ''
-	  } else if (typeof date === 'string') {
+    } else if (typeof date === 'string') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
-	  }
-	  date = new Date(date)
-	  if (isNaN(date)) return ''
-	}
+    }
+    date = new Date(date)
+    if (isNaN(date)) return ''
+  }
   const m = (reg, fmt) => {
     const match = reg.exec(fmt)
     return match ? match[1] : ''
@@ -74,26 +74,26 @@ export const dateFormat = (date, format = 'yyyy-MM-dd HH:mm:ss') => {
       const mStr = m(reg, format)
       if (v instanceof Function) v(reg, mStr)
       else format = format.replace(reg, mStr.length === 1 ? v : `00${v}`.substring(`${v}`.length))
-	  }
+    }
   }
-	const o = {
+  const o = {
     'y+': r => t(r, (reg, mStr) => (format = format.replace(reg, `${date.getFullYear()}`.substring(4 - mStr.length)))), // 年
-	  'M+': r => t(r, date.getMonth() + 1), // 月份
-	  'd+': r => t(r, date.getDate()), // 日
+    'M+': r => t(r, date.getMonth() + 1), // 月份
+    'd+': r => t(r, date.getDate()), // 日
     'E+': r => t(r, (reg, mStr) => (format = format.replace(reg, `${mStr.length > 1 ? (mStr.length > 2 ? '星期' : '周') : ''}${'日一二三四五六'.split('')[+date.getDay()]}`))), // 星期EEE、周EE
-	  'h+': r => t(r, date.getHours() % 12 === 0 ? 12 : date.getHours() % 12), // 小时
-	  'H+': r => t(r, date.getHours()), // 小时
-	  'm+': r => t(r, date.getMinutes()), // 分
-	  's+': r => t(r, date.getSeconds()), // 秒
-	  'q+': r => t(r, Math.floor((date.getMonth() + 3) / 3)), // 季度
-	  'S': r => t(r, date.getMilliseconds()), // 毫秒
+    'h+': r => t(r, date.getHours() % 12 === 0 ? 12 : date.getHours() % 12), // 小时
+    'H+': r => t(r, date.getHours()), // 小时
+    'm+': r => t(r, date.getMinutes()), // 分
+    's+': r => t(r, date.getSeconds()), // 秒
+    'q+': r => t(r, Math.floor((date.getMonth() + 3) / 3)), // 季度
+    'S': r => t(r, date.getMilliseconds()), // 毫秒
     'a': r => t(r, date.getHours() < 12 ? '上午' : '下午'), // 上午/下午
     'A': r => t(r, date.getHours() < 12 ? 'AM' : 'PM'), // AM/PM
-	}
+  }
   // 根据转换方式循环处理
-	for (const k in o) o[k](k)
+  for (const k in o) o[k](k)
   // 返回最终格式化的时间
-	return format
+  return format
 }
 ```
 
@@ -197,10 +197,10 @@ export const secondFormat = (second, format = 'dhms') => {
  */
 export const getTimeInfo = date => {
   if (!date) return ''
-	// 不为Date类型进行处理
-	if (!(date instanceof Date)) {
-	  // 判断数字时间戳
-	  if (!isNaN(date)) {
+  // 不为Date类型进行处理
+  if (!(date instanceof Date)) {
+    // 判断数字时间戳
+    if (!isNaN(date)) {
       // 10位时间戳转13位
       date = `${date}`
       if (date.length === 10) date = +date * 1000
@@ -208,15 +208,14 @@ export const getTimeInfo = date => {
       else if (date.length === 13) date = +date
       // 时间戳格式错误返回''
       else return ''
-	  } else if (typeof date === 'string') {
+    } else if (typeof date === 'string') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
-	  }
-	  date = new Date(date)
-	  if (isNaN(date)) return ''
-	}
-  const now = new Date()
-  const diff = now.getTime() - date.getTime() // 现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
+    }
+    date = new Date(date)
+    if (isNaN(date)) return ''
+  }
+  const diff = Date.now() - date.getTime() // 现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
   if (diff < 0) return ''
   if (diff / 1000 < 60) return '刚刚'
   if (diff / 60000 < 60) return Math.floor(diff / 60000) + '分钟前'
