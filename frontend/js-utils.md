@@ -15,21 +15,21 @@
 ```javascript
 // 以下为更精确的判断方式，某些场景下比使用 typeof & instanceof 更高效、准确
 // 判断变量是注意非undefined，Object.prototype.toString.call(person) // person is not defined
-Object.prototype.toString.call(123)         // '[object Number]'
-Object.prototype.toString.call('str')       // '[object String]'
-Object.prototype.toString.call(true)        // '[object Boolean]'
-Object.prototype.toString.call(null)        // '[object Null]'
-Object.prototype.toString.call(undefined)   // '[object Undefined]'
-Object.prototype.toString.call({})          // '[object Object]'
-Object.prototype.toString.call([])          // '[object Array]'
-Object.prototype.toString.call(() => {})    // '[object Function]'
-Object.prototype.toString.call(/reg/g)      // '[object RegExp]'
-Object.prototype.toString.call(new Date())  // '[object Date]'
-Object.prototype.toString.call(Math)        // '[object Math]'
-Object.prototype.toString.call(window)      // '[object Window]'
-Object.prototype.toString.call(document)    // '[object HTMLDocument]'
-Object.prototype.toString.call(10n)         // '[object BigInt]'
-Object.prototype.toString.call(Symbol())    // '[object Symbol]'
+Object.prototype.toString.call(123)        // '[object Number]'
+Object.prototype.toString.call('str')      // '[object String]'
+Object.prototype.toString.call(true)       // '[object Boolean]'
+Object.prototype.toString.call(null)       // '[object Null]'
+Object.prototype.toString.call(undefined)  // '[object Undefined]'
+Object.prototype.toString.call({})         // '[object Object]'
+Object.prototype.toString.call([])         // '[object Array]'
+Object.prototype.toString.call(() => {})   // '[object Function]'
+Object.prototype.toString.call(/reg/g)     // '[object RegExp]'
+Object.prototype.toString.call(new Date()) // '[object Date]'
+Object.prototype.toString.call(Math)       // '[object Math]'
+Object.prototype.toString.call(window)     // '[object Window]'
+Object.prototype.toString.call(document)   // '[object HTMLDocument]'
+Object.prototype.toString.call(10n)        // '[object BigInt]'
+Object.prototype.toString.call(Symbol())   // '[object Symbol]'
 ```
 
 ### 日期格式化
@@ -37,61 +37,63 @@ Object.prototype.toString.call(Symbol())    // '[object Symbol]'
 ```javascript
 /**
  * @description 日期格式化
- * @description dateFormat(new Date(), 'yyyy-MM-dd EEE HH:mm:ss') // 2020-01-02 星期四 12:12:12
- * @description dateFormat(new Date(), 'yyyy-MM-dd EE HH:mm:ss') // 2020-01-02 周四 12:12:12
+ * @description dateFormat(new Date(), 'yyyy年MM月dd日 EEE HH:mm:ss.S a A 第q季度') // 2024年09月02日 星期一 09:12:12.553 上午 AM 第3季度
+ * @description dateFormat(new Date(), 'yy-M-d EE H:m:ss a A q季度') // 24-9-2 周一 9:12:12 上午 AM 3季度
  *
  * @param {Date|String|Number} date 日期
  * @param {String} fmt 格式
- * @returns {String} 如：2020-01-02 12:12:12
+ * @returns {String} 如：2024-09-02 12:12:12
  */
-export const dateFormat = (date, fmt = 'yyyy-MM-dd HH:mm:ss') => {
-  if (!date) return ''
-  // 不为Date类型进行处理
-  if (Object.prototype.toString.call(date) !== '[object Date]') {
-    // 判断数字时间戳
-    if (!isNaN(date)) {
+export const dateFormat = (date, format = 'yyyy-MM-dd HH:mm:ss') => {
+	if (!date) return ''
+	// 不为Date类型进行处理
+	if (!(date instanceof Date)) {
+	  // 判断数字时间戳
+	  if (!isNaN(date)) {
       // 10位时间戳转13位
-      date = date + ''
-      if (date.length === 10) {
-        date = +date * 1000
-      } else if (date.length === 13) {
-        // 字符串时间戳转数字时间戳
-        date = +date
-      } else {
-        // 时间戳格式错误返回''
-        return ''
-      }
-    } else if (Object.prototype.toString.call(date) === '[object String]') {
+      date = `${date}`
+      if (date.length === 10) date = +date * 1000
+      // 字符串时间戳转数字时间戳
+      else if (date.length === 13) date = +date
+      // 时间戳格式错误返回''
+      else return ''
+	  } else if (typeof date === 'string') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
-    }
-    date = new Date(date)
-    if (isNaN(date)) return ''
+	  }
+	  date = new Date(date)
+	  if (isNaN(date)) return ''
+	}
+  const m = (reg, fmt) => {
+    const match = reg.exec(fmt)
+    return match ? match[1] : ''
   }
-  const o = {
-    'M+': date.getMonth() + 1, // 月份
-    'd+': date.getDate(), // 日
-    'h+': date.getHours() % 12 === 0 ? 12 : date.getHours() % 12, // 小时
-    'H+': date.getHours(), // 小时
-    'm+': date.getMinutes(), // 分
-    's+': date.getSeconds(), // 秒
-    'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
-    'S': date.getMilliseconds() // 毫秒
+  const t = (r, v) => {
+    const reg = new RegExp(`(${r})`)
+    if (reg.test(format)) {
+      const mStr = m(reg, format)
+      if (v instanceof Function) v(reg, mStr)
+      else format = format.replace(reg, mStr.length === 1 ? v : `00${v}`.substring(`${v}`.length))
+	  }
   }
-  // 星期
-  const week = ['日', '一', '二', '三', '四', '五', '六']
-  if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
-  }
-  if (/(E+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? '星期' : '周') : '') + week[+date.getDay()])
-  }
-  for (const k in o) {
-    if (new RegExp('(' + k + ')').test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
-    }
-  }
-  return fmt
+	const o = {
+    'y+': r => t(r, (reg, mStr) => (format = format.replace(reg, `${date.getFullYear()}`.substring(4 - mStr.length)))), // 年
+	  'M+': r => t(r, date.getMonth() + 1), // 月份
+	  'd+': r => t(r, date.getDate()), // 日
+    'E+': r => t(r, (reg, mStr) => (format = format.replace(reg, `${mStr.length > 1 ? (mStr.length > 2 ? '星期' : '周') : ''}${'日一二三四五六'.split('')[+date.getDay()]}`))), // 星期EEE、周EE
+	  'h+': r => t(r, date.getHours() % 12 === 0 ? 12 : date.getHours() % 12), // 小时
+	  'H+': r => t(r, date.getHours()), // 小时
+	  'm+': r => t(r, date.getMinutes()), // 分
+	  's+': r => t(r, date.getSeconds()), // 秒
+	  'q+': r => t(r, Math.floor((date.getMonth() + 3) / 3)), // 季度
+	  'S': r => t(r, date.getMilliseconds()), // 毫秒
+    'a': r => t(r, date.getHours() < 12 ? '上午' : '下午'), // 上午/下午
+    'A': r => t(r, date.getHours() < 12 ? 'AM' : 'PM'), // AM/PM
+	}
+  // 根据转换方式循环处理
+	for (const k in o) o[k](k)
+  // 返回最终格式化的时间
+	return format
 }
 ```
 
@@ -195,28 +197,24 @@ export const secondFormat = (second, format = 'dhms') => {
  */
 export const getTimeInfo = date => {
   if (!date) return ''
-  // 不为Date类型进行处理
-  if (Object.prototype.toString.call(date) !== '[object Date]') {
-    // 判断数字时间戳
-    if (!isNaN(date)) {
+	// 不为Date类型进行处理
+	if (!(date instanceof Date)) {
+	  // 判断数字时间戳
+	  if (!isNaN(date)) {
       // 10位时间戳转13位
-      date = date + ''
-      if (date.length === 10) {
-        date = +date * 1000
-      } else if (date.length === 13) {
-        // 字符串时间戳转数字时间戳
-        date = +date
-      } else {
-        // 时间戳格式错误返回''
-        return ''
-      }
-    } else if (Object.prototype.toString.call(date) === '[object String]') {
+      date = `${date}`
+      if (date.length === 10) date = +date * 1000
+      // 字符串时间戳转数字时间戳
+      else if (date.length === 13) date = +date
+      // 时间戳格式错误返回''
+      else return ''
+	  } else if (typeof date === 'string') {
       // ios无法使用yyyy-MM-dd HH:mm:ss转换为Date，需将 - 替换为 /
       date = date.replace(/-/g, '/')
-    }
-    date = new Date(date)
-    if (isNaN(date)) return ''
-  }
+	  }
+	  date = new Date(date)
+	  if (isNaN(date)) return ''
+	}
   const now = new Date()
   const diff = now.getTime() - date.getTime() // 现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
   if (diff < 0) return ''
