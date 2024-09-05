@@ -245,6 +245,24 @@ systemctl restart mysqld
 
 ### 创建用户、数据库，授权数据库权限，远程连接
 
+> mysql 8  
+
+```sql
+-- 1、创建用户名，%代表可以远程连接
+use mysql;
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+-- 2、创建数据库并制定默认编码
+create database testdb DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- 3、用户授权使用指定数据库的指定权限
+GRANT ALL PRIVILEGES ON testdb.* TO 'username'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+-- 删除用户，无需FLUSH PRIVILEGES;
+drop user 'username'@'%';
+```
+
+> mysql 5  
+
 ```sql
 -- 1、创建用户名，%代表可以远程连接
 use mysql;
