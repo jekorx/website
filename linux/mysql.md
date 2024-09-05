@@ -2,7 +2,7 @@
 
 > 以Centos 7.4，MySQL5.7.x为例  
 
-### 安装
+### 在线安装
 
 ```bash
 # 1、查看已安装的mysql
@@ -21,6 +21,65 @@ yum -y install mysql-server
 
 # 4、启动服务，必要的，不然不会生成/var/run/mysqld/mysqld.pid，导致其他错误
 systemctl start mysqld
+```
+
+### 离线安装
+
+> [mysql离线包下载](https://dev.mysql.com/downloads/mysql/)  
+> Centos系统 mysql-8.4.2 为例，下载 **mysql-8.4.2-1.el7.x86_64.rpm-bundle.tar** 完整包  
+
+```bash
+# 1、先卸载掉CentOS自带的mysql
+# 查找
+rpm -qa | grep -E mysql\|mariadb
+# mariadb-libs-5.5.56-2.el7.x86_64
+
+# 卸载
+sudo rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64
+
+# 2、上传 mysql-8.4.2-1.el7.x86_64.rpm-bundle.tar
+
+# 3、解压，-C选项是指解压到指定目录./mysql-rpm/下面
+sudo tar -xvf mysql-8.4.2-1.el7.x86_64.rpm-bundle.tar -C ./mysql-rpm/
+
+# 4、安装，❗ 必须按照顺序按照
+cd mysql-rpm/
+sudo rpm -ivh mysql-community-common-*.rpm
+sudo rpm -ivh mysql-community-client-plugins-*.rpm
+sudo rpm -ivh mysql-community-libs-*.rpm
+sudo rpm -ivh mysql-community-client-8*.rpm
+sudo rpm -ivh mysql-community-icu-data-files-*.rpm
+sudo rpm -ivh mysql-community-server-*.rpm
+
+# 5、查看mysql安装情况
+systemctl status mysqld
+
+# 6、修改配置文件
+sudo vim /etc/my.cnf
+
+# 服务器唯一ID
+server-id=1
+# 启用二进制日志
+log-bin=mysql-bin
+# 最大连接数
+max_connections=10000
+# 默认时区
+default-time_zone='+8:00'
+# 密码加密规则
+plugin_load_add=mysql_native_password
+# 修改mysql默认编码
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
+#skip-grant-tables
+# 修改mysql默认编码
+[client]
+default-character-set = utf8mb4
+# 修改mysql默认编码
+[mysql]
+default-character-set = utf8mb4
+
+# 7、启动mysql服务
+sudo systemctl start mysqld
 ```
 
 ### 移动相关目录
@@ -73,6 +132,48 @@ systemctl enable mysqld
 ```
 
 ### 修改root密码
+
+> mysql 8  
+
+```bash
+# 1、修改配置文件
+vim /etc/my.cnf
+# 增加
+skip-grant-tables
+
+# 2、重启mysql服务
+systemctl restart mysqld
+
+# 3、进入mysq命令行
+mysql -uroot
+
+# 4、执行sql
+use mysql;
+select host, user, authentication_string, plugin from user;
+# 清空原有密码
+update user set authentication_string = '' where user = 'root';
+
+# 5、修改配置文件
+vim /etc/my.cnf
+# 注释掉
+skip-grant-tables
+# 重启mysql服务
+systemctl restart mysqld
+
+# 6、重新开启一个客户端
+mysql -uroot -p
+# 直接回车进入
+
+# 修改密码
+ALTER USER USER() IDENTIFIED BY '密码';
+# 退出 exit; 重新登录
+
+# 7、使用新密码进入mysql
+mysql -uroot -p
+# 输入密码进入
+```
+
+> mysql 5  
 
 ```bash
 # 1、修改配置文件
