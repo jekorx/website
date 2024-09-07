@@ -4,6 +4,7 @@
 * [Node.js](index/nodejs.md)
   * [Npm](nodejs/npm.md)
   * [Yarn](nodejs/yarn.md)
+  * [Pnpm](nodejs/pnpm.md)
   * [PM2](nodejs/process-manager.md)
   * [Http-Server](nodejs/http-server.md)
 * [前端](index/frontend.md)

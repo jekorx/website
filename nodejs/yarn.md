@@ -41,11 +41,17 @@ C:\Users\<%用户名%>\AppData\Local\Yarn\bin
 ### 设置淘宝镜像源
 
 ```bash
-# 解决安装依赖慢的问题
-# 如果使用后gitbook安装慢，尝试删除该设置，使用上网工具
-yarn config set registry https://registry.npm.taobao.org
+# 查询当前使用的镜像源
+yarn config get registry
+
+# 设置为淘宝镜像源
+yarn config set registry https://registry.npmmirror.com/
+
+# 还原为官方镜像源
+yarn config set registry https://registry.yarnpkg.com/
+
 # 解决node-sass安装失败的问题
-yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass
+yarn config set sass_binary_site https://registry.npmmirror.com/node-sass/
 ```
 
 ### 常用命令

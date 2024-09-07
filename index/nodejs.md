@@ -4,5 +4,6 @@
 
 > * [Npm](../nodejs/npm.md)
 > * [Yarn](../nodejs/yarn.md)
+> * [Pnpm](../nodejs/pnpm.md)
 > * [PM2](../nodejs/process-manager.md)
 > * [Http-Server](../nodejs/http-server.md)
