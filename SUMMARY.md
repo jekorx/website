@@ -75,7 +75,7 @@
   * [Nexus](linux/nexus.md)
   * [MySQL](linux/mysql.md)
   * [PostgreSQL](linux/pgsql.md)
-  * [挂载硬盘](linux/mount.md)
+  * [硬盘存储](linux/mount.md)
   * [Nginx](linux/nginx.md)
   * [Tomcat](linux/tomcat.md)
   * [Redis](linux/redis.md)
