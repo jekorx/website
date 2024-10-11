@@ -18,8 +18,8 @@ df -h
 cd /
 du -sh *
 # 发现 logs、www 文件占用大，手动对其清理即可
-# 20G	www
-# 31G	logs
+# 20G	 www
+# 31G	 logs
 
 # 3、查询一下查看已删除空间却没有释放的进程 id 然后 kill 掉
 lsof -n | grep -i delete
@@ -46,11 +46,8 @@ mkfs.ext4 /dev/vdb1
 mount /dev/vdb1 /opt
 
 # 6、写入分区表（自动挂载）
-echo '/dev/vdb1  /opt ext4 defaults 0  0' >> /etc/fstab
+echo '/dev/vdb1 /opt ext4 defaults 0 0' >> /etc/fstab
 
 # 7、查看挂载结果
 df -h
 ```
-
-
-
