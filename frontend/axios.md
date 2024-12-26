@@ -301,8 +301,7 @@ function fileChange (e) {
   },
 
   // `cancelToken` 指定用于取消请求的 cancel token
-  // （查看后面的 Cancellation 这节了解更多）
-  cancelToken: new CancelToken(function (cancel) {
+  cancelToken: new axios.CancelToken(function (cancel) {
   })
 }
 ```
