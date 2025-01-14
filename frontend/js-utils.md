@@ -1,15 +1,5 @@
 # JS 常用工具方法 
 
-| **[类型判断](#类型判断)** | **[日期格式化](#日期格式化)** | **[秒格式化](#秒格式化)** | **[时间转换为xx时间前](#时间转换为xx时间前)** |
-| :-------------------: | :------------: | :------------: | :------------: |
-| **[顺序执行Promise](#顺序执行promise)** | **[隐藏手机号中间四位](#隐藏手机号中间四位)** | **[限制数据框内容仅为数字](#限制数据框内容仅为数字)** | **[七牛云上传](#七牛云上传)** |
-| **[滚动条滚动动画](#滚动条滚动动画)** | **[base64转file](#base64转file)** | **[base64转blob](#base64转blob)** | **[blob转file](#blob转file)** |
-| **[blob转json](#blob转json)** | **[绑定事件](#绑定事件)** | **[解绑事件](#解绑事件)** | **[连字符转驼峰](#连字符转驼峰)** |
-| **[驼峰转连字符](#驼峰转连字符)** | **[文件尺寸格式化](#文件尺寸格式化)** | **[获取指定范围内的随机数](#获取指定范围内的随机数)** | **[随机字符串](#随机字符串)** |
-| **[根据概率随机](#根据概率随机)** | **[打乱数组](#打乱数组)** | **[获取Url参数](#获取url参数)** | **[切分数组](#切分数组)** |
-| **[两数组差集](#两数组差集)** | **[四舍五入到指定小数位](#四舍五入到指定小数位)** | **[防抖](#防抖)** | **[生成uuid](#生成uuid)** |
-| **[Object合并](#object合并)** | **[深拷贝](#深拷贝)** | **[大文件切片上传](#大文件切片上传)** |  |
-
 ### 类型判断
 
 ```javascript
@@ -36,10 +26,9 @@ Object.prototype.toString.call(Symbol())   // '[object Symbol]'
 
 ```javascript
 /**
- * @description 日期格式化
+ * 日期格式化
  * @description dateFormat(new Date(), 'yyyy年MM月dd日 EEE HH:mm:ss.S a A 第q季度') // 2024年09月02日 星期一 09:12:12.553 上午 AM 第3季度
  * @description dateFormat(new Date(), 'yy-M-d EE H:m:ss a A q季度') // 24-9-2 周一 9:12:12 上午 AM 3季度
- *
  * @param {Date|String|Number} date 日期
  * @param {String} fmt 格式
  * @returns {String} 如：2024-09-02 12:12:12
@@ -156,9 +145,8 @@ export const dateFormat = (date, format = 'yyyy-MM-dd HH:mm:ss') => {
 
 ```javascript
 /**
- * @description 秒格式化
+ * 秒格式化
  * @description secondFormat(100000) // 1天3小时46分钟40秒
- *
  * @param {Number} second 秒
  * @param {String} format 格式化类型，'dhms'中一个或多个，不分先后顺序，如：ms: 分钟 秒，dms: 天 分钟 秒
  * @returns {String} 如：1天3小时46分钟40秒
@@ -189,9 +177,8 @@ export const secondFormat = (second, format = 'dhms') => {
 
 ```javascript
 /**
- * @description 时间转换为xx时间前
+ * 时间转换为xx时间前
  * @description getTimeInfo('2020-01-02 12:12:12') // 2月前
- *
  * @param {Date|String|Number} date 时间
  * @returns {String} 如：5天前
  */
@@ -231,7 +218,7 @@ export const getTimeInfo = date => {
 
 ```javascript
 /**
- * @description 顺序执行 Promise
+ * 顺序执行 Promise
  * 
  * function p1(){return new Promise((n,o)=>{setTimeout(()=>{console.warn("测试错误 1"),o({msg:"测试错误 1"})},500)})} // 测试错误 1
  * function p2(){return new Promise((n,o)=>{setTimeout(()=>{console.log("成功 2"),n({msg:"成功 2"})},600)})}          // 成功 2
@@ -269,8 +256,7 @@ export const promiseQueue = async promises => {
 
 ```javascript
 /**
- * @description 手机号中间四位 *
- *
+ * 手机号中间四位 *
  * @param {String} phone 手机号
  * @returns {String} 如：188****8888
  */
@@ -286,7 +272,7 @@ export const hidePhone = phone => {
 
 ```javascript
 /**
- * @description 限制数据框内容仅为数字
+ * 限制数据框内容仅为数字
  * @description 校验、匹配规则可根据需求自定义，当前为保留正整数字符串
  * 
  * 某些情况下input[type=number]、InputNumber不能完全限制输入非数字字符使用
@@ -414,9 +400,8 @@ export default (file, next) => {
 
 ```javascript
 /**
- * @description 滚动条滚动动画
+ * 滚动条滚动动画
  * @description scrollTo(window, 0, 1000)
- *
  * @param {HTMLDOM | window} el 滚动对象
  * @param {Number} from 滚动开始位置
  * @param {Number} to 滚动结束位置
@@ -459,12 +444,42 @@ export const scrollTo = (el, from, to = 0, duration = 500, endCallback) => {
 }
 ```
 
+### 页面截图
+
+> [html2canvas](https://www.npmjs.com/package/html2canvas)  
+
+```javascript
+import html2canvas from 'html2canvas'
+/**
+ * 页面截图
+ * @param dom 需要保存为图片的dom节点
+ * @param imageType 图片类型，默认：image/png
+ * @param toFile 是否输出为文件，默认：true
+ * @returns
+ */
+export function generateImage(dom, imageType = 'image/png', toFile = true) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const canvas = await html2canvas(dom, {})
+      const imageUrl = canvas.toDataURL(imageType)
+      if (toFile) {
+        const imageFile = dataURLtoFile(imageUrl)
+        resolve(imageFile)
+      } else {
+        resolve(imageUrl)
+      }
+    } catch (error) {
+      reject(error)
+    }
+  })
+}
+```
+
 ### base64转file
 
 ```javascript
 /**
- * @description base64转file
- *
+ * base64转file
  * @param {String} dataURL base64
  * @param {String} filename 文件名（不带后缀），默认：当前时间戳
  * @returns {File} 返回File对象
@@ -490,8 +505,7 @@ export const dataURLtoFile = (dataURL, filename = Date.now()) => {
 
 ```javascript
 /**
- * @description base64转blob
- *
+ * base64转blob
  * @param {String} dataURL base64
  * @returns {Blob} 返回Blob对象
  */
@@ -512,8 +526,7 @@ export const dataURLToBlob = dataURL => {
 
 ```javascript
 /**
- * @description blob转file
- *
+ * blob转file
  * @param {Blob} blob Blob对象
  * @param {String} filename 文件名（不带后缀），默认：当前时间戳
  * @returns {File} 返回File对象
@@ -531,8 +544,7 @@ export const blobToFile = (blob, filename = Date.now()) => {
 
 ```javascript
 /**
- * @description blob转json
- *
+ * blob转json
  * @param {Blob} blob Blob对象，type为 text/xml 或 application/json
  * @returns {Promise} 返回Promise对象，then(json => {})
  */
@@ -558,13 +570,81 @@ export const blobToJson = blob => {
 }
 ```
 
+### IOS heic、heif格式文件转换
+
+> [heic2any](https://www.npmjs.com/package/heic2any)  
+
+```javascript
+import heic2any from 'heic2any'
+/**
+ * IOS heic、heif格式文件转换
+ * @param imageFile 图片文件
+ * @param toType 目标类型，默认：image/jpeg
+ * @returns
+ */
+export function imageTypeTrans(imageFile, toType = 'image/jpeg') {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { name } = imageFile
+      const heicOrHeifReg = /\.(heic|heif)$/i
+      const isHeicOrHeif = heicOrHeifReg.test(name.toLowerCase())
+      let convertedImage = imageFile
+      if (isHeicOrHeif) {
+        const blob = await heic2any({
+          blob: imageFile,
+          multiple: undefined, // 只返回主图片
+          toType,
+        })
+        const suffix = toType.split('/')[0]
+        convertedImage = new File([blob], name.replace(heicOrHeifReg, `.${suffix}`), {
+          type: toType,
+        })
+      }
+      resolve(convertedImage)
+    } catch (error) {
+      reject(error)
+    }
+  })
+}
+```
+
+### 图片压缩
+
+> [Compressor.js](https://www.npmjs.com/package/compressorjs)  
+
+```javascript
+import Compressor from 'compressorjs'
+/**
+ * 图片压缩
+ * @param imageFile 图片文件
+ * @param mimeType 输出图片类型，默认：image/jpeg
+ * @returns
+ */
+export function imageCompress(imageFile, mimeType = 'image/jpeg') {
+  return new Promise((resolve, reject) => {
+    new Compressor(imageFile, {
+      quality: 0.7,
+      maxWidth: 720,
+      maxHeight: 2000,
+      mimeType,
+      success (result) {
+        resolve(result)
+      },
+      error (err) {
+        reject(err)
+      },
+    })
+  })
+}
+```
+
+
 ### 绑定事件
 
 ```javascript
 /**
- * @description 绑定事件 eventOn(element, event, handler)
+ * 绑定事件 eventOn(element, event, handler)
  * @description eventOn(window, 'scroll', this.scroll)
- *
  * @param {HTMLDOM | window} element 绑定对象
  * @param {String} event 事件名称，如：scroll
  * @param {Function} handler 事件方法
@@ -592,9 +672,8 @@ export const eventOn = (function () {
 
 ```javascript
 /**
- * @description 解绑事件 eventOff(element, event, handler)
+ * 解绑事件 eventOff(element, event, handler)
  * @description eventOff(window, 'scroll', this.scroll)
- *
  * @param {HTMLDOM | window} element 解绑对象
  * @param {String} event 事件名称，如：scroll
  * @param {Function} handler 事件方法
@@ -649,9 +728,8 @@ export const eventOff = (function () {
 
 ```javascript
 /**
- * @description 连字符转驼峰
+ * 连字符转驼峰
  * @description toCamelCase('hello_world', '_') // helloWorld
- *
  * @param {String} str 连字符字符串
  * @param {String} separator 分隔符，默认为'-'，可不传
  * @returns {String} 如：helloWorld
@@ -699,9 +777,8 @@ export const toCamelCase = (str = '', separator = '-') => {
 
 ```javascript
 /**
- * @description 驼峰转连字符
+ * 驼峰转连字符
  * @description fromCamelCase('helloWorld', '_') // hello_world
- *
  * @param {String} str 驼峰字符串
  * @param {String} separator 分隔符，默认为'-'，可不传
  * @returns {String} 如：hello_world
@@ -721,9 +798,8 @@ export const fromCamelCase = (str = '', separator = '-') => {
 
 ```javascript
 /**
- * @description 文件尺寸格式化
+ * 文件尺寸格式化
  * @description formatSize(10240000) // 9.77MB
- *
  * @param {String | Number} size 字节数
  * @returns {String} 如：9.77MB
  */
@@ -745,9 +821,8 @@ export const formatSize = size => {
 
 ```javascript
 /**
- * @description 获取指定范围内的随机数
+ * 获取指定范围内的随机数
  * @description getRandom(0, 10) // 9
- *
  * @param {Number} min 最小范围，包含
  * @param {Number} max 最大范围，包含
  * @returns {Number} 如：9
@@ -991,9 +1066,8 @@ const getWinPrize = (prizes, rate = 100, precision = 2) => {
 
 ```javascript
 /**
- * @description 打乱数组
+ * 打乱数组
  * @description arrayShuffle([1, 2, 3]) // [2, 1, 3]
- *
  * @param {Array} array 待乱序数组
  * @returns {Array} 如：[2, 1, 3]
  */
@@ -1017,9 +1091,8 @@ export const arrayShuffle = array => {
 
 ```javascript
 /**
- * @description 获取Url参数，注意：获取的参数值均为String类型
+ * 获取Url参数，注意：获取的参数值均为String类型
  * @description getUrlParam('f', 'https://www.baidu.com/s?ie=utf-8&f=8') // '8'
- *
  * @param {String} variable 需要获取的参数名，传空值或者null会获取参数Object
  * @param {String} url url，默认为当前url
  * @returns {Object | String | Null} 如：variable为空值或null：{ ie: 'utf-8', f: '8' }，未查找到的参数或url无参数返：null，variable有值查询具体参数返回String类型值
@@ -1047,7 +1120,7 @@ export const getUrlParam = (variable = '', url = window.location.href) => {
 
 ```javascript
 /**
- * @description 切分数组
+ * 切分数组
  *
  * const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
  * splitArray(arr, 4) // [[1, 2, 3, 4], [5, 6, 7, 8], [9]]
@@ -1067,7 +1140,7 @@ export const splitArray = (arr, size = 10) => Array.from({
 
 ```javascript
 /**
- * @description 切分数组
+ * 切分数组
  *
  * arrayDiffSet([1, 2, 3], [1, 2, 4]) // [3, 4]
  *
@@ -1082,8 +1155,7 @@ export const arrayDiffSet = (a, b) => [...a, ...b].filter(x => !a.includes(x) ||
 
 ```javascript
 /**
- * @description 四舍五入到指定小数位
- *
+ * 四舍五入到指定小数位
  * @param {Number} number 待转换数字
  * @param {Number} decimals 小数位数
  */
@@ -1096,7 +1168,7 @@ export const round = (number, decimals = 0) => Number(`${Math.round(`${number}e$
 
 ```javascript
 /**
- * @description 防抖
+ * 防抖
  * @param {Function} fn 具体执行方法
  * @param {Number} delay 间隔时间，默认500毫秒
  */
@@ -1136,7 +1208,7 @@ export const debounce = (fn, delay = 500) => {
 
 ```javascript
 /**
- * @description 生成uuid
+ * 生成uuid
  * @returns {String} uuid
  */
 export const uuid = () => {
@@ -1151,9 +1223,8 @@ export const uuid = () => {
 
 ```javascript
 /**
- * @description Object合并
+ * Object合并
  * @description 后面的Object覆盖合并到前面的Object
- *
  * @param {Object} target 合并目标对象
  * @param {...Object} args 任意个待合并对象
  */
@@ -1183,8 +1254,7 @@ export const merge = (target, ...args) => {
 
 ```javascript
 /**
- * @description 深拷贝
- *
+ * 深拷贝
  * @param {any} target 需要拷贝目标，任何值
  * @param cache 使用WeakSet处理循环引用，默认即可，无需传值
  * @returns {any} 新拷贝结果
