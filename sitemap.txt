@@ -98,3 +98,4 @@ https://www.wdg.pub/wx/weapp-datetime-picker.html
 https://www.wdg.pub/mac/env-config.html
 https://www.wdg.pub/mac/cmd.html
 https://www.wdg.pub/nodejs/pnpm.html
+https://www.wdg.pub/frontend/vite-build.html
