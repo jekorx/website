@@ -21,6 +21,7 @@
 > * [高德vue地图选择器](../frontend/amap-selector.md)
 > * [VueQuillEditor](../frontend/vue-quill-editor.md)
 > * [Chrome文件下载](../frontend/chrome-download.md)
+> * [Vite打包非web服务器运行](../frontend/vite-build.md)
 > * [代码片段收藏](../frontend/snippet.md)
 
 ###### JavaScript原型链
