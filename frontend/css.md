@@ -1303,6 +1303,26 @@ ul >li:first-child:nth-last-child(n+5):nth-last-child(-n+6) ~ li {
 }
 ```
 
+### background绘制虚线
+
+<div style="padding-bottom: 10px;">
+  <style>
+    #background-line {
+      height: 1px;
+      width: 200px;
+      background: repeating-linear-gradient(to right, #000, #000 4px, transparent 4px, transparent 8px);
+    }
+  </style>
+  <div id="background-line"></div>
+</div>
+
+```css
+.line {
+  height: 1px;
+  background: repeating-linear-gradient(to right, #F6F6F6, #F6F6F6 4px, transparent 4px, transparent 8px);
+}
+```
+
 ### background-image网格背景
 
 <div style="padding-bottom: 10px;">

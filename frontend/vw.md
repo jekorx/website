@@ -1,5 +1,65 @@
 # 移动端vw适配方案
 
+### 基于vite+vue3
+
+```bash
+# 将 px 单位转换为视口单位的 (vw, vh, vmin, vmax) 的 PostCSS 插件
+yarn add postcss-px-to-viewport-8-plugin -D
+```
+
+> `postcss.config.cjs`  
+
+```javascript
+module.exports = {
+  autoprefixer: {},
+  plugins: {
+    'postcss-px-to-viewport-8-plugin': {
+      viewportWidth: 375, // number | ((filePath: string) => number|undefined)，设计稿的视口宽度,如传入函数，函数的参数为当前处理的文件路径,函数返回 undefind 跳过转换
+      unitPrecision: 5, // 单位转换后保留的精度
+      propList: ['*'], // 能转化为vw的属性列表
+      // viewportUnit: 'vw', // 希望使用的视口单位
+      // fontViewportUnit: 'vw', // 字体使用的视口单位
+      // selectorBlackList: [], // 需要忽略的CSS选择器，不会转为视口单位，使用原有的px等单位。
+      // minPixelValue: 1, // 设置最小的转换数值，如果为1的话，只有大于1的值会被转换
+      // mediaQuery: false, // 媒体查询里的单位是否需要转换单位
+      // replace: true, //  是否直接更换属性值，而不添加备用属性
+      // exclude: undefined, // 忽略某些文件夹下的文件或特定文件，例如 node_modules 下的文件，如果值是一个正则表达式，那么匹配这个正则的文件会被忽略，如果传入的值是一个数组，那么数组里的值必须为正则例如 'node_modules' 下的文件
+      // include: [], // 需要转换的文件，例如只转换 'src/mobile' 下的文件 (include: /\/src\/mobile\//)，如果值是一个正则表达式，将包含匹配的文件，否则将排除该文件， 如果传入的值是一个数组，那么数组里的值必须为正则
+      // landscape: false, // 是否添加根据 landscapeWidth 生成的媒体查询条件 @media (orientation: landscape)
+      // landscapeUnit: 'vw', // 横屏时使用的单位
+      // landscapeWidth: 568, // 横屏时使用的视口宽度
+    },
+  },
+}
+```
+
+> 关于使用的一些补充说明  
+
+```css
+propList (Array) 能转化为 vw 的属性列表
+ · 传入特定的 CSS 属性；
+ · 可以传入通配符""去匹配所有属性，例如：['']；
+ · 在属性的前或后添加"*",可以匹配特定的属性. (例如['*position*'] 会匹配 background-position-y)
+ · 在特定属性前加 "!"，将不转换该属性的单位 . 例如: ['*', '!letter-spacing']，将不转换 letter-spacing
+ · "!" 和 ""可以组合使用， 例如: ['', '!font*']，将不转换 font-size 以及 font-weight 等属性
+
+selectorBlackList (Array) 需要忽略的 CSS 选择器，不会转为视口单位，使用原有的 px 等单位
+ · 如果传入的值为字符串的话，只要选择器中含有传入值就会被匹配
+   - 例如 selectorBlackList 为 ['body'] 的话， 那么 .body-class 就会被忽略
+ · 如果传入的值为正则表达式的话，那么就会依据 CSS 选择器是否匹配该正则
+   - 例如 selectorBlackList 为 [/^body$/] , 那么 body 会被忽略，而 .body 不会
+
+可以使用特殊的注释来忽略单行的转换
+  /* px-to-viewport-ignore-next */ — 在单独的行上，防止在下一行上进行转换。
+  /* px-to-viewport-ignore */ — 在右边的属性之后，防止在同一行上进行转换。
+```
+
+---
+
+#### 以下为老版本解决方案
+
+---
+
 > 如果使用 [create-react-app创建项目](./cra.md) 可参照参照该文最后章节  
 
 > 该文测试所使用postcss版本为**7.0.x**  

@@ -638,6 +638,156 @@ export function imageCompress(imageFile, mimeType = 'image/jpeg') {
 }
 ```
 
+### jsBridge
+
+> [相关问题](./h5.md#jsbridge相关问题)  
+
+```javascript
+/**
+ * 获取平台信息
+ * @returns
+ */
+export const getPlatform = () => {
+  const u = navigator.userAgent
+  if (u.indexOf('Android') > -1 || u.indexOf('Adr') > -1) {
+    return {
+      platform: 'android',
+      isAndroid: true,
+    }
+  }
+  if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+    return {
+      platform: 'ios',
+      isIOS: true,
+    }
+  }
+  return {
+    platform: 'web',
+  }
+}
+
+declare global {
+  interface Window {
+    jsBridge?: Function
+    WebViewJavascriptBridge?: any
+    WVJBCallbacks?: any[]
+    android?: any
+    androidTrace?: any
+    //receiveXXX?: Function
+  }
+}
+
+/**
+ * JsBridge
+ */
+export class JsBridge {
+  constructor() {
+    this.init()
+  }
+  // 初始化JSBridge
+  private init() {
+    const {
+      isAndroid,
+      isIOS,
+    } = getPlatform()
+    window.jsBridge = (callback: Function) => {
+      if (isAndroid) {
+        if (window.WebViewJavascriptBridge) {
+          return callback(window.WebViewJavascriptBridge)
+        } else {
+          document.addEventListener(
+            'WebViewJavascriptBridgeReady',
+            () => callback(window.WebViewJavascriptBridge),
+            false,
+          )
+        }
+      }
+      if (isIOS) {
+        // 初始化 这段代码的意思就是执行加载WebViewJavascriptBridge_JS.js中代码的作用
+        try {
+          if (window.WebViewJavascriptBridge) {
+            return callback(window.WebViewJavascriptBridge)
+          }
+          if (window.WVJBCallbacks) {
+            return window.WVJBCallbacks.push(callback)
+          }
+          window.WVJBCallbacks = [callback]
+          const WVJBIframe = document.createElement('iframe')
+          WVJBIframe.style.display = 'none'
+          WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__'
+          document.documentElement.appendChild(WVJBIframe)
+          setTimeout(() => {
+            document.documentElement.removeChild(WVJBIframe)
+          }, 0)
+        } catch (error) {
+          console.warn(error)
+        }
+      }
+    }
+
+    if (!isIOS) {
+      window.jsBridge((bridge: any) => {
+        bridge.init((_: any, responseCallback: Function) => {
+          responseCallback?.({})
+        })
+      })
+    }
+  }
+
+  // 原生调js
+  public registerHandler = (
+    method: string,
+    callback?: Function,
+  ) => {
+    window.jsBridge?.((bridge: any) => {
+      bridge.registerHandler(
+        method,
+        (data: any, responseCallback: Function) => {
+          callback?.(data || {})
+          responseCallback?.(data || {})
+        }
+      )
+    })
+  }
+
+  // js调用原生
+  public callHandler = (
+    method: string,
+    data?: any,
+    callback?: Function,
+  ) => {
+    window.jsBridge?.((bridge: any) => {
+      bridge.callHandler(
+        method,
+        data || {},
+        (responseData: any) => {
+          callback?.(responseData)
+        }
+      )
+    })
+  }
+}
+
+
+/* 使用 */
+
+// 实例化JsBridge
+const jsBridge = new JsBridge()
+
+// 复制文本
+export const copyText = (text: string) => {
+  const {
+    isIOS,
+    isAndroid,
+  } = getPlatform()
+  console.log('copy text', text)
+  if (isIOS) {
+    jsBridge.callHandler('copyToClipboard', { text })
+  } else if (isAndroid) {
+    window.android?.copyToClipboard(text)
+  }
+}
+```
 
 ### 绑定事件
 

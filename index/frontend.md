@@ -5,6 +5,7 @@
 > * [Axios](../frontend/axios.md)
 > * [Html](../frontend/html.md)
 > * [Css](../frontend/css.md)
+> * [H5](../frontend/h5.md)
 > * [移动端vw适配方案](../frontend/vw.md)
 > * [Vue.js](../frontend/vuejs.md)
 > * [Create React App](../frontend/cra.md)
@@ -21,7 +22,7 @@
 > * [高德vue地图选择器](../frontend/amap-selector.md)
 > * [VueQuillEditor](../frontend/vue-quill-editor.md)
 > * [Chrome文件下载](../frontend/chrome-download.md)
-> * [Vite打包非web服务器运行](../frontend/vite-build.md)
+> * [Vitejs](../frontend/vitejs.md)
 > * [代码片段收藏](../frontend/snippet.md)
 
 ###### JavaScript原型链

@@ -1,5 +1,54 @@
 # Vue.js
 
+### 自定义插件
+
+> 解决无需```.vue```文件中定义，在```template```中使用公共方法的问题  
+
+> ```src/plugins/index.ts```下开发  
+> ```src/types/global.d.ts```下定义ts，解决```template```中直接使用ts报错的问题  
+
+```javascript
+/**
+ * 方法名以 $ 开头，并需要导出该方法供定义全局ts使用
+ */
+// px转vw全局方法，结果带vw单位
+export const $px2vw = (px: number) => `${px2vw(px)}vw`
+// 四舍五入后保留指定位小数
+export const $toFixed = toFixed
+// 全局注册插件
+export default {
+  install: (app: App) => {
+    app.config.globalProperties.$px2vw = $px2vw
+    app.config.globalProperties.$toFixed = $toFixed
+  }
+}
+
+/**
+ * 定义全局ts
+ */
+export type {
+  $px2vw,
+  $toFixed,
+} from '@/plugins'
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $px2vw
+    $toFixed
+  }
+}
+```
+
+> 使用  
+
+```html
+<template>
+  <div :style="`width: ${$px2vw(100)}`">
+    {{ $toFixed(100.123) }}
+    <p v-text="$toFixed(100.123)"></p>
+  </div>
+</template>
+```
+
 ### Vue水印指令
 
 > 支持vue 2 / 3  
